@@ -514,16 +514,21 @@ let sortDir={l2:{},l3:{}};
 function switchTab(tab){
   document.getElementById('tbl-l2').style.display=tab==='l2'?'':'none';
   document.getElementById('tbl-l3').style.display=tab==='l3'?'':'none';
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',(tab==='l2'&&t.textContent.includes('二级'))||(tab==='l3'&&t.textContent.includes('三级'))));
+  document.querySelectorAll('.tab').forEach(function(t){
+    var isActive=(tab==='l2'&&t.textContent.indexOf('二级')>=0)||(tab==='l3'&&t.textContent.indexOf('三级')>=0);
+    if(isActive)t.classList.add('active');else t.classList.remove('active');
+  });
 }
 function sortTable(tbl,col){
-  let t=document.getElementById('tbl-'+tbl),rows=Array.from(t.querySelectorAll("tbody tr"));
-  let key=["","","r5","r10","r20"][col];
+  var t=document.getElementById('tbl-'+tbl);
+  var rows=Array.prototype.slice.call(t.querySelectorAll('tbody tr'));
+  var key=['','','r5','r10','r20'][col];
+  sortDir[tbl]=sortDir[tbl]||Object();
   sortDir[tbl][col]=sortDir[tbl][col]===-1?1:-1;
-  rows.sort((a,b)=>(parseFloat(a.dataset[key])-parseFloat(b.dataset[key]))*sortDir[tbl][col]);
-  rows.forEach(r=>t.querySelector("tbody").appendChild(r));
-  t.querySelectorAll("th").forEach(h=>h.classList.remove("sorted"));
-  t.querySelectorAll("th")[col].classList.add("sorted");
+  rows.sort(function(a,b){return (parseFloat(a.dataset[key])-parseFloat(b.dataset[key]))*sortDir[tbl][col]});
+  rows.forEach(function(r){t.querySelector('tbody').appendChild(r)});
+  t.querySelectorAll('th').forEach(function(h){h.classList.remove('sorted')});
+  t.querySelectorAll('th')[col].classList.add('sorted');
 }
 </script>
 </body></html>
