@@ -4,22 +4,33 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;padding:20px;max-width:800px;margin:0 auto}
-h1{font-size:22px;border-bottom:2px solid #1da1f2;padding-bottom:10px;margin-bottom:5px}
-h1 span{color:#1da1f2}.update{color:#8899a6;font-size:13px;margin-bottom:20px}
-.back{color:#1da1f2;font-size:13px;text-decoration:none;float:right;margin-top:4px}
-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
-th{text-align:left;padding:10px 12px;color:#8899a6;font-weight:500;border-bottom:2px solid #38444d;cursor:pointer;user-select:none}
+h1{font-size:22px;border-bottom:2px solid #1da1f2;padding-bottom:10px;margin-bottom:10px}
+.update{color:#8899a6;font-size:13px;margin-bottom:14px}
+.tabs{display:flex;gap:0;margin-bottom:16px}
+.tab{padding:8px 20px;background:#192734;border:1px solid #38444d;color:#8899a6;cursor:pointer;font-size:14px;border-radius:6px 6px 0 0;border-bottom:none;margin-right:4px}
+.tab.active{background:#1da1f2;color:#fff;border-color:#1da1f2;font-weight:600}
+.sort-hint{color:#1da1f2;text-decoration:none;float:right;font-size:13px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+th{text-align:left;padding:9px 12px;color:#8899a6;font-weight:500;border-bottom:2px solid #38444d;cursor:pointer;user-select:none}
 th:hover{color:#1da1f2}
 th.sorted::after{content:" ▼";font-size:10px;color:#1da1f2}
-td{padding:9px 12px;border-bottom:1px solid #192734}
+td{padding:8px 12px;border-bottom:1px solid #192734}
 tr:hover td{background:#16202a}
 .up{color:#f91880}.dn{color:#17bf63}
-.ft{text-align:center;color:#556;font-size:11px;margin-top:30px;padding-top:16px;border-top:1px solid #192734}
+#tbl-l3{display:none}
+.ft{text-align:center;color:#556;font-size:11px;margin-top:25px;padding-top:14px;border-top:1px solid #192734}
 </style></head><body>
-<h1><span>🏭 行业排行</span> 研究行业二级</h1>
-<div class="update">2026-06-01 收盘 | 点击表头排序 | <a href="../index.html" class="back">← 返回首页</a></div>
-<table id="tbl">
-<thead><tr><th>#</th><th>行业</th><th onclick="sortTable(2)">5日涨跌</th><th onclick="sortTable(3)">10日涨跌</th><th onclick="sortTable(4)" class="sorted">20日涨跌</th></tr></thead>
+<h1>🏭 行业排行</h1>
+<div class="update">2026-06-01 收盘 | 点击表头排序 | <a href="../index.html" class="sort-hint" style="float:left">← 返回首页</a><span style="float:right">共 127 个二级 · 0 个三级</span></div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('l2')">二级行业 (127)</div>
+  <div class="tab" onclick="switchTab('l3')">三级行业 (0)</div>
+</div>
+
+<div id="tbl-wrapper">
+<table id="tbl-l2">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l2',2)">5日涨跌</th><th onclick="sortTable('l2',3)">10日涨跌</th><th onclick="sortTable('l2',4)" class="sorted">20日涨跌</th></tr></thead>
 <tbody><tr data-r5="-1.8" data-r10="13.5" data-r20="26.4"><td>1</td><td>元器件</td><td class="dn">-1.8%</td><td class="up">+13.5%</td><td class="up">+26.4%</td></tr>
 <tr data-r5="-1.8" data-r10="4.8" data-r20="20.1"><td>2</td><td>非金属材料</td><td class="dn">-1.8%</td><td class="up">+4.8%</td><td class="up">+20.1%</td></tr>
 <tr data-r5="-5.7" data-r10="10.0" data-r20="18.7"><td>3</td><td>玻璃玻纤</td><td class="dn">-5.7%</td><td class="up">+10.0%</td><td class="up">+18.7%</td></tr>
@@ -49,18 +60,126 @@ tr:hover td{background:#16202a}
 <tr data-r5="-2.4" data-r10="-2.6" data-r20="-0.6"><td>27</td><td>汽车服务</td><td class="dn">-2.4%</td><td class="dn">-2.6%</td><td class="dn">-0.6%</td></tr>
 <tr data-r5="-2.9" data-r10="-7.0" data-r20="-0.6"><td>28</td><td>装修装饰</td><td class="dn">-2.9%</td><td class="dn">-7.0%</td><td class="dn">-0.6%</td></tr>
 <tr data-r5="2.2" data-r10="-1.1" data-r20="-0.7"><td>29</td><td>白色家电</td><td class="up">+2.2%</td><td class="dn">-1.1%</td><td class="dn">-0.7%</td></tr>
-<tr data-r5="-3.5" data-r10="-1.2" data-r20="-0.8"><td>30</td><td>稀有金属</td><td class="dn">-3.5%</td><td class="dn">-1.2%</td><td class="dn">-0.8%</td></tr></tbody>
+<tr data-r5="-3.5" data-r10="-1.2" data-r20="-0.8"><td>30</td><td>稀有金属</td><td class="dn">-3.5%</td><td class="dn">-1.2%</td><td class="dn">-0.8%</td></tr>
+<tr data-r5="1.2" data-r10="-2.3" data-r20="-0.9"><td>31</td><td>水务</td><td class="up">+1.2%</td><td class="dn">-2.3%</td><td class="dn">-0.9%</td></tr>
+<tr data-r5="-7.6" data-r10="-6.8" data-r20="-1.1"><td>32</td><td>汽车零部件</td><td class="dn">-7.6%</td><td class="dn">-6.8%</td><td class="dn">-1.1%</td></tr>
+<tr data-r5="1.4" data-r10="0.8" data-r20="-1.7"><td>33</td><td>全国性银行</td><td class="up">+1.4%</td><td class="up">+0.8%</td><td class="dn">-1.7%</td></tr>
+<tr data-r5="-1.4" data-r10="2.7" data-r20="-1.8"><td>34</td><td>航空机场</td><td class="dn">-1.4%</td><td class="up">+2.7%</td><td class="dn">-1.8%</td></tr>
+<tr data-r5="-5.0" data-r10="-5.1" data-r20="-1.9"><td>35</td><td>专业服务</td><td class="dn">-5.0%</td><td class="dn">-5.1%</td><td class="dn">-1.9%</td></tr>
+<tr data-r5="-5.0" data-r10="-6.0" data-r20="-1.9"><td>36</td><td>综合类</td><td class="dn">-5.0%</td><td class="dn">-6.0%</td><td class="dn">-1.9%</td></tr>
+<tr data-r5="1.5" data-r10="-3.9" data-r20="-2.0"><td>37</td><td>文娱用品</td><td class="up">+1.5%</td><td class="dn">-3.9%</td><td class="dn">-2.0%</td></tr>
+<tr data-r5="-2.6" data-r10="-0.6" data-r20="-2.1"><td>38</td><td>航运港口</td><td class="dn">-2.6%</td><td class="dn">-0.6%</td><td class="dn">-2.1%</td></tr>
+<tr data-r5="-13.7" data-r10="-12.3" data-r20="-2.2"><td>39</td><td>家电零部件</td><td class="dn">-13.7%</td><td class="dn">-12.3%</td><td class="dn">-2.2%</td></tr>
+<tr data-r5="0.5" data-r10="-5.3" data-r20="-2.4"><td>40</td><td>数字媒体</td><td class="up">+0.5%</td><td class="dn">-5.3%</td><td class="dn">-2.4%</td></tr>
+<tr data-r5="3.9" data-r10="2.3" data-r20="-2.5"><td>41</td><td>一般零售</td><td class="up">+3.9%</td><td class="up">+2.3%</td><td class="dn">-2.5%</td></tr>
+<tr data-r5="1.2" data-r10="-1.8" data-r20="-2.5"><td>42</td><td>房屋建设</td><td class="up">+1.2%</td><td class="dn">-1.8%</td><td class="dn">-2.5%</td></tr>
+<tr data-r5="-1.8" data-r10="-2.5" data-r20="-2.7"><td>43</td><td>轨交设备</td><td class="dn">-1.8%</td><td class="dn">-2.5%</td><td class="dn">-2.7%</td></tr>
+<tr data-r5="0.7" data-r10="-5.3" data-r20="-2.7"><td>44</td><td>广告营销</td><td class="up">+0.7%</td><td class="dn">-5.3%</td><td class="dn">-2.7%</td></tr>
+<tr data-r5="-1.5" data-r10="-3.1" data-r20="-2.8"><td>45</td><td>服装家纺</td><td class="dn">-1.5%</td><td class="dn">-3.1%</td><td class="dn">-2.8%</td></tr>
+<tr data-r5="-2.0" data-r10="-4.6" data-r20="-3.0"><td>46</td><td>家居用品</td><td class="dn">-2.0%</td><td class="dn">-4.6%</td><td class="dn">-3.0%</td></tr>
+<tr data-r5="-1.4" data-r10="-3.7" data-r20="-3.1"><td>47</td><td>房地产开发</td><td class="dn">-1.4%</td><td class="dn">-3.7%</td><td class="dn">-3.1%</td></tr>
+<tr data-r5="2.9" data-r10="-2.3" data-r20="-3.2"><td>48</td><td>出版业</td><td class="up">+2.9%</td><td class="dn">-2.3%</td><td class="dn">-3.2%</td></tr>
+<tr data-r5="-0.7" data-r10="-0.7" data-r20="-3.2"><td>49</td><td>证券</td><td class="dn">-0.7%</td><td class="dn">-0.7%</td><td class="dn">-3.2%</td></tr>
+<tr data-r5="-6.7" data-r10="-6.8" data-r20="-3.3"><td>50</td><td>黑色家电</td><td class="dn">-6.7%</td><td class="dn">-6.8%</td><td class="dn">-3.3%</td></tr>
+<tr data-r5="-12.2" data-r10="-17.8" data-r20="-3.3"><td>51</td><td>通信工程</td><td class="dn">-12.2%</td><td class="dn">-17.8%</td><td class="dn">-3.3%</td></tr>
+<tr data-r5="2.1" data-r10="1.4" data-r20="-3.3"><td>52</td><td>地方性银行</td><td class="up">+2.1%</td><td class="up">+1.4%</td><td class="dn">-3.3%</td></tr>
+<tr data-r5="3.3" data-r10="1.6" data-r20="-3.5"><td>53</td><td>日用化工</td><td class="up">+3.3%</td><td class="up">+1.6%</td><td class="dn">-3.5%</td></tr>
+<tr data-r5="-4.6" data-r10="-6.0" data-r20="-3.5"><td>54</td><td>软件服务</td><td class="dn">-4.6%</td><td class="dn">-6.0%</td><td class="dn">-3.5%</td></tr>
+<tr data-r5="-7.0" data-r10="-4.6" data-r20="-3.8"><td>55</td><td>广播电视</td><td class="dn">-7.0%</td><td class="dn">-4.6%</td><td class="dn">-3.8%</td></tr>
+<tr data-r5="1.4" data-r10="-3.1" data-r20="-3.8"><td>56</td><td>燃气</td><td class="up">+1.4%</td><td class="dn">-3.1%</td><td class="dn">-3.8%</td></tr>
+<tr data-r5="-10.0" data-r10="-9.0" data-r20="-4.1"><td>57</td><td>橡胶</td><td class="dn">-10.0%</td><td class="dn">-9.0%</td><td class="dn">-4.1%</td></tr>
+<tr data-r5="-3.6" data-r10="-2.2" data-r20="-4.4"><td>58</td><td>医疗器械</td><td class="dn">-3.6%</td><td class="dn">-2.2%</td><td class="dn">-4.4%</td></tr>
+<tr data-r5="6.0" data-r10="4.0" data-r20="-4.5"><td>59</td><td>焦炭加工</td><td class="up">+6.0%</td><td class="up">+4.0%</td><td class="dn">-4.5%</td></tr>
+<tr data-r5="-2.8" data-r10="-3.6" data-r20="-4.5"><td>60</td><td>工程机械</td><td class="dn">-2.8%</td><td class="dn">-3.6%</td><td class="dn">-4.5%</td></tr>
+<tr data-r5="-0.5" data-r10="-2.9" data-r20="-4.6"><td>61</td><td>基础建设</td><td class="dn">-0.5%</td><td class="dn">-2.9%</td><td class="dn">-4.6%</td></tr>
+<tr data-r5="-2.4" data-r10="-4.5" data-r20="-4.7"><td>62</td><td>环境治理</td><td class="dn">-2.4%</td><td class="dn">-4.5%</td><td class="dn">-4.7%</td></tr>
+<tr data-r5="-0.8" data-r10="-2.3" data-r20="-4.9"><td>63</td><td>水泥</td><td class="dn">-0.8%</td><td class="dn">-2.3%</td><td class="dn">-4.9%</td></tr>
+<tr data-r5="-3.4" data-r10="-5.9" data-r20="-4.9"><td>64</td><td>包装印刷</td><td class="dn">-3.4%</td><td class="dn">-5.9%</td><td class="dn">-4.9%</td></tr>
+<tr data-r5="-1.7" data-r10="-2.2" data-r20="-5.0"><td>65</td><td>化学制品</td><td class="dn">-1.7%</td><td class="dn">-2.2%</td><td class="dn">-5.0%</td></tr>
+<tr data-r5="1.3" data-r10="-2.3" data-r20="-5.0"><td>66</td><td>渔业</td><td class="up">+1.3%</td><td class="dn">-2.3%</td><td class="dn">-5.0%</td></tr>
+<tr data-r5="-1.5" data-r10="-4.9" data-r20="-5.0"><td>67</td><td>休闲食品</td><td class="dn">-1.5%</td><td class="dn">-4.9%</td><td class="dn">-5.0%</td></tr>
+<tr data-r5="1.3" data-r10="-0.9" data-r20="-5.0"><td>68</td><td>中药</td><td class="up">+1.3%</td><td class="dn">-0.9%</td><td class="dn">-5.0%</td></tr>
+<tr data-r5="-2.3" data-r10="-0.4" data-r20="-5.1"><td>69</td><td>工业金属</td><td class="dn">-2.3%</td><td class="dn">-0.4%</td><td class="dn">-5.1%</td></tr>
+<tr data-r5="-1.0" data-r10="-1.8" data-r20="-5.1"><td>70</td><td>物流</td><td class="dn">-1.0%</td><td class="dn">-1.8%</td><td class="dn">-5.1%</td></tr>
+<tr data-r5="-2.1" data-r10="-4.4" data-r20="-5.4"><td>71</td><td>装饰建材</td><td class="dn">-2.1%</td><td class="dn">-4.4%</td><td class="dn">-5.4%</td></tr>
+<tr data-r5="-5.9" data-r10="-8.0" data-r20="-5.4"><td>72</td><td>小家电</td><td class="dn">-5.9%</td><td class="dn">-8.0%</td><td class="dn">-5.4%</td></tr>
+<tr data-r5="-2.2" data-r10="-4.0" data-r20="-5.9"><td>73</td><td>贸易</td><td class="dn">-2.2%</td><td class="dn">-4.0%</td><td class="dn">-5.9%</td></tr>
+<tr data-r5="-1.9" data-r10="-3.3" data-r20="-6.1"><td>74</td><td>商业物业经营</td><td class="dn">-1.9%</td><td class="dn">-3.3%</td><td class="dn">-6.1%</td></tr>
+<tr data-r5="-4.2" data-r10="-6.6" data-r20="-6.1"><td>75</td><td>地面兵装</td><td class="dn">-4.2%</td><td class="dn">-6.6%</td><td class="dn">-6.1%</td></tr>
+<tr data-r5="2.1" data-r10="-0.4" data-r20="-6.4"><td>76</td><td>旅游</td><td class="up">+2.1%</td><td class="dn">-0.4%</td><td class="dn">-6.4%</td></tr>
+<tr data-r5="-8.4" data-r10="-9.3" data-r20="-6.7"><td>77</td><td>IT设备</td><td class="dn">-8.4%</td><td class="dn">-9.3%</td><td class="dn">-6.7%</td></tr>
+<tr data-r5="-7.3" data-r10="-11.7" data-r20="-6.8"><td>78</td><td>云服务</td><td class="dn">-7.3%</td><td class="dn">-11.7%</td><td class="dn">-6.8%</td></tr>
+<tr data-r5="-0.5" data-r10="-4.9" data-r20="-6.8"><td>79</td><td>房产服务</td><td class="dn">-0.5%</td><td class="dn">-4.9%</td><td class="dn">-6.8%</td></tr>
+<tr data-r5="-0.1" data-r10="-0.6" data-r20="-6.9"><td>80</td><td>造纸</td><td class="dn">-0.1%</td><td class="dn">-0.6%</td><td class="dn">-6.9%</td></tr>
+<tr data-r5="-6.2" data-r10="-8.6" data-r20="-7.2"><td>81</td><td>航空装备</td><td class="dn">-6.2%</td><td class="dn">-8.6%</td><td class="dn">-7.2%</td></tr>
+<tr data-r5="-4.0" data-r10="-7.9" data-r20="-7.3"><td>82</td><td>工程咨询服务</td><td class="dn">-4.0%</td><td class="dn">-7.9%</td><td class="dn">-7.3%</td></tr>
+<tr data-r5="-0.7" data-r10="-4.5" data-r20="-7.4"><td>83</td><td>食品加工</td><td class="dn">-0.7%</td><td class="dn">-4.5%</td><td class="dn">-7.4%</td></tr>
+<tr data-r5="-6.6" data-r10="-8.2" data-r20="-7.4"><td>84</td><td>风电设备</td><td class="dn">-6.6%</td><td class="dn">-8.2%</td><td class="dn">-7.4%</td></tr>
+<tr data-r5="-4.9" data-r10="-5.7" data-r20="-7.4"><td>85</td><td>专业工程</td><td class="dn">-4.9%</td><td class="dn">-5.7%</td><td class="dn">-7.4%</td></tr>
+<tr data-r5="1.5" data-r10="-0.5" data-r20="-7.5"><td>86</td><td>酿酒</td><td class="up">+1.5%</td><td class="dn">-0.5%</td><td class="dn">-7.5%</td></tr>
+<tr data-r5="-3.9" data-r10="-7.1" data-r20="-7.5"><td>87</td><td>纺织制造</td><td class="dn">-3.9%</td><td class="dn">-7.1%</td><td class="dn">-7.5%</td></tr>
+<tr data-r5="-10.1" data-r10="-9.0" data-r20="-7.6"><td>88</td><td>军工电子</td><td class="dn">-10.1%</td><td class="dn">-9.0%</td><td class="dn">-7.6%</td></tr>
+<tr data-r5="1.6" data-r10="-1.3" data-r20="-7.7"><td>89</td><td>饲料</td><td class="up">+1.6%</td><td class="dn">-1.3%</td><td class="dn">-7.7%</td></tr>
+<tr data-r5="-0.1" data-r10="-2.7" data-r20="-7.7"><td>90</td><td>医药商业</td><td class="dn">-0.1%</td><td class="dn">-2.7%</td><td class="dn">-7.7%</td></tr>
+<tr data-r5="-2.5" data-r10="-5.0" data-r20="-7.8"><td>91</td><td>生物制品</td><td class="dn">-2.5%</td><td class="dn">-5.0%</td><td class="dn">-7.8%</td></tr>
+<tr data-r5="-3.2" data-r10="-6.2" data-r20="-7.8"><td>92</td><td>产业互联网</td><td class="dn">-3.2%</td><td class="dn">-6.2%</td><td class="dn">-7.8%</td></tr>
+<tr data-r5="-9.0" data-r10="-8.0" data-r20="-7.8"><td>93</td><td>环保设备</td><td class="dn">-9.0%</td><td class="dn">-8.0%</td><td class="dn">-7.8%</td></tr>
+<tr data-r5="1.3" data-r10="-1.6" data-r20="-7.9"><td>94</td><td>电池</td><td class="up">+1.3%</td><td class="dn">-1.6%</td><td class="dn">-7.9%</td></tr>
+<tr data-r5="-2.4" data-r10="-6.6" data-r20="-8.0"><td>95</td><td>厨卫电器</td><td class="dn">-2.4%</td><td class="dn">-6.6%</td><td class="dn">-8.0%</td></tr>
+<tr data-r5="-1.7" data-r10="-4.6" data-r20="-8.0"><td>96</td><td>教育培训</td><td class="dn">-1.7%</td><td class="dn">-4.6%</td><td class="dn">-8.0%</td></tr>
+<tr data-r5="-1.2" data-r10="-1.6" data-r20="-8.4"><td>97</td><td>调味品</td><td class="dn">-1.2%</td><td class="dn">-1.6%</td><td class="dn">-8.4%</td></tr>
+<tr data-r5="-2.9" data-r10="-4.2" data-r20="-8.8"><td>98</td><td>专业连锁</td><td class="dn">-2.9%</td><td class="dn">-4.2%</td><td class="dn">-8.8%</td></tr>
+<tr data-r5="-4.9" data-r10="-4.8" data-r20="-8.9"><td>99</td><td>摩托车及其他</td><td class="dn">-4.9%</td><td class="dn">-4.8%</td><td class="dn">-8.9%</td></tr>
+<tr data-r5="-0.6" data-r10="-4.7" data-r20="-9.0"><td>100</td><td>农产品加工</td><td class="dn">-0.6%</td><td class="dn">-4.7%</td><td class="dn">-9.0%</td></tr>
+<tr data-r5="-1.3" data-r10="-2.7" data-r20="-9.1"><td>101</td><td>保险</td><td class="dn">-1.3%</td><td class="dn">-2.7%</td><td class="dn">-9.1%</td></tr>
+<tr data-r5="-0.5" data-r10="-3.2" data-r20="-9.4"><td>102</td><td>特钢</td><td class="dn">-0.5%</td><td class="dn">-3.2%</td><td class="dn">-9.4%</td></tr>
+<tr data-r5="-2.5" data-r10="-2.9" data-r20="-9.5"><td>103</td><td>饰品</td><td class="dn">-2.5%</td><td class="dn">-2.9%</td><td class="dn">-9.5%</td></tr>
+<tr data-r5="2.3" data-r10="-5.3" data-r20="-9.8"><td>104</td><td>种植业</td><td class="up">+2.3%</td><td class="dn">-5.3%</td><td class="dn">-9.8%</td></tr>
+<tr data-r5="0.7" data-r10="-2.8" data-r20="-10.0"><td>105</td><td>医疗美容</td><td class="up">+0.7%</td><td class="dn">-2.8%</td><td class="dn">-10.0%</td></tr>
+<tr data-r5="-1.8" data-r10="-5.3" data-r20="-10.4"><td>106</td><td>化学制药</td><td class="dn">-1.8%</td><td class="dn">-5.3%</td><td class="dn">-10.4%</td></tr>
+<tr data-r5="-3.6" data-r10="-4.9" data-r20="-10.5"><td>107</td><td>医疗服务</td><td class="dn">-3.6%</td><td class="dn">-4.9%</td><td class="dn">-10.5%</td></tr>
+<tr data-r5="-2.1" data-r10="-6.1" data-r20="-10.7"><td>108</td><td>多元金融</td><td class="dn">-2.1%</td><td class="dn">-6.1%</td><td class="dn">-10.7%</td></tr>
+<tr data-r5="-0.4" data-r10="-3.4" data-r20="-11.0"><td>109</td><td>普钢</td><td class="dn">-0.4%</td><td class="dn">-3.4%</td><td class="dn">-11.0%</td></tr>
+<tr data-r5="-3.3" data-r10="-5.1" data-r20="-11.1"><td>110</td><td>航海装备</td><td class="dn">-3.3%</td><td class="dn">-5.1%</td><td class="dn">-11.1%</td></tr>
+<tr data-r5="-1.3" data-r10="-6.7" data-r20="-11.3"><td>111</td><td>石油化工</td><td class="dn">-1.3%</td><td class="dn">-6.7%</td><td class="dn">-11.3%</td></tr>
+<tr data-r5="-0.9" data-r10="-5.1" data-r20="-11.5"><td>112</td><td>养殖业</td><td class="dn">-0.9%</td><td class="dn">-5.1%</td><td class="dn">-11.5%</td></tr>
+<tr data-r5="-3.5" data-r10="-8.8" data-r20="-11.9"><td>113</td><td>动物保健</td><td class="dn">-3.5%</td><td class="dn">-8.8%</td><td class="dn">-11.9%</td></tr>
+<tr data-r5="0.8" data-r10="-6.3" data-r20="-12.0"><td>114</td><td>油气开采</td><td class="up">+0.8%</td><td class="dn">-6.3%</td><td class="dn">-12.0%</td></tr>
+<tr data-r5="-0.3" data-r10="-5.1" data-r20="-12.0"><td>115</td><td>游戏</td><td class="dn">-0.3%</td><td class="dn">-5.1%</td><td class="dn">-12.0%</td></tr>
+<tr data-r5="-2.6" data-r10="-3.4" data-r20="-12.3"><td>116</td><td>乘用车</td><td class="dn">-2.6%</td><td class="dn">-3.4%</td><td class="dn">-12.3%</td></tr>
+<tr data-r5="-3.3" data-r10="-6.7" data-r20="-13.4"><td>117</td><td>化纤</td><td class="dn">-3.3%</td><td class="dn">-6.7%</td><td class="dn">-13.4%</td></tr>
+<tr data-r5="-2.8" data-r10="-9.2" data-r20="-13.6"><td>118</td><td>化学原料</td><td class="dn">-2.8%</td><td class="dn">-9.2%</td><td class="dn">-13.6%</td></tr>
+<tr data-r5="-1.4" data-r10="-9.9" data-r20="-13.8"><td>119</td><td>油服工程</td><td class="dn">-1.4%</td><td class="dn">-9.9%</td><td class="dn">-13.8%</td></tr>
+<tr data-r5="-5.9" data-r10="-11.9" data-r20="-13.8"><td>120</td><td>林业</td><td class="dn">-5.9%</td><td class="dn">-11.9%</td><td class="dn">-13.8%</td></tr>
+<tr data-r5="-4.6" data-r10="-7.1" data-r20="-14.0"><td>121</td><td>商用车</td><td class="dn">-4.6%</td><td class="dn">-7.1%</td><td class="dn">-14.0%</td></tr>
+<tr data-r5="-5.4" data-r10="-7.0" data-r20="-15.0"><td>122</td><td>贵金属</td><td class="dn">-5.4%</td><td class="dn">-7.0%</td><td class="dn">-15.0%</td></tr>
+<tr data-r5="2.0" data-r10="-1.2" data-r20="-15.2"><td>123</td><td>酒店餐饮</td><td class="up">+2.0%</td><td class="dn">-1.2%</td><td class="dn">-15.2%</td></tr>
+<tr data-r5="-2.8" data-r10="-6.3" data-r20="-16.0"><td>124</td><td>农用化工</td><td class="dn">-2.8%</td><td class="dn">-6.3%</td><td class="dn">-16.0%</td></tr>
+<tr data-r5="-12.1" data-r10="-17.7" data-r20="-16.3"><td>125</td><td>航天装备</td><td class="dn">-12.1%</td><td class="dn">-17.7%</td><td class="dn">-16.3%</td></tr>
+<tr data-r5="-2.3" data-r10="-6.8" data-r20="-18.0"><td>126</td><td>冶钢原料</td><td class="dn">-2.3%</td><td class="dn">-6.8%</td><td class="dn">-18.0%</td></tr>
+<tr data-r5="-5.7" data-r10="-7.7" data-r20="-18.6"><td>127</td><td>能源金属</td><td class="dn">-5.7%</td><td class="dn">-7.7%</td><td class="dn">-18.6%</td></tr></tbody>
 </table>
+<table id="tbl-l3">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l3',2)">5日涨跌</th><th onclick="sortTable('l3',3)">10日涨跌</th><th onclick="sortTable('l3',4)" class="sorted">20日涨跌</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
 <div class="ft">CLAW v2.0 | 2026-06-01</div>
 <script>
-let sortDir={};
-function sortTable(col){
-  let t=document.getElementById("tbl"),rows=Array.from(t.querySelectorAll("tbody tr"));
+let sortDir={l2:{},l3:{}};
+function switchTab(tab){
+  document.getElementById('tbl-l2').style.display=tab==='l2'?'':'none';
+  document.getElementById('tbl-l3').style.display=tab==='l3'?'':'none';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',(tab==='l2'&&t.textContent.includes('二级'))||(tab==='l3'&&t.textContent.includes('三级'))));
+}
+function sortTable(tbl,col){
+  let t=document.getElementById('tbl-'+tbl),rows=Array.from(t.querySelectorAll("tbody tr"));
   let key=["","","r5","r10","r20"][col];
-  sortDir[col]=sortDir[col]===-1?1:-1;
-  rows.sort((a,b)=>(parseFloat(a.dataset[key])-parseFloat(b.dataset[key]))*sortDir[col]);
+  sortDir[tbl][col]=sortDir[tbl][col]===-1?1:-1;
+  rows.sort((a,b)=>(parseFloat(a.dataset[key])-parseFloat(b.dataset[key]))*sortDir[tbl][col]);
   rows.forEach(r=>t.querySelector("tbody").appendChild(r));
-  document.querySelectorAll("th").forEach(h=>h.classList.remove("sorted"));
+  t.querySelectorAll("th").forEach(h=>h.classList.remove("sorted"));
   t.querySelectorAll("th")[col].classList.add("sorted");
 }
 </script>
