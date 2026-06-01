@@ -20,36 +20,36 @@ tr:hover td{background:#16202a}
 <div class="update">2026-06-01 收盘 | 点击表头排序 | <a href="index.html" class="back">← 返回</a></div>
 <table id="tbl">
 <thead><tr><th>#</th><th>行业</th><th onclick="sortTable(2)">5日涨跌</th><th onclick="sortTable(3)">10日涨跌</th><th onclick="sortTable(4)" class="sorted">20日涨跌</th></tr></thead>
-<tbody><tr data-r5="-1.0" data-r10="14.4" data-r20="27.4"><td>1</td><td>元器件</td><td class="dn">-1.0%</td><td class="up">+14.4%</td><td class="up">+27.4%</td></tr>
-<tr data-r5="-1.1" data-r10="5.5" data-r20="20.9"><td>2</td><td>非金属材料</td><td class="dn">-1.1%</td><td class="up">+5.5%</td><td class="up">+20.9%</td></tr>
-<tr data-r5="-0.9" data-r10="1.9" data-r20="18.9"><td>3</td><td>通信设备</td><td class="dn">-0.9%</td><td class="up">+1.9%</td><td class="up">+18.9%</td></tr>
-<tr data-r5="-5.8" data-r10="10.0" data-r20="18.6"><td>4</td><td>玻璃玻纤</td><td class="dn">-5.8%</td><td class="up">+10.0%</td><td class="up">+18.6%</td></tr>
-<tr data-r5="-11.8" data-r10="-1.7" data-r20="16.5"><td>5</td><td>半导体</td><td class="dn">-11.8%</td><td class="dn">-1.7%</td><td class="up">+16.5%</td></tr>
-<tr data-r5="-8.5" data-r10="-3.6" data-r20="15.7"><td>6</td><td>自动化设备</td><td class="dn">-8.5%</td><td class="dn">-3.6%</td><td class="up">+15.7%</td></tr>
-<tr data-r5="6.9" data-r10="6.5" data-r20="11.2"><td>7</td><td>电力</td><td class="up">+6.9%</td><td class="up">+6.5%</td><td class="up">+11.2%</td></tr>
-<tr data-r5="-1.0" data-r10="1.2" data-r20="10.5"><td>8</td><td>消费电子</td><td class="dn">-1.0%</td><td class="up">+1.2%</td><td class="up">+10.5%</td></tr>
-<tr data-r5="-6.6" data-r10="-0.2" data-r20="8.9"><td>9</td><td>光学光电</td><td class="dn">-6.6%</td><td class="dn">-0.2%</td><td class="up">+8.9%</td></tr>
-<tr data-r5="-8.7" data-r10="-6.0" data-r20="6.2"><td>10</td><td>其他电子</td><td class="dn">-8.7%</td><td class="dn">-6.0%</td><td class="up">+6.2%</td></tr>
-<tr data-r5="-7.3" data-r10="-1.3" data-r20="6.0"><td>11</td><td>金属新材料</td><td class="dn">-7.3%</td><td class="dn">-1.3%</td><td class="up">+6.0%</td></tr>
-<tr data-r5="-4.4" data-r10="-0.6" data-r20="5.0"><td>12</td><td>塑料</td><td class="dn">-4.4%</td><td class="dn">-0.6%</td><td class="up">+5.0%</td></tr>
-<tr data-r5="-1.4" data-r10="-4.2" data-r20="4.8"><td>13</td><td>电子商务</td><td class="dn">-1.4%</td><td class="dn">-4.2%</td><td class="up">+4.8%</td></tr>
-<tr data-r5="-4.3" data-r10="-8.1" data-r20="3.5"><td>14</td><td>环境监测</td><td class="dn">-4.3%</td><td class="dn">-8.1%</td><td class="up">+3.5%</td></tr>
-<tr data-r5="-6.9" data-r10="-6.9" data-r20="3.2"><td>15</td><td>其他发电设备</td><td class="dn">-6.9%</td><td class="dn">-6.9%</td><td class="up">+3.2%</td></tr>
-<tr data-r5="-6.0" data-r10="-2.8" data-r20="2.8"><td>16</td><td>专用设备</td><td class="dn">-6.0%</td><td class="dn">-2.8%</td><td class="up">+2.8%</td></tr>
-<tr data-r5="-8.5" data-r10="-6.0" data-r20="2.5"><td>17</td><td>通用设备</td><td class="dn">-8.5%</td><td class="dn">-6.0%</td><td class="up">+2.5%</td></tr>
-<tr data-r5="-9.1" data-r10="-6.8" data-r20="2.4"><td>18</td><td>电机制造</td><td class="dn">-9.1%</td><td class="dn">-6.8%</td><td class="up">+2.4%</td></tr>
-<tr data-r5="-2.3" data-r10="-2.6" data-r20="2.1"><td>19</td><td>电网设备</td><td class="dn">-2.3%</td><td class="dn">-2.6%</td><td class="up">+2.1%</td></tr>
-<tr data-r5="0.3" data-r10="0.6" data-r20="1.7"><td>20</td><td>公路铁路</td><td class="up">+0.3%</td><td class="up">+0.6%</td><td class="up">+1.7%</td></tr>
-<tr data-r5="10.1" data-r10="6.9" data-r20="1.4"><td>21</td><td>煤炭开采</td><td class="up">+10.1%</td><td class="up">+6.9%</td><td class="up">+1.4%</td></tr>
-<tr data-r5="1.7" data-r10="-2.5" data-r20="0.8"><td>22</td><td>饮料乳品</td><td class="up">+1.7%</td><td class="dn">-2.5%</td><td class="up">+0.8%</td></tr>
-<tr data-r5="-5.3" data-r10="-3.4" data-r20="0.7"><td>23</td><td>光伏设备</td><td class="dn">-5.3%</td><td class="dn">-3.4%</td><td class="up">+0.7%</td></tr>
-<tr data-r5="-1.1" data-r10="-9.8" data-r20="0.2"><td>24</td><td>电信服务</td><td class="dn">-1.1%</td><td class="dn">-9.8%</td><td class="up">+0.2%</td></tr>
-<tr data-r5="2.1" data-r10="-0.4" data-r20="-0.1"><td>25</td><td>影视院线</td><td class="up">+2.1%</td><td class="dn">-0.4%</td><td class="dn">-0.1%</td></tr>
-<tr data-r5="-2.7" data-r10="-6.9" data-r20="-0.4"><td>26</td><td>装修装饰</td><td class="dn">-2.7%</td><td class="dn">-6.9%</td><td class="dn">-0.4%</td></tr>
-<tr data-r5="-2.3" data-r10="-2.5" data-r20="-0.5"><td>27</td><td>汽车服务</td><td class="dn">-2.3%</td><td class="dn">-2.5%</td><td class="dn">-0.5%</td></tr>
-<tr data-r5="7.8" data-r10="-9.9" data-r20="-0.6"><td>28</td><td>体育</td><td class="up">+7.8%</td><td class="dn">-9.9%</td><td class="dn">-0.6%</td></tr>
-<tr data-r5="-3.4" data-r10="-1.1" data-r20="-0.7"><td>29</td><td>稀有金属</td><td class="dn">-3.4%</td><td class="dn">-1.1%</td><td class="dn">-0.7%</td></tr>
-<tr data-r5="1.2" data-r10="-2.3" data-r20="-0.9"><td>30</td><td>水务</td><td class="up">+1.2%</td><td class="dn">-2.3%</td><td class="dn">-0.9%</td></tr></tbody>
+<tbody><tr data-r5="-1.8" data-r10="13.5" data-r20="26.4"><td>1</td><td>元器件</td><td class="dn">-1.8%</td><td class="up">+13.5%</td><td class="up">+26.4%</td></tr>
+<tr data-r5="-1.8" data-r10="4.8" data-r20="20.1"><td>2</td><td>非金属材料</td><td class="dn">-1.8%</td><td class="up">+4.8%</td><td class="up">+20.1%</td></tr>
+<tr data-r5="-5.7" data-r10="10.0" data-r20="18.7"><td>3</td><td>玻璃玻纤</td><td class="dn">-5.7%</td><td class="up">+10.0%</td><td class="up">+18.7%</td></tr>
+<tr data-r5="-1.3" data-r10="1.5" data-r20="18.4"><td>4</td><td>通信设备</td><td class="dn">-1.3%</td><td class="up">+1.5%</td><td class="up">+18.4%</td></tr>
+<tr data-r5="-12.5" data-r10="-2.5" data-r20="15.7"><td>5</td><td>半导体</td><td class="dn">-12.5%</td><td class="dn">-2.5%</td><td class="up">+15.7%</td></tr>
+<tr data-r5="-9.0" data-r10="-4.1" data-r20="15.1"><td>6</td><td>自动化设备</td><td class="dn">-9.0%</td><td class="dn">-4.1%</td><td class="up">+15.1%</td></tr>
+<tr data-r5="7.4" data-r10="7.1" data-r20="11.8"><td>7</td><td>电力</td><td class="up">+7.4%</td><td class="up">+7.1%</td><td class="up">+11.8%</td></tr>
+<tr data-r5="-1.3" data-r10="0.9" data-r20="10.2"><td>8</td><td>消费电子</td><td class="dn">-1.3%</td><td class="up">+0.9%</td><td class="up">+10.2%</td></tr>
+<tr data-r5="-7.0" data-r10="-0.6" data-r20="8.5"><td>9</td><td>光学光电</td><td class="dn">-7.0%</td><td class="dn">-0.6%</td><td class="up">+8.5%</td></tr>
+<tr data-r5="-9.1" data-r10="-6.4" data-r20="5.7"><td>10</td><td>其他电子</td><td class="dn">-9.1%</td><td class="dn">-6.4%</td><td class="up">+5.7%</td></tr>
+<tr data-r5="-7.6" data-r10="-1.7" data-r20="5.6"><td>11</td><td>金属新材料</td><td class="dn">-7.6%</td><td class="dn">-1.7%</td><td class="up">+5.6%</td></tr>
+<tr data-r5="-1.2" data-r10="-4.0" data-r20="4.9"><td>12</td><td>电子商务</td><td class="dn">-1.2%</td><td class="dn">-4.0%</td><td class="up">+4.9%</td></tr>
+<tr data-r5="-4.6" data-r10="-0.8" data-r20="4.8"><td>13</td><td>塑料</td><td class="dn">-4.6%</td><td class="dn">-0.8%</td><td class="up">+4.8%</td></tr>
+<tr data-r5="-4.2" data-r10="-8.1" data-r20="3.6"><td>14</td><td>环境监测</td><td class="dn">-4.2%</td><td class="dn">-8.1%</td><td class="up">+3.6%</td></tr>
+<tr data-r5="-7.4" data-r10="-7.4" data-r20="2.7"><td>15</td><td>其他发电设备</td><td class="dn">-7.4%</td><td class="dn">-7.4%</td><td class="up">+2.7%</td></tr>
+<tr data-r5="-6.0" data-r10="-2.9" data-r20="2.7"><td>16</td><td>专用设备</td><td class="dn">-6.0%</td><td class="dn">-2.9%</td><td class="up">+2.7%</td></tr>
+<tr data-r5="-9.3" data-r10="-7.0" data-r20="2.3"><td>17</td><td>电机制造</td><td class="dn">-9.3%</td><td class="dn">-7.0%</td><td class="up">+2.3%</td></tr>
+<tr data-r5="-8.7" data-r10="-6.3" data-r20="2.3"><td>18</td><td>通用设备</td><td class="dn">-8.7%</td><td class="dn">-6.3%</td><td class="up">+2.3%</td></tr>
+<tr data-r5="-2.2" data-r10="-2.5" data-r20="2.2"><td>19</td><td>电网设备</td><td class="dn">-2.2%</td><td class="dn">-2.5%</td><td class="up">+2.2%</td></tr>
+<tr data-r5="10.7" data-r10="7.5" data-r20="1.9"><td>20</td><td>煤炭开采</td><td class="up">+10.7%</td><td class="up">+7.5%</td><td class="up">+1.9%</td></tr>
+<tr data-r5="0.5" data-r10="0.8" data-r20="1.8"><td>21</td><td>公路铁路</td><td class="up">+0.5%</td><td class="up">+0.8%</td><td class="up">+1.8%</td></tr>
+<tr data-r5="2.2" data-r10="-2.0" data-r20="1.3"><td>22</td><td>饮料乳品</td><td class="up">+2.2%</td><td class="dn">-2.0%</td><td class="up">+1.3%</td></tr>
+<tr data-r5="-5.5" data-r10="-3.6" data-r20="0.4"><td>23</td><td>光伏设备</td><td class="dn">-5.5%</td><td class="dn">-3.6%</td><td class="up">+0.4%</td></tr>
+<tr data-r5="-1.1" data-r10="-9.9" data-r20="0.2"><td>24</td><td>电信服务</td><td class="dn">-1.1%</td><td class="dn">-9.9%</td><td class="up">+0.2%</td></tr>
+<tr data-r5="2.1" data-r10="-0.3" data-r20="0.0"><td>25</td><td>影视院线</td><td class="up">+2.1%</td><td class="dn">-0.3%</td><td class="dn">+0.0%</td></tr>
+<tr data-r5="8.0" data-r10="-9.7" data-r20="-0.3"><td>26</td><td>体育</td><td class="up">+8.0%</td><td class="dn">-9.7%</td><td class="dn">-0.3%</td></tr>
+<tr data-r5="-2.4" data-r10="-2.6" data-r20="-0.6"><td>27</td><td>汽车服务</td><td class="dn">-2.4%</td><td class="dn">-2.6%</td><td class="dn">-0.6%</td></tr>
+<tr data-r5="-2.9" data-r10="-7.0" data-r20="-0.6"><td>28</td><td>装修装饰</td><td class="dn">-2.9%</td><td class="dn">-7.0%</td><td class="dn">-0.6%</td></tr>
+<tr data-r5="2.2" data-r10="-1.1" data-r20="-0.7"><td>29</td><td>白色家电</td><td class="up">+2.2%</td><td class="dn">-1.1%</td><td class="dn">-0.7%</td></tr>
+<tr data-r5="-3.5" data-r10="-1.2" data-r20="-0.8"><td>30</td><td>稀有金属</td><td class="dn">-3.5%</td><td class="dn">-1.2%</td><td class="dn">-0.8%</td></tr></tbody>
 </table>
 <div class="ft">CLAW v2.0 | 2026-06-01</div>
 <script>
