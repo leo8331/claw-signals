@@ -512,8 +512,8 @@ tr:hover td{background:#16202a}
 <script>
 let sortDir={l2:{},l3:{}};
 function switchTab(tab){
-  document.getElementById('tbl-l2').style.display=tab==='l2'?'':'none';
-  document.getElementById('tbl-l3').style.display=tab==='l3'?'':'none';
+  document.getElementById('tbl-l2').style.display=tab==='l2'?'table':'none';
+  document.getElementById('tbl-l3').style.display=tab==='l3'?'table':'none';
   document.querySelectorAll('.tab').forEach(function(t){
     var isActive=(tab==='l2'&&t.textContent.indexOf('二级')>=0)||(tab==='l3'&&t.textContent.indexOf('三级')>=0);
     if(isActive)t.classList.add('active');else t.classList.remove('active');
