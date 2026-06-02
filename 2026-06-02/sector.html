@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>行业排行 2026-06-02</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;padding:20px;max-width:800px;margin:0 auto}
+h1{font-size:22px;border-bottom:2px solid #1da1f2;padding-bottom:10px;margin-bottom:10px}
+.update{color:#8899a6;font-size:13px;margin-bottom:14px}
+.tabs{display:flex;gap:0;margin-bottom:16px}
+.tab{padding:8px 20px;background:#192734;border:1px solid #38444d;color:#8899a6;cursor:pointer;font-size:14px;border-radius:6px 6px 0 0;border-bottom:none;margin-right:4px}
+.tab.active{background:#1da1f2;color:#fff;border-color:#1da1f2;font-weight:600}
+.sort-hint{color:#1da1f2;text-decoration:none;float:right;font-size:13px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+th{text-align:left;padding:9px 12px;color:#8899a6;font-weight:500;border-bottom:2px solid #38444d;cursor:pointer;user-select:none}
+th:hover{color:#1da1f2}
+th.sorted::after{content:" ▼";font-size:10px;color:#1da1f2}
+td{padding:8px 12px;border-bottom:1px solid #192734}
+tr:hover td{background:#16202a}
+.up{color:#f91880}.dn{color:#17bf63}
+#tbl-l3{display:none}
+.ft{text-align:center;color:#556;font-size:11px;margin-top:25px;padding-top:14px;border-top:1px solid #192734}
+</style></head><body>
+<h1>🏭 行业排行</h1>
+<div class="update">2026-06-02 收盘 | 点击表头排序 | <a href="../index.html" class="sort-hint" style="float:left">← 返回首页</a><span style="float:right">共 0 个二级 · 0 个三级</span></div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('l2')">二级行业 (0)</div>
+  <div class="tab" onclick="switchTab('l3')">三级行业 (0)</div>
+</div>
+
+<div id="tbl-wrapper">
+<table id="tbl-l2">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l2',2)">5日涨跌</th><th onclick="sortTable('l2',3)">10日涨跌</th><th onclick="sortTable('l2',4)" class="sorted">20日涨跌</th></tr></thead>
+<tbody></tbody>
+</table>
+<table id="tbl-l3">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l3',2)">5日涨跌</th><th onclick="sortTable('l3',3)">10日涨跌</th><th onclick="sortTable('l3',4)" class="sorted">20日涨跌</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="ft">CLAW v2.0 | 2026-06-02</div>
+<script>
+let sortDir={l2:{},l3:{}};
+function switchTab(tab){
+  document.getElementById('tbl-l2').style.display=tab==='l2'?'table':'none';
+  document.getElementById('tbl-l3').style.display=tab==='l3'?'table':'none';
+  document.querySelectorAll('.tab').forEach(function(t){
+    var isActive=(tab==='l2'&&t.textContent.indexOf('二级')>=0)||(tab==='l3'&&t.textContent.indexOf('三级')>=0);
+    if(isActive)t.classList.add('active');else t.classList.remove('active');
+  });
+}
+function sortTable(tbl,col){
+  var t=document.getElementById('tbl-'+tbl);
+  var rows=Array.prototype.slice.call(t.querySelectorAll('tbody tr'));
+  var key=['','','r5','r10','r20'][col];
+  sortDir[tbl]=sortDir[tbl]||Object();
+  sortDir[tbl][col]=sortDir[tbl][col]===-1?1:-1;
+  rows.sort(function(a,b){return (parseFloat(a.dataset[key])-parseFloat(b.dataset[key]))*sortDir[tbl][col]});
+  rows.forEach(function(r){t.querySelector('tbody').appendChild(r)});
+  t.querySelectorAll('th').forEach(function(h){h.classList.remove('sorted')});
+  t.querySelectorAll('th')[col].classList.add('sorted');
+}
+</script>
+</body></html>
