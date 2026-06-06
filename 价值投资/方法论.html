@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>方法论 · 供应链瓶颈投资法 | CLAW</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1419;color:#e1e8ed;font-family:system-ui,-apple-system,sans-serif;line-height:1.7}
+a{color:#1da1f2;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{background:#192734;padding:0;border-bottom:1px solid #38444d;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px}
+.nav-home{font-size:16px;font-weight:700;color:#1da1f2}
+.nav-home:hover{text-decoration:none}
+.nav-link{font-size:14px;color:#8899a6;transition:color .2s}
+.nav-link:hover{color:#e1e8ed;text-decoration:none}
+.nav-active{color:#f5a623!important}
+
+main{max-width:900px;margin:0 auto;padding:24px}
+
+.hero{text-align:center;padding:40px 0 32px}
+.hero h1{font-size:28px;font-weight:700;margin-bottom:8px}
+.hero h1 span{color:#1da1f2}
+.hero .tagline{font-size:15px;color:#8899a6;max-width:600px;margin:0 auto 16px}
+
+.section{margin:40px 0}
+.section-title{font-size:20px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #1da1f2;display:flex;align-items:center;gap:8px}
+.section-title .emoji{font-size:24px}
+
+.philosophy-card{background:linear-gradient(135deg,#192734,#1a2a3a);border:1px solid #38444d;border-radius:12px;padding:28px;margin:20px 0}
+.philosophy-card h3{font-size:18px;color:#1da1f2;margin-bottom:12px}
+.philosophy-card .quote{font-size:15px;color:#8899a6;font-style:italic;border-left:3px solid #1da1f2;padding-left:16px;margin:16px 0}
+
+.five-factors{display:grid;grid-template-columns:1fr;gap:14px;margin:20px 0}
+.factor{background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;transition:all .2s}
+.factor:hover{background:#1a2a3a;border-color:#1da1f2}
+.factor-num{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0}
+.fn1{background:#0d3320;color:#17bf63}
+.fn2{background:#1a2d40;color:#1da1f2}
+.fn3{background:#2d2010;color:#f5a623}
+.fn4{background:#201035;color:#a855f7}
+.fn5{background:#2d0a1a;color:#f91880}
+.factor-body h4{font-size:15px;margin-bottom:4px}
+.factor-body p{font-size:13px;color:#8899a6}
+
+.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:20px 0}
+.pipe-step{background:#192734;border:1px solid #38444d;border-radius:10px;padding:16px 10px;text-align:center}
+.pipe-step .step-num{font-size:11px;color:#8899a6;margin-bottom:4px}
+.pipe-step .step-icon{font-size:22px;margin-bottom:4px}
+.pipe-step .step-title{font-size:12px;font-weight:600}
+.pipe-step .step-desc{font-size:10px;color:#8899a6;margin-top:4px;line-height:1.4}
+.pipe-arrow{display:flex;align-items:center;justify-content:center;color:#38444d;font-size:18px}
+
+.val-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.val-card{background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px}
+.val-card h4{font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.val-card ul{list-style:none;font-size:13px;color:#8899a6}
+.val-card li{padding:4px 0;padding-left:14px;position:relative}
+.val-card li::before{content:'\2022';position:absolute;left:0;color:#1da1f2}
+
+.adapt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.adapt-card{background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px}
+.adapt-card h4{font-size:14px;color:#f5a623;margin-bottom:8px}
+.adapt-card p{font-size:12px;color:#8899a6;line-height:1.6}
+
+.risk-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.risk-table th{text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d}
+.risk-table td{padding:10px 14px;border-bottom:1px solid #192734}
+.risk-table tr:hover td{background:#1a2a3a}
+.risk-level{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.rl-high{background:#2d0a1a;color:#f91880}
+.rl-mid{background:#2d2010;color:#f5a623}
+.rl-low{background:#0d3320;color:#17bf63}
+
+footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734;margin-top:40px}
+
+@media (max-width:768px){
+  .pipeline{grid-template-columns:1fr}
+  .pipe-arrow{transform:rotate(90deg)}
+  .val-grid,.adapt-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../" class="nav-home">← CLAW</a>
+    <a href="../" class="nav-link">每日选股</a>
+    <a href="#" class="nav-link" id="sector-link">行业排行</a>
+    <a href="./" class="nav-link nav-active">价值投资</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero">
+  <h1><span>供应链瓶颈</span>投资法</h1>
+  <div class="tagline">
+    不买最显眼的热门股 —— 沿产业链向下钻，找到未来架构迁移中最难替代的瓶颈点，在旧认知压制价格时提前下注。
+  </div>
+</div>
+
+<!-- ===== 核心理念 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🎯</span> 核心理念</div>
+
+  <div class="philosophy-card">
+    <h3>什么是"瓶颈点投资"？</h3>
+    <p style="font-size:14px;color:#8899a6;margin-bottom:12px">
+      在AI、新能源等确定大趋势中，不投资显而易见的终端巨头，而是逆向拆解产业链，
+      找到<strong style="color:#e1e8ed">集中度极高、短期无法替代的供应链节点</strong>。
+      这些"瓶颈"一旦出问题，整个产业链都会崩塌 —— 因此它们拥有最强的定价权和最确定的需求增长。
+    </p>
+    <div class="quote">
+      "市场定价的认知顺序：先定价大叙事 → 再定价二级供应商 → 最后才意识到真正短缺的材料、器件、测试和产能环节。要做的，就是比别人早两步找到这些环节。"
+    </div>
+  </div>
+
+  <div class="philosophy-card">
+    <h3>为什么这有效？</h3>
+    <p style="font-size:14px;color:#8899a6">
+      <strong style="color:#17bf63">信息不对称 = 超额收益的根源。</strong>
+      机构覆盖少、散户听不懂、媒体没写透 —— 真正的价值低洼就在这里。
+      当一家公司控制着"无法绕过的节点"时，其需求确定性远超市场认知，但估值仍被旧框架压制。
+      这就是<strong style="color:#e1e8ed">认知差 → 定价差 → 超额收益</strong>的完整闭环。
+    </p>
+  </div>
+</div>
+
+<!-- ===== 五因子选股模型 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🔍</span> 五因子选股模型</div>
+  <p style="color:#8899a6;font-size:13px;margin-bottom:16px">五个条件同时满足，小市值公司才可能出现真正的大级别超额收益。</p>
+
+  <div class="five-factors">
+    <div class="factor">
+      <div class="factor-num fn1">L1</div>
+      <div class="factor-body">
+        <h4>确定性需求 · Demand Certainty</h4>
+        <p>终端需求必须足够确定、足够大、足够持久。AI数据中心、云厂商ASIC、800G/1.6T光互连、人形机器人、新能源储能——不是"可能受益"，而是"必然需要"。需求不确定，后面分析全无意义。</p>
+      </div>
+    </div>
+
+    <div class="factor">
+      <div class="factor-num fn2">L2</div>
+      <div class="factor-body">
+        <h4>受限供给 · Supply Constraint</h4>
+        <p>不是"这也受益"，而是"没它不行、短期不好复制"。InP衬底、CPO外部光源、CW DFB激光器、谐波减速器。真正的瓶颈 = 供给集中度高 + 认证周期长 + 良率爬坡难 + 被巨头路线图深度依赖。</p>
+      </div>
+    </div>
+
+    <div class="factor">
+      <div class="factor-num fn3">L3</div>
+      <div class="factor-body">
+        <h4>低关注度 · Low Attention</h4>
+        <p>机构覆盖少、散户听不懂、媒体没写透。低关注度 = 低定价效率 = 真便宜。一旦各方开始讨论，价格早已起飞。要做最早发现的那批人，而非跟随者。</p>
+      </div>
+    </div>
+
+    <div class="factor">
+      <div class="factor-num fn4">L4</div>
+      <div class="factor-body">
+        <h4>价值捕获 · Value Capture</h4>
+        <p>需求再大，公司能不能拿到产能？能不能维持定价权？毛利能否兑现？股价是否已透支？很多"概念正确"的公司，在价值捕获环节全面崩塌。</p>
+      </div>
+    </div>
+
+    <div class="factor">
+      <div class="factor-num fn5">L5</div>
+      <div class="factor-body">
+        <h4>催化剂 · Catalyst</h4>
+        <p>财报超预期、大客户量产公告、政策落地（CHIPS Act/国产替代）、指数纳入、M&A预期、空头拥挤。有催化剂才有时间锚，否则好公司也可能横盘三年。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 六步执行框架 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🔄</span> 六步执行框架</div>
+  <p style="color:#8899a6;font-size:13px;margin-bottom:16px">从趋势判断到仓位匹配的完整工作流。每一步都不可跳过。</p>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="step-num">STEP 1</div>
+      <div class="step-icon">🔭</div>
+      <div class="step-title">趋势验证</div>
+      <div class="step-desc">先判断大方向是否确定，不确定不往下走</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="step-num">STEP 2</div>
+      <div class="step-icon">🗺️</div>
+      <div class="step-title">画产业链图</div>
+      <div class="step-desc">从上游到下游完整拆解，少一环都不行</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="step-num">STEP 3</div>
+      <div class="step-icon">🎯</div>
+      <div class="step-title">找瓶颈点</div>
+      <div class="step-desc">区分真瓶颈 vs 伪瓶颈，找到不可替代的节点</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="step-num">STEP 4</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title">收集证据</div>
+      <div class="step-desc">分三级验证：财报>招聘/专利>行业传言</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="step-num">STEP 5</div>
+      <div class="step-icon">🛡️</div>
+      <div class="step-title">做风控</div>
+      <div class="step-desc">止损、仓位上限、宏观对冲，提前计划</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="step-num">STEP 6</div>
+      <div class="step-icon">⚖️</div>
+      <div class="step-title">匹配仓位</div>
+      <div class="step-desc">研究深度=仓位大小，绝不靠感觉下注</div>
+    </div>
+  </div>
+
+  <div class="philosophy-card" style="margin-top:16px">
+    <h3>关键原则</h3>
+    <div style="font-size:13px;color:#8899a6;display:grid;gap:8px">
+      <p>🔹 <strong style="color:#e1e8ed">先趋势后个股</strong> —— 趋势不确定，后面的分析全没意义。不要先找股票再脑补趋势。</p>
+      <p>🔹 <strong style="color:#e1e8ed">产业链必须完整</strong> —— 从上到下每一环都得讲清楚。少一个环节 = 功课不到位。</p>
+      <p>🔹 <strong style="color:#17bf63">真瓶颈 vs 伪瓶颈</strong> —— 真瓶颈 = 供给集中、认证长、良率难、被巨头依赖。伪瓶颈 = 只是产业链里有，但谁都能做。</p>
+      <p>🔹 <strong style="color:#f5a623">证据必须分级</strong> —— 财报/公告 > 客户官网/招聘/专利 > 行业传言/社交媒体。绝对不能把推断当事实。</p>
+      <p>🔹 <strong style="color:#f91880">仓位匹配研究深度</strong> —— 看别人总结 = 小仓位；自己画产业链/读年报/拆客户/建模型 = 大仓位。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 估值方法论 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">💎</span> 估值方法论</div>
+  <p style="color:#8899a6;font-size:13px;margin-bottom:16px">瓶颈点公司的估值不能套用传统PE/PB框架。它们往往处于"被旧估值压制"的阶段——这正是机会所在。</p>
+
+  <div class="val-grid">
+    <div class="val-card">
+      <h4>📐 市值-渗透率框架</h4>
+      <ul>
+        <li>估算瓶颈节点的总可服务市场 (TAM)</li>
+        <li>判断公司当前渗透率 vs 潜在天花板</li>
+        <li>关键问题：3年后这个市场多大？公司能拿到多少份额？</li>
+        <li>市值 < 渗透率可达市场 × 合理净利率 × PE → 可能低估</li>
+      </ul>
+    </div>
+
+    <div class="val-card">
+      <h4>🔬 客户验证法</h4>
+      <ul>
+        <li>大客户是否已进入测试/认证阶段？</li>
+        <li>客户capex指引中是否明确指向该技术路线？</li>
+        <li>客户官网/招聘信息/专利 → 二阶确认</li>
+        <li>一旦通过认证 → 批量拐点前是最好的入场时机</li>
+      </ul>
+    </div>
+
+    <div class="val-card">
+      <h4>📊 收入拐点法</h4>
+      <ul>
+        <li>当前：低基数/亏损/研发期 → 传统PE失效</li>
+        <li>1-2年后：批量量产 → 收入爆发 → PE被动压缩</li>
+        <li>核心判断：拐点年收入能到多少？</li>
+        <li>用"拐点年前瞻PE"取代"当前PE"做估值锚</li>
+      </ul>
+    </div>
+
+    <div class="val-card">
+      <h4>🏗️ 安全边际法</h4>
+      <ul>
+        <li>瓶颈节点是否被巨头产业链需要？</li>
+        <li>巨头自研成本 vs 外部采购成本？</li>
+        <li>以替代成本（巨头自研所需投入）作为估值安全边际</li>
+        <li>不是"等收购"，而是"按替代成本设安全边际"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="philosophy-card">
+    <h3>估值陷阱警示</h3>
+    <p style="font-size:13px;color:#8899a6">
+      ⚠️ <strong style="color:#f91880">不要用传统PE/PB框架评估瓶颈公司。</strong>
+      它们往往处于亏损或高PE阶段——这正是超额收益的来源。
+      但同时也意味着：如果拐点未到，估值崩塌的速度极快。
+      必须用<strong style="color:#e1e8ed">前瞻性收入/渗透率框架</strong>替代静态PE估值。
+    </p>
+  </div>
+</div>
+
+<!-- ===== 风险管理 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🛡️</span> 风险管理矩阵</div>
+
+  <table class="risk-table">
+    <tr>
+      <th>风险类型</th>
+      <th>级别</th>
+      <th>应对策略</th>
+    </tr>
+    <tr>
+      <td><strong>拐点延迟</strong> — 大客户量产时间推迟</td>
+      <td><span class="risk-level rl-high">高</span></td>
+      <td>分散时间锚：不同标的设不同催化剂时间窗，避免同时赌同一季度</td>
+    </tr>
+    <tr>
+      <td><strong>技术路线切换</strong> — 大客户改用替代方案</td>
+      <td><span class="risk-level rl-high">极高</span></td>
+      <td>跟踪客户技术路线图、专利、招聘，发现转向信号立即减仓</td>
+    </tr>
+    <tr>
+      <td><strong>稀释风险</strong> — 定增/SBC股权薪酬</td>
+      <td><span class="risk-level rl-mid">中</span></td>
+      <td>监控公司现金流、增发公告、高管SBC比例</td>
+    </tr>
+    <tr>
+      <td><strong>宏观尾部风险</strong> — 地缘/关税/经济衰退</td>
+      <td><span class="risk-level rl-mid">中</span></td>
+      <td>动态调整杠杆、宏观对冲组合</td>
+    </tr>
+    <tr>
+      <td><strong>高波动性</strong> — 小盘股日内大幅回撤</td>
+      <td><span class="risk-level rl-low">低</span></td>
+      <td>区分逻辑破坏性回撤 vs 噪音波动，前者止损，后者加仓</td>
+    </tr>
+    <tr>
+      <td><strong>认知偏见</strong> — 将推断当事实</td>
+      <td><span class="risk-level rl-high">高</span></td>
+      <td>严格证据分级（财报>招聘>传言），写下来，定期复盘</td>
+    </tr>
+  </table>
+
+  <div class="philosophy-card">
+    <h3>铁律</h3>
+    <div style="font-size:13px;color:#8899a6;display:grid;gap:8px">
+      <p>🔸 <strong style="color:#f91880">单一标的最大仓位 30%</strong> —— 再确定的瓶颈也可能被技术路线切换打穿。</p>
+      <p>🔸 <strong style="color:#f91880">逻辑破坏必须止损</strong> —— 不是因为跌了卖，是因为"跌的原因推翻了买入逻辑"才卖。</p>
+      <p>🔸 <strong style="color:#f91880">不做空的瓶颈</strong> —— 瓶颈公司可能被高估，但不会因为"估值高"而下跌——它们跌是因为逻辑被打破。</p>
+      <p>🔸 <strong style="color:#17bf63">噪音波动是加仓机会</strong> —— 如果逻辑没变、估值更便宜了 → 这是礼物，不是威胁。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== A股适配指南 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🇨🇳</span> A股适配指南</div>
+  <p style="color:#8899a6;font-size:13px;margin-bottom:16px">
+    瓶颈点投资的底层逻辑在A股同样适用。以下是针对A股市场的适配调整。
+  </p>
+
+  <div class="adapt-grid">
+    <div class="adapt-card">
+      <h4>🔹 确定性趋势在A股</h4>
+      <p>AI算力（光模块/服务器）、人形机器人（减速器/丝杠/传感器）、新能源（固态电池/储能）、半导体（先进封装/设备/材料）、国产替代（EDA/IP/高端制造）。趋势足够大、足够确定。</p>
+    </div>
+
+    <div class="adapt-card">
+      <h4>🔹 真瓶颈 ≠ 概念股</h4>
+      <p>A股概念炒作泛滥。区分方法：公司是否在客户BOM表中不可替代？是否有独家认证/专利？竞争对手能否在6个月内复制？毛利率是否高于行业平均？</p>
+    </div>
+
+    <div class="adapt-card">
+      <h4>🔹 信息优势的来源</h4>
+      <p>A股的信息不对称不同于海外市场。需要关注：互动易问答（管理层口径变化）、大客户招标公告、产业链调研纪要、专利数据库、招聘信息、国产替代政策文件的受益顺序。</p>
+    </div>
+
+    <div class="adapt-card">
+      <h4>🔹 估值锚点的调整</h4>
+      <p>A股小市值公司估值波动更大。需要额外的安全边际（建议多加20-30%）。考虑"国产替代溢价"——即使短期没有海外收入，只要逻辑成立，市场愿意给更高估值。</p>
+    </div>
+
+    <div class="adapt-card">
+      <h4>🔹 持仓周期考量</h4>
+      <p>A股轮动更快、波动更大。瓶颈点逻辑通常需要6-18个月验证。能承受中途大幅回撤，才能享受终局的超额收益。不能承受波动的 → 降低仓位。</p>
+    </div>
+
+    <div class="adapt-card">
+      <h4>🔹 与量化系统的协同</h4>
+      <p>CLAW的量化系统（H3/V5-ML/G变体）提供<strong style="color:#17bf63">技术面买入信号</strong>，瓶颈点研究提供<strong style="color:#f5a623">基本面选股方向</strong>。两者结合：量化信号过滤基本面标的，基本面逻辑给量化信号增加置信度。</p>
+    </div>
+  </div>
+
+  <div class="philosophy-card">
+    <h3>从框架到实战</h3>
+    <p style="font-size:14px;color:#e1e8ed;line-height:1.8">
+      真正该掌握的，<strong style="color:#f5a623">不是某个具体标的</strong>，而是<strong style="color:#17bf63">研究顺序</strong>：
+    </p>
+    <div class="quote" style="margin:16px 0">
+      先找确定趋势 → 再拆产业链 → 再找瓶颈 → 再找证据 → 再看估值 → 再等催化剂 → 最后用可承受的仓位下注。
+    </div>
+    <p style="font-size:13px;color:#8899a6">
+      把这个框架套到A股任何一个大趋势上（机器人、AI算力、半导体国产替代、新能源），你会发现一批"机构没覆盖完、散户没看懂的、产业链上谁也绕不过去的"真正价值洼地。
+    </p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  CLAW 量化投研系统 · 供应链瓶颈投资法 · 方法论纲要 · 2026
+</footer>
+
+<script>
+fetch('../')
+  .then(r=>r.text())
+  .then(html=>{
+    const matches=html.match(/href="(\d{4}-\d{2}-\d{2})\//g);
+    if(matches&&matches.length){
+      const latest=matches[0].replace('href="','').replace('/','');
+      document.getElementById('sector-link').href='../'+latest+'/sector.html';
+    }
+  }).catch(()=>{});
+</script>
+
+</body>
+</html>

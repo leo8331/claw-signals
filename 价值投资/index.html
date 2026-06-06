@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>价值投资 · A股瓶颈标的 | CLAW</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1419;color:#e1e8ed;font-family:system-ui,-apple-system,sans-serif;line-height:1.7}
+a{color:#1da1f2;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{background:#192734;padding:0;border-bottom:1px solid #38444d;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px}
+.nav-home{font-size:16px;font-weight:700;color:#1da1f2}
+.nav-home:hover{text-decoration:none}
+.nav-link{font-size:14px;color:#8899a6;transition:color .2s}
+.nav-link:hover{color:#e1e8ed;text-decoration:none}
+.nav-active{color:#f5a623!important}
+
+main{max-width:900px;margin:0 auto;padding:24px}
+
+.hero{text-align:center;padding:32px 0 24px}
+.hero h1{font-size:24px;font-weight:700;margin-bottom:8px}
+.hero h1 span{color:#f5a623}
+.hero .tagline{font-size:14px;color:#8899a6;max-width:560px;margin:0 auto 20px}
+.hero .links{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.hero .links a{background:#192734;border:1px solid #38444d;border-radius:8px;padding:8px 20px;font-size:13px;color:#8899a6;transition:all .2s}
+.hero .links a:hover{background:#1a2a3a;border-color:#1da1f2;color:#e1e8ed;text-decoration:none}
+
+.section{margin:36px 0}
+.section-title{font-size:18px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #f5a623;display:flex;align-items:center;gap:8px}
+.section-title .emoji{font-size:22px}
+
+/* 产业链板块卡片 */
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.sector-card{background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px;transition:all .2s}
+.sector-card:hover{background:#1a2a3a;border-color:#f5a623}
+.sector-card h4{font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sector-card .chain{font-size:12px;color:#8899a6;line-height:1.6}
+.sector-card .chain span{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;margin:0 2px}
+.chain-up{background:#0d3320;color:#17bf63}
+.chain-mid{background:#1a2d40;color:#1da1f2}
+.chain-down{background:#2d2010;color:#f5a623}
+
+/* 标的表格 */
+.stock-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.stock-table th{text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d;font-size:12px}
+.stock-table td{padding:10px 14px;border-bottom:1px solid #192734;vertical-align:top}
+.stock-table tr:hover td{background:#1a2a3a}
+.stock-code{font-weight:600;color:#1da1f2;font-size:14px}
+.stock-name{color:#e1e8ed}
+.stock-sector{font-size:11px;color:#8899a6}
+.stock-logic{font-size:12px;color:#8899a6;line-height:1.5}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;margin-right:4px}
+.tag-l1{background:#0d3320;color:#17bf63}
+.tag-l2{background:#1a2d40;color:#1da1f2}
+.tag-l3{background:#2d2010;color:#f5a623}
+.tag-l4{background:#201035;color:#a855f7}
+
+.note{background:#1a2d40;border:1px solid #38444d;border-radius:8px;padding:16px;margin:16px 0;font-size:12px;color:#8899a6;line-height:1.6}
+.note strong{color:#f5a623}
+
+footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734;margin-top:40px}
+
+@media (max-width:768px){
+  .sector-grid{grid-template-columns:1fr}
+  .stock-table{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../" class="nav-home">← CLAW</a>
+    <a href="../" class="nav-link">每日选股</a>
+    <a href="#" class="nav-link" id="sector-link">行业排行</a>
+    <a href="./" class="nav-link nav-active">价值投资</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero">
+  <h1>价值投资 · <span>瓶颈标的</span></h1>
+  <div class="tagline">
+    以供应链瓶颈投资法为框架，筛选A股中处于产业链关键节点、具备长期价值的企业。
+  </div>
+  <div class="links">
+    <a href="方法论.html">📖 方法论纲要</a>
+  </div>
+</div>
+
+<!-- ===== A股瓶颈产业链图谱 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🗺️</span> A股产业链瓶颈图谱</div>
+  <p style="font-size:13px;color:#8899a6;margin-bottom:16px">
+    沿四大确定性趋势向下拆解，标记产业链中供给集中、替代困难的瓶颈节点。
+  </p>
+
+  <div class="sector-grid">
+    <div class="sector-card">
+      <h4>🤖 人形机器人</h4>
+      <div class="chain">
+        <span class="chain-up">上游材料</span> → <span class="chain-mid">核心部件</span> → <span class="chain-down">整机</span>
+        <p style="margin-top:6px;font-size:11px;color:#8899a6">
+          瓶颈点：<strong style="color:#17bf63">谐波减速器</strong>（精度要求极高，认证周期3-5年）、
+          <strong style="color:#17bf63">六维力传感器</strong>（全球仅3-4家能量产）、
+          行星滚柱丝杠（工艺壁垒高）
+        </p>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <h4>💡 AI算力 · 光通信</h4>
+      <div class="chain">
+        <span class="chain-up">芯片/材料</span> → <span class="chain-mid">光器件</span> → <span class="chain-down">光模块</span>
+        <p style="margin-top:6px;font-size:11px;color:#8899a6">
+          瓶颈点：<strong style="color:#17bf63">高速光芯片</strong>（EML/硅光，良率爬坡难）、
+          <strong style="color:#17bf63">MT插芯/光纤阵列</strong>（精密加工，产能受限）、
+          薄膜铌酸锂调制器
+        </p>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <h4>⚡ 新能源 · 储能</h4>
+      <div class="chain">
+        <span class="chain-up">材料</span> → <span class="chain-mid">电芯/PCS</span> → <span class="chain-down">系统集成</span>
+        <p style="margin-top:6px;font-size:11px;color:#8899a6">
+          瓶颈点：<strong style="color:#17bf63">固态电池电解质</strong>（硫化物/氧化物路线之争）、
+          <strong style="color:#17bf63">IGBT/SiC功率器件</strong>（车规认证长）、
+          大容量电芯（314Ah+）
+        </p>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <h4>🔬 半导体 · 国产替代</h4>
+      <div class="chain">
+        <span class="chain-up">设备/材料</span> → <span class="chain-mid">制造/封测</span> → <span class="chain-down">芯片设计</span>
+        <p style="margin-top:6px;font-size:11px;color:#8899a6">
+          瓶颈点：<strong style="color:#17bf63">光刻胶/特种气体</strong>（认证周期长，替代成本高）、
+          <strong style="color:#17bf63">量测/检测设备</strong>（精度要求极高）、
+          先进封装（CoWoS/混合键合）
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== A股瓶颈标的 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🎯</span> A股瓶颈标的池</div>
+  <p style="font-size:13px;color:#8899a6;margin-bottom:8px">
+    以下标的基于五因子模型（L1确定需求 + L2受限供给 + L3低关注度 + L4价值捕获 + L5催化剂）初审筛选。
+    仅为研究方向，不构成投资建议。标注等级反映当前五因子匹配度。
+  </p>
+
+  <div class="note">
+    <strong>⚠️ 研究方法说明</strong><br>
+    每只标的需经过完整六步流程验证（趋势→产业链→瓶颈→证据→估值→催化剂）后才能确认。
+    当前为初审池，需要进一步收集：客户认证进度、产能规划、竞品对比、财务模型。
+    建议与CLAW量化信号（H3/V5-ML/G）交叉验证入场时机。
+  </div>
+
+  <table class="stock-table">
+    <tr>
+      <th style="width:80px">代码</th>
+      <th style="width:100px">名称</th>
+      <th style="width:90px">产业链位置</th>
+      <th style="width:70px">五因子</th>
+      <th>瓶颈逻辑</th>
+    </tr>
+    <tr>
+      <td><span class="stock-code">688017</span></td>
+      <td><span class="stock-name">绿的谐波</span><br><span class="stock-sector">人形机器人</span></td>
+      <td><span class="stock-sector">谐波减速器</span></td>
+      <td>
+        <span class="tag tag-l1">L1</span>
+        <span class="tag tag-l2">L2</span>
+        <span class="tag tag-l3">L3</span>
+      </td>
+      <td class="stock-logic">国内谐波减速器市占率>60%，人形机器人单机用14-40个。精度寿命要求极高，新进入者认证周期3-5年。下游人形机器人量产拐点临近。</td>
+    </tr>
+    <tr>
+      <td><span class="stock-code">603662</span></td>
+      <td><span class="stock-name">柯力传感</span><br><span class="stock-sector">人形机器人</span></td>
+      <td><span class="stock-sector">六维力传感器</span></td>
+      <td>
+        <span class="tag tag-l1">L1</span>
+        <span class="tag tag-l2">L2</span>
+      </td>
+      <td class="stock-logic">六维力传感器是人形机器人手部/足部的核心感知器件。全球仅少数厂商能量产，国内稀缺标的。需跟踪送样进度和量产良率。</td>
+    </tr>
+    <tr>
+      <td><span class="stock-code">688498</span></td>
+      <td><span class="stock-name">源杰科技</span><br><span class="stock-sector">光通信</span></td>
+      <td><span class="stock-sector">光芯片 (EML/CW)</span></td>
+      <td>
+        <span class="tag tag-l1">L1</span>
+        <span class="tag tag-l2">L2</span>
+      </td>
+      <td class="stock-logic">高速EML光芯片是800G/1.6T光模块核心瓶颈。良率爬坡极难，国内仅少数厂商突破。CPO路线需要CW光源，技术路线切换带来新需求。</td>
+    </tr>
+    <tr>
+      <td><span class="stock-code">688205</span></td>
+      <td><span class="stock-name">德科立</span><br><span class="stock-sector">光通信</span></td>
+      <td><span class="stock-sector">光放大器/子系统</span></td>
+      <td>
+        <span class="tag tag-l1">L1</span>
+        <span class="tag tag-l4">L4</span>
+      </td>
+      <td class="stock-logic">长距光传输（DCI/海底光缆）必需光放大器。超长距传输需求随AI算力互联增长。细分市场空间大、玩家少。</td>
+    </tr>
+  </table>
+
+  <div class="note" style="margin-top:20px">
+    <strong>📌 标的池更新机制</strong><br>
+    本页标的每月审查一次（每月第一个周末）。审查重点：
+    (1) 客户进展——送样→认证→小批量→量产，推进到哪一步；
+    (2) 竞争格局——是否有新进入者威胁瓶颈地位；
+    (3) 估值变化——是否有更优的入场时机；
+    (4) 量化信号——CLAW系统是否发出买入信号提供技术面确认。
+  </div>
+</div>
+
+<!-- ===== 选股流程 ===== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">⚙️</span> 选股流程：从瓶颈到标的</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0">
+    <div style="background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px">
+      <h4 style="font-size:14px;color:#f5a623;margin-bottom:12px">📥 初筛漏斗</h4>
+      <div style="font-size:12px;color:#8899a6;line-height:1.8">
+        <p>1. 确定四大趋势方向（机器人/AI算力/新能源/半导体）</p>
+        <p>2. 绘制每条产业链上下游完整图谱</p>
+        <p>3. 标记每个节点的供给集中度（CR3/CR5）</p>
+        <p>4. 标记认证周期（≤6个月 / 1-2年 / 3年+）</p>
+        <p>5. 标记国产化率（<30% = 高瓶颈）</p>
+        <p>6. 交叉A股上市公司 → 产出初筛池</p>
+      </div>
+    </div>
+
+    <div style="background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px">
+      <h4 style="font-size:14px;color:#f5a623;margin-bottom:12px">🔬 深度验证</h4>
+      <div style="font-size:12px;color:#8899a6;line-height:1.8">
+        <p>7. 客户证据：招标/送样/认证/量产公告</p>
+        <p>8. 竞品证据：国内是否有第二家？海外对标是谁？</p>
+        <p>9. 财务证据：毛利趋势、研发占比、现金流</p>
+        <p>10. 估值证据：市值vs渗透率、前瞻收入模型</p>
+        <p>11. 催化剂：政策/客户量产/财报/指数纳入</p>
+        <p>12. 量化交叉验证：CLAW三策略信号</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  CLAW 量化投研系统 · 价值投资 · A股供应链瓶颈标的池 · 2026
+</footer>
+
+<script>
+fetch('../')
+  .then(r=>r.text())
+  .then(html=>{
+    const matches=html.match(/href="(\d{4}-\d{2}-\d{2})\//g);
+    if(matches&&matches.length){
+      const latest=matches[0].replace('href="','').replace('/','');
+      document.getElementById('sector-link').href='../'+latest+'/sector.html';
+    }
+  }).catch(()=>{});
+</script>
+
+</body>
+</html>
