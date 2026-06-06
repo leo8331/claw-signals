@@ -1,27 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>每日选股 · CLAW</title>
-<style>
-body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
-.loading{text-align:center}
-.loading h1{font-size:20px;color:#8899a6;margin-bottom:8px}
-.loading p{font-size:14px;color:#5c6e7e}
-a{color:#1da1f2}
-</style>
-</head>
-<body>
-<div class="loading">
-  <h1>📊 正在跳转到最新选股信号...</h1>
-  <p>如果没有自动跳转，请点击 <a href="../历史数据/2026-06-05/">2026-06-05</a> 或 <a href="../">返回首页</a></p>
-</div>
-<script>
-fetch('../').then(r=>r.text()).then(h=>{
-  const m=h.match(/href="历史数据\/(\d{4}-\d{2}-\d{2})\//);
-  if(m){location.href='../历史数据/'+m[1]+'/';}
-}).catch(()=>{});
-</script>
-</body>
-</html>
+<style>body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+.box{text-align:center}.box h1{font-size:20px;color:#8899a6;margin-bottom:8px}.box p{font-size:14px;color:#5c6e7e}a{color:#1da1f2}</style>
+<meta http-equiv="refresh" content="0;url=../历史数据/2026-06-05/"></head><body>
+<div class="box"><h1>📊 跳转到最新选股信号</h1><p>最新：2026-06-05 | <a href="../历史数据/">历史数据</a> | <a href="../">首页</a></p></div>
+</body></html>
