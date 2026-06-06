@@ -26,7 +26,6 @@ td a{color:#1da1f2;font-weight:600}
 .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:6px}
 .tag-sig{background:#0d3320;color:#17bf63}
 .tag-sec{background:#1a2d40;color:#1da1f2}
-.empty{text-align:center;color:#5c6e7e;padding:40px;font-size:14px}
 footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734;margin-top:40px}
 </style>
 </head>
@@ -48,33 +47,21 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
 <p style="font-size:13px;color:#8899a6;margin-bottom:16px">
   所有自动生成的每日选股信号和行业排行均按日期存档，点击可回溯任意交易日的数据。
 </p>
-<table id="archive-table">
+<table>
   <tr><th style="text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d">日期</th>
-  <th style="text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d">内容</th></tr>
+  <th style="text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d">选股信号</th>
+  <th style="text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d">行业排行</th></tr>
+  <tr><td><a href="../2026-06-05/">2026-06-05</a></td><td><a href="../2026-06-05/">选股信号</a><span class="tag tag-sig">最新</span></td><td><a href="../2026-06-05/sector.html">行业排行</a><span class="tag tag-sec">最新</span></td></tr>
+  <tr><td><a href="../2026-06-04/">2026-06-04</a></td><td><a href="../2026-06-04/">选股信号</a></td><td><a href="../2026-06-04/sector.html">行业排行</a></td></tr>
+  <tr><td><a href="../2026-06-03/">2026-06-03</a></td><td><a href="../2026-06-03/">选股信号</a></td><td><a href="../2026-06-03/sector.html">行业排行</a></td></tr>
+  <tr><td><a href="../2026-06-02/">2026-06-02</a></td><td><a href="../2026-06-02/">选股信号</a></td><td><a href="../2026-06-02/sector.html">行业排行</a></td></tr>
+  <tr><td><a href="../2026-06-01/">2026-06-01</a></td><td><a href="../2026-06-01/">选股信号</a></td><td><a href="../2026-06-01/sector.html">行业排行</a></td></tr>
+  <tr><td><a href="../2026-05-31/">2026-05-31</a></td><td><a href="../2026-05-31/">选股信号</a></td><td><a href="../2026-05-31/sector.html">行业排行</a></td></tr>
+  <tr><td><a href="../2026-05-29/">2026-05-29</a></td><td><a href="../2026-05-29/">选股信号</a></td><td><a href="../2026-05-29/sector.html">行业排行</a></td></tr>
 </table>
-<div id="loading" class="empty">加载中...</div>
 </main>
 
 <footer>CLAW 量化投研系统 · 历史数据存档 · 2026</footer>
-
-<script>
-fetch('../').then(r=>r.text()).then(h=>{
-  const matches=[...h.matchAll(/href="(\d{4}-\d{2}-\d{2})\//g)];
-  const dates=matches.map(m=>m[1]);
-  if(!dates.length){
-    document.getElementById('loading').textContent='暂无历史数据';
-    return;
-  }
-  document.getElementById('loading').style.display='none';
-  const table=document.getElementById('archive-table');
-  dates.forEach(d=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td><a href="../${d}/">${d}</a><span class="tag tag-sig">选股</span></td>`+
-      `<td><a href="../${d}/sector.html">行业排行</a><span class="tag tag-sec">排行</span></td>`;
-    table.appendChild(tr);
-  });
-}).catch(()=>{document.getElementById('loading').textContent='加载失败，请刷新页面';});
-</script>
 
 </body>
 </html>
