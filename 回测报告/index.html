@@ -4,50 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>回测报告 · CLAW</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
-nav{background:#192734;padding:0;border-bottom:1px solid #38444d;position:sticky;top:0;z-index:100}
-.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px}
-.nav-home{font-size:16px;font-weight:700;color:#1da1f2}
-.nav-home:hover{text-decoration:none}
-.nav-link{font-size:14px;color:#8899a6;transition:color .2s}
-.nav-link:hover{color:#e1e8ed;text-decoration:none}
-.nav-active{color:#f5a623!important}
-a{color:#1da1f2;text-decoration:none}
-a:hover{text-decoration:underline}
-main{max-width:720px;margin:0 auto;padding:80px 24px;text-align:center;flex:1}
-.icon{font-size:64px;margin-bottom:20px;opacity:0.6}
-h1{font-size:22px;margin-bottom:12px;color:#8899a6}
-p{font-size:14px;color:#5c6e7e;line-height:1.7;max-width:480px;margin:0 auto}
-.footer{margin-top:auto;text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734}
-</style>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="../" class="nav-home">← CLAW</a>
-    <a href="../" class="nav-link">首页</a>
-    <a href="../每日选股/" class="nav-link">每日选股</a>
-    <a href="../行业排行/" class="nav-link">行业排行</a>
-    <a href="../价值投资/" class="nav-link">价值投资</a>
-    <a href="../历史数据/" class="nav-link">历史数据</a>
-    <a href="./" class="nav-link nav-active">回测报告</a>
-  </div>
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="goHome()">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="cycleModule()">SWITCH_</span>
 </nav>
 
 <main>
-  <div class="icon">📈</div>
-  <h1>回测报告 · 即将上线</h1>
-  <p>
-    本模块将展示 CLAW 各策略（H3、G变体、V5-ML）的完整回测绩效：<br>
-    年化收益、胜率、盈亏比、最大回撤、净值曲线等。<br><br>
-    数据来自 2020-2025 年全量回测，包含多池泛化验证结果。
-  </p>
+  <div class="page-header" style="text-align:center;">
+    <a href="../index.html" class="back-home" style="margin-bottom:8px;display:inline-flex;">返回首页</a>
+  </div>
+  <div class="empty-state">
+    <div class="icon">📈</div>
+    <h2>回测报告 · 即将上线</h2>
+    <p>
+      本模块将展示 CLAW 各策略（H3、G变体、V5-ML）的完整回测绩效：<br>
+      年化收益、胜率、盈亏比、最大回撤、净值曲线等。<br><br>
+      数据来自 2020-2025 年全量回测，包含多池泛化验证结果。
+    </p>
+  </div>
 </main>
 
-<div class="footer">CLAW 量化投研系统 · 2026</div>
+<footer class="page-footer">CLAW 量化投研系统 · 2026</footer>
+
+</div><!-- /content-panel -->
+
+<!-- ═══ MODULES Overlay ═══ -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../每日选股/index.html">
+    <span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略
+  </a>
+  <a class="sub-menu-link" href="../行业排行/index.html">
+    <span class="sub-menu-dot"></span>行业排行
+  </a>
+  <a class="sub-menu-link" href="../价值投资/index.html">
+    <span class="sub-menu-dot"></span>价值投资
+  </a>
+  <a class="sub-menu-link" href="./index.html">
+    <span class="sub-menu-dot"></span>回测报告
+  </a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../index.html">
+    <span class="sub-menu-dot"></span>首页
+  </a>
+  <a class="sub-menu-link" href="../历史数据/index.html">
+    <span class="sub-menu-dot"></span>历史数据
+  </a>
+</div>
+
+<script>
+// Entrance animation
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.body.classList.add('entrance-ready');
+  }, 50);
+});
+
+// Module cycle — 4 modules
+var moduleUrls = [
+  '../每日选股/index.html',
+  '../行业排行/index.html',
+  '../价值投资/index.html',
+  '../回测报告/index.html'
+];
+var currentModIdx = 3; // 回测报告
+
+function goHome() { window.location.href = '../index.html'; }
+function cycleModule() {
+  var next = (currentModIdx + 1) % 4;
+  window.location.href = moduleUrls[next];
+}
+
+// Overlay menu
+function openModuleMenu() {
+  document.getElementById('overlayBg').classList.add('open');
+  document.getElementById('overlayMenu').classList.add('open');
+}
+function closeModuleMenu() {
+  document.getElementById('overlayBg').classList.remove('open');
+  document.getElementById('overlayMenu').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModuleMenu();
+});
+</script>
 
 </body>
 </html>

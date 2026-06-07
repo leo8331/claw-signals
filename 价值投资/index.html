@@ -4,145 +4,198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>价值投资 · A股瓶颈标的 | CLAW</title>
+<link rel="stylesheet" href="../style.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f1419;color:#e1e8ed;font-family:system-ui,-apple-system,sans-serif;line-height:1.7}
-a{color:#1da1f2;text-decoration:none}
-a:hover{text-decoration:underline}
+/* ── Page-specific styles ── */
 
-nav{background:#192734;padding:0;border-bottom:1px solid #38444d;position:sticky;top:0;z-index:100}
-.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px}
-.nav-home{font-size:16px;font-weight:700;color:#1da1f2}
-.nav-home:hover{text-decoration:none}
-.nav-link{font-size:14px;color:#8899a6;transition:color .2s}
-.nav-link:hover{color:#e1e8ed;text-decoration:none}
-.nav-active{color:#f5a623!important}
+/* Hero / Page Header override */
+.page-header {
+  text-align: center;
+  padding: 32px 0 24px;
+  margin-bottom: 36px;
+}
+.page-header h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.page-header h1 .accent {
+  color: var(--orange);
+}
+.page-header .subtitle {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  max-width: 560px;
+  margin: 0 auto 20px;
+}
+.page-header .links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+.page-header .links a {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.page-header .links a:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  color: var(--text-primary);
+  text-decoration: none;
+}
 
-main{max-width:900px;margin:0 auto;padding:24px}
+/* Section */
+.section {
+  margin: 36px 0;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .emoji {
+  font-size: 22px;
+}
+.section-desc {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
 
-.hero{text-align:center;padding:32px 0 24px}
-.hero h1{font-size:24px;font-weight:700;margin-bottom:8px}
-.hero h1 span{color:#f5a623}
-.hero .tagline{font-size:14px;color:#8899a6;max-width:560px;margin:0 auto 20px}
-.hero .links{display:flex;justify-content:center;gap:16px;margin-top:12px}
-.hero .links a{background:#192734;border:1px solid #38444d;border-radius:8px;padding:8px 20px;font-size:13px;color:#8899a6;transition:all .2s}
-.hero .links a:hover{background:#1a2a3a;border-color:#1da1f2;color:#e1e8ed;text-decoration:none}
+/* Chain span colors (kept from original) */
+.chain-up   { background: rgba(23,191,99,0.12);  color: var(--green);  padding: 1px 6px; border-radius: 3px; font-size: 11px; }
+.chain-mid  { background: rgba(102,153,224,0.12); color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 11px; }
+.chain-down { background: rgba(245,166,35,0.12);  color: var(--orange); padding: 1px 6px; border-radius: 3px; font-size: 11px; }
 
-.section{margin:36px 0}
-.section-title{font-size:18px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #f5a623;display:flex;align-items:center;gap:8px}
-.section-title .emoji{font-size:22px}
+/* Stock table cell styling (extends base table) */
+.stock-table td .stock-code { font-weight: 600; font-size: 14px; }
+.stock-table td .stock-name { color: var(--text-primary); }
+.stock-table td .stock-sector { font-size: 11px; color: var(--text-tertiary); }
+.stock-table td .stock-logic { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
 
-/* 产业链板块卡片 */
-.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-.sector-card{background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px;transition:all .2s}
-.sector-card:hover{background:#1a2a3a;border-color:#f5a623}
-.sector-card h4{font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.sector-card .chain{font-size:12px;color:#8899a6;line-height:1.6}
-.sector-card .chain span{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;margin:0 2px}
-.chain-up{background:#0d3320;color:#17bf63}
-.chain-mid{background:#1a2d40;color:#1da1f2}
-.chain-down{background:#2d2010;color:#f5a623}
+/* Two-column card grid for 选股流程 */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.method-grid .card h4 {
+  font-size: 14px;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+.method-grid .card .step-list {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+}
 
-/* 标的表格 */
-.stock-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
-.stock-table th{text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d;font-size:12px}
-.stock-table td{padding:10px 14px;border-bottom:1px solid #192734;vertical-align:top}
-.stock-table tr:hover td{background:#1a2a3a}
-.stock-code{font-weight:600;color:#1da1f2;font-size:14px}
-.stock-name{color:#e1e8ed}
-.stock-sector{font-size:11px;color:#8899a6}
-.stock-logic{font-size:12px;color:#8899a6;line-height:1.5}
-.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;margin-right:4px}
-.tag-l1{background:#0d3320;color:#17bf63}
-.tag-l2{background:#1a2d40;color:#1da1f2}
-.tag-l3{background:#2d2010;color:#f5a623}
-.tag-l4{background:#201035;color:#a855f7}
+/* Nav brand override for this page */
+.nav-brand { color: var(--text-primary); }
 
-.note{background:#1a2d40;border:1px solid #38444d;border-radius:8px;padding:16px;margin:16px 0;font-size:12px;color:#8899a6;line-height:1.6}
-.note strong{color:#f5a623}
-
-footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734;margin-top:40px}
-
-@media (max-width:768px){
-  .sector-grid{grid-template-columns:1fr}
-  .stock-table{font-size:12px}
+@media (max-width: 768px) {
+  .method-grid { grid-template-columns: 1fr; }
+  .stock-table { font-size: 12px; }
 }
 </style>
 </head>
-<body>
+<body class="entrance-ready">
 
-<nav>
-  <div class="nav-inner">
-    <a href="../" class="nav-home">← CLAW</a>
-    <a href="../" class="nav-link">每日选股</a>
-    <a href="#" class="nav-link" id="sector-link">行业排行</a>
-    <a href="./" class="nav-link nav-active">价值投资</a>
-  </div>
+<!-- ═══ Decorative elements ═══ -->
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-streak deco-streak-h2"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+<div class="deco-orb deco-orb-mini"></div>
+
+<!-- ═══ Content Panel (Layer 1) ═══ -->
+<div class="content-panel">
+
+<!-- ═══ Navigation (3 right-aligned elements, matching homepage) ═══ -->
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="goHome()">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="cycleModule()">SWITCH_</span>
 </nav>
 
 <main>
 
-<div class="hero">
-  <h1>价值投资 · <span>瓶颈标的</span></h1>
-  <div class="tagline">
+<!-- ═══ Hero ═══ -->
+<div class="page-header">
+  <a href="../index.html" class="back-home" style="margin-bottom:8px;display:inline-flex;">返回首页</a>
+  <h1>价值投资 · <span class="accent">瓶颈标的</span></h1>
+  <div class="subtitle">
     以供应链瓶颈投资法为框架，筛选A股中处于产业链关键节点、具备长期价值的企业。
   </div>
+  <div class="accent-line" style="margin: 12px auto 16px;"></div>
   <div class="links">
     <a href="方法论.html">📖 方法论纲要</a>
   </div>
 </div>
 
-<!-- ===== A股瓶颈产业链图谱 ===== -->
+<!-- ═══ A股产业链瓶颈图谱 ═══ -->
 <div class="section">
   <div class="section-title"><span class="emoji">🗺️</span> A股产业链瓶颈图谱</div>
-  <p style="font-size:13px;color:#8899a6;margin-bottom:16px">
+  <p class="section-desc">
     沿四大确定性趋势向下拆解，标记产业链中供给集中、替代困难的瓶颈节点。
   </p>
 
   <div class="sector-grid">
     <div class="sector-card">
-      <h4>🤖 人形机器人</h4>
+      <h3>🤖 人形机器人</h3>
       <div class="chain">
         <span class="chain-up">上游材料</span> → <span class="chain-mid">核心部件</span> → <span class="chain-down">整机</span>
-        <p style="margin-top:6px;font-size:11px;color:#8899a6">
-          瓶颈点：<strong style="color:#17bf63">谐波减速器</strong>（精度要求极高，认证周期3-5年）、
-          <strong style="color:#17bf63">六维力传感器</strong>（全球仅3-4家能量产）、
+        <p style="margin-top:6px;font-size:11px;color:var(--text-tertiary)">
+          瓶颈点：<strong style="color:var(--green)">谐波减速器</strong>（精度要求极高，认证周期3-5年）、
+          <strong style="color:var(--green)">六维力传感器</strong>（全球仅3-4家能量产）、
           行星滚柱丝杠（工艺壁垒高）
         </p>
       </div>
     </div>
 
     <div class="sector-card">
-      <h4>💡 AI算力 · 光通信</h4>
+      <h3>💡 AI算力 · 光通信</h3>
       <div class="chain">
         <span class="chain-up">芯片/材料</span> → <span class="chain-mid">光器件</span> → <span class="chain-down">光模块</span>
-        <p style="margin-top:6px;font-size:11px;color:#8899a6">
-          瓶颈点：<strong style="color:#17bf63">高速光芯片</strong>（EML/硅光，良率爬坡难）、
-          <strong style="color:#17bf63">MT插芯/光纤阵列</strong>（精密加工，产能受限）、
+        <p style="margin-top:6px;font-size:11px;color:var(--text-tertiary)">
+          瓶颈点：<strong style="color:var(--green)">高速光芯片</strong>（EML/硅光，良率爬坡难）、
+          <strong style="color:var(--green)">MT插芯/光纤阵列</strong>（精密加工，产能受限）、
           薄膜铌酸锂调制器
         </p>
       </div>
     </div>
 
     <div class="sector-card">
-      <h4>⚡ 新能源 · 储能</h4>
+      <h3>⚡ 新能源 · 储能</h3>
       <div class="chain">
         <span class="chain-up">材料</span> → <span class="chain-mid">电芯/PCS</span> → <span class="chain-down">系统集成</span>
-        <p style="margin-top:6px;font-size:11px;color:#8899a6">
-          瓶颈点：<strong style="color:#17bf63">固态电池电解质</strong>（硫化物/氧化物路线之争）、
-          <strong style="color:#17bf63">IGBT/SiC功率器件</strong>（车规认证长）、
+        <p style="margin-top:6px;font-size:11px;color:var(--text-tertiary)">
+          瓶颈点：<strong style="color:var(--green)">固态电池电解质</strong>（硫化物/氧化物路线之争）、
+          <strong style="color:var(--green)">IGBT/SiC功率器件</strong>（车规认证长）、
           大容量电芯（314Ah+）
         </p>
       </div>
     </div>
 
     <div class="sector-card">
-      <h4>🔬 半导体 · 国产替代</h4>
+      <h3>🔬 半导体 · 国产替代</h3>
       <div class="chain">
         <span class="chain-up">设备/材料</span> → <span class="chain-mid">制造/封测</span> → <span class="chain-down">芯片设计</span>
-        <p style="margin-top:6px;font-size:11px;color:#8899a6">
-          瓶颈点：<strong style="color:#17bf63">光刻胶/特种气体</strong>（认证周期长，替代成本高）、
-          <strong style="color:#17bf63">量测/检测设备</strong>（精度要求极高）、
+        <p style="margin-top:6px;font-size:11px;color:var(--text-tertiary)">
+          瓶颈点：<strong style="color:var(--green)">光刻胶/特种气体</strong>（认证周期长，替代成本高）、
+          <strong style="color:var(--green)">量测/检测设备</strong>（精度要求极高）、
           先进封装（CoWoS/混合键合）
         </p>
       </div>
@@ -150,15 +203,15 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
   </div>
 </div>
 
-<!-- ===== A股瓶颈标的 ===== -->
+<!-- ═══ A股瓶颈标的池 ═══ -->
 <div class="section">
   <div class="section-title"><span class="emoji">🎯</span> A股瓶颈标的池</div>
-  <p style="font-size:13px;color:#8899a6;margin-bottom:8px">
+  <p class="section-desc">
     以下标的基于五因子模型（L1确定需求 + L2受限供给 + L3低关注度 + L4价值捕获 + L5催化剂）初审筛选。
     仅为研究方向，不构成投资建议。标注等级反映当前五因子匹配度。
   </p>
 
-  <div class="note">
+  <div class="note-box">
     <strong>⚠️ 研究方法说明</strong><br>
     每只标的需经过完整六步流程验证（趋势→产业链→瓶颈→证据→估值→催化剂）后才能确认。
     当前为初审池，需要进一步收集：客户认证进度、产能规划、竞品对比、财务模型。
@@ -178,9 +231,9 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
       <td><span class="stock-name">绿的谐波</span><br><span class="stock-sector">人形机器人</span></td>
       <td><span class="stock-sector">谐波减速器</span></td>
       <td>
-        <span class="tag tag-l1">L1</span>
-        <span class="tag tag-l2">L2</span>
-        <span class="tag tag-l3">L3</span>
+        <span class="tag tag-green">L1</span>
+        <span class="tag tag-blue">L2</span>
+        <span class="tag tag-orange">L3</span>
       </td>
       <td class="stock-logic">国内谐波减速器市占率>60%，人形机器人单机用14-40个。精度寿命要求极高，新进入者认证周期3-5年。下游人形机器人量产拐点临近。</td>
     </tr>
@@ -189,8 +242,8 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
       <td><span class="stock-name">柯力传感</span><br><span class="stock-sector">人形机器人</span></td>
       <td><span class="stock-sector">六维力传感器</span></td>
       <td>
-        <span class="tag tag-l1">L1</span>
-        <span class="tag tag-l2">L2</span>
+        <span class="tag tag-green">L1</span>
+        <span class="tag tag-blue">L2</span>
       </td>
       <td class="stock-logic">六维力传感器是人形机器人手部/足部的核心感知器件。全球仅少数厂商能量产，国内稀缺标的。需跟踪送样进度和量产良率。</td>
     </tr>
@@ -199,8 +252,8 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
       <td><span class="stock-name">源杰科技</span><br><span class="stock-sector">光通信</span></td>
       <td><span class="stock-sector">光芯片 (EML/CW)</span></td>
       <td>
-        <span class="tag tag-l1">L1</span>
-        <span class="tag tag-l2">L2</span>
+        <span class="tag tag-green">L1</span>
+        <span class="tag tag-blue">L2</span>
       </td>
       <td class="stock-logic">高速EML光芯片是800G/1.6T光模块核心瓶颈。良率爬坡极难，国内仅少数厂商突破。CPO路线需要CW光源，技术路线切换带来新需求。</td>
     </tr>
@@ -209,14 +262,14 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
       <td><span class="stock-name">德科立</span><br><span class="stock-sector">光通信</span></td>
       <td><span class="stock-sector">光放大器/子系统</span></td>
       <td>
-        <span class="tag tag-l1">L1</span>
-        <span class="tag tag-l4">L4</span>
+        <span class="tag tag-green">L1</span>
+        <span class="tag tag-purple">L4</span>
       </td>
       <td class="stock-logic">长距光传输（DCI/海底光缆）必需光放大器。超长距传输需求随AI算力互联增长。细分市场空间大、玩家少。</td>
     </tr>
   </table>
 
-  <div class="note" style="margin-top:20px">
+  <div class="note-box" style="margin-top:20px">
     <strong>📌 标的池更新机制</strong><br>
     本页标的每月审查一次（每月第一个周末）。审查重点：
     (1) 客户进展——送样→认证→小批量→量产，推进到哪一步；
@@ -226,26 +279,26 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
   </div>
 </div>
 
-<!-- ===== 选股流程 ===== -->
+<!-- ═══ 选股流程 ═══ -->
 <div class="section">
   <div class="section-title"><span class="emoji">⚙️</span> 选股流程：从瓶颈到标的</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0">
-    <div style="background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px">
-      <h4 style="font-size:14px;color:#f5a623;margin-bottom:12px">📥 初筛漏斗</h4>
-      <div style="font-size:12px;color:#8899a6;line-height:1.8">
+  <div class="method-grid">
+    <div class="card">
+      <h4>📥 初筛漏斗</h4>
+      <div class="step-list">
         <p>1. 确定四大趋势方向（机器人/AI算力/新能源/半导体）</p>
         <p>2. 绘制每条产业链上下游完整图谱</p>
         <p>3. 标记每个节点的供给集中度（CR3/CR5）</p>
         <p>4. 标记认证周期（≤6个月 / 1-2年 / 3年+）</p>
-        <p>5. 标记国产化率（<30% = 高瓶颈）</p>
+        <p>5. 标记国产化率（&lt;30% = 高瓶颈）</p>
         <p>6. 交叉A股上市公司 → 产出初筛池</p>
       </div>
     </div>
 
-    <div style="background:#192734;border:1px solid #38444d;border-radius:10px;padding:20px">
-      <h4 style="font-size:14px;color:#f5a623;margin-bottom:12px">🔬 深度验证</h4>
-      <div style="font-size:12px;color:#8899a6;line-height:1.8">
+    <div class="card">
+      <h4>🔬 深度验证</h4>
+      <div class="step-list">
         <p>7. 客户证据：招标/送样/认证/量产公告</p>
         <p>8. 竞品证据：国内是否有第二家？海外对标是谁？</p>
         <p>9. 财务证据：毛利趋势、研发占比、现金流</p>
@@ -259,20 +312,75 @@ footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1p
 
 </main>
 
+<!-- ═══ Footer ═══ -->
 <footer>
   CLAW 量化投研系统 · 价值投资 · A股供应链瓶颈标的池 · 2026
 </footer>
 
+</div><!-- /content-panel -->
+
+<!-- ═══ MODULES Overlay ═══ -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../每日选股/index.html">
+    <span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略
+  </a>
+  <a class="sub-menu-link" href="../行业排行/index.html">
+    <span class="sub-menu-dot"></span>行业排行
+  </a>
+  <a class="sub-menu-link" href="./index.html">
+    <span class="sub-menu-dot"></span>价值投资
+  </a>
+  <a class="sub-menu-link" href="../回测报告/index.html">
+    <span class="sub-menu-dot"></span>回测报告
+  </a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../index.html">
+    <span class="sub-menu-dot"></span>首页
+  </a>
+  <a class="sub-menu-link" href="../历史数据/index.html">
+    <span class="sub-menu-dot"></span>历史数据
+  </a>
+</div>
+
 <script>
-fetch('../')
-  .then(r=>r.text())
-  .then(html=>{
-    const matches=html.match(/href="(\d{4}-\d{2}-\d{2})\//g);
-    if(matches&&matches.length){
-      const latest=matches[0].replace('href="','').replace('/','');
-      document.getElementById('sector-link').href='../'+latest+'/sector.html';
-    }
-  }).catch(()=>{});
+// Entrance animation
+(function() {
+  if (document.body.classList.contains('entrance-ready')) return;
+  window.addEventListener('load', function() {
+    setTimeout(function() { document.body.classList.add('entrance-ready'); }, 50);
+  });
+})();
+
+// Module cycle — 4 modules
+var moduleUrls = [
+  '../每日选股/index.html',
+  '../行业排行/index.html',
+  '../价值投资/index.html',
+  '../回测报告/index.html'
+];
+var currentModIdx = 2; // 价值投资
+
+function goHome() { window.location.href = '../index.html'; }
+function cycleModule() {
+  var next = (currentModIdx + 1) % 4;
+  window.location.href = moduleUrls[next];
+}
+
+// Overlay menu
+function openModuleMenu() {
+  document.getElementById('overlayBg').classList.add('open');
+  document.getElementById('overlayMenu').classList.add('open');
+}
+function closeModuleMenu() {
+  document.getElementById('overlayBg').classList.remove('open');
+  document.getElementById('overlayMenu').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModuleMenu();
+});
 </script>
 
 </body>
