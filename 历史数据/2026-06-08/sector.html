@@ -1,88 +1,37 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>行业排行 2026-06-08</title>
-<link rel="stylesheet" href="../../style.css">
 <style>
-.sector-header{text-align:center;margin-bottom:24px}
-.sector-header h1{font-size:24px;margin-bottom:4px}
-.sector-header h1 .accent{color:var(--accent)}
-.sector-header .subtitle{font-size:13px;color:var(--text-tertiary)}
-.tabs{display:flex;gap:0;margin-bottom:16px;justify-content:center}
-.tab{padding:8px 20px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-tertiary);cursor:pointer;font-size:14px;border-radius:6px 6px 0 0;border-bottom:none;margin-right:4px;transition:all 0.2s}
-.tab:hover{background:var(--bg-hover)}
-.tab.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
-.sector-table{width:100%;border-collapse:collapse;font-size:13px}
-.sector-table th{text-align:left;padding:9px 12px;color:var(--text-tertiary);font-weight:500;border-bottom:2px solid rgba(56,61,77,0.3);cursor:pointer;user-select:none;font-size:11px}
-.sector-table th:hover{color:var(--accent)}
-.sector-table th.sorted::after{content:" ▼";font-size:10px;color:var(--accent)}
-.sector-table td{padding:8px 12px;border-bottom:1px solid rgba(56,61,77,0.12)}
-.sector-table tr:hover td{background:rgba(56,61,77,0.06)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;padding:20px;max-width:800px;margin:0 auto}
+h1{font-size:22px;border-bottom:2px solid #1da1f2;padding-bottom:10px;margin-bottom:10px}
+.update{color:#8899a6;font-size:13px;margin-bottom:14px}
+.tabs{display:flex;gap:0;margin-bottom:16px}
+.tab{padding:8px 20px;background:#192734;border:1px solid #38444d;color:#8899a6;cursor:pointer;font-size:14px;border-radius:6px 6px 0 0;border-bottom:none;margin-right:4px}
+.tab.active{background:#1da1f2;color:#fff;border-color:#1da1f2;font-weight:600}
+.sort-hint{color:#1da1f2;text-decoration:none;float:right;font-size:13px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+th{text-align:left;padding:9px 12px;color:#8899a6;font-weight:500;border-bottom:2px solid #38444d;cursor:pointer;user-select:none}
+th:hover{color:#1da1f2}
+th.sorted::after{content:" ▼";font-size:10px;color:#1da1f2}
+td{padding:8px 12px;border-bottom:1px solid #192734}
+tr:hover td{background:#16202a}
 .up{color:#f91880}.dn{color:#17bf63}
 #tbl-l3{display:none}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:13px;margin-bottom:16px}
-.back-link:hover{text-decoration:underline}
-@media(max-width:768px){.sector-table{font-size:11px}.sector-table th,.sector-table td{padding:6px 4px}}
-</style>
-</head>
-<body class="entrance-ready">
+.ft{text-align:center;color:#556;font-size:11px;margin-top:25px;padding-top:14px;border-top:1px solid #192734}
+</style></head><body>
+<h1>🏭 行业排行</h1>
+<div class="update">数据日期 2026-06-08 | 点击表头排序 | <a href="../../" class="sort-hint" style="float:left">← 返回首页</a><span style="float:right">共 127 个二级 · 344 个三级</span></div>
 
-<div class="top-accent-strip"></div>
-<div class="deco-streak deco-streak-h"></div>
-<div class="deco-orb deco-orb-subtle"></div>
-
-<div class="content-panel">
-
-<nav class="sub-nav">
-  <span class="sub-nav-home" onclick="window.location.href='../../index.html'">HOME_</span>
-  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
-  <span class="sub-nav-switch" onclick="window.location.href='../每日选股/index.html'">SWITCH_</span>
-</nav>
-
-<!-- ═══ MODULES Overlay ═══ -->
-<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
-<div class="sub-overlay-menu" id="overlayMenu">
-  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
-  <div class="sub-menu-section">策略模块</div>
-  <a class="sub-menu-link" href="../../每日选股/index.html">
-    <span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略
-  </a>
-  <a class="sub-menu-link" href="../../行业排行/index.html">
-    <span class="sub-menu-dot"></span>行业排行
-  </a>
-  <a class="sub-menu-link" href="../../价值投资/index.html">
-    <span class="sub-menu-dot"></span>价值投资
-  </a>
-  <a class="sub-menu-link" href="../../回测报告/index.html">
-    <span class="sub-menu-dot"></span>回测报告
-  </a>
-  <div class="sub-menu-section">系统</div>
-  <a class="sub-menu-link" href="../../index.html">
-    <span class="sub-menu-dot"></span>首页
-  </a>
-  <a class="sub-menu-link" href="../../历史数据/index.html">
-    <span class="sub-menu-dot"></span>历史数据
-  </a>
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('l2')">二级行业 (127)</div>
+  <div class="tab" onclick="switchTab('l3')">三级行业 (344)</div>
 </div>
 
-<main>
-  <div class="sector-header">
-    <a href="../../index.html" class="back-link">← 返回首页</a>
-    <h1>行业排行 <span class="accent">2026-06-08</span></h1>
-    <div class="subtitle">共 127 个二级 · 344 个三级 | 点击表头排序</div>
-  </div>
-
-  <div class="tabs">
-    <div class="tab active" onclick="switchTab('l2')">二级行业 (127)</div>
-    <div class="tab" onclick="switchTab('l3')">三级行业 (344)</div>
-  </div>
-
-  <div id="tbl-wrapper">
-    <table id="tbl-l2" class="sector-table">
-      <thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l2',2)">3日涨跌</th><th onclick="sortTable('l2',3)">5日涨跌</th><th onclick="sortTable('l2',4)">10日涨跌</th><th onclick="sortTable('l2',5)" class="sorted">20日涨跌</th></tr></thead>
-      <tbody><tr data-r3="-2.9" data-r5="2.3" data-r10="0.5" data-r20="16.9"><td>1</td><td>元器件</td><td class="dn">-2.9%</td><td class="up">+2.3%</td><td class="up">+0.5%</td><td class="up">+16.9%</td></tr>
+<div id="tbl-wrapper">
+<table id="tbl-l2">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l2',2)">3日涨跌</th><th onclick="sortTable('l2',3)">5日涨跌</th><th onclick="sortTable('l2',4)">10日涨跌</th><th onclick="sortTable('l2',5)" class="sorted">20日涨跌</th></tr></thead>
+<tbody><tr data-r3="-2.9" data-r5="2.3" data-r10="0.5" data-r20="16.9"><td>1</td><td>元器件</td><td class="dn">-2.9%</td><td class="up">+2.3%</td><td class="up">+0.5%</td><td class="up">+16.9%</td></tr>
 <tr data-r3="1.6" data-r5="2.9" data-r10="13.9" data-r20="12.0"><td>2</td><td>煤炭开采</td><td class="up">+1.6%</td><td class="up">+2.9%</td><td class="up">+13.9%</td><td class="up">+12.0%</td></tr>
 <tr data-r3="-6.4" data-r5="5.1" data-r10="3.7" data-r20="10.7"><td>3</td><td>通信设备</td><td class="dn">-6.4%</td><td class="up">+5.1%</td><td class="up">+3.7%</td><td class="up">+10.7%</td></tr>
 <tr data-r3="-2.3" data-r5="-1.1" data-r10="-2.9" data-r20="9.7"><td>4</td><td>非金属材料</td><td class="dn">-2.3%</td><td class="dn">-1.1%</td><td class="dn">-2.9%</td><td class="up">+9.7%</td></tr>
@@ -209,10 +158,10 @@
 <tr data-r3="-10.4" data-r5="-9.4" data-r10="-14.3" data-r20="-26.2"><td>125</td><td>贵金属</td><td class="dn">-10.4%</td><td class="dn">-9.4%</td><td class="dn">-14.3%</td><td class="dn">-26.2%</td></tr>
 <tr data-r3="-5.3" data-r5="-7.7" data-r10="-13.2" data-r20="-27.1"><td>126</td><td>林业</td><td class="dn">-5.3%</td><td class="dn">-7.7%</td><td class="dn">-13.2%</td><td class="dn">-27.1%</td></tr>
 <tr data-r3="-3.9" data-r5="-16.6" data-r10="-10.0" data-r20="-29.0"><td>127</td><td>体育</td><td class="dn">-3.9%</td><td class="dn">-16.6%</td><td class="dn">-10.0%</td><td class="dn">-29.0%</td></tr></tbody>
-    </table>
-    <table id="tbl-l3" class="sector-table">
-      <thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l3',2)">3日涨跌</th><th onclick="sortTable('l3',3)">5日涨跌</th><th onclick="sortTable('l3',4)">10日涨跌</th><th onclick="sortTable('l3',5)" class="sorted">20日涨跌</th></tr></thead>
-      <tbody><tr data-r3="-4.4" data-r5="3.1" data-r10="12.5" data-r20="43.1"><td>1</td><td>被动元件</td><td class="dn">-4.4%</td><td class="up">+3.1%</td><td class="up">+12.5%</td><td class="up">+43.1%</td></tr>
+</table>
+<table id="tbl-l3">
+<thead><tr><th>#</th><th>行业</th><th onclick="sortTable('l3',2)">3日涨跌</th><th onclick="sortTable('l3',3)">5日涨跌</th><th onclick="sortTable('l3',4)">10日涨跌</th><th onclick="sortTable('l3',5)" class="sorted">20日涨跌</th></tr></thead>
+<tbody><tr data-r3="-4.4" data-r5="3.1" data-r10="12.5" data-r20="43.1"><td>1</td><td>被动元件</td><td class="dn">-4.4%</td><td class="up">+3.1%</td><td class="up">+12.5%</td><td class="up">+43.1%</td></tr>
 <tr data-r3="18.8" data-r5="25.2" data-r10="9.5" data-r20="26.6"><td>2</td><td>机器人</td><td class="up">+18.8%</td><td class="up">+25.2%</td><td class="up">+9.5%</td><td class="up">+26.6%</td></tr>
 <tr data-r3="5.5" data-r5="9.1" data-r10="6.8" data-r20="21.8"><td>3</td><td>面板</td><td class="up">+5.5%</td><td class="up">+9.1%</td><td class="up">+6.8%</td><td class="up">+21.8%</td></tr>
 <tr data-r3="-9.1" data-r5="2.9" data-r10="3.3" data-r20="16.4"><td>4</td><td>网络接配及塔设</td><td class="dn">-9.1%</td><td class="up">+2.9%</td><td class="up">+3.3%</td><td class="up">+16.4%</td></tr>
@@ -556,14 +505,10 @@
 <tr data-r3="-3.9" data-r5="-16.6" data-r10="-10.0" data-r20="-29.0"><td>342</td><td>体育</td><td class="dn">-3.9%</td><td class="dn">-16.6%</td><td class="dn">-10.0%</td><td class="dn">-29.0%</td></tr>
 <tr data-r3="-5.1" data-r5="-7.1" data-r10="-16.1" data-r20="-30.3"><td>343</td><td>云平台服务</td><td class="dn">-5.1%</td><td class="dn">-7.1%</td><td class="dn">-16.1%</td><td class="dn">-30.3%</td></tr>
 <tr data-r3="-10.9" data-r5="-10.0" data-r10="-17.6" data-r20="-30.9"><td>344</td><td>白银</td><td class="dn">-10.9%</td><td class="dn">-10.0%</td><td class="dn">-17.6%</td><td class="dn">-30.9%</td></tr></tbody>
-    </table>
-  </div>
-</main>
-
+</table>
 </div>
 
-<div class="footer-bar">CLAW v2.0 | 2026-06-08</div>
-
+<div class="ft">CLAW v2.0 | 2026-06-08</div>
 <script>
 let sortDir={l2:{},l3:{}};
 function switchTab(tab){
@@ -584,30 +529,6 @@ function sortTable(tbl,col){
   rows.forEach(function(r){t.querySelector('tbody').appendChild(r)});
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('sorted')});
   t.querySelectorAll('th')[col].classList.add('sorted');
-}
-function openModuleMenu() {
-  document.getElementById('overlayBg').classList.add('open');
-  document.getElementById('overlayMenu').classList.add('open');
-}
-function closeModuleMenu() {
-  document.getElementById('overlayBg').classList.remove('open');
-  document.getElementById('overlayMenu').classList.remove('open');
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModuleMenu();
-});
-// Module cycle — 5 modules
-var moduleUrls = [
-  '../../每日选股/index.html',
-  '../../行业排行/index.html',
-  '../../价值投资/index.html',
-  '../../回测报告/index.html',
-  '../../历史数据/index.html'
-];
-var currentModIdx = 0;
-function cycleModule() {
-  currentModIdx = (currentModIdx + 1) % moduleUrls.length;
-  window.location.href = moduleUrls[currentModIdx];
 }
 </script>
 </body></html>
