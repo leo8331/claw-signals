@@ -15,15 +15,12 @@
 <div class="deco-streak deco-streak-h"></div>
 <div class="deco-orb deco-orb-subtle"></div>
 
-<nav class="top-nav">
-  <div class="nav-inner">
-    <a href="../index.html" class="nav-brand">CLAW</a>
-    <a href="../index.html" class="nav-link">首页</a>
-    <a href="../每日选股/index.html" class="nav-link">每日选股</a>
-    <a href="../行业排行/index.html" class="nav-link">行业排行</a>
-    <a href="../价值投资/index.html" class="nav-link">价值投资</a>
-    <a href="./index.html" class="nav-link nav-active">历史数据</a>
-  </div>
+<div class="content-panel">
+
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="goHome()">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="cycleModule()">SWITCH_</span>
 </nav>
 
 <main>
@@ -51,11 +48,66 @@
 
 <footer class="page-footer">CLAW 量化投研系统 · 历史数据存档 · 2026</footer>
 
+</div><!-- /content-panel -->
+
+<!-- ═══ MODULES Overlay ═══ -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../每日选股/index.html">
+    <span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略
+  </a>
+  <a class="sub-menu-link" href="../行业排行/index.html">
+    <span class="sub-menu-dot"></span>行业排行
+  </a>
+  <a class="sub-menu-link" href="../价值投资/index.html">
+    <span class="sub-menu-dot"></span>价值投资
+  </a>
+  <a class="sub-menu-link" href="../回测报告/index.html">
+    <span class="sub-menu-dot"></span>回测报告
+  </a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../index.html">
+    <span class="sub-menu-dot"></span>首页
+  </a>
+  <a class="sub-menu-link" href="./index.html">
+    <span class="sub-menu-dot"></span>历史数据
+  </a>
+</div>
+
 <script>
 window.addEventListener('load', function() {
   setTimeout(function() {
     document.body.classList.add('entrance-ready');
   }, 50);
+});
+
+var moduleUrls = [
+  '../每日选股/index.html',
+  '../行业排行/index.html',
+  '../价值投资/index.html',
+  '../回测报告/index.html',
+  './index.html'
+];
+var currentModIdx = 4;
+
+function goHome() { window.location.href = '../index.html'; }
+function cycleModule() {
+  var next = (currentModIdx + 1) % 5;
+  window.location.href = moduleUrls[next];
+}
+
+function openModuleMenu() {
+  document.getElementById('overlayBg').classList.add('open');
+  document.getElementById('overlayMenu').classList.add('open');
+}
+function closeModuleMenu() {
+  document.getElementById('overlayBg').classList.remove('open');
+  document.getElementById('overlayMenu').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModuleMenu();
 });
 </script>
 
