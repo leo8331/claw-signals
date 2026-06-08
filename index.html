@@ -1,46 +1,794 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CLAW 量化系统</title>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAW — Quantitative Research</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;padding:24px;max-width:720px;margin:0 auto}
-h1{font-size:20px;border-bottom:2px solid #1da1f2;padding-bottom:10px;margin-bottom:5px}
-h1 span{color:#1da1f2}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-.card{background:#192734;border-radius:10px;padding:24px 18px;text-align:center;cursor:pointer;transition:all .2s;text-decoration:none;color:#e1e8ed;display:block}
-.card:hover{background:#223344;transform:translateY(-2px)}
-.card .icon{font-size:32px;margin-bottom:8px}
-.card .title{font-size:15px;font-weight:600;margin-bottom:4px}
-.card .sub{font-size:12px;color:#8899a6}
-.pos-bar{color:#8899a6;font-size:13px;text-align:center;margin:16px 0 8px}
-.pos-pill{display:inline-block;color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;margin-left:6px;font-weight:600}
-.ft{text-align:center;color:#5c6e7e;font-size:11px;margin-top:8px}
-.archive-link{text-align:center;margin:20px 0}
-.archive-link a{color:#8899a6;font-size:14px;text-decoration:none;transition:color .2s}
-.archive-link a:hover{color:#1da1f2;text-decoration:underline}
-</style></head><body>
-<h1><span>CLAW</span> 量化投研系统</h1>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<div class="grid">
-<a href="每日选股/" class="card">
-  <div class="icon">📊</div><div class="title">每日选股信号</div><div class="sub">H3 + G + V5-ML 三策略</div>
-</a>
-<a href="行业排行/" class="card">
-  <div class="icon">🏭</div><div class="title">行业排行</div><div class="sub">二级行业 可排序</div>
-</a>
-<a href="价值投资/" class="card">
-  <div class="icon">💰</div><div class="title">价值投资</div><div class="sub">供应链瓶颈 · 基本面选股</div>
-</a>
-<a href="回测报告/" class="card">
-  <div class="icon">📈</div><div class="title">回测报告</div><div class="sub">策略绩效 · 即将上线</div>
-</a>
+  html, body {
+    width: 100%; height: 100%;
+    margin: 0; padding: 0;
+    background: #060610;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  /* ── Scale wrapper ── */
+  .scale-wrapper {
+    /* body flexbox handles centering */
+  }
+  .canvas {
+    transform-origin: center center;
+  }
+
+  /* ── Canvas ── */
+  .canvas {
+    width: 1440px; height: 900px;
+    position: relative;
+    background:
+      linear-gradient(135deg, #0A0F1E 0%, #1A2030 30%, #1A2338 50%, #142030 75%, #0D1520 100%);
+  }
+
+  .canvas::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg,
+      rgba(102, 128, 204, 0.06) 0%,
+      rgba(128, 153, 217, 0.12) 40%,
+      rgba(77, 97, 153, 0.05) 100%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* ── Three column panel ── */
+  .three-col {
+    position: absolute;
+    left: 40px; top: 40px;
+    width: 1360px; height: 820px;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+      #141A2E 0%, #28334D 30%, #384A6E 50%, #2D3D5C 75%, #1E2C45 100%);
+  }
+
+  .three-col::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg,
+      rgba(89, 115, 191, 0.12) 0%,
+      rgba(140, 166, 230, 0.22) 35%,
+      rgba(102, 128, 191, 0.15) 65%,
+      rgba(77, 97, 153, 0.10) 100%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 0;
+  }
+
+  /* Divider lines */
+  .divider {
+    position: absolute; top: 0;
+    width: 1px; height: 820px;
+    background: rgba(56, 61, 77, 0.6);
+    z-index: 1;
+  }
+  .divider-left  { left: 227px; }
+  .divider-right { left: 680px; }
+
+  /* Top accent */
+  .top-accent {
+    position: absolute;
+    left: 0; top: -2px;
+    width: 1360px; height: 2px;
+    background: rgba(77, 107, 179, 0.4);
+    z-index: 1;
+  }
+
+  /* ── Left Column ── */
+  .col-left {
+    width: 227px; height: 820px;
+    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    padding: 48px 32px 32px;
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-box { display: flex; flex-direction: column; gap: 4px; }
+  .logo { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .logo-sub {
+    font-size: 10px; font-weight: 500; color: #6B7280;
+    letter-spacing: 0.5px;
+  }
+
+  /* Sidebar rail */
+  .rail-wrap {
+    position: absolute;
+    left: 12px; top: 120px;
+    width: 14px; height: 500px;
+  }
+  .sidebar-rail {
+    position: absolute;
+    left: 6px; top: 0;
+    width: 2px; height: 100%;
+    background: rgba(64, 72, 89, 0.6);
+  }
+  .anchor {
+    position: absolute; left: 2px;
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .anchor-1 { top: 0px;   background: #6699E0; }
+  .anchor-2 { top: 133px; background: rgba(64, 72, 89, 0.8); }
+  .anchor-3 { top: 267px; background: rgba(64, 72, 89, 0.8); }
+  .anchor-4 { top: 400px; background: rgba(64, 72, 89, 0.8); }
+
+  .section-title {
+    font-size: 10px; font-weight: 700; color: #4B5563;
+    letter-spacing: 0.5px; margin-top: 8px;
+  }
+  .summary-text {
+    font-size: 13px; font-weight: 400; color: #9CA2AF;
+    line-height: 22px; max-width: 160px;
+  }
+
+  .spacer-col { flex: 1; }
+
+  /* Footnote */
+  .footnote {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .foot-dot {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(80, 95, 120, 0.6);
+    border: 1px solid rgba(120, 140, 170, 0.2);
+    flex-shrink: 0;
+  }
+  .foot-text {
+    font-size: 11px; color: #7A8599; line-height: 18px;
+  }
+
+  /* Signal Section */
+  .signal-section {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .signal-label {
+    font-size: 10px; font-weight: 700; color: #7A8599;
+    letter-spacing: 0.5px;
+  }
+  .signal-value {
+    font-size: 14px; font-weight: 500; color: #B0B8C4;
+  }
+
+  /* ── Middle Column ── */
+  .col-mid {
+    width: 453px; height: 820px;
+    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    padding: 200px 40px 40px;
+    gap: 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .main-title {
+    font-size: 48px; font-weight: 700; color: #F1F5F9;
+    line-height: 56px;
+  }
+  .title-accent-line {
+    width: 64px; height: 1.5px;
+    background: rgba(102, 140, 217, 0.5);
+  }
+  .body-text {
+    font-size: 14px; font-weight: 400; color: #A1A8B4;
+    line-height: 28px; max-width: 373px;
+  }
+
+  /* View More — fixed position, locked to "二级行业轮动与排名" baseline */
+  .view-more-row {
+    display: flex; align-items: center; gap: 10px;
+    position: absolute;
+    top: 578px;
+    left: 40px;
+  }
+  .view-more {
+    font-size: 11px; font-weight: 700; color: #6B7280;
+  }
+  .plus-circle {
+    width: 26px; height: 26px;
+    border: 1.5px solid rgba(128, 143, 166, 0.7);
+    border-radius: 50%;
+    position: relative;
+  }
+  .plus-circle::before,
+  .plus-circle::after {
+    content: '';
+    position: absolute;
+    background: #A6B2C7;
+  }
+  .plus-circle::before {
+    top: 12px; left: 5px;
+    width: 16px; height: 1.5px;
+  }
+  .plus-circle::after {
+    top: 5px; left: 12px;
+    width: 1.5px; height: 16px;
+  }
+
+  /* Decorative elements */
+  .deco-streak {
+    position: absolute;
+    background: linear-gradient(90deg,
+      rgba(102,128,204,0) 0%, rgba(128,153,217,0.12) 50%, rgba(102,128,204,0) 100%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .streak-1 {
+    top: 200px; left: 80px;
+    width: 340px; height: 1.5px;
+    transform: rotate(-32deg);
+    opacity: 0.6;
+  }
+  .streak-2 {
+    top: 420px; left: 60px;
+    width: 240px; height: 1px;
+    transform: rotate(-28deg);
+    opacity: 0.5;
+  }
+  .deco-orb {
+    position: absolute;
+    top: 500px; left: 320px;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(102,128,217,0.04) 0%, rgba(64,89,140,0.01) 50%, transparent 100%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .mini-orb {
+    position: absolute;
+    top: 140px; left: 360px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(128,166,230,0.08) 0%, rgba(64,102,191,0.02) 70%, transparent 100%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* ── Right Column ── */
+  .col-right {
+    width: 680px; height: 820px;
+    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Right Nav */
+  .right-nav {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 52px;
+    display: flex; align-items: center; justify-content: flex-end;
+    gap: 16px; padding: 0 24px;
+    z-index: 10;
+  }
+  .nav-left-group {
+    display: flex; align-items: center; gap: 36px;
+  }
+  .nav-home {
+    font-size: 11px; font-weight: 700; color: #E6E8EE;
+  }
+  .nav-switch {
+    font-size: 11px; font-weight: 700; color: #80899E;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    width: 22px; height: 18px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px; height: 2.5px;
+    background: #9BA6B7;
+    border-radius: 1px;
+  }
+
+  /* Visual Area — fills remaining space, holds module card */
+  .visual-area {
+    flex: 1;
+    position: relative;
+  }
+
+  /* Module Card */
+  .module-card {
+    position: absolute;
+    bottom: 68px; left: 0; right: 0;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 6px;
+    padding: 0 24px 24px;
+    z-index: 5;
+  }
+
+  /* Module items */
+  .module-item {
+    width: 100%;
+    display: flex; align-items: center; gap: 12px;
+    border-radius: 8px; padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.25s ease, height 0.25s ease;
+  }
+
+  .module-item.selected {
+    background: rgba(20, 26, 46, 0.9);
+    height: 62px;
+  }
+
+  .module-item:not(.selected) {
+    height: 36px;
+  }
+
+  .module-item:hover:not(.selected) {
+    background: rgba(20, 26, 46, 0.3);
+  }
+
+  .module-dot {
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+  }
+  .module-item.selected .module-dot {
+    width: 8px; height: 8px;
+    background: #6699E0;
+  }
+  .module-item:not(.selected) .module-dot {
+    width: 6px; height: 6px;
+    background: rgba(64, 72, 89, 0.8);
+  }
+
+  .module-text {
+    display: flex; flex-direction: column; gap: 8px;
+    flex: 1;
+    transition: gap 0.25s ease;
+  }
+  .module-item:not(.selected) .module-text {
+    gap: 2px;
+  }
+
+  .module-name {
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .module-item.selected .module-name {
+    font-weight: 700; color: #E6E8EE;
+  }
+  .module-item:not(.selected) .module-name {
+    font-weight: 400; color: #73808C;
+  }
+
+  .module-desc {
+    font-size: 11px; font-weight: 400;
+    color: #8090AD;
+    transition: all 0.25s ease;
+  }
+  .module-item:not(.selected) .module-desc {
+    opacity: 0; height: 0; overflow: hidden;
+  }
+
+  /* ── Hamburger Overlay ── */
+  .overlay-bg {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .overlay-bg.open { opacity: 1; pointer-events: auto; }
+
+  .overlay-menu {
+    position: fixed; top: 0; right: 0;
+    width: 360px; height: 100%;
+    background: linear-gradient(180deg, #0F1629 0%, #1A2640 100%);
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex; flex-direction: column;
+    padding: 60px 40px 40px;
+    gap: 4px;
+    border-left: 1px solid rgba(255,255,255,0.06);
+  }
+  .overlay-menu.open { transform: translateX(0); }
+
+  .menu-section {
+    font-size: 10px; font-weight: 700; color: #4B5A80;
+    letter-spacing: 0.8px; padding: 24px 0 8px 0;
+  }
+  .menu-link {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    font-size: 15px; font-weight: 500; color: #B0B8C4;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .menu-link:hover {
+    background: rgba(102, 140, 217, 0.15);
+    color: #E6E8EE;
+  }
+  .menu-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(102, 140, 217, 0.4);
+    flex-shrink: 0;
+  }
+  .menu-close {
+    position: absolute; top: 28px; right: 28px;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+  .menu-close:hover { background: rgba(255,255,255,0.06); }
+  .menu-close::before, .menu-close::after {
+    content: ''; position: absolute;
+    width: 16px; height: 1.5px;
+    background: #7A8599;
+  }
+  .menu-close::before { transform: rotate(45deg); }
+  .menu-close::after  { transform: rotate(-45deg); }
+
+  /* Clickable */
+  .nav-home, .nav-switch { cursor: pointer; transition: color 0.2s; }
+  .nav-home:hover { color: #fff; }
+  .nav-switch:hover { color: #A0A8B8; }
+  .hamburger { cursor: pointer; }
+  .hamburger:hover span { background: #C0C8D4; }
+  .plus-circle { cursor: pointer; transition: border-color 0.2s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+  .plus-circle:hover { border-color: rgba(160, 175, 200, 0.9); transform: scale(1.15) rotate(90deg); }
+
+  /* ═══════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════ */
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(102,153,224,0.5); }
+    50%      { box-shadow: 0 0 0 8px rgba(102,153,224,0); }
+  }
+  @keyframes breathe-bg {
+    0%, 100% { opacity: 0.7; }
+    50%      { opacity: 1; }
+  }
+  @keyframes drift-streak {
+    0%, 100% { transform: rotate(-32deg) translateX(0); opacity: 0.6; }
+    50%      { transform: rotate(-32deg) translateX(30px); opacity: 0.35; }
+  }
+  @keyframes drift-streak2 {
+    0%, 100% { transform: rotate(-28deg) translateX(0); opacity: 0.5; }
+    50%      { transform: rotate(-28deg) translateX(-20px); opacity: 0.25; }
+  }
+  @keyframes glow-orb {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50%      { transform: scale(1.8); opacity: 0.15; }
+  }
+  @keyframes glow-mini {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50%      { transform: scale(2.2); opacity: 0.08; }
+  }
+  @keyframes crossfade-text {
+    0%   { opacity: 1; transform: translateY(0); }
+    40%  { opacity: 0; transform: translateY(-8px); }
+    60%  { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* ── Staggered entrance ── */
+  .canvas.loaded .col-left  { animation: fadeSlideUp 0.7s ease both; }
+  .canvas.loaded .col-mid   { animation: fadeSlideUp 0.7s 0.12s ease both; }
+  .canvas.loaded .col-right { animation: fadeSlideUp 0.7s 0.24s ease both; }
+  .canvas.loaded .top-accent { animation: fadeIn 0.5s 0.4s ease both; }
+  .canvas.loaded .divider    { animation: fadeIn 0.5s 0.3s ease both; }
+
+  /* ── Background breathing ── */
+  .canvas::before { animation: breathe-bg 8s ease-in-out infinite; }
+
+  /* ── Active rail dot pulse ── */
+  .anchor-1 { animation: pulse-dot 2.5s ease-in-out infinite; }
+
+  /* ── Streak drift ── */
+  .streak-1 { animation: drift-streak 6s ease-in-out infinite; }
+  .streak-2 { animation: drift-streak2 7s ease-in-out infinite; }
+
+  /* ── Orb glow ── */
+  .deco-orb  { animation: glow-orb 5s ease-in-out infinite; }
+  .mini-orb  { animation: glow-mini 4s ease-in-out infinite; }
+
+  /* ── Content switch crossfade ── */
+  .main-title.crossfade,
+  .body-text.crossfade  { animation: crossfade-text 0.45s ease both; }
+
+  /* ── Module card stagger entrance ── */
+  .canvas.loaded .module-card { animation: scaleIn 0.5s 0.5s ease both; }
+
+  /* ── Hamburger line morph on hover ── */
+  .hamburger span { transition: width 0.25s ease, background 0.25s ease; }
+  .hamburger:hover span:nth-child(2) { width: 14px; }
+  .hamburger:hover span:nth-child(3) { width: 10px; }
+
+  /* ── Signal values number emphasis ── */
+  .signal-value { transition: color 0.3s ease; }
+  .signal-section:hover .signal-value { color: #D0D8E4; }
+
+  /* ── Menu link stagger ── */
+  .menu-link {
+    transform: translateX(20px); opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .overlay-menu.open .menu-link {
+    transform: translateX(0); opacity: 1;
+  }
+  .overlay-menu.open .menu-link:nth-child(2) { transition-delay: 0.05s; }
+  .overlay-menu.open .menu-link:nth-child(3) { transition-delay: 0.1s; }
+  .overlay-menu.open .menu-link:nth-child(4) { transition-delay: 0.15s; }
+  .overlay-menu.open .menu-link:nth-child(5) { transition-delay: 0.2s; }
+  .overlay-menu.open .menu-link:nth-child(7) { transition-delay: 0.22s; }
+  .overlay-menu.open .menu-link:nth-child(8) { transition-delay: 0.27s; }
+</style>
+</head>
+<body>
+<div class="scale-wrapper" id="scaleWrapper">
+<div class="canvas">
+
+  <!-- Three-column panel -->
+  <div class="three-col">
+    <!-- Decorations -->
+    <div class="top-accent"></div>
+    <div class="divider divider-left"></div>
+    <div class="divider divider-right"></div>
+
+    <!-- Left Column -->
+    <div class="col-left">
+      <div class="logo-box">
+        <div class="logo">CLAW</div>
+        <div class="logo-sub">QUANTITATIVE RESEARCH</div>
+      </div>
+
+      <!-- Sidebar rail -->
+      <div class="rail-wrap">
+        <div class="sidebar-rail"></div>
+        <div class="anchor anchor-1"></div>
+        <div class="anchor anchor-2"></div>
+        <div class="anchor anchor-3"></div>
+        <div class="anchor anchor-4"></div>
+      </div>
+
+      <div class="section-title">PROJECT OVERVIEW</div>
+      <div class="summary-text">自动化量化投研系统，整合多因子选股模型、行业轮动分析与价值投资框架。数据每个交易日 14:30 自动更新，覆盖 A 股全市场标的。</div>
+
+      <div class="spacer-col"></div>
+
+      <div class="footnote">
+        <div class="foot-dot"></div>
+        <div class="foot-text">CLAW Research Lab<br>数据来源：通达信</div>
+      </div>
+
+      <div class="signal-section">
+        <div class="signal-label">SIGNAL STRENGTH</div>
+        <div class="signal-value">建议仓：0%</div>
+        <div class="signal-value">真实仓：0%</div>
+      </div>
+    </div>
+
+    <!-- Middle Column -->
+    <div class="col-mid">
+      <div class="deco-streak streak-1"></div>
+      <div class="deco-streak streak-2"></div>
+      <div class="deco-orb"></div>
+      <div class="mini-orb"></div>
+
+      <div class="main-title">每日选股策略</div>
+      <div class="title-accent-line"></div>
+      <div class="body-text">CLAW 系统采用多因子量化选股框架，融合 H3 动量因子、G 成长因子与 V5-ML 机器学习信号。策略每日收盘后自动运行，筛选全市场标的并生成推荐名单。</div>
+
+      <div class="view-more-row">
+        <div class="view-more">VIEW MORE</div>
+        <div class="plus-circle"></div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-right">
+      <!-- Right Nav -->
+      <div class="right-nav">
+        <div class="nav-left-group">
+          <span class="nav-home">HOME_</span>
+          <span class="nav-switch">SWITCH_</span>
+        </div>
+        <div class="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Visual Area -->
+      <div class="visual-area">
+        <!-- Module Card -->
+        <div class="module-card">
+          <div class="module-item selected" onclick="switchModule(0)">
+            <div class="module-dot"></div>
+            <div class="module-text">
+              <span class="module-name">每日选股策略</span>
+              <span class="module-desc">多因子量化选股 · 每日更新</span>
+            </div>
+          </div>
+          <div class="module-item" onclick="switchModule(1)">
+            <div class="module-dot"></div>
+            <div class="module-text">
+              <span class="module-name">二级行业轮动与排名</span>
+              <span class="module-desc">申万二级行业 · Top 轮动</span>
+            </div>
+          </div>
+          <div class="module-item" onclick="switchModule(2)">
+            <div class="module-dot"></div>
+            <div class="module-text">
+              <span class="module-name">价值投资</span>
+              <span class="module-desc">ROE + PB 双因子框架</span>
+            </div>
+          </div>
+          <div class="module-item" onclick="switchModule(3)">
+            <div class="module-dot"></div>
+            <div class="module-text">
+              <span class="module-name">回测报告</span>
+              <span class="module-desc">多周期回测 · 即将上线</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- three-col -->
+
+</div><!-- canvas -->
+</div><!-- scale-wrapper -->
+
+<!-- Hamburger overlay -->
+<div class="overlay-bg" id="overlayBg" onclick="closeMenu()"></div>
+<div class="overlay-menu" id="overlayMenu">
+  <div class="menu-close" onclick="closeMenu()"></div>
+  <div class="menu-section">策略模块</div>
+  <a class="menu-link" href="每日选股/index.html" onclick="closeMenu()">
+    <span class="menu-dot" style="background:#6699E0"></span>每日选股策略
+  </a>
+  <a class="menu-link" href="行业排行/index.html" onclick="closeMenu()">
+    <span class="menu-dot"></span>行业排行
+  </a>
+  <a class="menu-link" href="价值投资/index.html" onclick="closeMenu()">
+    <span class="menu-dot"></span>价值投资
+  </a>
+  <a class="menu-link" href="回测报告/index.html" onclick="closeMenu()">
+    <span class="menu-dot"></span>回测报告
+  </a>
+  <div class="menu-section">系统</div>
+  <a class="menu-link" href="index.html" onclick="closeMenu()">
+    <span class="menu-dot"></span>首页
+  </a>
+  <a class="menu-link" href="历史数据/index.html" onclick="closeMenu()">
+    <span class="menu-dot"></span>历史数据
+  </a>
 </div>
 
+<script>
+  // ── Module data with URLs ──
+  var currentModule = 0;
+  var items = document.querySelectorAll('.module-item');
+  var mainTitle = document.querySelector('.main-title');
+  var bodyText = document.querySelector('.body-text');
+  var plusCircle = document.querySelector('.plus-circle');
 
+  var moduleContent = [
+    { title: '每日选股策略', body: 'CLAW 系统采用多因子量化选股框架，融合 H3 动量因子、G 成长因子与 V5-ML 机器学习信号。策略每日收盘后自动运行，筛选全市场标的并生成推荐名单。', url: '每日选股/index.html' },
+    { title: '二级行业轮动与排名', body: '基于申万二级行业分类体系，通过多维度动量与资金流分析，每周轮动识别市场最强行业板块。综合考量行业拥挤度、估值分位与景气度变化。', url: '行业排行/index.html' },
+    { title: '价值投资', body: 'ROE + PB 双因子框架，聚焦高 ROE 且估值合理的优质标的。季度调仓，长期视角验证基本面驱动超额收益。', url: '价值投资/index.html' },
+    { title: '回测报告', body: '多周期回测框架提供完整的策略绩效评估，涵盖夏普比率、最大回撤、年化收益等核心指标。历史回测验证策略在不同市场环境下的表现。', url: '回测报告/index.html' }
+  ];
 
-<div class="archive-link">
-<a href="历史数据/">📅 历史数据存档 (8日) →</a>
-</div>
+  // ── Module switching with crossfade ──
+  function switchModule(index) {
+    if (index === currentModule) return;
+    currentModule = index;
+    items.forEach(function(item, i) {
+      item.classList.toggle('selected', i === index);
+    });
 
-<div class="ft">CLAW v2.0 | 自动化量化系统 | 2026-06-08</div>
-</body></html>
+    // Crossfade title
+    mainTitle.classList.add('crossfade');
+    mainTitle.addEventListener('animationend', function h() {
+      mainTitle.removeEventListener('animationend', h);
+      mainTitle.textContent = moduleContent[index].title;
+      mainTitle.classList.remove('crossfade');
+    });
+
+    // Crossfade body
+    bodyText.classList.add('crossfade');
+    bodyText.addEventListener('animationend', function h() {
+      bodyText.removeEventListener('animationend', h);
+      bodyText.textContent = moduleContent[index].body;
+      bodyText.classList.remove('crossfade');
+    });
+  }
+
+  // ── Plus circle → jump to current module ──
+  plusCircle.addEventListener('click', function() {
+    window.location.href = moduleContent[currentModule].url;
+  });
+
+  // ── HOME_ → homepage ──
+  document.querySelector('.nav-home').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  // ── SWITCH_ → cycle modules ──
+  document.querySelector('.nav-switch').addEventListener('click', function() {
+    var next = (currentModule + 1) % moduleContent.length;
+    switchModule(next);
+  });
+
+  // ── Hamburger menu ──
+  var overlayBg = document.getElementById('overlayBg');
+  var overlayMenu = document.getElementById('overlayMenu');
+
+  document.querySelector('.hamburger').addEventListener('click', function() {
+    overlayBg.classList.add('open');
+    overlayMenu.classList.add('open');
+  });
+
+  function closeMenu() {
+    overlayBg.classList.remove('open');
+    overlayMenu.classList.remove('open');
+  }
+
+  // Keyboard: ESC closes menu
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // ── Responsive scaling ──
+  function scalePage() {
+    var canvas = document.querySelector('.canvas');
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+    var scale;
+    if (W/H > 1440/900) {
+      scale = H / 900;
+    } else {
+      scale = W / 1440;
+    }
+    canvas.style.transform = 'scale(' + scale + ')';
+  }
+
+  window.addEventListener('resize', scalePage);
+  scalePage();
+
+  // ── Trigger entrance animation on load ──
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.querySelector('.canvas').classList.add('loaded');
+    }, 100);
+  });
+</script>
+</body>
+</html>

@@ -120,14 +120,14 @@
 <div class="deco-orb deco-orb-subtle"></div>
 <div class="deco-orb deco-orb-mini"></div>
 
-<!-- ═══ Content Panel (Layer 1) ═══ -->
-<div class="content-panel">
-
-<!-- ═══ Navigation (3 right-aligned elements, matching homepage) ═══ -->
-<nav class="sub-nav">
-  <span class="sub-nav-home" onclick="goHome()">HOME_</span>
-  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
-  <span class="sub-nav-switch" onclick="cycleModule()">SWITCH_</span>
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">CLAW</a>
+    <a href="../index.html" class="nav-link">每日选股</a>
+    <a href="#" class="nav-link" id="sector-link">行业排行</a>
+    <a href="./index.html" class="nav-link nav-active">价值投资</a>
+  </div>
 </nav>
 
 <main>
@@ -317,34 +317,7 @@
   CLAW 量化投研系统 · 价值投资 · A股供应链瓶颈标的池 · 2026
 </footer>
 
-</div><!-- /content-panel -->
-
-<!-- ═══ MODULES Overlay ═══ -->
-<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
-<div class="sub-overlay-menu" id="overlayMenu">
-  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
-  <div class="sub-menu-section">策略模块</div>
-  <a class="sub-menu-link" href="../每日选股/index.html">
-    <span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略
-  </a>
-  <a class="sub-menu-link" href="../行业排行/index.html">
-    <span class="sub-menu-dot"></span>行业排行
-  </a>
-  <a class="sub-menu-link" href="./index.html">
-    <span class="sub-menu-dot"></span>价值投资
-  </a>
-  <a class="sub-menu-link" href="../回测报告/index.html">
-    <span class="sub-menu-dot"></span>回测报告
-  </a>
-  <div class="sub-menu-section">系统</div>
-  <a class="sub-menu-link" href="../index.html">
-    <span class="sub-menu-dot"></span>首页
-  </a>
-  <a class="sub-menu-link" href="../历史数据/index.html">
-    <span class="sub-menu-dot"></span>历史数据
-  </a>
-</div>
-
+<!-- ═══ Auto-fetch latest sector link ═══ -->
 <script>
 // Entrance animation
 (function() {
@@ -354,33 +327,15 @@
   });
 })();
 
-// Module cycle — 4 modules
-var moduleUrls = [
-  '../每日选股/index.html',
-  '../行业排行/index.html',
-  '../价值投资/index.html',
-  '../回测报告/index.html'
-];
-var currentModIdx = 2; // 价值投资
-
-function goHome() { window.location.href = '../index.html'; }
-function cycleModule() {
-  var next = (currentModIdx + 1) % 4;
-  window.location.href = moduleUrls[next];
-}
-
-// Overlay menu
-function openModuleMenu() {
-  document.getElementById('overlayBg').classList.add('open');
-  document.getElementById('overlayMenu').classList.add('open');
-}
-function closeModuleMenu() {
-  document.getElementById('overlayBg').classList.remove('open');
-  document.getElementById('overlayMenu').classList.remove('open');
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModuleMenu();
-});
+fetch('../')
+  .then(r=>r.text())
+  .then(html=>{
+    const matches=html.match(/href="(\d{4}-\d{2}-\d{2})\//g);
+    if(matches&&matches.length){
+      const latest=matches[0].replace('href="','').replace('/','');
+      document.getElementById('sector-link').href='../'+latest+'/sector.html';
+    }
+  }).catch(()=>{});
 </script>
 
 </body>
