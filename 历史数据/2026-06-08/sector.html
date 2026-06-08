@@ -37,9 +37,16 @@
 
 <nav class="sub-nav">
   <span class="sub-nav-home" onclick="window.location.href='../../index.html'">HOME_</span>
-  <span class="sub-nav-modules" onclick="window.location.href='../../index.html'">MODULES ▾</span>
+  <span class="sub-nav-modules" onclick="toggleModuleMenu()">MODULES ▾</span>
   <span class="sub-nav-switch" onclick="window.location.href='../每日选股/index.html'">SWITCH_</span>
 </nav>
+<div id="module-menu" class="module-dropdown" style="display:none">
+  <a href="../../每日选股/index.html">📊 每日选股</a>
+  <a href="../../行业排行/index.html">🏭 行业排行</a>
+  <a href="../../价值投资/index.html">💰 价值投资</a>
+  <a href="../../回测报告/index.html">📈 回测报告</a>
+  <a href="../../历史数据/index.html">📅 历史数据</a>
+</div>
 
 <main>
   <div class="sector-header">
@@ -559,5 +566,43 @@ function sortTable(tbl,col){
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('sorted')});
   t.querySelectorAll('th')[col].classList.add('sorted');
 }
+function toggleModuleMenu() {
+  var menu = document.getElementById('module-menu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('module-menu');
+  var btn = document.querySelector('.sub-nav-modules');
+  if (!btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
 </script>
+
+<style>
+.module-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.module-dropdown a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.module-dropdown a:hover {
+  background: var(--bg-hover);
+}
+</style>
 </body></html>
