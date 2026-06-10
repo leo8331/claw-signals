@@ -1,78 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>行业排行 · CLAW</title>
-<link rel="stylesheet" href="../style.css">
-<style>
-.redirect-container{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:60vh;text-align:center;padding:40px 20px;
-}
-.redirect-icon{font-size:48px;margin-bottom:16px;opacity:0.8}
-.redirect-title{font-size:20px;font-weight:600;margin-bottom:8px;color:var(--text-primary)}
-.redirect-subtitle{font-size:14px;color:var(--text-tertiary);margin-bottom:24px}
-.redirect-link{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 24px;background:var(--accent);color:#fff;
-  border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;
-  transition:opacity 0.2s;
-}
-.redirect-link:hover{opacity:0.85}
-.redirect-date{font-size:12px;color:var(--text-tertiary);margin-top:16px}
-</style>
-<meta http-equiv="refresh" content="0;url=../历史数据/2026-06-09/sector.html">
-</head>
-<body class="entrance-ready">
-
-<div class="top-accent-strip"></div>
-<div class="deco-streak deco-streak-h"></div>
-<div class="deco-orb deco-orb-subtle"></div>
-
-<div class="content-panel">
-
-<nav class="sub-nav">
-  <span class="sub-nav-home" onclick="window.location.href='../index.html'">HOME_</span>
-  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
-  <span class="sub-nav-switch" onclick="window.location.href='../每日选股/index.html'">SWITCH_</span>
-</nav>
-
-<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
-<div class="sub-overlay-menu" id="overlayMenu">
-  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
-  <div class="sub-menu-section">策略模块</div>
-  <a class="sub-menu-link" href="../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
-  <a class="sub-menu-link" href="../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
-  <a class="sub-menu-link" href="../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
-  <a class="sub-menu-link" href="../回测报告/index.html"><span class="sub-menu-dot"></span>回测报告</a>
-  <div class="sub-menu-section">系统</div>
-  <a class="sub-menu-link" href="../index.html"><span class="sub-menu-dot"></span>首页</a>
-  <a class="sub-menu-link" href="../历史数据/index.html"><span class="sub-menu-dot"></span>历史数据</a>
-</div>
-
-<main>
-  <div class="redirect-container">
-    <div class="redirect-icon">🏭</div>
-    <div class="redirect-title">正在跳转到最新行业排行</div>
-    <div class="redirect-subtitle">行业数据自动更新，正在为您加载最新版本...</div>
-    <a href="../历史数据/2026-06-09/sector.html" class="redirect-link">立即查看 2026-06-09 行业排行 →</a>
-    <div class="redirect-date">
-      如果没有自动跳转，请点击上方按钮<br>
-      或 <a href="../历史数据/index.html" style="color:var(--accent)">查看历史数据</a> | <a href="../index.html" style="color:var(--accent)">返回首页</a>
-    </div>
-  </div>
-</main>
-</div>
-
-<script>
-setTimeout(function(){window.location.href='../历史数据/2026-06-09/sector.html'},100);
-function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
-function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
-var moduleUrls=['../每日选股/index.html','../行业排行/index.html','../价值投资/index.html','../回测报告/index.html','../历史数据/index.html'];
-var currentModIdx=0;
-function cycleModule(){currentModIdx=(currentModIdx+1)%moduleUrls.length;window.location.href=moduleUrls[currentModIdx]}
-</script>
-</body>
-</html>
+<style>body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+.box{text-align:center}.box h1{font-size:20px;color:#8899a6;margin-bottom:8px}.box p{font-size:14px;color:#5c6e7e}a{color:#1da1f2}</style>
+<meta http-equiv="refresh" content="0;url=../历史数据/2026-06-10/sector.html"></head><body>
+<div class="box"><h1>🏭 跳转到最新行业排行</h1><p>最新：2026-06-10 | <a href="../历史数据/">历史数据</a> | <a href="../">首页</a></p></div>
+</body></html>
