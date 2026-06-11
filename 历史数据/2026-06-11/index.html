@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CLAW 2026-06-11</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+.page-header h1{font-size:24px;margin-bottom:4px}
+.page-header h1 .accent{color:var(--accent)}
+.page-header .subtitle{font-size:13px;color:var(--text-tertiary);margin-bottom:20px}
+.strat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:18px}
+.strat-card h2{font-size:15px;margin-bottom:4px}
+.strat-card .desc{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;line-height:1.6}
+.stock-table{width:100%;border-collapse:collapse;font-size:13px}
+.stock-table th{text-align:left;padding:8px 10px;color:var(--text-tertiary);font-weight:500;font-size:11px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
+.stock-table td{padding:8px 10px;border-bottom:1px solid rgba(56,61,77,0.12);font-size:13px}
+.stock-table tr:hover td{background:rgba(56,61,77,0.06)}
+.tag-sm{font-size:10px;padding:1px 6px;border-radius:3px;color:#fff;display:inline-block}
+.tag-h3{background:#17bf63}.tag-g{background:#794bc4}.tag-v5{background:#e0245e}
+@media(max-width:768px){.stock-table{font-size:11px}.stock-table th,.stock-table td{padding:6px 4px}}
+</style>
+</head>
+<body class="entrance-ready">
+
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="window.location.href='../../index.html'">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="window.location.href='../行业排行/index.html'">SWITCH_</span>
+</nav>
+
+<!-- MODULES Overlay -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
+  <a class="sub-menu-link" href="../../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
+  <a class="sub-menu-link" href="../../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
+  <a class="sub-menu-link" href="../../回测报告/index.html"><span class="sub-menu-dot"></span>回测报告</a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../../index.html"><span class="sub-menu-dot"></span>首页</a>
+  <a class="sub-menu-link" href="../../历史数据/index.html"><span class="sub-menu-dot"></span>历史数据</a>
+</div>
+
+<main>
+  <div class="page-header" style="text-align:center">
+    <a href="../../index.html" class="back-home" style="margin-bottom:8px;display:inline-flex;">← 返回首页</a>
+    <h1>每日选股信号 <span class="accent">2026-06-11</span></h1>
+    <div class="subtitle">全市场自动扫描 · H3 / G变体 / V5-ML 三策略信号</div>
+  </div>
+
+  <div class="strat-card">
+    <h2><span class="tag-sm tag-h3">H3</span> 振幅加速</h2>
+    <div class="desc">ideal_amp>1.5 | L1板块 | MC>80亿 | ★★★牛市优先 ⚡过热谨慎</div>
+    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>量能比</th><th>MA60%</th></tr><tr><td>1</td><td>002955</td><td>鸿合科技</td><td>消费电子</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#e0245e;font-size:11px">9%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥30.73</td><td>1.88</td><td>19.9%</td></tr>
+<tr><td>2</td><td>601187</td><td>厦门银行</td><td>地方性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#f91880;font-size:10px;background:#2d0a1a;padding:1px 4px;border-radius:2px">⚡过热</span></td><td>¥7.80</td><td>1.64</td><td>3.9%</td></tr>
+<tr><td>3</td><td>601665</td><td>齐鲁银行</td><td>地方性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#f91880;font-size:10px;background:#2d0a1a;padding:1px 4px;border-radius:2px">⚡过热</span></td><td>¥6.46</td><td>0.96</td><td>6.4%</td></tr></table>
+  </div>
+
+  <div class="strat-card">
+    <h2><span class="tag-sm tag-g">G变体</span> 趋势质量</h2>
+    <div class="desc">VG+11因子 | 5天冷却 | L1板块 | MC>80亿</div>
+    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>ADX</th><th>模块</th></tr><tr><td colspan=11 style=color:#556>暂无</td></tr></table>
+  </div>
+
+  <div class="strat-card">
+    <h2><span class="tag-sm tag-v5">V5-ML</span> 量价突破</h2>
+    <div class="desc">ML proba排名 | ★★★优先 ✘回避 | ML>0.60加成</div>
+    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>ML</th><th>评级</th></tr><tr><td>1</td><td>600722</td><td>金牛化工</td><td>化学原料</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥10.82</td><td>0.694</td><td>★★</td></tr>
+<tr><td>2</td><td>600338</td><td>西藏珠峰</td><td>工业金属</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#e0245e;font-size:11px">9%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥17.08</td><td>0.661</td><td>★★</td></tr>
+<tr><td>3</td><td>688450</td><td>光格科技</td><td>通用设备</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#f5a623;font-size:11px">8%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥40.60</td><td>0.649</td><td>★★</td></tr>
+<tr><td>4</td><td>301580</td><td>爱迪特</td><td>医疗器械</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥45.18</td><td>0.618</td><td>★★</td></tr>
+<tr><td>5</td><td>605028</td><td>世茂能源</td><td>电力</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#f5a623;font-size:11px">7%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥22.67</td><td>0.591</td><td>★</td></tr>
+<tr><td>6</td><td>002490</td><td>山东墨龙</td><td>专用设备</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#f5a623;font-size:11px">6%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥8.54</td><td>0.534</td><td>★</td></tr>
+<tr><td>7</td><td>688102</td><td>斯瑞新材</td><td>工业金属</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#e0245e;font-size:11px">9%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥39.97</td><td>0.527</td><td>★</td></tr>
+<tr><td>8</td><td>600295</td><td>鄂尔多斯</td><td>冶钢原料</td><td><span style="color:#1da1f2;font-size:11px;font-weight:600">↓↑↑</span></td><td><span style="color:#1da1f2;font-weight:600">★★</span></td><td><span style="color:#f5a623;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥13.60</td><td>0.503</td><td>★</td></tr></table>
+  </div>
+</main>
+</div>
+
+<div class="footer-bar">CLAW v2.0 | 2026-06-11 | ⚠ 信号仅供参考</div>
+
+<script>
+function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
+function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
+var moduleUrls=['../../每日选股/index.html','../../行业排行/index.html','../../价值投资/index.html','../../回测报告/index.html','../../历史数据/index.html'];
+var currentModIdx=0;
+function cycleModule(){currentModIdx=(currentModIdx+1)%moduleUrls.length;window.location.href=moduleUrls[currentModIdx]}
+</script>
+</body></html>
