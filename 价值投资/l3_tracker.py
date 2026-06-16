@@ -267,7 +267,150 @@ def read_history():
     if alerts:
         print(f"\n🟡 L3 拐点检测（从极低关注度→开始被讨论）：")
         for kw, old, new in alerts:
-            print(f"  {kw}: L3 {old:.1f} → {new:.1f} | 这是信息扩散的前夜——已有人开始讨论但尚未到'所有人都知道'的阶段")
+            print(f"  {kw}: L3 {old:.1f} → {new:.1f} | 信息扩散前夜——从无人关注到开始讨论的拐点窗口")
+
+
+# ═══════════════ L3纯度判断：真L3 vs 伪L3（炒过回落）═══════════
+def purity_check(keyword, price_history=None):
+    """
+    判断当前低关注度是真L3（从未被炒过）还是伪L3（炒过回落）。
+
+    参数:
+        keyword: 关键词/标的名称
+        price_history: dict with keys
+            '12m_peak_pct' — 12月内最高涨幅%
+            '12m_search_peak' — 12月内搜索量峰值倍数
+            '12m_shareholder_change' — 12月内股东户数变化%
+
+    返回: dict with purity score and verdict
+    """
+    print(f"\n{'='*60}")
+    print(f"L3纯度检测 — {keyword}")
+    print(f"{'='*60}")
+
+    true_score = 0
+    false_score = 0
+
+    if price_history:
+        # 维度1: 股价尖峰
+        peak_pct = price_history.get('12m_peak_pct', 0)
+        if peak_pct < 50:
+            print(f"  股价: 12月最高涨幅{peak_pct}% → +1 真L3(无尖峰)")
+            true_score += 1
+        elif peak_pct > 100:
+            print(f"  股价: 12月最高涨幅{peak_pct}% → +1 伪L3(有过>100%尖峰)")
+            false_score += 1
+
+        # 维度2: 搜索峰值
+        search_peak = price_history.get('12m_search_peak', 0)
+        if search_peak > 0:
+            if search_peak < 3:
+                print(f"  搜索: 12月最高{search_peak}x → +1 真L3(无>3x峰值)")
+                true_score += 1
+            elif search_peak > 5:
+                print(f"  搜索: 12月最高{search_peak}x → +1 伪L3(有过>5x峰值)")
+                false_score += 1
+
+        # 维度3: 股东户数
+        sh_chg = price_history.get('12m_shareholder_change', 0)
+        if sh_chg:
+            if sh_chg < 50:
+                print(f"  股东: 12月+{sh_chg}% → +1 真L3(无>50%暴增)")
+                true_score += 1
+            else:
+                print(f"  股东: 12月+{sh_chg}% → +1 伪L3(有过>50%暴增)")
+                false_score += 1
+    else:
+        print("  ⚠️ 无价格历史数据，跳过纯度检测")
+
+    total = true_score + false_score
+    if total == 0:
+        purity = 0.5
+        verdict = "⚠️ 数据不足"
+    else:
+        purity = true_score / total
+        if purity > 0.66:
+            verdict = "✅ 高纯度真L3 — 可信任"
+        elif purity > 0.33:
+            verdict = "🟡 中等纯度 — 需人工判断"
+        else:
+            verdict = "🔴 低纯度伪L3 — 炒过回落，不可信"
+
+    print(f"  纯度: {purity:.0%} ({true_score}真/{false_score}伪) → {verdict}")
+    return {"purity": purity, "true_score": true_score, "false_score": false_score, "verdict": verdict}
+
+
+# ═══════════════ 爆炒判断：多维度量化 ═══════════
+def bubble_check(name, price_data=None):
+    """
+    判断个股是否被爆炒。三个维度：价格动量、估值偏离、板块偏离。
+
+    参数:
+        price_data: dict with keys
+            'chg_1m', 'chg_3m', 'chg_6m' — 各周期涨幅%
+            'pe_current', 'pe_median_5y', 'pe_std_5y' — PE及历史分布
+            'sector_chg_1m' — 板块同期涨幅%
+
+    返回: dict with bubble level and verdict
+    """
+    if not price_data:
+        return {"level": "无数据", "verdict": "⚠️ 需手动输入价格数据"}
+
+    triggers = []
+    chg_1m = price_data.get('chg_1m', 0)
+    chg_3m = price_data.get('chg_3m', 0)
+    chg_6m = price_data.get('chg_6m', 0)
+
+    # 维度1: 价格动量
+    if chg_1m > 100 or chg_3m > 200 or chg_6m > 300:
+        triggers.append(f"🔴暴烈上涨: 1m{chg_1m}%/3m{chg_3m}%/6m{chg_6m}%")
+    elif chg_1m > 50:
+        triggers.append(f"🟠快速上涨: 1m{chg_1m}%")
+
+    # 维度2: 估值偏离
+    pe_now = price_data.get('pe_current', 0)
+    pe_med = price_data.get('pe_median_5y', 0)
+    pe_std = price_data.get('pe_std_5y', 0)
+    if pe_now and pe_med and pe_std:
+        dev = (pe_now - pe_med) / pe_std if pe_std > 0 else 0
+        if dev > 3:
+            triggers.append(f"🔴估值极端: PE{pe_now:.0f}超中位数{dev:.1f}σ")
+        elif dev > 2:
+            triggers.append(f"🟠估值偏高: PE{pe_now:.0f}超中位数{dev:.1f}σ")
+
+    # 维度3: 板块偏离
+    sector_chg = price_data.get('sector_chg_1m', 0)
+    if chg_1m and sector_chg and sector_chg > 0:
+        ratio = chg_1m / sector_chg
+        if ratio > 3:
+            triggers.append(f"🔴严重领涨: 涨幅{sector_chg}%的{ratio:.1f}倍")
+        elif ratio > 2:
+            triggers.append(f"🟠明显领涨: 涨幅{sector_chg}%的{ratio:.1f}倍")
+
+    red = sum(1 for t in triggers if t.startswith("🔴"))
+    orange = sum(1 for t in triggers if t.startswith("🟠"))
+
+    if red >= 2:
+        level = "🔴确认爆炒"
+        verdict = "触发退出#2(估值透支)→减至底仓"
+    elif red >= 1 or orange >= 2:
+        level = "🟠疑似过热"
+        verdict = "高度警惕，紧密跟踪"
+    elif orange >= 1:
+        level = "🟡温和上涨"
+        verdict = "正常关注"
+    else:
+        level = "⚪正常"
+        verdict = "无过热迹象"
+
+    print(f"\n{'='*60}")
+    print(f"爆炒检测 — {name}")
+    print(f"{'='*60}")
+    for t in triggers:
+        print(f"  {t}")
+    print(f"  综合: {level} → {verdict}")
+
+    return {"level": level, "triggers": triggers, "verdict": verdict, "red": red, "orange": orange}
 
 
 if __name__ == "__main__":
