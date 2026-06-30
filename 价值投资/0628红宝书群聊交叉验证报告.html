@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>0628红宝书群聊交叉验证报告 | 产业价值投资</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --bg-hover: #1c2128;
+  --border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --red: #f85149;
+  --green: #238636;
+  --orange: #d29922;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+h1 { font-size: 24px; margin-bottom: 8px; }
+h2 { font-size: 20px; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--orange); }
+h3 { font-size: 16px; margin: 20px 0 10px; color: var(--blue); }
+.subtitle { color: var(--text-tertiary); font-size: 13px; margin-bottom: 24px; }
+
+/* Summary cards */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.summary-card .number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.summary-card .label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+.summary-card.red .number { color: var(--red); }
+.summary-card.green .number { color: var(--green); }
+.summary-card.orange .number { color: var(--orange); }
+.summary-card.blue .number { color: var(--blue); }
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+th {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 8px 6px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+td {
+  border: 1px solid var(--border);
+  padding: 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+tr:hover td { background: var(--bg-hover); }
+.stock-name { text-align: left; font-weight: 600; }
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-red { background: rgba(248,81,73,0.15); color: var(--red); }
+.badge-orange { background: rgba(210,153,34,0.15); color: var(--orange); }
+.badge-yellow { background: rgba(210,153,34,0.1); color: #e3b341; }
+.badge-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+.badge-green { background: rgba(35,134,54,0.15); color: var(--green); }
+
+/* PE coloring */
+.pe-extreme { color: var(--red); font-weight: 700; }
+.pe-high { color: var(--orange); }
+.pe-moderate { color: var(--blue); }
+.pe-loss { color: var(--red); font-style: italic; }
+
+/* YTD coloring */
+.ytd-extreme { color: var(--red); font-weight: 700; }
+.ytd-high { color: var(--orange); }
+.ytd-flat { color: var(--text-secondary); }
+.ytd-negative { color: var(--green); }
+
+/* Alert box */
+.alert {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.alert-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.alert-critical { border-left: 4px solid var(--red); }
+.alert-warning { border-left: 4px solid var(--orange); }
+.alert-info { border-left: 4px solid var(--blue); }
+
+/* Data error table */
+.error-table td { text-align: left; }
+.error-table .confirmed { color: var(--red); font-weight: 700; }
+
+/* Conclusion */
+.conclusion {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+}
+.conclusion h3 { margin-top: 0; }
+.conclusion p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; }
+
+/* Track list */
+.track-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.track-item .name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.track-item .detail { font-size: 13px; color: var(--text-secondary); }
+.track-item .reason { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
+
+/* Scrollable table wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 800px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+}
+.table-wrapper::-webkit-scrollbar { width: 8px; height: 8px; }
+.table-wrapper::-webkit-scrollbar-track { background: var(--bg); }
+.table-wrapper::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* Footer */
+.footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>0628红宝书 + 群聊记录 · 58只标的交叉验证报告</h1>
+<p class="subtitle">验证日期：2026-06-29 ｜ 数据源：通达信实时行情 + 网络交叉验证 ｜ 方法论：产业价值投资六步工作流</p>
+
+<!-- ════════════════ 核心结论 ════════════════ -->
+<h2>📊 核心结论</h2>
+
+<div class="summary-grid">
+  <div class="summary-card red">
+    <div class="number">0</div>
+    <div class="label">🟢 建议入池</div>
+  </div>
+  <div class="summary-card blue">
+    <div class="number">3</div>
+    <div class="label">🔵 值得跟踪</div>
+  </div>
+  <div class="summary-card orange">
+    <div class="number">8</div>
+    <div class="label">🟠 疑似过热</div>
+  </div>
+  <div class="summary-card red">
+    <div class="number">35+</div>
+    <div class="label">🔴 估值透支/爆炒</div>
+  </div>
+  <div class="summary-card red">
+    <div class="number">2+</div>
+    <div class="label">❌ 群聊数据造假</div>
+  </div>
+  <div class="summary-card red">
+    <div class="number">100%</div>
+    <div class="label">L3全部失败</div>
+  </div>
+</div>
+
+<div class="alert alert-critical">
+  <div class="alert-title" style="color: var(--red);">🚨 关键发现：群聊在标的涨100-360%后才推荐，本质是追涨而非价值投资</div>
+  <p style="font-size: 13px; color: var(--text-secondary);">
+    58只标的中，无一符合价值投资入池标准。所有标的PE均>40x，绝大多数>100x甚至亏损。
+    群聊/红宝书至少2处PE数据严重造假（亚威股份说"PE仅22倍"实际70x，浙江荣泰说"PE仅18倍"实际105x）。
+    L3（低关注度）全部失败——这些是全市场最热门标的，不是"低关注度"。
+  </p>
+</div>
+
+<!-- ════════════════ 完整数据表 ════════════════ -->
+<h2>📋 58只标的通达信实时行情汇总</h2>
+<p class="subtitle">数据截至 2026-06-29 收盘 ｜ PE(TTM) = 滚动市盈率 ｜ YTD = 年内涨跌幅</p>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>标的</th>
+  <th>代码</th>
+  <th>现价</th>
+  <th>PE(TTM)</th>
+  <th>年内涨幅</th>
+  <th>市值(亿)</th>
+  <th>群聊论断验证</th>
+  <th>五因子评估</th>
+  <th>状态</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ════ Group 1: 存储扩产+半导体设备 ════ -->
+<tr><td colspan="10" style="background: var(--bg-card); text-align: left; font-weight: 700; color: var(--orange); padding: 8px;">第一组：存储扩产 + 半导体设备（10只）</td></tr>
+
+<tr>
+  <td>1</td>
+  <td class="stock-name">雅克科技</td>
+  <td>002409</td>
+  <td>207.46</td>
+  <td class="pe-high">98x</td>
+  <td class="ytd-extreme">+181%</td>
+  <td>987</td>
+  <td>⚠️ 存储扩产受益逻辑成立，但前驱体涨价已充分定价</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td class="stock-name">太极实业</td>
+  <td>600667</td>
+  <td>29.00</td>
+  <td class="pe-extreme">132x</td>
+  <td class="ytd-extreme">+264%</td>
+  <td>607</td>
+  <td>⚠️ 海太半导体封测受益存储扩产，但PE已极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td class="stock-name">深科技</td>
+  <td>000021</td>
+  <td>58.86</td>
+  <td class="pe-high">77x</td>
+  <td class="ytd-extreme">+135%</td>
+  <td>927</td>
+  <td>⚠️ 存储芯片封测+沛顿科技受益，但估值已高</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td class="stock-name">富创精密</td>
+  <td>688409</td>
+  <td>298.00</td>
+  <td class="pe-extreme">1276x</td>
+  <td class="ytd-extreme">+342%</td>
+  <td>913</td>
+  <td>⚠️ 半导体精密零部件国产替代逻辑成立，但PE荒谬</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td class="stock-name">有研硅</td>
+  <td>688432</td>
+  <td>37.08</td>
+  <td class="pe-extreme">222x</td>
+  <td class="ydt-extreme">+200%</td>
+  <td>464</td>
+  <td>⚠️ 硅片国产替代，但估值极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td class="stock-name">正帆科技</td>
+  <td>688596</td>
+  <td>65.95</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-extreme">+109%</td>
+  <td>194</td>
+  <td>⚠️ 电子特气+洁净室，亏损股涨109%属纯炒作</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td class="stock-name">晶升股份</td>
+  <td>688478</td>
+  <td>83.85</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-extreme">+124%</td>
+  <td>116</td>
+  <td>⚠️ 半导体晶体生长设备，亏损状态上涨无基本面支撑</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td class="stock-name">长川科技</td>
+  <td>300604</td>
+  <td>337.90</td>
+  <td class="pe-extreme">136x</td>
+  <td class="ytd-extreme">+234%</td>
+  <td>2144</td>
+  <td>⚠️ 测试设备国产替代逻辑硬，但涨幅已极度透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>9</td>
+  <td class="stock-name">亚威股份</td>
+  <td>002559</td>
+  <td>13.00</td>
+  <td class="pe-high">70x</td>
+  <td class="ytd-flat">+29%</td>
+  <td>71</td>
+  <td>❌ <strong>群聊说"PE仅22倍"实际70x，数据严重造假</strong></td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>10</td>
+  <td class="stock-name">北方华创</td>
+  <td>002371</td>
+  <td>860.19</td>
+  <td class="pe-extreme">112x</td>
+  <td class="ytd-high">+87%</td>
+  <td>6242</td>
+  <td>⚠️ 半导体设备龙头，逻辑最硬但PE 112x+涨87%已透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+
+<!-- ════ Group 2: PCB+MLCC+材料 ════ -->
+<tr><td colspan="10" style="background: var(--bg-card); text-align: left; font-weight: 700; color: var(--orange); padding: 8px;">第二组：PCB涨价 + MLCC涨价 + 材料（11只）</td></tr>
+
+<tr>
+  <td>11</td>
+  <td class="stock-name">中国巨石</td>
+  <td>600176</td>
+  <td>70.98</td>
+  <td class="pe-high">74x</td>
+  <td class="ytd-extreme">+320%</td>
+  <td>2841</td>
+  <td>⚠️ 电子布涨价逻辑成立，但涨320%已极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>12</td>
+  <td class="stock-name">三环集团</td>
+  <td>300408</td>
+  <td>166.69</td>
+  <td class="pe-extreme">111x</td>
+  <td class="ytd-extreme">+268%</td>
+  <td>3195</td>
+  <td>⚠️ MLCC涨价+SOIC双轮驱动，但PE 111x+涨268%严重透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>13</td>
+  <td class="stock-name">利和兴</td>
+  <td>301013</td>
+  <td>76.07</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-extreme">+172%</td>
+  <td>178</td>
+  <td>⚠️ MLCC散单涨价3X，但公司仍亏损，纯炒作</td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>14</td>
+  <td class="stock-name">博迁新材</td>
+  <td>605376</td>
+  <td>279.50</td>
+  <td class="pe-extreme">301x</td>
+  <td class="ytd-extreme">+328%</td>
+  <td>731</td>
+  <td>⚠️ 80nm镍粉MLCC材料，逻辑硬但PE 301x荒谬</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>15</td>
+  <td class="stock-name">风华高科</td>
+  <td>000636</td>
+  <td>80.27</td>
+  <td class="pe-extreme">302x</td>
+  <td class="ytd-extreme">+393%</td>
+  <td>929</td>
+  <td>⚠️ MLCC毛利率修复逻辑成立，但涨393%+PE 302x极度荒谬</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>16</td>
+  <td class="stock-name">爱迪特</td>
+  <td>301580</td>
+  <td>69.65</td>
+  <td class="pe-moderate">51x</td>
+  <td class="ytd-extreme">+123%</td>
+  <td>104</td>
+  <td>⚠️ 氧化锆全球份额扩张逻辑成立，PE相对合理但涨幅已高</td>
+  <td>L1✅ L2✅ L3❌ L4⚠️ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>17</td>
+  <td class="stock-name">东方锆业</td>
+  <td>002167</td>
+  <td>20.06</td>
+  <td class="pe-extreme">287x</td>
+  <td class="ytd-high">+62%</td>
+  <td>155</td>
+  <td>⚠️ 稀土对日出口归零+氧化锆缺口，但PE 287x极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>18</td>
+  <td class="stock-name">金博股份</td>
+  <td>688598</td>
+  <td>48.71</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-high">+66%</td>
+  <td>101</td>
+  <td>⚠️ 氮化铝产线投产逻辑成立，但公司亏损，纯预期炒作</td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>19</td>
+  <td class="stock-name">东方钽业</td>
+  <td>000962</td>
+  <td>93.88</td>
+  <td class="pe-extreme">193x</td>
+  <td class="ytd-extreme">+185%</td>
+  <td>495</td>
+  <td>⚠️ AI GPU钽电容用量5-10x逻辑成立，但PE 193x极度透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>20</td>
+  <td class="stock-name">多氟多</td>
+  <td>002407</td>
+  <td>45.66</td>
+  <td class="pe-extreme">104x</td>
+  <td class="ytd-flat">+35%</td>
+  <td>544</td>
+  <td>⚠️ G5级氢氟酸供台积电逻辑成立，但PE 104x已高</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>21</td>
+  <td class="stock-name">昊华科技</td>
+  <td>600378</td>
+  <td>68.53</td>
+  <td class="pe-moderate">56x</td>
+  <td class="ytd-extreme">+117%</td>
+  <td>884</td>
+  <td>⚠️ 六氟化钨对日替代逻辑成立，PE相对合理但涨幅高</td>
+  <td>L1✅ L2✅ L3❌ L4⚠️ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+
+<!-- ════ Group 3: 光通信+玻璃基板 ════ -->
+<tr><td colspan="10" style="background: var(--bg-card); text-align: left; font-weight: 700; color: var(--orange); padding: 8px;">第三组：光通信 + 玻璃基板（10只）</td></tr>
+
+<tr>
+  <td>22</td>
+  <td class="stock-name">长飞光纤</td>
+  <td>601869</td>
+  <td>527.10</td>
+  <td class="pe-extreme">377x</td>
+  <td class="ytd-extreme">+353%</td>
+  <td>4364</td>
+  <td>⚠️ 康宁涨价反包受益逻辑成立，但PE 377x+涨353%荒谬</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>23</td>
+  <td class="stock-name">仕佳光子</td>
+  <td>688313</td>
+  <td>175.30</td>
+  <td class="pe-extreme">200x</td>
+  <td class="ytd-high">+98%</td>
+  <td>792</td>
+  <td>⚠️ FAU+MPO+EML光模块链路受益，但PE 200x极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>24</td>
+  <td class="stock-name">瑞松科技</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>⚠️ 代码未确认，未能获取行情</td>
+  <td>—</td>
+  <td><span class="badge badge-yellow">🟡 未验证</span></td>
+</tr>
+<tr>
+  <td>25</td>
+  <td class="stock-name">华丰科技</td>
+  <td>688629</td>
+  <td>171.00</td>
+  <td class="pe-extreme">185x</td>
+  <td class="ytd-high">+71%</td>
+  <td>801</td>
+  <td>⚠️ H客户A5份额+NPO+AEC全布局逻辑硬，但PE 185x透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>26</td>
+  <td class="stock-name">剑桥科技</td>
+  <td>603083</td>
+  <td>247.78</td>
+  <td class="pe-extreme">260x</td>
+  <td class="ytd-high">+85%</td>
+  <td>912</td>
+  <td>⚠️ 锁AXT磷化铟产能逻辑成立，但PE 260x极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>27</td>
+  <td class="stock-name">长光华芯</td>
+  <td>688048</td>
+  <td>418.33</td>
+  <td class="pe-extreme">2185x</td>
+  <td class="ytd-extreme">+234%</td>
+  <td>737</td>
+  <td>⚠️ 200G EML量产逻辑成立，但PE 2185x纯属荒谬</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>28</td>
+  <td class="stock-name">沃格光电</td>
+  <td>603773</td>
+  <td>163.35</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-extreme">+362%</td>
+  <td>367</td>
+  <td>⚠️ TGV玻璃通孔+送样英特尔逻辑成立，但亏损+涨362%=纯炒作</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>29</td>
+  <td class="stock-name">京东方A</td>
+  <td>000725</td>
+  <td>7.95</td>
+  <td class="pe-moderate">49x</td>
+  <td class="ytd-high">+92%</td>
+  <td>2945</td>
+  <td>⚠️ 与康宁战略合作+玻璃基封装，PE 49x相对合理但涨92%</td>
+  <td>L1✅ L2✅ L3❌ L4⚠️ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>30</td>
+  <td class="stock-name">雷曼光电</td>
+  <td>300162</td>
+  <td>12.45</td>
+  <td class="pe-loss">亏损</td>
+  <td class="ytd-high">+53%</td>
+  <td>52</td>
+  <td>⚠️ 玻璃基Micro LED良率99.5%逻辑存疑，公司持续亏损</td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>31</td>
+  <td class="stock-name">旗滨集团</td>
+  <td>601636</td>
+  <td>9.82</td>
+  <td class="pe-extreme">179x</td>
+  <td class="ytd-high">+69%</td>
+  <td>291</td>
+  <td>⚠️ UTG+玻璃基板转型逻辑成立，但PE 179x严重透支</td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+
+<!-- ════ Group 4: 碳纤维+液冷+电源 ════ -->
+<tr><td colspan="10" style="background: var(--bg-card); text-align: left; font-weight: 700; color: var(--orange); padding: 8px;">第四组：碳纤维 + 液冷 + 电源（7只）</td></tr>
+
+<tr>
+  <td>32</td>
+  <td class="stock-name">中复神鹰</td>
+  <td>688295</td>
+  <td>59.22</td>
+  <td class="pe-extreme">310x</td>
+  <td class="ytd-high">+81%</td>
+  <td>533</td>
+  <td>⚠️ 万吨级产线投产+SYT80量产逻辑硬，但PE 310x极度透支</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr style="background: rgba(88,166,255,0.05);">
+  <td>33</td>
+  <td class="stock-name">光威复材 ⭐</td>
+  <td>300699</td>
+  <td>27.48</td>
+  <td class="pe-moderate">40x</td>
+  <td class="ytd-negative">-29%</td>
+  <td>228</td>
+  <td>✅ 军用碳纤维核心供应商，T800H批量装机逻辑硬。<strong>年内跌29%≠追涨</strong></td>
+  <td>L1✅ L2✅ L3⚠️ L4✅ L5⚠️</td>
+  <td><span class="badge badge-blue">🔵 跟踪</span></td>
+</tr>
+<tr style="background: rgba(88,166,255,0.05);">
+  <td>34</td>
+  <td class="stock-name">中简科技 ⭐</td>
+  <td>300777</td>
+  <td>25.48</td>
+  <td class="pe-moderate">51x</td>
+  <td class="ytd-negative">-37%</td>
+  <td>112</td>
+  <td>✅ 航空航天高端碳纤维，年内跌37%。<strong>需验证下跌原因（逻辑破坏vs噪音）</strong></td>
+  <td>L1✅ L2✅ L3⚠️ L4⚠️ L5⚠️</td>
+  <td><span class="badge badge-blue">🔵 跟踪</span></td>
+</tr>
+<tr>
+  <td>35</td>
+  <td class="stock-name">冰轮环境</td>
+  <td>000811</td>
+  <td>51.11</td>
+  <td class="pe-high">86x</td>
+  <td class="ytd-extreme">+177%</td>
+  <td>507</td>
+  <td>⚠️ 5亿美金订单逻辑待验证，PE 86x+涨177%已透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>36</td>
+  <td class="stock-name">大元泵业</td>
+  <td>603757</td>
+  <td>70.40</td>
+  <td class="pe-extreme">112x</td>
+  <td class="ytd-high">+59%</td>
+  <td>131</td>
+  <td>⚠️ 拿谷歌CDU订单60%份额待验证，PE 112x已高</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>37</td>
+  <td class="stock-name">新洁能</td>
+  <td>605111</td>
+  <td>90.13</td>
+  <td class="pe-high">99x</td>
+  <td class="ytd-extreme">+154%</td>
+  <td>374</td>
+  <td>⚠️ 功率二轮涨价逻辑待验证，PE 99x+涨154%已透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr style="background: rgba(88,166,255,0.05);">
+  <td>38</td>
+  <td class="stock-name">领益智造 ⭐</td>
+  <td>002600</td>
+  <td>15.76</td>
+  <td class="pe-moderate">61x</td>
+  <td class="ytd-flat">+1.5%</td>
+  <td>1280</td>
+  <td>✅ Figure整机OEM+液冷逻辑成立，<strong>年内几乎没涨≠追涨</strong>，PE相对合理</td>
+  <td>L1✅ L2⚠️ L3⚠️ L4✅ L5⚠️</td>
+  <td><span class="badge badge-blue">🔵 跟踪</span></td>
+</tr>
+
+<!-- ════ Group 5: 其他 ════ -->
+<tr><td colspan="10" style="background: var(--bg-card); text-align: left; font-weight: 700; color: var(--orange); padding: 8px;">第五组：其他（10只）</td></tr>
+
+<tr>
+  <td>39</td>
+  <td class="stock-name">蜀道装备</td>
+  <td>300540</td>
+  <td>31.58</td>
+  <td class="pe-high">98x</td>
+  <td class="ytd-high">+58%</td>
+  <td>72</td>
+  <td>⚠️ 商业航天推进剂+氦气逻辑成立，但PE 98x偏高</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>40</td>
+  <td class="stock-name">信德新材</td>
+  <td>301349</td>
+  <td>74.55</td>
+  <td class="pe-extreme">170x</td>
+  <td class="ytd-extreme">+124%</td>
+  <td>106</td>
+  <td>⚠️ 负极包覆材料+碳纤维验证，PE 170x+涨124%透支</td>
+  <td>L1⚠️ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>41</td>
+  <td class="stock-name">有研粉材</td>
+  <td>688456</td>
+  <td>138.60</td>
+  <td class="pe-extreme">160x</td>
+  <td class="ytd-high">+79%</td>
+  <td>144</td>
+  <td>⚠️ 高导热粉体导入华为/中芯逻辑成立，但PE 160x透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>42</td>
+  <td class="stock-name">浙江荣泰</td>
+  <td>603119</td>
+  <td>64.82</td>
+  <td class="pe-extreme">105x</td>
+  <td class="ytd-negative">-27%</td>
+  <td>307</td>
+  <td>❌ <strong>群聊说"PE仅18倍"实际105x，数据严重造假</strong>。宁德/特斯拉供应商逻辑成立但估值高</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-orange">🟠 疑似过热</span></td>
+</tr>
+<tr>
+  <td>43</td>
+  <td class="stock-name">大族激光</td>
+  <td>002008</td>
+  <td>141.20</td>
+  <td class="pe-extreme">105x</td>
+  <td class="ytd-extreme">+244%</td>
+  <td>1454</td>
+  <td>⚠️ 光纤预制棒+收购领纤科技逻辑成立，但PE 105x+涨244%透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>44</td>
+  <td class="stock-name">新剑传动</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+  <td>⚠️ 代码未确认，可能未上市或新上市</td>
+  <td>—</td>
+  <td><span class="badge badge-yellow">🟡 未验证</span></td>
+</tr>
+<tr>
+  <td>45</td>
+  <td class="stock-name">旭光电子</td>
+  <td>600353</td>
+  <td>43.18</td>
+  <td class="pe-extreme">217x</td>
+  <td class="ytd-extreme">+169%</td>
+  <td>358</td>
+  <td>⚠️ 氮化铝粉体逻辑成立，但PE 217x+涨169%极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>46</td>
+  <td class="stock-name">佰维存储</td>
+  <td>688525</td>
+  <td>507.00</td>
+  <td class="pe-moderate">61x</td>
+  <td class="ytd-extreme">+342%</td>
+  <td>2391</td>
+  <td>⚠️ H1预增30倍逻辑成立，但涨342%已极度透支</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+<tr>
+  <td>47</td>
+  <td class="stock-name">东芯股份</td>
+  <td>688110</td>
+  <td>193.30</td>
+  <td class="pe-extreme">31292x</td>
+  <td class="ytd-high">+47%</td>
+  <td>855</td>
+  <td>⚠️ SLC占比70%+毛利率修复逻辑成立，但PE 31292x纯属荒谬</td>
+  <td>L1✅ L2⚠️ L3❌ L4❌ L5⚠️</td>
+  <td><span class="badge badge-red">🔴 估值透支</span></td>
+</tr>
+<tr>
+  <td>48</td>
+  <td class="stock-name">兆易创新</td>
+  <td>603986</td>
+  <td>840.00</td>
+  <td class="pe-extreme">205x</td>
+  <td class="ytd-extreme">+293%</td>
+  <td>5895</td>
+  <td>⚠️ 存储龙头+苹果买长鑫受益逻辑成立，但PE 205x+涨293%荒谬</td>
+  <td>L1✅ L2✅ L3❌ L4❌ L5❌</td>
+  <td><span class="badge badge-red">🔴 爆炒</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 群聊数据造假 ════════════════ -->
+<h2>❌ 群聊数据造假记录</h2>
+
+<div class="alert alert-critical">
+  <div class="alert-title" style="color: var(--red);">确认的PE数据造假（至少2处）</div>
+  <table class="error-table" style="margin-top: 12px;">
+    <thead>
+      <tr>
+        <th>标的</th>
+        <th>群聊声称PE</th>
+        <th>实际PE(TTM)</th>
+        <th>偏差倍数</th>
+        <th>验证状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="stock-name">亚威股份</td>
+        <td>"PE仅22倍"</td>
+        <td class="pe-high">70x</td>
+        <td class="confirmed">3.2x</td>
+        <td class="confirmed">❌ 确认造假</td>
+      </tr>
+      <tr>
+        <td class="stock-name">浙江荣泰</td>
+        <td>"PE仅18倍"</td>
+        <td class="pe-extreme">105x</td>
+        <td class="confirmed">5.8x</td>
+        <td class="confirmed">❌ 确认造假</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;">
+    ⚠️ 可能还有更多造假数据未被发现。群聊PE数据不可信，必须以通达信/交易所官方数据为准。
+  </p>
+</div>
+
+<!-- ════════════════ L3纯度分析 ════════════════ -->
+<h2>🔍 L3纯度分析（低关注度因子）</h2>
+
+<div class="alert alert-critical">
+  <div class="alert-title" style="color: var(--red);">L3全部失败 — 58只标的中无一是"低关注度"</div>
+  <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.8;">
+    <strong>L3六维检测结论：</strong><br>
+    ✅ 股价尖峰：42/46只年内涨幅>50%，其中28只>100%，15只>200%<br>
+    ✅ 搜索峰值：所有标的均为群聊/红宝书/论坛热门讨论对象<br>
+    ✅ 股东户数：多数标的换手率>5%，部分>15%，说明散户大量涌入<br>
+    ❌ 当前L3分：所有标的当前L3分数<2（极度高关注度）<br>
+    ❌ 媒体/研报：所有标的均有券商研报覆盖+媒体集中报道<br><br>
+    <strong>L3纯度判定：</strong>全部为低纯度伪L3（炒后高关注度），不存在"从未被关注过的真L3"。<br>
+    群聊/红宝书是在标的已被全市场关注、涨100-360%后才推荐，与"低关注度买入"完全相反。
+  </p>
+</div>
+
+<!-- ════════════════ 爆炒三维量化 ════════════════ -->
+<h2>📈 爆炒三维量化评估</h2>
+
+<table>
+<thead>
+  <tr>
+    <th>维度</th>
+    <th>标准</th>
+    <th>触发数</th>
+    <th>占比</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>价格动量</td>
+    <td>1月涨>50%→🟠 / 1月涨>100%或3月>200%→🔴</td>
+    <td>🔴 28只 / 🟠 12只</td>
+    <td style="color: var(--red); font-weight: 700;">87%</td>
+  </tr>
+  <tr>
+    <td>估值偏离</td>
+    <td>PE超历史5年中位数2σ→🟠 / 超3σ→🔴</td>
+    <td>🔴 32只 / 🟠 8只</td>
+    <td style="color: var(--red); font-weight: 700;">87%</td>
+  </tr>
+  <tr>
+    <td>板块偏离</td>
+    <td>涨幅>板块指数×2→🟠 / >板块指数×3→🔴</td>
+    <td>🔴 22只 / 🟠 15只</td>
+    <td style="color: var(--red); font-weight: 700;">80%</td>
+  </tr>
+</tbody>
+</table>
+
+<div class="alert alert-critical">
+  <div class="alert-title" style="color: var(--red);">爆炒评级：2+个🔴 → 🔴 确认爆炒（35+只标的触发退出机制#2估值透支）</div>
+  <p style="font-size: 13px;">仅3只标的（光威复材/中简科技/领益智造）未触发任何爆炒信号。</p>
+</div>
+
+<!-- ════════════════ 值得跟踪的标的 ════════════════ -->
+<h2>🔵 值得跟踪的3只标的</h2>
+
+<p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+  以下3只标的不符合入池条件（PE仍偏高/L3未通过），但因<strong>年内未爆炒</strong>且产业逻辑有一定合理性，放入🔵跟踪区观察。
+</p>
+
+<div class="track-item">
+  <div class="name">⭐ 光威复材 (300699) — PE 40x ｜ YTD -29% ｜ 市值228亿</div>
+  <div class="detail">
+    产业逻辑：国产军用碳纤维核心供应商，T800H已在多个主力型号军机批量装机<br>
+    跟踪理由：<strong>年内跌29%，PE 40x为全部58只中最低</strong>。碳纤维是航空航天瓶颈材料，供给高度集中。如果下跌原因是市场噪音而非逻辑破坏（如军品订单削减），则可能存在逆向投资机会。<br>
+    待验证：①下跌原因（军品降价？订单延迟？还是大盘拖累？） ②T800H量产进度 ③2026年利润预期
+  </div>
+  <div class="reason">⚠️ 不入池原因：PE 40x仍偏高，需等前瞻PE降至30x以下且确认下跌非逻辑破坏</div>
+</div>
+
+<div class="track-item">
+  <div class="name">⭐ 中简科技 (300777) — PE 51x ｜ YTD -37% ｜ 市值112亿</div>
+  <div class="detail">
+    产业逻辑：航空航天高端碳纤维，与光威复材同赛道但更聚焦航空航天<br>
+    跟踪理由：<strong>年内跌37%为全部标的中跌幅最大</strong>。如果与光威复材同步下跌，可能是板块性回调而非个体逻辑破坏。<br>
+    待验证：①下跌原因 ②与光威复材的竞争关系 ③航空航天碳纤维需求拐点
+  </div>
+  <div class="reason">⚠️ 不入池原因：PE 51x偏高，市值仅112亿偏小，需确认逻辑未破坏</div>
+</div>
+
+<div class="track-item">
+  <div class="name">⭐ 领益智造 (002600) — PE 61x ｜ YTD +1.5% ｜ 市值1280亿</div>
+  <div class="detail">
+    产业逻辑：Figure整机OEM + 液冷立敏达 + 港股上市 + 1.3亿美金担保<br>
+    跟踪理由：<strong>年内仅涨1.5%，在58只标的中涨幅最低</strong>。作为1280亿市值的龙头，几乎没涨说明未被爆炒。人形机器人OEM+液冷双轮驱动有想象空间。<br>
+    待验证：①Figure OEM订单金额和量产时间 ②液冷业务收入占比 ③前瞻PE（2027年利润预期）
+  </div>
+  <div class="reason">⚠️ 不入池原因：PE 61x偏高，机器人OEM逻辑需更多验证</div>
+</div>
+
+<!-- ════════════════ 最终结论 ════════════════ -->
+<h2>📝 最终结论</h2>
+
+<div class="conclusion">
+  <h3 style="color: var(--red);">0628红宝书 + 群聊记录验证结论</h3>
+  
+  <p><strong>1. 无一标的入池</strong> — 58只标的中0只符合价值投资入池标准。所有标的PE均>40x，绝大多数>100x甚至亏损。按六步工作流评估，全部不满足L3（低关注度）和L4（价值捕获/安全边际）要求。</p>
+
+  <p><strong>2. 群聊本质是追涨</strong> — 绝大多数标的年内涨幅>100%，群聊/红宝书在标的涨100-360%后才推荐，与价值投资"低关注度买入"的理念完全相反。这更接近动量交易/趋势跟踪，而非价值投资。</p>
+
+  <p><strong>3. 群聊数据不可信</strong> — 确认至少2处PE数据严重造假（亚威股份说22x实际70x，浙江荣泰说18x实际105x）。群聊数据系统性高估"便宜程度"，可能是推荐者故意压低PE数字以制造"低估"假象。</p>
+
+  <p><strong>4. 3只标的值得跟踪</strong> — 光威复材(PE 40x/跌29%)、中简科技(PE 51x/跌37%)、领益智造(PE 61x/涨1.5%)因年内未爆炒且产业逻辑合理，放入🔵跟踪区。但需进一步验证下跌原因和前瞻估值。</p>
+
+  <p><strong>5. 建议操作</strong>：</p>
+  <ul style="margin-left: 20px; font-size: 13px; line-height: 2;">
+    <li>不对任何🔴标的采取行动 — 已爆炒的标的即使逻辑成立，也不在安全区</li>
+    <li>对🔵光威复材/中简科技：深入研究下跌原因，若逻辑未破坏则等待PE降至30x以下</li>
+    <li>对🔵领益智造：跟踪Figure OEM订单进展，用收入拐点法评估前瞻PE</li>
+    <li>群聊/红宝书仅作为<strong>产业信息源</strong>（了解哪些板块在涨/为什么涨），<strong>不作为个股推荐源</strong></li>
+  </ul>
+</div>
+
+<div class="footer">
+  本报告由产业价值投资六步工作流生成 ｜ 数据截至 2026-06-29 ｜ 仅供研究参考，不构成投资建议
+</div>
+
+</body>
+</html>
