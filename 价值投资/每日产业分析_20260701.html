@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日产业分析 · 2026年7月1日 · 完整六步工作流</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.7; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+h1 { font-size: 28px; color: #f8fafc; text-align: center; padding: 30px 0 10px; border-bottom: 2px solid #334155; margin-bottom: 10px; }
+.subtitle { text-align: center; color: #94a3b8; font-size: 14px; margin-bottom: 30px; }
+h2 { font-size: 22px; color: #38bdf8; margin: 40px 0 16px; padding-left: 12px; border-left: 4px solid #38bdf8; }
+h3 { font-size: 17px; color: #e2e8f0; margin: 20px 0 10px; }
+h4 { font-size: 15px; color: #94a3b8; margin: 12px 0 6px; }
+.card { background: #1e293b; border-radius: 10px; padding: 20px 24px; margin: 16px 0; border: 1px solid #334155; }
+.card.green { border-left: 4px solid #22c55e; }
+.card.red { border-left: 4px solid #ef4444; }
+.card.yellow { border-left: 4px solid #eab308; }
+.card.blue { border-left: 4px solid #3b82f6; }
+.card.orange { border-left: 4px solid #f97316; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+th { background: #334155; color: #e2e8f0; padding: 10px 8px; text-align: left; font-weight: 600; }
+td { padding: 8px; border-bottom: 1px solid #334155; }
+tr:hover { background: #1a2738; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+.tag-green { background: #166534; color: #4ade80; }
+.tag-red { background: #7f1d1d; color: #f87171; }
+.tag-yellow { background: #713f12; color: #facc15; }
+.tag-blue { background: #1e3a5f; color: #60a5fa; }
+.tag-orange { background: #7c2d12; color: #fb923c; }
+.tag-gray { background: #374151; color: #9ca3af; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; margin: 2px; }
+.badge-bottleneck { background: #dc2626; color: white; }
+.badge-quasi { background: #f97316; color: white; }
+.badge-safe { background: #16a34a; color: white; }
+.badge-danger { background: #dc2626; color: white; }
+.badge-warn { background: #ca8a04; color: #1e293b; }
+.bullet { margin-left: 20px; }
+.bullet li { margin-bottom: 4px; }
+.gap { height: 10px; }
+.signal-up { color: #f87171; }
+.signal-down { color: #4ade80; }
+.highlight { background: #1e3a5f; padding: 2px 6px; border-radius: 3px; }
+.divider { border: none; border-top: 1px solid #334155; margin: 24px 0; }
+.conclusion { background: #1a3a2a; border: 1px solid #166534; border-radius: 10px; padding: 20px; margin: 20px 0; }
+.conclusion h3 { color: #4ade80; }
+.risk { background: #3a1a1a; border: 1px solid #7f1d1d; border-radius: 10px; padding: 20px; margin: 20px 0; }
+.risk h3 { color: #f87171; }
+.step-header { display: flex; align-items: center; gap: 12px; margin: 16px 0 8px; }
+.step-num { background: #38bdf8; color: #0f172a; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+.verdict-true { color: #4ade80; font-weight: 600; }
+.verdict-warn { color: #facc15; font-weight: 600; }
+.verdict-false { color: #f87171; font-weight: 600; }
+.score-bar { display: flex; gap: 4px; margin: 4px 0; }
+.score-cell { width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+.sc5 { background: #16a34a; color: white; }
+.sc4 { background: #22c55e; color: #1e293b; }
+.sc3 { background: #eab308; color: #1e293b; }
+.sc2 { background: #f97316; color: white; }
+.sc1 { background: #ef4444; color: white; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>每日产业分析 · 2026年7月1日</h1>
+<div class="subtitle">完整六步工作流 | 执行时间: 2026-07-01 16:55 | 自动化执行 #3</div>
+
+<!-- ====== STEP 1 ====== -->
+<h2>第1步 · 产业信息获取（两级抓取）</h2>
+
+<div class="card blue">
+<h3>一级抓取：韭研公社首页</h3>
+<p>获取 <strong>32篇</strong> 文章标题+URL，时间覆盖 7/1~6/26。筛选后进入二级全文抓取。</p>
+</div>
+
+<div class="card">
+<h3>二级全文抓取：10篇（产业链/瓶颈/材料相关）</h3>
+<table>
+<tr><th>#</th><th>文章主题</th><th>核心逻辑</th><th>类型</th></tr>
+<tr><td>1</td><td>7.1个股信息差汇总（老登起立）</td><td>148条个股信息差，含G5氢氟酸抢购/六氟化钨涨价/国巨涨价/晶振涨价/钨棒停产等</td><td><span class="tag tag-blue">信息差汇总</span></td></tr>
+<tr><td>2</td><td>G5级氢氟酸量价齐升全产业链拆解</td><td>台积电/三星/SK海力士抢购，涨20-30%，22000元/吨，国产缺口55%+</td><td><span class="tag tag-green">产业链深度</span></td></tr>
+<tr><td>3</td><td>国巨MLCC全系列涨价+国瓷材料合作关系</td><td>原厂涨50%，现货涨更猛，国瓷是国巨粉料双供应商之一</td><td><span class="tag tag-green">涨价+供应链</span></td></tr>
+<tr><td>4</td><td>晶振涨价：日本对华停单，下一个MLCC</td><td>312.5MHz+停单，泰晶涨价10-30%，晶赛312.5MHz差分振荡器</td><td><span class="tag tag-green">断供+涨价</span></td></tr>
+<tr><td>5</td><td>安泰科技：住友钨棒停产，国产替代窗口</td><td>日系7/1停产标准钨棒，安泰天龙1:1替代，央企钨钼一体化</td><td><span class="tag tag-yellow">替代逻辑</span></td></tr>
+<tr><td>6</td><td>河钢股份：六氟化钨隐形龙头</td><td>邯钢特气6N航天氙/芯片氪氙供ASML，WF6价涨232%</td><td><span class="tag tag-yellow">暗线卡位</span></td></tr>
+<tr><td>7</td><td>二氯二氢硅：华塑股份对标三孚</td><td>三孚500吨量产供中芯国际；华塑仅可行性研究阶段</td><td><span class="tag tag-gray">早期跟踪</span></td></tr>
+<tr><td>8</td><td>半导体洁净室：扩产潮第一道门槛</td><td>美埃科技FFU龙头/亚翔集成美光供应商/太极实业存储EPC</td><td><span class="tag tag-green">扩产受益</span></td></tr>
+<tr><td>9</td><td>光纤原料：四氯化硅→四氯化锗</td><td>三孚SiCl4量产/云南锗业GeCl4产能60吨/年，锗价涨83%</td><td><span class="tag tag-green">材料涨价</span></td></tr>
+<tr><td>10</td><td>赛腾股份：HBM检测设备核心伙伴</td><td>三星35%份额/SK海力士20%/全球唯三HBM全制程检测</td><td><span class="tag tag-green">设备龙头</span></td></tr>
+</table>
+
+<p style="margin-top:12px;color:#94a3b8;"><strong>跳过理由：</strong>涨停简图、情绪帖("科技我先跑了")、券商个股点评(阳光电源)、创新药、吹票帖(帝欧水华/润建5倍/凯伦小作文)、金融股(国元证券)、概念梳理(物理AI)等</p>
+</div>
+
+<!-- ====== STEP 2 ====== -->
+<h2>第2步 · 交叉验证 + 瓶颈识别</h2>
+
+<div class="card green">
+<h3>🚫 强制门控：交叉验证表格</h3>
+<p style="color:#94a3b8;margin-bottom:12px;">每个关键论断 ≥2个独立来源验证。全部验证完毕后进入第3步。</p>
+
+<table>
+<tr><th style="width:35%">论断</th><th style="width:10%">结果</th><th style="width:55%">独立来源</th></tr>
+<tr>
+  <td>国巨7/1起全系列电容涨价，原厂涨幅约50%</td>
+  <td class="verdict-true">✅</td>
+  <td>上证报(代理商致电确认) + 科创板日报 + 中金科技报告 + 中信电子报告</td>
+</tr>
+<tr>
+  <td>六氟化钨WF₆价格环比暴涨203.83%，同比涨232.7%</td>
+  <td class="verdict-true">✅</td>
+  <td>海关总署出口数据(149.79$/kg, 4月) + 买化塑研究院(1670-1810元/kg) + 东方财富</td>
+</tr>
+<tr>
+  <td>G5级氢氟酸年内涨20-30%，现货22000元/吨</td>
+  <td class="verdict-true">✅</td>
+  <td>科创板日报(7/1) + 台湾经济日报 + 搜狐产业分析 + 雪球多源</td>
+</tr>
+<tr>
+  <td>台积电/三星/SK海力士集体抢购电子级氢氟酸</td>
+  <td class="verdict-true">✅</td>
+  <td>台湾经济日报(7/1) + 科创板日报 + 九方智投</td>
+</tr>
+<tr>
+  <td>日本2026年2月将≥312.5MHz晶振列入对华出口管制</td>
+  <td class="verdict-true">✅</td>
+  <td>今日头条(日本修订出口贸易管理令) + 雪球(日系停产分析) + 东方财富</td>
+</tr>
+<tr>
+  <td>泰晶科技全系列晶振涨价10-30%</td>
+  <td class="verdict-true">✅</td>
+  <td>财联社(7/1独家) + 蓝鲸新闻 + 雪球(调价通知函)</td>
+</tr>
+<tr>
+  <td>泰晶科技Q1扣非净利润暴增5040%</td>
+  <td class="verdict-true">✅</td>
+  <td>一季报公告(4/29) + 百度/百家号多源确认</td>
+</tr>
+<tr>
+  <td>住友电工7/1起停止日本产标准钨棒现货销售</td>
+  <td class="verdict-true">✅</td>
+  <td>住友电工官方通知(6/22) + 雪球/微信公众号多源确认</td>
+</tr>
+<tr>
+  <td>中国钨出口管制致2-4月对日碳化钨/钨粉出口归零</td>
+  <td class="verdict-true">✅</td>
+  <td>百度多源 + 山西证券研报 + 雪球分析</td>
+</tr>
+<tr>
+  <td>三菱综合材料含钨产品涨至原价三倍</td>
+  <td class="verdict-true">✅</td>
+  <td>百度(6/23) + 雪球(6月新订单三倍价) + 多源确认</td>
+</tr>
+<tr>
+  <td>安泰科技安泰天龙实现全规格纯钨棒批量生产</td>
+  <td class="verdict-warn">⚠️</td>
+  <td>公司半年报(均匀细晶钨棒项目) + 官网(钨钼产品) ✅ ；但6/22公司在互动平台明确"不涉及钨钻针产品" ⚠️ — 公司生产钨棒材料而非钻针，价值捕获待确认</td>
+</tr>
+<tr>
+  <td>SEMI上调2026年全球半导体设备规模至1522亿美元</td>
+  <td class="verdict-true">✅</td>
+  <td>SEMI报告(6/11) + 中信建投研报 + 中信证券 + 多家媒体</td>
+</tr>
+<tr>
+  <td>韩国2000万亿韩元半导体投资计划</td>
+  <td class="verdict-warn">⚠️</td>
+  <td>800万亿西南晶圆厂(韩国政府6/29宣布) ✅ + 2000万亿是三星+SK十年总投资(非一年) ⚠️</td>
+</tr>
+<tr>
+  <td>三孚股份电子级DCS 500吨/年量产，供中芯国际/台积电</td>
+  <td class="verdict-true">✅</td>
+  <td>公司公告(年产500吨DCS稳定生产) + 东方财富(供台积电/长江存储/中芯国际)</td>
+</tr>
+<tr>
+  <td>多氟多G5氢氟酸4万吨产能，供台积电/三星</td>
+  <td class="verdict-true">✅</td>
+  <td>公司公告/调研纪要(6/26) + 大河财立方 + 搜狐财经</td>
+</tr>
+<tr>
+  <td>云南锗业光纤四氯化锗产能60吨/年，锗价涨83%</td>
+  <td class="verdict-true">✅</td>
+  <td>公司公告/机构调研 + 上海证券报(锗锭25000元/kg) + 东方财富</td>
+</tr>
+<tr>
+  <td>赛腾股份三星HBM检测35%份额，全球唯三</td>
+  <td class="verdict-true">✅</td>
+  <td>雪球多源分析(37台订单) + 百度/百家号(HBM检测三强)</td>
+</tr>
+<tr>
+  <td>华塑股份5000吨DCS项目</td>
+  <td class="verdict-warn">⚠️</td>
+  <td>规划中(仅可行性研究) ✅；不同来源进度矛盾(有的说试车/有的说完工) ⚠️ — 远未量产</td>
+</tr>
+<tr>
+  <td>河钢邯钢特气航天氙6N纯度，芯片氪氙供ASML</td>
+  <td class="verdict-warn">⚠️</td>
+  <td>CITE创新奖+邯郸产业规划 ✅；但河钢股份仅参股(非控股)，直接受益弹性有限 ⚠️</td>
+</tr>
+</table>
+
+<p style="margin-top:16px;font-size:15px;"><strong>验证统计：</strong>19条论断 | <span class="verdict-true">15✅</span> <span class="verdict-warn">4⚠️</span> <span class="verdict-false">0❌</span> | 确认率 79%</p>
+</div>
+
+<div class="card orange">
+<h3>瓶颈识别：真瓶颈四问筛选</h3>
+<table>
+<tr><th>瓶颈点</th><th>CR3>70%</th><th>认证>12月</th><th>良率困难</th><th>巨头依赖</th><th>判定</th></tr>
+<tr>
+  <td><strong>六氟化钨WF₆</strong>（CVD钨膜唯一前驱体）</td>
+  <td class="verdict-true">✅ 中船特气国内>75%</td>
+  <td class="verdict-true">✅ 半导体认证严苛</td>
+  <td class="verdict-true">✅ 6N提纯极难</td>
+  <td class="verdict-true">✅ 全部先进制程必需，无替代</td>
+  <td><span class="badge badge-bottleneck">真瓶颈</span></td>
+</tr>
+<tr>
+  <td><strong>G5级电子级氢氟酸</strong></td>
+  <td class="verdict-true">✅ 日系主导，国内<10家</td>
+  <td class="verdict-true">✅ >12月</td>
+  <td class="verdict-true">✅ 万亿分之一杂质控制</td>
+  <td class="verdict-true">✅ 台积电/三星/SK必需</td>
+  <td><span class="badge badge-bottleneck">真瓶颈</span></td>
+</tr>
+<tr>
+  <td><strong>高频晶振(312.5MHz+)</strong></td>
+  <td class="verdict-true">✅ 日系>70%高频</td>
+  <td class="verdict-warn">⚠️ 6-12月</td>
+  <td class="verdict-true">✅ 光刻晶振工艺</td>
+  <td class="verdict-true">✅ AI服务器/光模块必需</td>
+  <td><span class="badge badge-bottleneck">真瓶颈</span></td>
+</tr>
+<tr>
+  <td><strong>光纤级四氯化锗GeCl₄</strong></td>
+  <td class="verdict-true">✅ 中国锗资源>70%全球</td>
+  <td class="verdict-true">✅ 光纤认证周期长</td>
+  <td class="verdict-true">✅ 6N/7N提纯困难</td>
+  <td class="verdict-true">✅ 光纤掺杂无可替代</td>
+  <td><span class="badge badge-bottleneck">真瓶颈</span></td>
+</tr>
+<tr>
+  <td><strong>钨棒(PCB微钻基材)</strong></td>
+  <td class="verdict-true">✅ 住友+三菱>90%高端</td>
+  <td class="verdict-warn">⚠️ 6-12月</td>
+  <td class="verdict-true">✅ 均匀细晶大直径技术</td>
+  <td class="verdict-true">✅ PCB钻针必需</td>
+  <td><span class="badge badge-quasi">准瓶颈</span></td>
+</tr>
+<tr>
+  <td>电子级二氯二氢硅DCS</td>
+  <td class="verdict-true">✅ 日系主导</td>
+  <td class="verdict-true">✅ >12月</td>
+  <td class="verdict-true">✅ 困难</td>
+  <td class="verdict-warn">⚠️ 硅外延必需但用量小</td>
+  <td><span class="badge badge-quasi">准瓶颈</span></td>
+</tr>
+<tr>
+  <td>MLCC钛酸钡粉体BaTiO₃</td>
+  <td class="verdict-true">✅ 日系>70%高端</td>
+  <td class="verdict-true">✅ >12月</td>
+  <td class="verdict-true">✅ 水热法技术壁垒</td>
+  <td class="verdict-true">✅ 村田/三星/国巨必需</td>
+  <td><span class="badge badge-bottleneck">真瓶颈</span>（已有存量标的）</td>
+</tr>
+</table>
+<p style="margin-top:12px;color:#94a3b8;">四问全满足5个→真瓶颈；1-2个不满足→准瓶颈。注意：真瓶颈≠可入池，还需通过L3/L4/估值门控。</p>
+</div>
+
+<!-- ====== STEP 3 ====== -->
+<h2>第3步 · 五因子评分（L1-L5）</h2>
+
+<div class="card">
+<h3>8个候选标的逐一打分</h3>
+
+<table>
+<tr><th>标的</th><th>L1 需求</th><th>L2 供给</th><th>L3 关注度</th><th>L4 价值捕获</th><th>L5 催化剂</th><th>综合</th></tr>
+
+<!-- 多氟多 -->
+<tr>
+<td><strong>多氟多 002407</strong><br><small>G5氢氟酸龙头</small></td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>AI算力×HBM扩产，G5需求CAGR 30%+</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>日系垄断，国内<10家，缺口55%+</td>
+<td><div class="score-bar"><span class="score-cell sc1">1</span></div>🔴6月涨60%+3连板，L3严重过热</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>4万吨G5产能，供台积电/三星，毛利高</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>涨价落地中，HBM扩产持续催化</td>
+<td><strong>4.0</strong><br><span class="tag tag-red">L3过热不入池</span></td>
+</tr>
+
+<!-- 泰晶科技 -->
+<tr>
+<td><strong>泰晶科技 603738</strong><br><small>晶振龙头</small></td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>AI服务器/光模块晶振需求爆发</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>日本出口管制，312.5MHz+供给真空</td>
+<td><div class="score-bar"><span class="score-cell sc1">1</span></div>🔴今日涨停+Q1暴增50倍，已过热</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>国内唯一光刻晶振量产，涨价10-30%</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>涨价即日生效，中报业绩验证</td>
+<td><strong>4.0</strong><br><span class="tag tag-red">L3过热不入池</span></td>
+</tr>
+
+<!-- 安泰科技 -->
+<tr>
+<td><strong>安泰科技 000969</strong><br><small>钨棒替代</small></td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>AI服务器拉动PCB钻针需求</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>住友停产打开缺口，但认证周期6-12月</td>
+<td><div class="score-bar"><span class="score-cell sc3">3</span></div>中等关注，尚未爆发</td>
+<td><div class="score-bar"><span class="score-cell sc3">3</span></div>公司澄清不涉及钻针→价值捕获路径待验证</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>住友7/1停售即日催化</td>
+<td><strong>3.6</strong><br><span class="tag tag-yellow">待定（L4边界）</span></td>
+</tr>
+
+<!-- 赛腾股份 -->
+<tr>
+<td><strong>赛腾股份 603283</strong><br><small>HBM检测设备</small></td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>HBM4扩产潮，检测设备刚需</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>全球唯三，认证2-3年壁垒高</td>
+<td><div class="score-bar"><span class="score-cell sc2">2</span></div>已涨停+概念热，L3在升温</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>三星35%+SK20%份额，37台订单≈6亿</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>韩国扩产+三星HBM4订单持续</td>
+<td><strong>4.2</strong><br><span class="tag tag-yellow">待定（L3升温+PE56x）</span></td>
+</tr>
+
+<!-- 云南锗业 -->
+<tr>
+<td><strong>云南锗业 002428</strong><br><small>四氯化锗</small></td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>AI光通信拉动光纤需求</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>锗资源中国占70%，全产业链唯一</td>
+<td><div class="score-bar"><span class="score-cell sc0">0</span></div>🔴PE 4459x，市值784亿vs利润2000万</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>GeCl4 60吨/年，全产业链</td>
+<td><div class="score-bar"><span class="score-cell sc3">3</span></div>锗价已涨83%，后续空间有限</td>
+<td><strong>3.2</strong><br><span class="tag tag-red">🔴爆炒不入池</span></td>
+</tr>
+
+<!-- 三孚股份 -->
+<tr>
+<td><strong>三孚股份 603938</strong><br><small>DCS+SiCl4</small></td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>半导体+DCS反倾销+光纤需求</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>国内少数DCS量产者，SiCl4寡头</td>
+<td><div class="score-bar"><span class="score-cell sc1">1</span></div>🟠PE 315x，市值290亿，近期大涨</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>500吨DCS供中芯/台积电，SiCl4供光纤</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>日本DCS反倾销+SiCl4涨价</td>
+<td><strong>3.6</strong><br><span class="tag tag-orange">估值过高不入池</span></td>
+</tr>
+
+<!-- 河钢股份 -->
+<tr>
+<td><strong>河钢股份 000709</strong><br><small>六氟化钨配套/稀有气体</small></td>
+<td><div class="score-bar"><span class="score-cell sc3">3</span></div>WF6需求爆发但河钢仅间接受益</td>
+<td><div class="score-bar"><span class="score-cell sc3">3</span></div>稀有气体有壁垒但非主力</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>股价1.98元，市场未关注</td>
+<td><div class="score-bar"><span class="score-cell sc2">2</span></div>仅参股邯钢特气，不控股，主业仍是钢铁</td>
+<td><div class="score-bar"><span class="score-cell sc2">2</span></div>稀有气体业务占比较小，催化不直接</td>
+<td><strong>2.8</strong><br><span class="tag tag-red">L4<3不入池</span></td>
+</tr>
+
+<!-- 国瓷材料 -->
+<tr>
+<td><strong>国瓷材料 300285</strong><br><small>MLCC粉体</small></td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>MLCC超级周期，国巨涨价50%</td>
+<td><div class="score-bar"><span class="score-cell sc5">5</span></div>日系(Sakai)垄断高端粉体</td>
+<td><div class="score-bar"><span class="score-cell sc0">0</span></div>🔴L3纯度0%(上次已判定)，年涨278%</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>国巨+三星电机+风华高科三大客户</td>
+<td><div class="score-bar"><span class="score-cell sc4">4</span></div>MLCC涨价持续至少1年</td>
+<td><strong>3.6</strong><br><span class="tag tag-red">L3伪低不入池</span></td>
+</tr>
+</table>
+</div>
+
+<div class="card orange">
+<h3>L3纯度 & 爆炒风险判断</h3>
+<table>
+<tr><th>标的</th><th>L3纯度</th><th>价格动量</th><th>估值偏离</th><th>爆炒评级</th><th>结论</th></tr>
+<tr>
+  <td>多氟多</td>
+  <td>30%（伪L3）<br>6月涨60%+3连板，搜索量激增</td>
+  <td><span class="tag tag-red">🔴 3连板+60%</span></td>
+  <td><span class="tag tag-orange">🟠 PE 94x</span></td>
+  <td><span class="badge badge-danger">🔴 确认爆炒</span></td>
+  <td>不入池</td>
+</tr>
+<tr>
+  <td>泰晶科技</td>
+  <td>25%（伪L3）<br>涨停+Q1暴增50倍已引关注</td>
+  <td><span class="tag tag-red">🔴 今日涨停</span></td>
+  <td><span class="tag tag-orange">🟠 PE高</span></td>
+  <td><span class="badge badge-danger">🔴 确认爆炒</span></td>
+  <td>不入池</td>
+</tr>
+<tr>
+  <td>云南锗业</td>
+  <td>20%（伪L3）<br>PE 4459x，30万股东暴增</td>
+  <td><span class="tag tag-red">🔴 年涨数倍</span></td>
+  <td><span class="tag tag-red">🔴 PE 4459x</span></td>
+  <td><span class="badge badge-danger">🔴 严重爆炒</span></td>
+  <td>不入池</td>
+</tr>
+<tr>
+  <td>安泰科技</td>
+  <td>55%（边界）<br>有涨幅但非极端</td>
+  <td><span class="tag tag-yellow">🟡 温和上涨</span></td>
+  <td><span class="tag tag-yellow">🟡 PE 65x</span></td>
+  <td><span class="badge badge-warn">🟠 疑似过热</span></td>
+  <td>待定</td>
+</tr>
+<tr>
+  <td>赛腾股份</td>
+  <td>40%（偏伪L3）<br>6/29涨停+概念热</td>
+  <td><span class="tag tag-orange">🟠 涨停</span></td>
+  <td><span class="tag tag-yellow">🟡 PE 56x</span></td>
+  <td><span class="badge badge-warn">🟠 疑似过热</span></td>
+  <td>待定</td>
+</tr>
+</table>
+</div>
+
+<!-- ====== STEP 4 ====== -->
+<h2>第4步 · 估值建模（收入拐点法）</h2>
+
+<div class="card">
+<h3>核心候选估值分析</h3>
+
+<div class="card blue" style="margin:12px 0;">
+<h4>1. 多氟多(002407) — G5氢氟酸</h4>
+<table>
+<tr><td style="width:150px;">当前市值/PE</td><td>494亿 / PE(TTM) 94x</td></tr>
+<tr><td>拐点年</td><td><strong>2026年</strong>（G5涨价20-30%已在兑现中）</td></tr>
+<tr><td>拐点年利润估算</td><td>G5氢氟酸4万吨×涨价增量约2-3亿+六氟磷酸锂复苏约5-7亿+其他 → 合计净利约8-12亿</td></tr>
+<tr><td>拐点年前瞻PE</td><td>494÷(8~12) = <strong>41x~62x</strong></td></tr>
+<tr><td>可比公司</td><td>巨化股份/三美股份（氟化工龙头PE 25-35x）</td></tr>
+<tr><td>安全区判断</td><td><span class="tag tag-red">❌ 不在安全区</span>：前瞻PE 41-62x > 可比25-35x×0.7=17.5-24.5x。即使最乐观12亿利润，前瞻PE 41x仍远超安全区上限。</td></tr>
+<tr><td>安全边际价格</td><td>12亿×25xPE÷11.9亿股 ≈ <strong>25元</strong>（当前约41.5元，溢价66%）</td></tr>
+</table>
+</div>
+
+<div class="card blue" style="margin:12px 0;">
+<h4>2. 泰晶科技(603738) — 晶振</h4>
+<table>
+<tr><td style="width:150px;">当前市值/PE</td><td>232亿 / Q1年化净利约0.92亿→PE约252x</td></tr>
+<tr><td>拐点年</td><td><strong>2026年</strong>（日本断供+涨价10-30%同步生效）</td></tr>
+<tr><td>拐点年利润估算</td><td>Q1扣非0.15亿→Q2-Q4受益涨价扩大，假设全年2.5-3.5亿（券商一致预期偏乐观）</td></tr>
+<tr><td>拐点年前瞻PE</td><td>232÷(2.5~3.5) = <strong>66x~93x</strong></td></tr>
+<tr><td>可比公司</td><td>晶赛科技/惠伦晶体，行业PE 40-60x</td></tr>
+<tr><td>安全区判断</td><td><span class="tag tag-red">❌ 不在安全区</span>：前瞻PE 66-93x > 可比40-60x×0.7=28-42x</td></tr>
+</table>
+</div>
+
+<div class="card blue" style="margin:12px 0;">
+<h4>3. 安泰科技(000969) — 钨棒替代</h4>
+<table>
+<tr><td style="width:150px;">当前市值/PE</td><td>约255亿 / PE(TTM) 65x</td></tr>
+<tr><td>拐点年</td><td><strong>2026-2027年</strong>（住友7/1停产→国产替代需6-12月验证）</td></tr>
+<tr><td>拐点年利润估算</td><td>假设钨钼业务受益替代增利1-2亿（占总营收比重有限），总净利约5-6亿</td></tr>
+<tr><td>前瞻PE</td><td>255÷(5~6) = <strong>43x~51x</strong></td></tr>
+<tr><td>安全区判断</td><td><span class="tag tag-orange">🟠 边界</span>：L4=3(价值捕获有限)叠加PE仍偏高</td></tr>
+</table>
+</div>
+
+<div class="card blue" style="margin:12px 0;">
+<h4>4. 赛腾股份(603283) — HBM检测设备</h4>
+<table>
+<tr><td style="width:150px;">当前市值/PE</td><td>285亿 / PE(TTM) 56x</td></tr>
+<tr><td>拐点年</td><td><strong>2026-2027年</strong>（韩国HBM4扩产设备招标）</td></tr>
+<tr><td>拐点年利润估算</td><td>半导体设备订单(三星37台≈6亿+新订单)+苹果基本盘，假设净利7-9亿</td></tr>
+<tr><td>前瞻PE</td><td>285÷(7~9) = <strong>32x~41x</strong></td></tr>
+<tr><td>可比公司</td><td>长川科技/华峰测控(PE 45-60x)</td></tr>
+<tr><td>安全区判断</td><td><span class="tag tag-yellow">🟡 接近安全区</span>：前瞻PE 32-41x < 可比×0.7=31.5-42x。下沿在安全区，上沿边界。但L3在升温。</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ====== STEP 5 ====== -->
+<h2>第5步 · 入池判断</h2>
+
+<div class="card green">
+<h3>入池决策：0只新入池，2只待定，6只不入池</h3>
+
+<table>
+<tr><th>标的</th><th>L4≥3?</th><th>L3纯度>50%?</th><th>估值安全区?</th><th>决策</th><th>原因</th></tr>
+<tr>
+  <td>多氟多</td><td>✅ L4=5</td><td>❌ 30%</td><td>❌ PE 41-62x</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>L3严重过热(3连板+60%涨幅)+前瞻PE远超安全区</td>
+</tr>
+<tr>
+  <td>泰晶科技</td><td>✅ L4=4</td><td>❌ 25%</td><td>❌ PE 66-93x</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>涨停+L3过热+前瞻PE远超安全区</td>
+</tr>
+<tr>
+  <td>安泰科技</td><td>⚠️ L4=3</td><td>⚠️ 55%</td><td>⚠️ PE 43-51x</td>
+  <td><span class="tag tag-yellow">待定区</span></td>
+  <td>L4边界(公司澄清不涉及钻针)；等PCB钻针客户正式导入+业绩验证</td>
+</tr>
+<tr>
+  <td>赛腾股份</td><td>✅ L4=5</td><td>⚠️ 40%</td><td>⚠️ PE 32-41x</td>
+  <td><span class="tag tag-yellow">待定区</span></td>
+  <td>逻辑最强但L3升温；等回调至PE<35x(L3降温后)重新评估</td>
+</tr>
+<tr>
+  <td>云南锗业</td><td>✅ L4=4</td><td>❌ 20%</td><td>❌ PE 4459x</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>🔴严重爆炒：市值784亿vs净利2000万，30万股东暴增</td>
+</tr>
+<tr>
+  <td>三孚股份</td><td>✅ L4=5</td><td>❌ 20%</td><td>❌ PE 315x</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>估值严重透支，前瞻PE无法进入安全区</td>
+</tr>
+<tr>
+  <td>河钢股份</td><td>❌ L4=2</td><td>✅ 高</td><td>N/A</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>L4<3硬门槛不通过：仅参股邯钢特气，主业钢铁</td>
+</tr>
+<tr>
+  <td>国瓷材料</td><td>✅ L4=4</td><td>❌ 0%</td><td>❌ 年涨278%</td>
+  <td><span class="tag tag-red">不入池</span></td>
+  <td>上次已判定L3纯度0%年涨278%，维持不入池</td>
+</tr>
+</table>
+</div>
+
+<div class="card orange">
+<h3>待定区详情</h3>
+<table>
+<tr><th>标的</th><th>不入池原因</th><th>重新评估触发条件</th><th>当前状态</th></tr>
+<tr>
+  <td><strong>安泰科技 000969</strong></td>
+  <td>L4=3边界：公司澄清不涉及钨钻针产品，仅供应钨棒材料。价值捕获路径(材料→钻针→终端)过长。认证周期6-12月，短期业绩兑现不确定。</td>
+  <td>① 鼎泰高科/金洲精工等头部客户正式导入公告<br>② PCB钻针用钨棒批量订单落地<br>③ PE回落至40x以下</td>
+  <td><span class="tag tag-yellow">🔵 跟踪</span></td>
+</tr>
+<tr>
+  <td><strong>赛腾股份 603283</strong></td>
+  <td>L3升温(6/29涨停)+PE 56x边界。虽然逻辑极强(全球唯三HBM检测)，但当前价格已反映大部分利好。</td>
+  <td>① 股价回调20%+至PE<35x<br>② 三星/海力士新HBM4产线订单公告<br>③ Q2业绩超预期验证</td>
+  <td><span class="tag tag-yellow">🟡 观察等回调</span></td>
+</tr>
+</table>
+</div>
+
+<div class="card blue">
+<h3>合计待定区存量（含历史）</h3>
+<table>
+<tr><th>标的</th><th>入待定日期</th><th>核心逻辑</th><th>等待条件</th></tr>
+<tr><td>聚和材料 688503</td><td>2026.06.30</td><td>MLCC电极浆料，SK海力士验证</td><td>回调至100元以下+PE<50x</td></tr>
+<tr><td>滨化股份 601678</td><td>2026.06.30</td><td>G5氢氟酸，体量太小</td><td>业绩验证+G5放量</td></tr>
+<tr><td>安泰科技 000969</td><td>2026.07.01</td><td>钨棒替代住友</td><td>客户导入+PE回落</td></tr>
+<tr><td>赛腾股份 603283</td><td>2026.07.01</td><td>HBM检测全球唯三</td><td>回调至PE<35x</td></tr>
+</table>
+</div>
+
+<!-- ====== STEP 6 ====== -->
+<h2>第6步 · 月度审查 + 退出机制</h2>
+
+<div class="card">
+<h3>存量标的池审查（16只）</h3>
+<p style="color:#94a3b8;margin-bottom:12px;">7/1五重催化同日生效：村田MLCC新价+英飞凌涨价+立昂微硅片涨价+住友钨棒停产+国巨全系列涨价。这是全年最强产业催化日，全池逻辑全线增强。</p>
+
+<table>
+<tr><th>标的</th><th>入选日</th><th>当前状态</th><th>退出触发?</th><th>审查结论</th></tr>
+<tr>
+  <td><strong>彤程新材</strong></td><td>早期</td><td><span class="tag tag-green">🟢 建议入场</span></td><td>无</td><td>逻辑持续增强：光刻胶断供确认+ArF验证推进。维持。</td>
+</tr>
+<tr>
+  <td><strong>沪硅产业</strong></td><td>早期</td><td><span class="tag tag-green">🟢 建议入场</span></td><td>无</td><td>硅片涨价7/1生效+台积电大陆硅片切换。维持。</td>
+</tr>
+<tr>
+  <td><strong>立昂微</strong></td><td>早期</td><td><span class="tag tag-green">🟢 建议入场</span></td><td>无</td><td>硅片涨价+功率超级周期三击共振。维持。</td>
+</tr>
+<tr>
+  <td><strong>钧崴电子</strong></td><td>早期</td><td><span class="tag tag-green">🟢 建议入场</span></td><td>无</td><td>英伟达核心供应商确认。维持。</td>
+</tr>
+<tr>
+  <td><strong>南大光电</strong></td><td>2026.06.26</td><td><span class="tag tag-yellow">🟡 观察</span></td><td>无</td><td>新入池，等Q2光刻胶收入验证。维持。</td>
+</tr>
+<tr>
+  <td><strong>中泰股份</strong></td><td>2026.06.29</td><td><span class="tag tag-yellow">🟡 观察</span></td><td>无</td><td>新入池，前瞻PE 13.6x安全区。维持。</td>
+</tr>
+<tr>
+  <td><strong>元力股份</strong></td><td>2026.06.28</td><td><span class="tag tag-yellow">🟡 观察</span></td><td>无</td><td>超级电容炭产能爬坡中。维持。</td>
+</tr>
+<tr>
+  <td><strong>太辰光</strong></td><td>早期</td><td><span class="tag tag-orange">🟠 减仓观察</span></td><td>触发#2估值+#3过热(6/25)</td>
+  <td>维持🟠减仓。关注PE<100x回补时机。</td>
+</tr>
+<tr>
+  <td style="color:#94a3b8;">其余8只标的</td>
+  <td style="color:#94a3b8;">—</td>
+  <td style="color:#94a3b8;">维持原状态</td>
+  <td style="color:#94a3b8;">无新增</td>
+  <td style="color:#94a3b8;">逻辑未被破坏，无新退出触发。</td>
+</tr>
+</table>
+
+<p style="margin-top:16px;padding:12px;background:#1a3a2a;border-radius:6px;">
+<strong>✅ 月度审查结论：</strong>无新增退出触发。7/1五重催化同日生效，全池逻辑全面增强。太辰光维持🟠减仓观察（PE仍高，等情绪退潮）。铜冠铜箔维持🔴爆炒警告。
+</p>
+</div>
+
+<!-- ====== SUMMARY ====== -->
+<hr class="divider">
+
+<div class="conclusion">
+<h3>📊 今日核心结论</h3>
+<table>
+<tr><th>维度</th><th>结论</th></tr>
+<tr><td>新入池</td><td><strong>0只</strong></td></tr>
+<tr><td>新待定</td><td><strong>2只</strong> → 安泰科技(钨棒替代/L4边界)、赛腾股份(HBM检测/L3升温等回调)</td></tr>
+<tr><td>不入池</td><td><strong>6只</strong> → 多氟多/泰晶科技(L3过热+爆炒)、云南锗业(严重爆炒PE4459x)、三孚股份(PE315x)、河钢股份(L4=2)、国瓷材料(L3纯度0%)</td></tr>
+<tr><td>存量池</td><td>16只，无新增退出。7/1五重催化全面增强全池逻辑。</td></tr>
+<tr><td>今日特征</td><td><span class="tag tag-red">全年最强产业催化日</span> — 5条涨价/断供同日生效，几乎所有候选标的都在涨。正因如此，几乎所有标的L3都已过热或爆炒。<strong>牛市里找不到便宜货是正常的，保持纪律比追涨更重要。</strong></td></tr>
+<tr><td>核心矛盾</td><td>产业逻辑极强(L1=5, L2=5) vs. 价格已反映(L3过热+估值透支)。赛腾股份是今日唯一接近安全区边界的标的，但需要等回调。</td></tr>
+<tr><td rowspan="2">关键催化剂跟踪</td><td><strong>已生效：</strong>7/1 村田MLCC新价 / 国巨全系列涨价 / 住友钨棒停产 / 泰晶晶振涨价 / 立昂微硅片涨价</td></tr>
+<tr><td><strong>待跟踪：</strong>Q2季报(8月)各标的业绩验证 / 赛腾HBM4新订单 / 安泰科技PCB钻针客户导入</td></tr>
+</table>
+</div>
+
+<div class="risk">
+<h3>⚠️ 风险警示</h3>
+<ul class="bullet">
+<li><strong>系统性过热风险：</strong>7/1多只标的涨停(多氟多3连板/泰晶涨停/赛腾曾涨停)，市场情绪极度亢奋。历史经验：产业催化日当天追涨，短期被套概率>70%。</li>
+<li><strong>伪瓶颈陷阱：</strong>河钢股份看似卡位六氟化钨+稀有气体，但仅参股不控股，价值捕获路径极弱(L4=2)。类似"蹭概念"标的需警惕。</li>
+<li><strong>云南锗业警示：</strong>PE 4459x意味着需要4459年才能回本（按当前利润），这是典型的脱离基本面的炒作。</li>
+<li><strong>待定区标的：</strong>安泰科技(公司已澄清不涉钻针)、赛腾股份(L3升温) — 等待条件满足后再评估，不急于入场。</li>
+</ul>
+</div>
+
+<div style="text-align:center;color:#64748b;font-size:12px;margin-top:40px;padding:20px;">
+每日产业分析 · 2026年7月1日 · 完整六步工作流<br>
+数据源：韭研公社 + 多源搜索引擎交叉验证<br>
+⚠️ 以上分析仅代表基于公开信息的产业逻辑推演，不构成投资建议。投资有风险，入市须谨慎。
+</div>
+
+</div>
+</body>
+</html>
