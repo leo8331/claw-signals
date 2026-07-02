@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>硬物理AI vs 软物理AI · 概念股价值投资筛选 | CLAW</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --bg-hover: #1c2128;
+  --border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --red: #f85149;
+  --green: #238636;
+  --orange: #d29922;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text-primary);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.6; padding:20px; max-width:1400px; margin:0 auto; font-size:14px;
+}
+h1 { font-size:24px; margin-bottom:8px; }
+h2 { font-size:20px; margin:28px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--orange); }
+h3 { font-size:16px; margin:20px 0 10px; color: var(--blue); }
+.subtitle { color:var(--text-tertiary); font-size:13px; margin-bottom:24px; }
+
+.summary-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:24px; }
+.summary-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:14px; text-align:center; }
+.summary-card .num { font-size:28px; font-weight:700; }
+.summary-card .label { font-size:11px; color:var(--text-tertiary); margin-top:4px; }
+.summary-card.red .num { color:var(--red); }
+.summary-card.green .num { color:var(--green); }
+.summary-card.orange .num { color:var(--orange); }
+.summary-card.blue .num { color:var(--blue); }
+
+table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:24px; }
+th { background:var(--bg-card); border:1px solid var(--border); padding:8px 6px; text-align:center; font-weight:600; color:var(--text-secondary); white-space:nowrap; }
+td { border:1px solid var(--border); padding:6px 8px; text-align:center; }
+tr:hover td { background:var(--bg-hover); }
+.stock-name { text-align:left; font-weight:600; }
+
+.badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+.badge-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.badge-orange { background:rgba(210,153,34,0.15); color:var(--orange); }
+.badge-green { background:rgba(35,134,54,0.15); color:var(--green); }
+.badge-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+.badge-gray { background:rgba(110,118,129,0.15); color:var(--text-tertiary); }
+
+.pe-good { color:var(--green); font-weight:700; }
+.pe-ok { color:var(--blue); }
+.pe-high { color:var(--orange); }
+.pe-extreme { color:var(--red); font-weight:700; }
+
+.section { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:20px; }
+.alert { padding:14px 18px; border-radius:8px; margin-bottom:16px; font-size:13px; }
+.alert-critical { background:rgba(248,81,73,0.08); border:1px solid rgba(248,81,73,0.3); }
+.alert-warning { background:rgba(210,153,34,0.08); border:1px solid rgba(210,153,34,0.3); }
+.alert-info { background:rgba(88,166,255,0.08); border:1px solid rgba(88,166,255,0.3); }
+.alert-title { font-weight:700; margin-bottom:6px; font-size:14px; }
+
+.candidate { background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--green); border-radius:8px; padding:16px; margin-bottom:12px; }
+.candidate .name { font-size:16px; font-weight:700; margin-bottom:4px; }
+.candidate .detail { font-size:13px; color:var(--text-secondary); line-height:1.8; }
+.candidate .risk { font-size:12px; color:var(--text-tertiary); margin-top:6px; }
+
+.group-header { font-size:14px; font-weight:700; color:var(--orange); margin:20px 0 8px; padding:6px 12px; background:var(--bg-card); border-radius:6px; border-left:3px solid var(--orange); }
+
+.footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:12px; color:var(--text-tertiary); text-align:center; }
+
+tr.in-pool { background:rgba(110,118,129,0.08); }
+tr.in-pool td { color: var(--text-tertiary); }
+tr.track { background:rgba(88,166,255,0.05); }
+tr.candidate-row { background:rgba(35,134,54,0.05); }
+</style>
+</head>
+<body>
+
+<h1>硬物理AI vs 软物理AI · 概念股价值投资筛选</h1>
+<p class="subtitle">基于火头军博客文章「硬物理AI和软物理AI概念股梳理」+ 东方财富等补充 ｜ 验证日期：2026-07-01 ｜ 方法论：产业价值投资五因子 + L3纯度检测</p>
+
+<!-- ════════════════ 概念定义 ════════════════ -->
+<div class="section">
+<h2>📖 概念区分</h2>
+<table>
+<thead><tr><th width="120">维度</th><th width="220">硬物理AI（身体和骨骼）</th><th width="220">软物理AI（大脑、灵魂和训练场）</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>核心定义</strong></td>
+  <td>让AI物理化运作的<strong>硬件基础</strong>—执行器/减速器/电机/传感器/灵巧手/端侧芯片</td>
+  <td>为物理实体注入<strong>智能的软件算法平台</strong>—仿真引擎/具身大模型/数字孪生/自动驾驶OS</td>
+</tr>
+<tr>
+  <td><strong>确定性</strong></td>
+  <td><span style="color:var(--green)">较高</span>—有实物产品，量产→收入→利润路径清晰</td>
+  <td><span style="color:var(--orange)">较低</span>—依赖技术突破，价值释放路径更长</td>
+</tr>
+<tr>
+  <td><strong>典型代表</strong></td>
+  <td>减速器（绿的谐波/双环传动）、丝杠（恒立液压）、灵巧手（兆威机电）、传感器（柯力传感）</td>
+  <td>物理仿真（索辰科技）、数字孪生（能科科技）、自动驾驶OS（中科创达）</td>
+</tr>
+<tr>
+  <td><strong>价值投资视角</strong></td>
+  <td><span style="color:var(--green)">✅ 偏好</span>—供应链瓶颈可量化，认证周期=护城河</td>
+  <td><span style="color:var(--orange)">⚠️ 谨慎</span>—软件护城河浅，估值方法不适用传统PE</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 核心结论 ════════════════ -->
+<h2>📊 筛选结论</h2>
+
+<div class="summary-grid">
+  <div class="summary-card green"><div class="num">1</div><div class="label">🟢 建议入池</div></div>
+  <div class="summary-card blue"><div class="num">5</div><div class="label">🔵 跟踪观察</div></div>
+  <div class="summary-card red"><div class="num">3</div><div class="label">已在池（跳过）</div></div>
+  <div class="summary-card red"><div class="num">18+</div><div class="label">🔴 排除(PE/L3)</div></div>
+  <div class="summary-card red"><div class="num">27</div><div class="label">总股数（A股+港股）</div></div>
+</div>
+
+<div class="alert alert-critical">
+  <div class="alert-title" style="color:var(--red);">核心发现：物理AI已成全市场最热概念，绝大部分标的L3失败</div>
+  <p>文章中的27只概念股，仅有<strong>双环传动（PE 27.79x）</strong>一只同时满足PE安全区和L2瓶颈条件。
+  其余标的要么PE>50x（16只），要么港股/美股（7只），要么已在池中（3只）。
+  <strong>硬物理AI的逻辑优于软物理AI</strong>——硬件有可量化的供应链瓶颈，软件则依赖技术突破且估值无法用传统PE衡量。</p>
+</div>
+
+<!-- ════════════════ 已在池中 ════════════════ -->
+<h2>⏭️ 已在池中 · 跳过（3只）</h2>
+<div class="section">
+<table>
+<thead><tr><th>标的</th><th>代码</th><th>分类</th><th>当前状态</th><th>说明</th></tr></thead>
+<tbody>
+<tr class="in-pool">
+  <td class="stock-name">绿的谐波</td><td>688017</td><td>硬-减速器</td><td><span class="badge badge-red">🔴 估值透支</span></td>
+  <td>PE 601x，已触发退出机制#2，减至底仓</td>
+</tr>
+<tr class="in-pool">
+  <td class="stock-name">柯力传感</td><td>603662</td><td>硬-传感器</td><td><span class="badge badge-orange">🟡 观察</span></td>
+  <td>前瞻PE 57x，六维力传感器先行者</td>
+</tr>
+<tr class="in-pool">
+  <td class="stock-name">拓普集团</td><td>601689</td><td>硬-执行器</td><td><span class="badge badge-gray">不在池</span><br/>（首次评估）</td>
+  <td>见下方🔵跟踪区分析</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 全部概念股清单 ════════════════ -->
+<h2>📋 27只概念股完整清单 + 五因子快评</h2>
+
+<div class="group-header">🔧 硬物理AI — 关节与执行器（7只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>1</td><td class="stock-name">三花智控</td><td>002050</td><td class="pe-ok">45.52x</td><td>1860</td><td>⚪ 准瓶颈<br/>执行器集成</td><td>❌ L3=1<br/>知名蓝筹</td><td>⚠️ 超安全区</td><td><span class="badge badge-blue">🔵</span></td><td>逻辑硬但L3失败，PE偏高</td>
+</tr>
+<tr class="track">
+  <td>2</td><td class="stock-name">拓普集团</td><td>601689</td><td class="pe-ok">35.81x</td><td>990</td><td>⚪ 准瓶颈<br/>执行器总成</td><td>❌ L3=1<br/>主流热门</td><td>✅ PE 36x<br/>接近安全区</td><td><span class="badge badge-blue">🔵</span></td><td>PE最低执行器标的，汽车底盘+机器人双轮</td>
+</tr>
+<tr>
+  <td>3</td><td class="stock-name">汇川技术</td><td>300124</td><td class="pe-ok">~35x</td><td>~2000</td><td>⚪ 准瓶颈<br/>伺服龙头</td><td>❌ L3=1<br/>知名大白马</td><td>⚠️ PE适中<br/>但市值过大</td><td><span class="badge badge-gray">⚪</span></td><td>机器人收入占比<5%，价值捕获弱</td>
+</tr>
+<tr>
+  <td>4</td><td class="stock-name">禾川科技</td><td>688320</td><td class="pe-extreme">较高</td><td>~80</td><td>⚪ 初期<br/>整机未量产</td><td>⚠️ L3=2<br/>有讨论</td><td>❌ 营收小<br/>亏损可能</td><td><span class="badge badge-red">🔴</span></td><td>人形机器人整机制造商，营收极小早期阶段</td>
+</tr>
+<tr>
+  <td>5</td><td class="stock-name">埃斯顿</td><td>002747</td><td class="pe-extreme">较高</td><td>~120</td><td>⚪ 工业机器人<br/>人形转型</td><td>❌ L3=2<br/>工业知名</td><td>❌ 亏损边缘</td><td><span class="badge badge-red">🔴</span></td><td>工业机器人龙头转型人形，但利润微薄</td>
+</tr>
+<tr>
+  <td>6</td><td class="stock-name">优必选</td><td>9880.HK</td><td>—</td><td>—</td><td>⚪ 整机<br/>未盈利</td><td>❌ L3=1<br/>极度热门</td><td>❌ 港股<br/>无法评估</td><td><span class="badge badge-red">🔴</span></td><td>港股，股价波动大，长期亏损</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="group-header">⚙️ 硬物理AI — 减速器/丝杠/传动（6只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr class="candidate-row">
+  <td>7</td><td class="stock-name">⭐ 双环传动</td><td>002472</td><td class="pe-good">27.79x</td><td>353</td><td>✅ L2=4<br/>RV减速器<br/>国产替代主力<br/>认证12-18月</td><td>⚠️ L3=3<br/>有讨论但<br/>非极度热门</td><td>✅ PE 28x<br/>安全区内</td><td><span class="badge badge-green">🟡 观察</span></td><td><strong>全27只中唯一PE在安全区内</strong>。<br/>RV+谐波双线，客户覆盖主流主机厂</td>
+</tr>
+<tr>
+  <td>8</td><td class="stock-name">恒立液压</td><td>601100</td><td class="pe-ok">52.09x</td><td>1442</td><td>✅ L2=4.5<br/>行星滚柱丝杠<br/>全球仅4家<br/>认证1-2年</td><td>❌ L3=1<br/>知名蓝筹</td><td>⚠️ PE 52x<br/>超安全区</td><td><span class="badge badge-blue">🔵</span></td><td>真瓶颈(全球仅4家)，但L3失败+PE偏高</td>
+</tr>
+<tr>
+  <td>9</td><td class="stock-name">中大力德</td><td>002896</td><td class="pe-high">较高</td><td>~50</td><td>⚪ 准瓶颈<br/>行星/RV</td><td>⚠️ L3=3</td><td>❌ 利润低</td><td><span class="badge badge-red">🔴</span></td><td>减速器小市值，PE较高且利润微薄</td>
+</tr>
+<tr>
+  <td>10</td><td class="stock-name">贝斯特</td><td>300580</td><td class="pe-high">较高</td><td>~80</td><td>⚪ 准瓶颈<br/>滚柱丝杠定点</td><td>⚠️ L3=3</td><td>❌ PE较高</td><td><span class="badge badge-red">🔴</span></td><td>多家机器人厂定点，但估值已反映预期</td>
+</tr>
+<tr>
+  <td>11</td><td class="stock-name">鼎智科技</td><td>873593</td><td>—</td><td>—</td><td>⚪ 微型丝杠</td><td>⚠️ 北交所</td><td>❌ 北交所</td><td><span class="badge badge-red">🔴</span></td><td>北交所，流动性差，暂不纳入</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="group-header">✋ 硬物理AI — 灵巧手与微型传动（2只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>12</td><td class="stock-name">兆威机电</td><td>003021</td><td class="pe-high">97.51x</td><td>235</td><td>✅ L2=4<br/>微型传动<br/>全球少数供应商<br/>灵巧手模组</td><td>❌ L3=0<br/>极度热门<br/>群聊每天讨论</td><td>❌ PE 98x<br/>严重透支</td><td><span class="badge badge-red">🔴</span></td><td>灵巧手辨识度最高标的，但PE 98x+<br/>L3极度过热，等大幅回调</td>
+</tr>
+<tr>
+  <td>13</td><td class="stock-name">鸣志电器</td><td>603728</td><td class="pe-extreme">309x</td><td>249</td><td>✅ L2=4.5<br/>空心杯电机<br/>全球Top3<br/>CR3>80%</td><td>❌ L3=0<br/>极度热门</td><td>❌ PE 309x<br/>极其荒谬</td><td><span class="badge badge-red">🔴</span></td><td>技术壁垒极高但PE 309x极度荒谬<br/>等PE回落至<60x</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="group-header">👁️ 硬物理AI — 传感器与视觉（4只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>14</td><td class="stock-name">奥比中光</td><td>688322</td><td class="pe-extreme">亏损</td><td>~150</td><td>⚪ 3D视觉龙头</td><td>❌ L3=1</td><td>❌ 亏损</td><td><span class="badge badge-red">🔴</span></td><td>3D视觉龙头但持续亏损，不适用PE估值</td>
+</tr>
+<tr>
+  <td>15</td><td class="stock-name">凌云光</td><td>688400</td><td class="pe-high">较高</td><td>~80</td><td>⚪ 光学动捕</td><td>⚠️ L3=3</td><td>❌ PE较高</td><td><span class="badge badge-red">🔴</span></td><td>光学动捕细分龙头，但市场小PE高</td>
+</tr>
+<tr>
+  <td>16</td><td class="stock-name">敏芯股份</td><td>688286</td><td class="pe-extreme">亏损</td><td>~30</td><td>⚪ MEMS</td><td>⚠️ L3=4</td><td>❌ 亏损</td><td><span class="badge badge-red">🔴</span></td><td>MEMS传感器，但持续亏损</td>
+</tr>
+<tr>
+  <td>17</td><td class="stock-name">禾赛科技</td><td>HSAI.O</td><td>—</td><td>—</td><td>✅ 全球激光雷达<br/>市占率第一</td><td>❌ 美股</td><td>❌ 美股</td><td><span class="badge badge-red">🔴</span></td><td>美股，估值体系不同，暂不纳入</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="group-header">🧠 软物理AI — 仿真/大模型/OS（6只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>18</td><td class="stock-name">索辰科技</td><td>688507</td><td class="pe-extreme">1850x</td><td>244</td><td>✅ 国产CAE唯一<br/>壁垒极高</td><td>❌ L3=0</td><td>❌ PE 1850x<br/>极其荒谬</td><td><span class="badge badge-red">🔴</span></td><td>A股CAE稀缺标的，但PE 1850x<br/>意味着溢价几千倍，纯概念炒作</td>
+</tr>
+<tr>
+  <td>19</td><td class="stock-name">能科科技</td><td>603859</td><td class="pe-high">较高</td><td>~60</td><td>⚪ 绑定英伟达<br/>Omniverse</td><td>❌ L3=0</td><td>❌PE高</td><td><span class="badge badge-red">🔴</span></td><td>概念纯正但对标Omniverse收入极小</td>
+</tr>
+<tr>
+  <td>20</td><td class="stock-name">中望软件</td><td>688083</td><td class="pe-high">较高</td><td>~200</td><td>⚪ 国产CAD龙头</td><td>❌ L3=1</td><td>❌ PE高</td><td><span class="badge badge-red">🔴</span></td><td>国产CAD稀缺，PE高且物理AI占比小</td>
+</tr>
+<tr>
+  <td>21</td><td class="stock-name">天娱数科</td><td>002354</td><td class="pe-extreme">亏损</td><td>~60</td><td>⚪ 人形机器人AI</td><td>❌ L3=0</td><td>❌ 亏损</td><td><span class="badge badge-red">🔴</span></td><td>VLA模型+元宇宙概念，纯情绪股</td>
+</tr>
+<tr>
+  <td>22</td><td class="stock-name">中科创达</td><td>300496</td><td class="pe-high">较高</td><td>~400</td><td>⚪ 操作系统<br/>机器人中间件</td><td>❌ L3=1</td><td>❌ PE高</td><td><span class="badge badge-red">🔴</span></td><td>智能OS龙头，但物理AI是增量而非核心</td>
+</tr>
+<tr>
+  <td>23</td><td class="stock-name">德赛西威</td><td>002920</td><td class="pe-ok">~35x</td><td>~800</td><td>⚪ 智驾域控<br/>龙头</td><td>❌ L3=1</td><td>⚠️ PE适中</td><td><span class="badge badge-blue">🔵</span></td><td>智驾域控龙头PE适中，但机器人占比0</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="group-header">🔌 硬物理AI — 算力芯片 + 工业富联（4只）</div>
+<div class="section">
+<table>
+<thead><tr><th>#</th><th>标的</th><th>代码</th><th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3关注度</th><th>L4估值</th><th>状态</th><th>结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>24</td><td class="stock-name">工业富联</td><td>601138</td><td class="pe-ok">~20x</td><td>~4000</td><td>❌ L2=2<br/>代工非瓶颈</td><td>❌ L3=1</td><td>✅ PE 20x<br/>但代工模式<br/>毛利率低</td><td><span class="badge badge-red">🔴</span></td><td>英伟达服务器代工，PE低但非瓶颈<br/>毛利率~7%，不符合瓶颈投资</td>
+</tr>
+<tr>
+  <td>25</td><td class="stock-name">瑞芯微</td><td>603893</td><td class="pe-high">较高</td><td>~500</td><td>⚪ AIoT SoC<br/>国产替代</td><td>❌ L3=1</td><td>❌ PE高</td><td><span class="badge badge-red">🔴</span></td><td>AIoT芯片龙头，但PE高+L3失败</td>
+</tr>
+<tr>
+  <td>26</td><td class="stock-name">地平线</td><td>9660.HK</td><td>—</td><td>—</td><td>⚪ 自动驾驶芯片</td><td>❌ 港股</td><td>❌ 港股</td><td><span class="badge badge-red">🔴</span></td><td>港股，未盈利，暂不纳入</td>
+</tr>
+<tr>
+  <td>27</td><td class="stock-name">万讯自控</td><td>300112</td><td class="pe-high">较高</td><td>~50</td><td>⚪ MEMS+3D<br/>全链路</td><td>⚠️ L3=3</td><td>❌ PE高</td><td><span class="badge badge-red">🔴</span></td><td>全链路闭环但各环节规模均小</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 值得跟踪的标的 ════════════════ -->
+<h2>🔵 值得跟踪的标的（5只）</h2>
+
+<div class="candidate">
+  <div class="name">⭐ 双环传动 (002472) — PE 27.79x ｜ 市值353亿 ｜ 🟡 建议放入观察区</div>
+  <div class="detail">
+    <strong>分类：</strong>硬物理AI — 减速器/传动<br>
+    <strong>L2瓶颈：</strong>RV减速器国产替代主力（全球CR3>90%，纳博特斯克垄断），认证12-18月。谐波减速器同步布局。<br>
+    <strong>L4估值：</strong><strong>PE 27.79x — 27只标的中唯一PE<30x！</strong> 在物理AI全面高估的背景下极度稀缺。<br>
+    <strong>L3关注度：</strong>并非群聊每日讨论的焦点（关注度集中在兆威机电/鸣志电器/索辰科技），相对低调。<br>
+    <strong>与绿的谐波对比：</strong>绿的谐波PE 601x vs 双环传动PE 28x，同样的减速器赛道，估值差21倍！双环传动显然未被充分炒作。<br>
+    <strong>核心风险：</strong>①汽车齿轮业务占比高，机器人减速器收入占比需验证 ②RV减速器规模小于谐波 ③纳博特斯克降价竞争风险
+  </div>
+  <div class="risk">⚠️ 不入池原因：L3虽相对低调，但仍需进一步确认机器人减速器收入占比及护城河深度</div>
+</div>
+
+<div class="candidate" style="border-left-color:var(--blue);">
+  <div class="name">🔵 拓普集团 (601689) — PE 35.81x ｜ 市值990亿 ｜ 值得跟踪</div>
+  <div class="detail">
+    <strong>分类：</strong>硬物理AI — 执行器总成<br>
+    <strong>L2瓶颈：</strong>从汽车底盘延伸至机器人执行器总成，具备汽车tier1的量产经验和客户关系，跨界逻辑清晰。<br>
+    <strong>L4估值：</strong>PE 35.81x，在物理AI概念股中偏低。2026E净利对应动态PE 29x。<br>
+    <strong>核心风险：</strong>①机器人执行器收入占比未验证 ②执行器总成竞争格局（三花智控也在做）③市值990亿绝对规模偏大。
+  </div>
+</div>
+
+<div class="candidate" style="border-left-color:var(--blue);">
+  <div class="name">🔵 三花智控 (002050) — PE 45.52x ｜ 市值1860亿 ｜ 值得跟踪</div>
+  <div class="detail">
+    <strong>分类：</strong>硬物理AI — 机电执行器集成<br>
+    <strong>L2瓶颈：</strong>热管理巨头跨界机器人机电执行器，头部客户验证中。汽车热管理→机器人执行器技术迁移逻辑成立。<br>
+    <strong>L4估值：</strong>PE 45.52x超安全区但1860亿市值对应大盘蓝筹尚可接受。2026E净利47.66亿(+17%)。<br>
+    <strong>核心风险：</strong>①热管理仍是主业(>85%收入)，机器人占比极低 ②L3=1（知名蓝筹，全市场关注）③市值偏大弹性不足
+  </div>
+</div>
+
+<div class="candidate" style="border-left-color:var(--blue);">
+  <div class="name">🔵 恒立液压 (601100) — PE 52.09x ｜ 市值1442亿 ｜ 值得跟踪</div>
+  <div class="detail">
+    <strong>分类：</strong>硬物理AI — 行星滚柱丝杠<br>
+    <strong>L2瓶颈：</strong>行星滚柱丝杠全球仅GSA/SKF/THK/恒立4家量产，认证1-2年，CR3>90%。液压件龙头→丝杠技术迁移。<br>
+    <strong>L4估值：</strong>PE 52x略超安全区。2026E净利37亿，2027前瞻PE约35-40x。<br>
+    <strong>核心风险：</strong>①丝杠收入占比低（液压仍是主业）②L3=1（知名蓝筹）③市值1442亿弹性不足④需验证丝杠在机器人中的应用进展
+  </div>
+</div>
+
+<div class="candidate" style="border-left-color:var(--blue);">
+  <div class="name">🔵 德赛西威 (002920) — PE ~35x ｜ 市值~800亿 ｜ 值得跟踪（软物理AI唯一候选）</div>
+  <div class="detail">
+    <strong>分类：</strong>软物理AI — 智能驾驶域控制器<br>
+    <strong>L2瓶颈：</strong>国内智能驾驶域控龙头，THOR域控+L3+整车物理AI仿真。技术壁垒高（车规认证+主机厂绑定）。<br>
+    <strong>L4估值：</strong>PE ~35x，在软AI概念股中最合理。汽车电子主业有实际利润支撑。<br>
+    <strong>核心风险：</strong>①当前机器人收入为0（纯智驾）②软AI价值释放路径长③竞争格局（华为/高通/英伟达生态）
+  </div>
+</div>
+
+<!-- ════════════════ 五因子对比 ════════════════ -->
+<h2>📈 重点标的 vs 池内已有标的 · 五因子对比</h2>
+<div class="section">
+<table>
+<thead><tr><th>标的</th><th>L1 需求</th><th>L2 瓶颈</th><th>L3 低关注</th><th>L4 估值</th><th>L5 催化剂</th><th>综合</th></tr></thead>
+<tbody>
+<tr class="candidate-row">
+  <td class="stock-name">⭐ 双环传动</td><td>✅ 4.0<br/>机器人减速器<br/>刚需</td><td>✅ 4.0<br/>RV国产替代<br/>认证12-18月</td><td>⚠️ 3.0<br/>非焦点<br/>关注度中</td><td>✅ 4.5<br/>PE 27.79x<br/>全池最低</td><td>⚠️ 3.5<br/>特斯拉Optimus<br/>供应链验证</td><td><strong>🟡 19.0</strong><br/>建议观察区</td>
+</tr>
+<tr>
+  <td class="stock-name">绿的谐波<br/><small>(已在池)</small></td><td>✅ 4.0</td><td>✅ 4.0</td><td>❌ 1.0</td><td>❌ 1.0<br/>PE 601x</td><td>✅ 4.0</td><td>🔴 14.0<br/>已估值透支</td>
+</tr>
+<tr class="track">
+  <td class="stock-name">拓普集团</td><td>✅ 4.0</td><td>⚠️ 3.0<br/>执行器总成<br/>非唯一</td><td>❌ 1.5</td><td>✅ 3.5<br/>PE 35.81x</td><td>⚠️ 3.0</td><td>🔵 15.0<br/>跟踪</td>
+</tr>
+<tr class="track">
+  <td class="stock-name">恒立液压</td><td>✅ 4.5<br/>丝杠是关节<br/>必备</td><td>✅ 4.5<br/>全球仅4家<br/>认证1-2年</td><td>❌ 1.5</td><td>⚠️ 2.5<br/>PE 52x</td><td>⚠️ 3.5</td><td>🔵 16.5<br/>跟踪</td>
+</tr>
+<tr>
+  <td class="stock-name">鸣志电器</td><td>✅ 4.5</td><td>✅ 4.5<br/>空心杯全球Top3</td><td>❌ 0.5</td><td>❌ 0.5<br/>PE 309x</td><td>⚠️ 3.0</td><td>🔴 13.0<br/>排除</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 最终结论 ════════════════ -->
+<h2>📝 最终结论</h2>
+<div class="section">
+  <h3 style="color: var(--green); margin-top:0;">1. 建议行动</h3>
+  <ul style="margin-left:20px; line-height:2; font-size:13px;">
+    <li><strong>✅ 放入观察区：双环传动(002472)</strong> — PE 27.79x是27只标的中唯一在安全区的，且L2瓶颈成立（RV减速器国产替代），L3相对低调。需验证：机器人减速器收入占比、RV减速器单价趋势、客户定点公告。</li>
+    <li><strong>🔵 补充跟踪：拓普集团/三花智控/恒立液压/德赛西威</strong> — PE 35-52x虽偏高但在各自赛道中相对合理，可放入月度观察清单，等PE回落或新催化剂触发深度研究。</li>
+    <li><strong>🔴 排除：其余22只</strong> — PE均>50x（多数>100x甚至亏损），且L3全部失败（全市场最热概念）。</li>
+  </ul>
+
+  <h3 style="color: var(--red);">2. 核心发现</h3>
+  <ul style="margin-left:20px; line-height:2; font-size:13px;">
+    <li><strong>物理AI概念已被全面炒作。</strong>27只标的PE中位数远超50x，不少标的PE>300x甚至亏损。这与群聊/红宝书的追涨模式一致——概念火了才推荐。</li>
+    <li><strong>硬物理AI（硬件）优于软物理AI（软件）。</strong>硬件有可量化的供应链瓶颈（认证周期、产能爬坡、全球供给集中度），软件则竞争激烈且估值方法不统一。</li>
+    <li><strong>双环传动是唯一亮点。</strong>在绿的谐波PE 601x的同一赛道（减速器），双环传动PE仅28x，且RV减速器国产替代逻辑比谐波减速器更坚实（纳博特斯克垄断>90%→国产替代空间大）。</li>
+    <li><strong>多数标的面临"第二十二条军规"：</strong>L2瓶颈成立的（鸣志电器/恒立液压/兆威机电）PE极高已爆炒；PE相对合理的（工业富联/双环传动）L2瓶颈存疑或收入占比低。</li>
+  </ul>
+
+  <h3 style="color: var(--orange);">3. 与池内已有标的的关系</h3>
+  <ul style="margin-left:20px; line-height:2; font-size:13px;">
+    <li>绿的谐波(688017)：已在池中🔴估值透支，PE 601x触发退出#2。与双环传动(PE 28x)是同一赛道的不同估值段——说明绿的被爆炒了20倍溢价。</li>
+    <li>柯力传感(603662)：已在池中🟡观察，六维力传感器与文章的力觉传感逻辑一致。</li>
+    <li>拓普集团(601689)：首次评估，PE 35.81x在物理AI概念股中偏低，值得跟踪。</li>
+  </ul>
+
+  <div class="alert alert-warning" style="margin-top:16px;">
+    <div class="alert-title">⚠️ 重要提醒</div>
+    <p>物理AI概念当前处于极度热门阶段，绝大多数标的已被充分炒作。按价值投资逻辑，此时大规模入场的风险极高。建议仅对<strong>双环传动</strong>启动深度研究（走完整六步流程），其余标的等概念退潮、PE回落至安全区后再重新评估。</p>
+  </div>
+</div>
+
+<div class="footer">
+  产业价值投资 · 六步工作流 ｜ 基于火头军博客文章「硬物理AI和软物理AI概念股梳理」+ 东方财富/富途数据 ｜ 2026-07-01<br>
+  仅供研究参考，不构成投资建议 ｜ 数据可能存在延迟
+</div>
+
+</body>
+</html>

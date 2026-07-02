@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>软物理AI · 智驾×仿真×智能眼镜 三域交叉价值筛选 | CLAW</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --bg-hover: #1c2128;
+  --border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --red: #f85149;
+  --green: #238636;
+  --orange: #d29922;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text-primary);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.6; padding:20px; max-width:1200px; margin:0 auto; font-size:14px;
+}
+h1 { font-size:24px; margin-bottom:4px; }
+h2 { font-size:20px; margin:28px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--orange); }
+h3 { font-size:16px; margin:20px 0 10px; color: var(--blue); }
+.subtitle { color:var(--text-tertiary); font-size:13px; margin-bottom:24px; }
+
+/* Venn diagram */
+.venn-container {
+  display:flex; gap:24px; margin:24px 0; flex-wrap:wrap; justify-content:center;
+}
+.venn-col {
+  flex:1; min-width:280px; max-width:380px;
+}
+.venn-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:12px;
+}
+.venn-card h3 { font-size:15px; margin:0 0 8px; }
+.venn-intersection {
+  background: linear-gradient(135deg, rgba(210,153,34,0.08), rgba(88,166,255,0.08), rgba(188,140,255,0.08));
+  border:2px solid var(--orange); border-radius:16px; padding:24px; margin:20px 0;
+}
+.venn-intersection h2 { border:none; margin-top:0; }
+
+table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:24px; }
+th { background:var(--bg-card); border:1px solid var(--border); padding:8px 6px; text-align:center; font-weight:600; color:var(--text-secondary); white-space:nowrap; }
+td { border:1px solid var(--border); padding:6px 8px; text-align:center; }
+tr:hover td { background:var(--bg-hover); }
+.stock-name { text-align:left; font-weight:600; }
+
+.badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+.badge-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.badge-orange { background:rgba(210,153,34,0.15); color:var(--orange); }
+.badge-green { background:rgba(35,134,54,0.15); color:var(--green); }
+.badge-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+.badge-purple { background:rgba(188,140,255,0.15); color:var(--purple); }
+
+.pe-good { color:var(--green); font-weight:700; }
+.pe-ok { color:var(--blue); }
+.pe-high { color:var(--orange); }
+.pe-extreme { color:var(--red); font-weight:700; }
+
+.section { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:20px; }
+.alert { padding:14px 18px; border-radius:8px; margin-bottom:16px; font-size:13px; }
+.alert-info { background:rgba(88,166,255,0.08); border:1px solid rgba(88,166,255,0.3); }
+.alert-warning { background:rgba(210,153,34,0.08); border:1px solid rgba(210,153,34,0.3); }
+.alert-title { font-weight:700; margin-bottom:6px; font-size:14px; }
+
+.candidate {
+  background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--green); border-radius:8px; padding:16px; margin-bottom:12px;
+}
+.candidate .name { font-size:16px; font-weight:700; margin-bottom:4px; }
+.candidate .detail { font-size:13px; color:var(--text-secondary); line-height:1.8; }
+.candidate .risk { font-size:12px; color:var(--text-tertiary); margin-top:6px; }
+
+.domain-tag { display:inline-block; padding:2px 8px; border-radius:3px; margin:0 2px; font-size:10px; font-weight:600; }
+.domain-drive { background:rgba(88,166,255,0.15); color:var(--blue); }
+.domain-sim { background:rgba(188,140,255,0.15); color:var(--purple); }
+.domain-glass { background:rgba(35,134,54,0.15); color:var(--green); }
+
+tr.intersection { background:rgba(210,153,34,0.06); }
+tr.intersection td { font-weight:500; }
+
+.footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:12px; color:var(--text-tertiary); text-align:center; }
+
+.check { color:var(--green); font-weight:700; }
+.cross { color:var(--red); }
+.partial { color:var(--orange); }
+
+.matrix td { width:60px; text-align:center; font-size:13px; }
+</style>
+</head>
+<body>
+
+<h1>软物理AI · 智驾×仿真×智能眼镜 · 三域交叉价值筛选</h1>
+<p class="subtitle">基于用户洞察 — 软物理AI = 智能驾驶(最成熟应用) + 物理仿真(训练场/数字孪生) + 智能穿戴眼镜(新交互界面) | 2026-07-01</p>
+
+<!-- ════════════════ 三域交叉逻辑 ════════════════ -->
+<h2>📐 三域交叉逻辑</h2>
+
+<div class="section">
+<table class="matrix">
+<thead><tr><th style="width:140px;">认知框架</th><th style="background:rgba(88,166,255,0.08);"><span class="domain-drive">智能驾驶</span></th><th style="background:rgba(188,140,255,0.08);"><span class="domain-sim">物理仿真</span></th><th style="background:rgba(35,134,54,0.08);"><span class="domain-glass">智能眼镜</span></th></tr></thead>
+<tbody>
+<tr><td><strong>在物理AI中的角色</strong></td><td>最成熟的商业化载体<br/>— 汽车是标准化的物理AI终端</td><td>AI的训练场和推理引擎<br/>— 让AI在虚拟世界理解物理规律</td><td>物理AI的新交互界面<br/>— 眼镜是最近人眼的AI硬件入口</td></tr>
+<tr><td><strong>共享技术栈</strong></td><td colspan="2" style="text-align:center; background:rgba(210,153,34,0.06);">SLAM定位 · 3D重建 · 视觉感知 · 传感器融合 · 端侧推理</td><td></td></tr>
+<tr><td><strong>付费逻辑</strong></td><td>量产→每车千美元</td><td>软件License→订阅制</td><td>消费电子→每台百美元</td></tr>
+<tr><td><strong>A股代表</strong></td><td>德赛西威 · 中科创达 · 经纬恒润</td><td>索辰科技 · 能科科技 · 中望软件</td><td>水晶光电 · 瑞芯微 · 虹软科技</td></tr>
+</tbody>
+</table>
+
+<div class="alert alert-info" style="margin-top:16px;">
+  <div class="alert-title">核心洞察：技术栈高度重叠但当前各自独立估值，交叉公司被单一标签定价</div>
+  <p>SLAM/3D重建/视觉感知/传感器融合/端侧推理这组技术，在自动驾驶、AR眼镜、机器人感知中高度复用。目前市场给这些公司贴单一标签（如"德赛西威=智驾"、"水晶光电=AR光学"），<strong>未充分定价跨域复用带来的TAM扩张</strong>。这正是软物理AI的机会窗口——找到那些在两个以上域都有关键技术卡位的公司。</p>
+</div>
+</div>
+
+<!-- ════════════════ 7只交叉标的 ════════════════ -->
+<h2>🎯 三域交叉标的筛选（7只）</h2>
+
+<div class="section">
+<table>
+<thead>
+<tr>
+  <th>#</th><th>标的</th><th>代码</th>
+  <th><span class="domain-drive">智驾</span></th>
+  <th><span class="domain-sim">仿真</span></th>
+  <th><span class="domain-glass">眼镜</span></th>
+  <th>交叉<br/>域数</th>
+  <th>PE(TTM)</th><th>市值(亿)</th><th>L2瓶颈</th><th>L3/Pure</th><th>结论</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- 3域交叉 -->
+<tr class="intersection">
+  <td>1</td>
+  <td class="stock-name">中科创达</td>
+  <td>300496</td>
+  <td class="check">✅✅</td>
+  <td class="check">✅</td>
+  <td class="partial">⚠️</td>
+  <td><strong>2.5</strong></td>
+  <td class="pe-high">62.16x</td>
+  <td>286</td>
+  <td>⚠️ OS不是<br/>物理瓶颈</td>
+  <td>❌ L3=1</td>
+  <td><span class="badge badge-orange">🟠 可贵但贵</span></td>
+</tr>
+
+<!-- 2域交叉·智驾+仿真 -->
+<tr>
+  <td>2</td>
+  <td class="stock-name">德赛西威</td>
+  <td>002920</td>
+  <td class="check">✅✅</td>
+  <td class="partial">⚠️</td>
+  <td class="cross">❌</td>
+  <td>1.5</td>
+  <td class="pe-ok">~35x</td>
+  <td>~800</td>
+  <td>⚠️ 域控非<br/>独供瓶颈</td>
+  <td>❌ L3=1</td>
+  <td><span class="badge badge-blue">🔵 跟踪</span></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td class="stock-name">经纬恒润</td>
+  <td>688326</td>
+  <td class="check">✅✅</td>
+  <td class="check">✅</td>
+  <td class="cross">❌</td>
+  <td>2</td>
+  <td class="pe-extreme">217.98x</td>
+  <td>93</td>
+  <td>⚠️ 全栈但<br/>竞争激烈</td>
+  <td>⚠️ L3=2</td>
+  <td><span class="badge badge-red">🔴 PE极高</span></td>
+</tr>
+
+<!-- 2域交叉·智驾+眼镜 -->
+<tr>
+  <td>4</td>
+  <td class="stock-name">瑞芯微</td>
+  <td>603893</td>
+  <td class="partial">⚠️</td>
+  <td class="cross">❌</td>
+  <td class="check">✅✅</td>
+  <td>1.5</td>
+  <td class="pe-high">~100x</td>
+  <td>~500</td>
+  <td>⚠️ AIoT SoC<br/>非专用</td>
+  <td>❌ L3=1</td>
+  <td><span class="badge badge-red">🔴 PE高</span></td>
+</tr>
+
+<!-- 2域交叉·眼镜专精 -->
+<tr>
+  <td>5</td>
+  <td class="stock-name">⭐ 水晶光电</td>
+  <td>002273</td>
+  <td class="partial">⚠️</td>
+  <td class="cross">❌</td>
+  <td class="check">✅✅</td>
+  <td>1.5</td>
+  <td class="pe-ok">41.18x</td>
+  <td>493</td>
+  <td>⚠️ AR光学<br/>方案领先<br/>但非垄断</td>
+  <td>⚠️ L3=3<br/>眼镜概念<br/>有一定讨论</td>
+  <td><span class="badge badge-green">🟡 观察</span></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td class="stock-name">虹软科技</td>
+  <td>688088</td>
+  <td class="check">✅</td>
+  <td class="cross">❌</td>
+  <td class="check">✅</td>
+  <td>2</td>
+  <td class="pe-high">61.53x</td>
+  <td>162</td>
+  <td>⚠️ 视觉算法<br/>可替代性<br/>较强</td>
+  <td>⚠️ L3=3</td>
+  <td><span class="badge badge-orange">🟠 PE偏高</span></td>
+</tr>
+
+<!-- 2域交叉·仿真核心 -->
+<tr>
+  <td>7</td>
+  <td class="stock-name">索辰科技</td>
+  <td>688507</td>
+  <td class="partial">⚠️</td>
+  <td class="check">✅✅</td>
+  <td class="cross">❌</td>
+  <td>1.5</td>
+  <td class="pe-extreme">1850x</td>
+  <td>244</td>
+  <td>✅ CAE仿真<br/>国产唯一<br/>壁垒极高</td>
+  <td>❌ L3=0</td>
+  <td><span class="badge badge-red">🔴 PE荒谬</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 重点分析 ════════════════ -->
+<h2>🔍 按价值投资逻辑深度分析</h2>
+
+<!-- 水晶光电 -->
+<div class="candidate">
+  <div class="name">⭐ 水晶光电 (002273) — PE 41.18x ｜ 市值493亿 ｜ 🟡 建议观察</div>
+  <div class="detail">
+    <strong>软物理AI定位：</strong>AR眼镜光学方案龙头 — 这是软物理AI的"眼睛"。<br>
+    <strong>跨域能力：</strong>
+      <span class="domain-glass">AR眼镜</span> 超薄AR镜片+自由曲面光机，华为/谷歌供应链核心
+      + <span class="domain-drive">车载HUD</span> AR-HUD量产供应，视觉技术从眼镜→汽车复用<br>
+    <strong>L2瓶颈：</strong>AR光学方案不是绝对瓶颈（有替代方案），但在轻量化+高透光方向有领先优势。<br>
+    <strong>L4估值：</strong>PE 41x在软物理AI概念中偏低，市值493亿对应消费电子龙头尚可接受。2026E净利约12亿。<br>
+    <strong>为什么是软物理AI：</strong>AR眼镜的SLAM/空间定位/手势识别算法是软物理AI的典型应用。眼镜不是死硬件——它上面跑的是实时空间感知算法，这正是物理AI从虚拟→物理世界的交互界面。<br>
+    <strong>与硬物理AI的区别：</strong>硬物理AI的机器人需要减速器/电机/传感器；软物理AI的AR眼镜需要光学模组+算法+低功耗芯片。水晶光电卡位在"光学硬件+算法集成"，介于硬软之间。
+  </div>
+  <div class="risk">⚠️ 不入池原因：L2瓶颈存疑(非垄断)，L3=3(有一定讨论)，需验证AR眼镜光学方案的技术护城河深度</div>
+</div>
+
+<!-- 中科创达 -->
+<div class="candidate" style="border-left-color:var(--orange);">
+  <div class="name">🟠 中科创达 (300496) — PE 62.16x ｜ 市值286亿 ｜ 最接近三域交叉</div>
+  <div class="detail">
+    <strong>软物理AI定位：</strong>唯一同时覆盖智驾+仿真+XR三大域的操作系统/中间件公司。<br>
+    <strong>跨域能力：</strong>
+      <span class="domain-drive">智驾</span> 英伟达DRIVE/Jetson双生态，高阶VLA(视-语-控)物理AI方案
+      + <span class="domain-sim">仿真</span> 推出机器人中间件+大模型，跨手机/汽车/机器人平台
+      + <span class="domain-glass">XR</span> 具备XR/AR开发能力但非核心收入<br>
+    <strong>L2瓶颈：</strong>操作系统/中间件不是物理瓶颈，竞争壁垒在于生态绑定（英伟达、高通等），而非技术不可替代性。<br>
+    <strong>致命问题：</strong>PE 62x + Q1净利仅1.02亿(环比-53%)，2026E净利~4.6亿对应动态PE 62x。Q1业绩塌方警告信号。<br>
+    <strong>核心风险：</strong>操作系统公司通常PE高但利润薄，无法用传统PE估值。但62x仍偏高且Q1业绩下滑。
+  </div>
+  <div class="risk">⚠️ Q1净利环比-53%是严重警告，需Q2验证是否趋势性走弱</div>
+</div>
+
+<!-- 德赛西威 -->
+<div class="candidate" style="border-left-color:var(--blue);">
+  <div class="name">🔵 德赛西威 (002920) — PE ~35x ｜ 市值~800亿 ｜ 智驾域控+整车仿真</div>
+  <div class="detail">
+    <strong>软物理AI定位：</strong>自动驾驶域控龙头 — 汽车是最成熟的物理AI标准化载体。<br>
+    <strong>跨域能力：</strong>
+      <span class="domain-drive">智驾</span> THOR域控+L3+整车，英伟达国内最大tier1
+      + <span class="domain-sim">仿真</span> 整车全模态物理仿真智驾方案（训练+验证闭环）<br>
+    <strong>L2瓶颈：</strong>域控制器本身不是瓶颈（同类竞争者有华为/经纬恒润/华为MDC），但德赛在英伟达生态中绑定最深。<br>
+    <strong>软物理AI的核心矛盾：</strong>德赛的PE 35x本身合理，但它不是"纯软物理AI"——域控是硬件+软件集成，物理仿真只是其方案的一部分。当前市场完全按汽车tier1估值（PE 35x），未给物理AI任何溢价。如果软物理AI叙事真正形成，德赛是最容易被重新定价的标的。
+  </div>
+  <div class="risk">跟进：观察物理AI叙事是否能让市场给德赛的仿真能力重新定价</div>
+</div>
+
+<!-- ════════════════ 三域交叉热力对比 ════════════════ -->
+<h2>📊 交叉深度对比</h2>
+<div class="section">
+
+<table>
+<thead><tr><th>标的</th><th>交叉域</th><th>交叉质量</th><th>PE</th><th>价值投资评估</th><th>最终</th></tr></thead>
+<tbody>
+<tr>
+  <td class="stock-name">水晶光电</td>
+  <td>眼镜+车载(1.5域)</td>
+  <td>⭐⭐⭐ AR光学→HUD复用真实</td>
+  <td class="pe-ok">41x</td>
+  <td>PE在软AI中最低，消费电子基本盘稳固</td>
+  <td><span class="badge badge-green">🟡 观察</span></td>
+</tr>
+<tr>
+  <td class="stock-name">德赛西威</td>
+  <td>智驾+仿真(1.5域)</td>
+  <td>⭐⭐⭐⭐ 智驾→仿真闭环强</td>
+  <td class="pe-ok">35x</td>
+  <td>PE最低+业务最扎实，但无眼镜维度</td>
+  <td><span class="badge badge-blue">🔵 跟踪</span></td>
+</tr>
+<tr>
+  <td class="stock-name">中科创达</td>
+  <td>智驾+仿真+XR(2.5域)</td>
+  <td>⭐⭐⭐⭐⭐ 三域唯一</td>
+  <td class="pe-high">62x</td>
+  <td>交叉最多但PE最高+Q1塌方</td>
+  <td><span class="badge badge-orange">🟠 太贵</span></td>
+</tr>
+<tr>
+  <td class="stock-name">虹软科技</td>
+  <td>智驾+眼镜(2域)</td>
+  <td>⭐⭐⭐ 视觉算法双用</td>
+  <td class="pe-high">62x</td>
+  <td>算法可复用但护城河浅</td>
+  <td><span class="badge badge-orange">🟠 太贵</span></td>
+</tr>
+<tr>
+  <td class="stock-name">经纬恒润</td>
+  <td>智驾+仿真(2域)</td>
+  <td>⭐⭐⭐⭐ 全栈闭环</td>
+  <td class="pe-extreme">218x</td>
+  <td>PE荒谬，小市值+亏损风险</td>
+  <td><span class="badge badge-red">🔴 排除</span></td>
+</tr>
+<tr>
+  <td class="stock-name">索辰科技</td>
+  <td>仿真(1域)</td>
+  <td>⭐⭐ 仅仿真</td>
+  <td class="pe-extreme">1850x</td>
+  <td>概念纯但PE荒谬</td>
+  <td><span class="badge badge-red">🔴 排除</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 最终结论 ════════════════ -->
+<h2>📝 最终结论</h2>
+<div class="section">
+
+<div class="alert alert-warning">
+  <div class="alert-title">🎯 三域交叉最佳标的：水晶光电 ⭐ (PE 41x)</div>
+  <p>在三域概念股中，水晶光电是PE最低+业务最扎实的组合。AR眼镜光学方案是软物理AI的"眼睛"，车载HUD证明技术跨域复用真实存在。L2瓶颈存疑是主要减分项（AR光学不是全球垄断），但PE 41x在软物理AI全域中已是最低一档。建议放入🟡观察区，重点验证AR眼镜光学方案的独家性+车载HUD规模爬坡。</p>
+</div>
+
+<div class="alert alert-info">
+  <div class="alert-title">🔄 已有跟踪标的重叠</div>
+  <p>德赛西威(PE 35x)已是之前报告中的🔵跟踪标的 — 智驾域控+整车物理仿真的估值在软AI中最低。如果物理AI叙事成形，其仿真能力可能被重新定价（当前完全按汽车tier1估值）。</p>
+</div>
+
+<div class="alert alert-info">
+  <div class="alert-title">💡 三域交叉的方法论价值</div>
+  <p>用户提出的"智驾×仿真×眼镜"交叉框架，本质是在找<strong>World Model（世界模型）</strong>的应用落地路径：</p>
+  <ul style="margin-left:20px; line-height:2; font-size:13px;">
+    <li><strong>智驾</strong> = 物理AI的世界模型在真实道路上的部署（感知→预测→规划→控制闭环）</li>
+    <li><strong>仿真</strong> = 物理AI的世界模型在数字空间中的训练场（数据生成+场景泛化）</li>
+    <li><strong>眼镜</strong> = 物理AI的世界模型在人体上的交互界面（实时空间感知+信息叠加）</li>
+    <li><strong>三者共享同一套技术栈</strong>：SLAM + 3D重建 + 神经渲染 + 端侧推理</li>
+  </ul>
+  <p style="margin-top:8px;">虽然目前没有一家公司完美覆盖三域，但<strong>中科创达（最接近三域）→ 水晶光电（PE最优）→ 德赛西威（PE最低）</strong>构成了软物理AI价值投资的观察梯队。</p>
+</div>
+
+</div>
+
+<div class="footer">
+  产业价值投资 · 六步工作流 ｜ 基于用户洞察"软物理AI=智驾×仿真×智能眼镜"框架 ｜ 2026-07-01<br>
+  数据来源：东方财富/富途/亿牛网 ｜ 仅供研究参考，不构成投资建议
+</div>
+
+</body>
+</html>
