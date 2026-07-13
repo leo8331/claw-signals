@@ -19,7 +19,8 @@
       "score": 92.0,
       "phase": "",
       "triple_up": false,
-      "can_split": true
+      "can_split": true,
+      "name": "赛分科技"
     },
     {
       "code": "002693",
@@ -37,7 +38,8 @@
       "score": 88.31,
       "phase": "",
       "triple_up": false,
-      "can_split": true
+      "can_split": true,
+      "name": "双成药业"
     },
     {
       "code": "600267",
@@ -55,7 +57,8 @@
       "score": 86.8,
       "phase": "",
       "triple_up": false,
-      "can_split": true
+      "can_split": true,
+      "name": "海正药业"
     },
     {
       "code": "688018",
@@ -73,7 +76,8 @@
       "score": 82.2,
       "phase": "",
       "triple_up": false,
-      "can_split": true
+      "can_split": true,
+      "name": "乐鑫科技"
     },
     {
       "code": "600673",
@@ -91,7 +95,8 @@
       "score": 81.19,
       "phase": "",
       "triple_up": false,
-      "can_split": true
+      "can_split": true,
+      "name": "东阳光"
     }
   ],
   "trades": [],
