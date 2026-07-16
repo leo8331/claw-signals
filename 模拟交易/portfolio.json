@@ -104,7 +104,73 @@
       "can_split": true
     }
   ],
-  "trades": [],
+  "trades": [
+    {
+      "code": "603538",
+      "entry": "2026-07-14",
+      "exit": "2026-07-14",
+      "buy": 35.55,
+      "sell": 35.55,
+      "sh": 2800,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true
+    },
+    {
+      "code": "688293",
+      "entry": "2026-07-14",
+      "exit": "2026-07-14",
+      "buy": 50.93,
+      "sell": 50.93,
+      "sh": 1963,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true
+    },
+    {
+      "code": "600488",
+      "entry": "2026-07-14",
+      "exit": "2026-07-14",
+      "buy": 6.48,
+      "sell": 6.48,
+      "sh": 15400,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true
+    },
+    {
+      "code": "600713",
+      "entry": "2026-07-14",
+      "exit": "2026-07-14",
+      "buy": 5.38,
+      "sell": 5.38,
+      "sh": 18500,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true
+    },
+    {
+      "code": "002693",
+      "entry": "2026-07-15",
+      "exit": "2026-07-15",
+      "buy": 10.96,
+      "sell": 10.96,
+      "sh": 9100,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true
+    }
+  ],
   "curve": [
     {
       "date": "2026-07-14",
