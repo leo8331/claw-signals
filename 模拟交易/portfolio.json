@@ -12,8 +12,8 @@
       "sh": 2800,
       "cost": 99540.0,
       "sl": 33.06,
-      "lp": 39.0,
-      "hd": 1,
+      "lp": 39.08,
+      "hd": 2,
       "tp": false,
       "vr": 2.41,
       "gain": 27.1,
@@ -21,7 +21,9 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "美诺华",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0,
+      "init_sh": 2800
     },
     {
       "code": "688293",
@@ -32,8 +34,8 @@
       "sh": 1963,
       "cost": 99975.59,
       "sl": 47.36,
-      "lp": 54.05,
-      "hd": 1,
+      "lp": 55.35,
+      "hd": 2,
       "tp": false,
       "vr": 2.11,
       "gain": 24.8,
@@ -41,7 +43,9 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "奥浦迈",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0,
+      "init_sh": 1963
     },
     {
       "code": "600488",
@@ -52,8 +56,8 @@
       "sh": 15400,
       "cost": 99792.0,
       "sl": 6.03,
-      "lp": 6.99,
-      "hd": 1,
+      "lp": 6.53,
+      "hd": 2,
       "tp": false,
       "vr": 1.47,
       "gain": 23.7,
@@ -61,7 +65,9 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "XD津药药",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0,
+      "init_sh": 15400
     },
     {
       "code": "600713",
@@ -72,8 +78,8 @@
       "sh": 18500,
       "cost": 99530.0,
       "sl": 5.0,
-      "lp": 5.41,
-      "hd": 1,
+      "lp": 5.4,
+      "hd": 2,
       "tp": false,
       "vr": 2.78,
       "gain": 6.5,
@@ -81,7 +87,9 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "南京医药",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0,
+      "init_sh": 18500
     },
     {
       "code": "002693",
@@ -92,8 +100,8 @@
       "sh": 9100,
       "cost": 99736.0,
       "sl": 10.19,
-      "lp": 10.96,
-      "hd": 0,
+      "lp": 10.52,
+      "hd": 1,
       "tp": false,
       "vr": 1.99,
       "gain": 15.4,
@@ -101,7 +109,9 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "双成药业",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0,
+      "init_sh": 9100
     }
   ],
   "trades": [
@@ -195,6 +205,12 @@
       "value": 524193.56,
       "cash": 1426.41,
       "market": 522767.15
+    },
+    {
+      "date": "2026-07-16",
+      "value": 515696.46,
+      "cash": 1426.41,
+      "market": 514270.05
     }
   ]
 }
