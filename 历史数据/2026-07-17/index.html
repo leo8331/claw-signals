@@ -9,15 +9,15 @@
 .page-header h1{font-size:24px;margin-bottom:4px}
 .page-header h1 .accent{color:var(--accent)}
 .page-header .subtitle{font-size:13px;color:var(--text-tertiary);margin-bottom:20px}
-.strat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:18px}
+.strat-card{background:linear-gradient(135deg,rgba(20,26,46,0.95) 0%,rgba(28,38,60,0.95) 100%);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:18px}
 .strat-card h2{font-size:15px;margin-bottom:4px}
 .strat-card .desc{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;line-height:1.6}
 .stock-table{width:100%;border-collapse:collapse;font-size:13px}
-.stock-table th{text-align:left;padding:8px 10px;color:var(--text-tertiary);font-weight:500;font-size:11px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
-.stock-table td{padding:8px 10px;border-bottom:1px solid rgba(56,61,77,0.12);font-size:13px}
-.stock-table tr:hover td{background:rgba(56,61,77,0.06)}
+.stock-table th{text-align:left;padding:8px 10px;color:var(--text-tertiary);font-weight:600;font-size:12px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
+.stock-table td{padding:9px 10px;border-bottom:1px solid rgba(56,61,77,0.12);font-size:13px;vertical-align:middle}
+.stock-table tr:hover td{background:rgba(102,153,224,0.05)}
 .tag-sm{font-size:10px;padding:1px 6px;border-radius:3px;color:#fff;display:inline-block}
-.tag-h3{background:#17bf63}.tag-g{background:#794bc4}.tag-v5{background:#e0245e}
+.tag-h3{background:#17bf63}.tag-g{background:#6699E0}.tag-v5{background:#e0245e}
 @media(max-width:768px){.stock-table{font-size:11px}.stock-table th,.stock-table td{padding:6px 4px}}
 </style>
 </head>
@@ -56,28 +56,35 @@
     <div class="subtitle">全市场自动扫描 · H3 / G变体 / V5-ML 三策略信号</div>
   </div>
 
-  <div class="strat-card">
+  <div class="ops-row">
+  <div class="ops-card"><span class="dot" style="background:var(--green)"></span><div><div class="l">H3 信号</div><div class="n" style="color:var(--green)">7</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--accent)"></span><div><div class="l">G 信号</div><div class="n" style="color:var(--accent)">0</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--red)"></span><div><div class="l">V5 信号</div><div class="n" style="color:var(--red)">1</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--orange)"></span><div><div class="l">数据日期</div><div class="n" style="color:var(--orange);font-size:16px;padding-top:4px">07-17</div></div></div>
+</div>
+
+  <div class="strat-card strat-h3">
     <h2><span class="tag-sm tag-h3">H3</span> 振幅加速</h2>
     <div class="desc">ideal_amp>1.5 | L1板块 | MC>80亿 | ★★★牛市优先 ⚡过热谨慎</div>
-    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">仓位</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>量能比</th><th>MA60%</th></tr><tr><td>1</td><td>001872</td><td>招商港口</td><td>航运港口</td><td><span style="color:#8899a6;font-size:11px;font-weight:600">↓↓↑</span></td><td><span style="color:#1da1f2;font-weight:600">★★</span></td><td><span style="color:#1da1f2;font-weight:600;font-size:12px">10%</span></td><td><span style="color:#f5a623;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥21.98</td><td>2.55</td><td>6.3</td></tr>
-<tr><td>2</td><td>600236</td><td>桂冠电力</td><td>电力</td><td><span style="color:#8899a6;font-size:11px;font-weight:600">↓↓↑</span></td><td><span style="color:#1da1f2;font-weight:600">★★</span></td><td><span style="color:#1da1f2;font-weight:600;font-size:12px">10%</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥10.62</td><td>2.30</td><td>5.3</td></tr>
-<tr><td>3</td><td>603118</td><td>共进股份</td><td>通信设备</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#e0245e;font-weight:600;font-size:12px">0%</span></td><td><span style="color:#e0245e;font-size:11px">9%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥14.95</td><td>1.89</td><td>8.8</td></tr>
-<tr><td>4</td><td>601939</td><td>建设银行</td><td>全国性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-weight:600;font-size:12px">20%</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥10.14</td><td>1.85</td><td>3.8</td></tr>
-<tr><td>5</td><td>002142</td><td>宁波银行</td><td>地方性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-weight:600;font-size:12px">20%</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥31.84</td><td>1.68</td><td>3.8</td></tr>
-<tr><td>6</td><td>601398</td><td>工商银行</td><td>全国性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-weight:600;font-size:12px">20%</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥7.56</td><td>1.64</td><td>3.5</td></tr>
-<tr><td>7</td><td>601988</td><td>中国银行</td><td>全国性银行</td><td><span style="color:#17bf63;font-size:11px;font-weight:600">↑↑↑</span></td><td><span style="color:#17bf63;font-weight:600">★★★</span></td><td><span style="color:#17bf63;font-weight:600;font-size:12px">20%</span></td><td><span style="color:#17bf63;font-size:11px">6%</span></td><td><span style="color:#556;font-size:10px">-</span></td><td>¥5.96</td><td>1.46</td><td>3.6</td></tr></table>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>量能比</th><th>MA60%</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sz">001872</span></td><td>招商港口</td><td style="color:var(--text-tertiary)">航运港口</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P2</span></td><td class="mono"><span style="color:var(--accent);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥21.98</td><td class="mono">2.55</td><td class="mono"><span style="color:var(--red)">+6.3%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sh">600236</span></td><td>桂冠电力</td><td style="color:var(--text-tertiary)">电力</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P2</span></td><td class="mono"><span style="color:var(--accent);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥10.62</td><td class="mono">2.30</td><td class="mono"><span style="color:var(--red)">+5.3%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sh">603118</span></td><td>共进股份</td><td style="color:var(--text-tertiary)">通信设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥14.95</td><td class="mono">1.89</td><td class="mono"><span style="color:var(--red)">+8.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sh">601939</span></td><td>建设银行</td><td style="color:var(--text-tertiary)">全国性银行</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥10.14</td><td class="mono">1.85</td><td class="mono"><span style="color:var(--red)">+3.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">5</td><td><span class="code-sz">002142</span></td><td>宁波银行</td><td style="color:var(--text-tertiary)">地方性银行</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥31.84</td><td class="mono">1.68</td><td class="mono"><span style="color:var(--red)">+3.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">6</td><td><span class="code-sh">601398</span></td><td>工商银行</td><td style="color:var(--text-tertiary)">全国性银行</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥7.56</td><td class="mono">1.64</td><td class="mono"><span style="color:var(--red)">+3.5%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">7</td><td><span class="code-sh">601988</span></td><td>中国银行</td><td style="color:var(--text-tertiary)">全国性银行</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥5.96</td><td class="mono">1.46</td><td class="mono"><span style="color:var(--red)">+3.6%</span></td></tr></table></div>
   </div>
 
-  <div class="strat-card">
+  <div class="strat-card strat-g">
     <h2><span class="tag-sm tag-g">G变体</span> 趋势质量</h2>
     <div class="desc">VG+11因子 | 5天冷却 | L1板块 | MC&gt;80亿</div>
-    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">仓位</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>ADX</th><th>模块</th></tr><tr><td colspan=11 style=color:#556>暂无</td></tr></table>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ADX</th><th>模块</th></tr><tr><td colspan=10 style=color:#556>暂无</td></tr></table></div>
   </div>
 
-  <div class="strat-card">
+  <div class="strat-card strat-v5">
     <h2><span class="tag-sm tag-v5">V5-ML</span> 量价突破</h2>
     <div class="desc">ML proba排名 | ★★★优先 ✘回避 | ML>0.60加成</div>
-    <table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th style="font-size:10px">行业阶段</th><th style="font-size:10px">优先级</th><th style="font-size:10px">仓位</th><th style="font-size:10px">止损</th><th style="font-size:10px">幅度风险</th><th>收盘</th><th>ML</th><th>评级</th></tr><tr><td>1</td><td>603120</td><td>肯特催化</td><td>化学制品</td><td><span style="color:#e0245e;font-size:11px;font-weight:600">↓↓↓</span></td><td><span style="color:#e0245e">✘</span></td><td><span style="color:#e0245e;font-weight:600;font-size:12px">0%</span></td><td><span style="color:#e0245e;font-size:11px">9%</span></td><td><span style="color:#17bf63;font-size:10px;background:#0d3320;padding:1px 4px;border-radius:2px">⚠冰点</span></td><td>¥54.98</td><td>0.438</td><td></td></tr></table>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ML</th><th>日收益</th><th>评级</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">603120</span></td><td>肯特催化</td><td style="color:var(--text-tertiary)">化学制品</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥54.98</td><td class="mono">0.438</td><td class="mono"><span style="color:var(--red)">+6.7%</span></td><td class="mono"></td></tr></table></div>
   </div>
 </main>
 </div>

@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>历史数据 · CLAW</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f1419;color:#e1e8ed;font-family:system-ui,sans-serif;padding:24px}
-nav{background:#192734;padding:0;border-bottom:1px solid #38444d;position:sticky;top:0;z-index:100}
-.nav-inner{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px}
-.nav-home{font-size:16px;font-weight:700;color:#1da1f2;text-decoration:none}
-.nav-link{font-size:14px;color:#8899a6;text-decoration:none}.nav-link:hover{color:#e1e8ed}
-.nav-active{color:#f5a623!important}
-a{color:#1da1f2;text-decoration:none}a:hover{text-decoration:underline}
-main{max-width:720px;margin:0 auto;padding:24px}
-h2{font-size:20px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #1da1f2}
-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:16px}
-td{padding:10px 14px;border-bottom:1px solid #192734}tr:hover td{background:#1a2a3a}
-td a{font-weight:600}
-th{text-align:left;padding:10px 14px;background:#192734;color:#8899a6;font-weight:600;border-bottom:2px solid #38444d}
-.tag-sig{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:6px;background:#0d3320;color:#17bf63}
-.tag-sec{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:6px;background:#1a2d40;color:#1da1f2}
-footer{text-align:center;color:#5c6e7e;font-size:11px;padding:24px;border-top:1px solid #192734;margin-top:40px}
-</style></head><body>
-<nav><div class="nav-inner">
-  <a href="../" class="nav-home">← CLAW</a>
-  <a href="../" class="nav-link">首页</a>
-  <a href="../每日选股/" class="nav-link">每日选股</a>
-  <a href="../行业排行/" class="nav-link">行业排行</a>
-  <a href="../价值投资/" class="nav-link">价值投资</a>
-  <a href="./" class="nav-link nav-active">历史数据</a>
-</div></nav>
+<title>历史数据存档 · CLAW</title>
+<link rel="stylesheet" href="../style.css">
+</head><body class="entrance-ready">
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="window.location.href='../index.html'">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="window.location.href='../每日选股/index.html'">SWITCH_</span>
+</nav>
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
+  <a class="sub-menu-link" href="../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
+  <a class="sub-menu-link" href="../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
+  <a class="sub-menu-link" href="../回测报告/index.html"><span class="sub-menu-dot"></span>回测报告</a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../index.html"><span class="sub-menu-dot"></span>首页</a>
+  <a class="sub-menu-link" href="./"><span class="sub-menu-dot"></span>历史数据</a>
+</div>
 <main>
-<h2>📅 历史数据存档</h2>
-<p style="font-size:13px;color:#8899a6;margin-bottom:16px">所有自动生成的每日选股信号和行业排行均按日期存档，点击可回溯任意交易日。</p>
-<table><tr><th>日期</th><th>选股信号</th><th>行业排行</th></tr>
-  <tr><td><a href="./2026-07-17/">2026-07-17</a></td><td><a href="./2026-07-17/">选股信号</a><span class=tag-sig>最新</span></td><td><a href="./2026-07-17/sector.html">行业排行</a><span class=tag-sec>最新</span></td></tr>
-  <tr><td><a href="./2026-07-16/">2026-07-16</a></td><td><a href="./2026-07-16/">选股信号</a></td><td><a href="./2026-07-16/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-15/">2026-07-15</a></td><td><a href="./2026-07-15/">选股信号</a></td><td><a href="./2026-07-15/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-14/">2026-07-14</a></td><td><a href="./2026-07-14/">选股信号</a></td><td><a href="./2026-07-14/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-13/">2026-07-13</a></td><td><a href="./2026-07-13/">选股信号</a></td><td><a href="./2026-07-13/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-11/">2026-07-11</a></td><td><a href="./2026-07-11/">选股信号</a></td><td><a href="./2026-07-11/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-10/">2026-07-10</a></td><td><a href="./2026-07-10/">选股信号</a></td><td><a href="./2026-07-10/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-09/">2026-07-09</a></td><td><a href="./2026-07-09/">选股信号</a></td><td><a href="./2026-07-09/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-08/">2026-07-08</a></td><td><a href="./2026-07-08/">选股信号</a></td><td><a href="./2026-07-08/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-07/">2026-07-07</a></td><td><a href="./2026-07-07/">选股信号</a></td><td><a href="./2026-07-07/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-06/">2026-07-06</a></td><td><a href="./2026-07-06/">选股信号</a></td><td><a href="./2026-07-06/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-04/">2026-07-04</a></td><td><a href="./2026-07-04/">选股信号</a></td><td><a href="./2026-07-04/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-03/">2026-07-03</a></td><td><a href="./2026-07-03/">选股信号</a></td><td><a href="./2026-07-03/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-02/">2026-07-02</a></td><td><a href="./2026-07-02/">选股信号</a></td><td><a href="./2026-07-02/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-07-01/">2026-07-01</a></td><td><a href="./2026-07-01/">选股信号</a></td><td><a href="./2026-07-01/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-30/">2026-06-30</a></td><td><a href="./2026-06-30/">选股信号</a></td><td><a href="./2026-06-30/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-29/">2026-06-29</a></td><td><a href="./2026-06-29/">选股信号</a></td><td><a href="./2026-06-29/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-26/">2026-06-26</a></td><td><a href="./2026-06-26/">选股信号</a></td><td><a href="./2026-06-26/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-25/">2026-06-25</a></td><td><a href="./2026-06-25/">选股信号</a></td><td><a href="./2026-06-25/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-24/">2026-06-24</a></td><td><a href="./2026-06-24/">选股信号</a></td><td><a href="./2026-06-24/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-23/">2026-06-23</a></td><td><a href="./2026-06-23/">选股信号</a></td><td><a href="./2026-06-23/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-22/">2026-06-22</a></td><td><a href="./2026-06-22/">选股信号</a></td><td><a href="./2026-06-22/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-19/">2026-06-19</a></td><td><a href="./2026-06-19/">选股信号</a></td><td><a href="./2026-06-19/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-18/">2026-06-18</a></td><td><a href="./2026-06-18/">选股信号</a></td><td><a href="./2026-06-18/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-17/">2026-06-17</a></td><td><a href="./2026-06-17/">选股信号</a></td><td><a href="./2026-06-17/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-16/">2026-06-16</a></td><td><a href="./2026-06-16/">选股信号</a></td><td><a href="./2026-06-16/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-15/">2026-06-15</a></td><td><a href="./2026-06-15/">选股信号</a></td><td><a href="./2026-06-15/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-12/">2026-06-12</a></td><td><a href="./2026-06-12/">选股信号</a></td><td><a href="./2026-06-12/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-11/">2026-06-11</a></td><td><a href="./2026-06-11/">选股信号</a></td><td><a href="./2026-06-11/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-10/">2026-06-10</a></td><td><a href="./2026-06-10/">选股信号</a></td><td><a href="./2026-06-10/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-09/">2026-06-09</a></td><td><a href="./2026-06-09/">选股信号</a></td><td><a href="./2026-06-09/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-08/">2026-06-08</a></td><td><a href="./2026-06-08/">选股信号</a></td><td><a href="./2026-06-08/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-05/">2026-06-05</a></td><td><a href="./2026-06-05/">选股信号</a></td><td><a href="./2026-06-05/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-04/">2026-06-04</a></td><td><a href="./2026-06-04/">选股信号</a></td><td><a href="./2026-06-04/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-03/">2026-06-03</a></td><td><a href="./2026-06-03/">选股信号</a></td><td><a href="./2026-06-03/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-02/">2026-06-02</a></td><td><a href="./2026-06-02/">选股信号</a></td><td><a href="./2026-06-02/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-06-01/">2026-06-01</a></td><td><a href="./2026-06-01/">选股信号</a></td><td><a href="./2026-06-01/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-05-31/">2026-05-31</a></td><td><a href="./2026-05-31/">选股信号</a></td><td><a href="./2026-05-31/sector.html">行业排行</a></td></tr>
-  <tr><td><a href="./2026-05-29/">2026-05-29</a></td><td><a href="./2026-05-29/">选股信号</a></td><td><a href="./2026-05-29/sector.html">行业排行</a></td></tr>
-</table></main>
-<footer>CLAW 量化投研系统 · 历史数据存档 · 2026</footer>
+  <div class="page-header page-head-row">
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:3px;margin-bottom:8px">ARCHIVE</div>
+      <h1>历史数据存档</h1>
+      <div class="subtitle">每日信号与行业排行归档 · 选择日期查看当日完整页面</div>
+    </div>
+    <span class="date-chip">共 39 个交易日</span>
+  </div>
+  <div class="month-label">2026-07</div><div class="card" style="padding:4px 8px"><div class="table-wrap"><table style="margin:0"><tr><th>日期</th><th>星期</th><th>信号数</th><th>领涨行业</th><th>20日涨幅</th><th>操作</th></tr><tr><td><a href="./2026-07-17/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-17</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">8</td><td>医疗服务</td><td><span class="mono" style="color:var(--red)">+12.9%</span></td><td><a href="./2026-07-17/">选股</a> · <a href="./2026-07-17/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-16/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-16</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">6</td><td>医疗服务</td><td><span class="mono" style="color:var(--red)">+26.3%</span></td><td><a href="./2026-07-16/">选股</a> · <a href="./2026-07-16/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-15/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-15</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">25</td><td>医疗服务</td><td><span class="mono" style="color:var(--red)">+28.4%</span></td><td><a href="./2026-07-15/">选股</a> · <a href="./2026-07-15/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-14/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-14</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">55</td><td>医疗服务</td><td><span class="mono" style="color:var(--red)">+21.1%</span></td><td><a href="./2026-07-14/">选股</a> · <a href="./2026-07-14/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-13/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-13</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">21</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+21.9%</span></td><td><a href="./2026-07-13/">选股</a> · <a href="./2026-07-13/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-11/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-11</a></td><td style="color:var(--text-muted)">周六</td><td class="mono">27</td><td>—</td><td>—</td><td><a href="./2026-07-11/">选股</a> · <a href="./2026-07-11/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-10/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-10</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">39</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+26.2%</span></td><td><a href="./2026-07-10/">选股</a> · <a href="./2026-07-10/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-09/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-09</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">34</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+36.7%</span></td><td><a href="./2026-07-09/">选股</a> · <a href="./2026-07-09/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-08/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-08</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">27</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+26.0%</span></td><td><a href="./2026-07-08/">选股</a> · <a href="./2026-07-08/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-07/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-07</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">18</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+33.2%</span></td><td><a href="./2026-07-07/">选股</a> · <a href="./2026-07-07/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-06/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-06</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">9</td><td>—</td><td>—</td><td><a href="./2026-07-06/">选股</a> · <a href="./2026-07-06/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-04/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-04</a></td><td style="color:var(--text-muted)">周六</td><td class="mono">22</td><td>—</td><td>—</td><td><a href="./2026-07-04/">选股</a> · <a href="./2026-07-04/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-03/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-03</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">13</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+35.3%</span></td><td><a href="./2026-07-03/">选股</a> · <a href="./2026-07-03/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-02/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-02</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">15</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+35.3%</span></td><td><a href="./2026-07-02/">选股</a> · <a href="./2026-07-02/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-07-01/" class="mono" style="color:var(--text-primary);font-weight:600">2026-07-01</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">27</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+41.5%</span></td><td><a href="./2026-07-01/">选股</a> · <a href="./2026-07-01/sector.html">行业</a></td></tr></table></div></div><div class="month-label">2026-06</div><div class="card" style="padding:4px 8px"><div class="table-wrap"><table style="margin:0"><tr><th>日期</th><th>星期</th><th>信号数</th><th>领涨行业</th><th>20日涨幅</th><th>操作</th></tr><tr><td><a href="./2026-06-30/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-30</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">42</td><td>半导体</td><td><span class="mono" style="color:var(--red)">+45.2%</span></td><td><a href="./2026-06-30/">选股</a> · <a href="./2026-06-30/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-29/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-29</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">30</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+36.2%</span></td><td><a href="./2026-06-29/">选股</a> · <a href="./2026-06-29/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-26/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-26</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">17</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+40.5%</span></td><td><a href="./2026-06-26/">选股</a> · <a href="./2026-06-26/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-25/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-25</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">18</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+43.9%</span></td><td><a href="./2026-06-25/">选股</a> · <a href="./2026-06-25/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-24/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-24</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">24</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+31.6%</span></td><td><a href="./2026-06-24/">选股</a> · <a href="./2026-06-24/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-23/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-23</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">63</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+24.6%</span></td><td><a href="./2026-06-23/">选股</a> · <a href="./2026-06-23/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-22/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-22</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">12</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+37.7%</span></td><td><a href="./2026-06-22/">选股</a> · <a href="./2026-06-22/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-19/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-19</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">0</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+43.8%</span></td><td><a href="./2026-06-19/">选股</a> · <a href="./2026-06-19/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-18/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-18</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">17</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+43.8%</span></td><td><a href="./2026-06-18/">选股</a> · <a href="./2026-06-18/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-17/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-17</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">74</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+46.3%</span></td><td><a href="./2026-06-17/">选股</a> · <a href="./2026-06-17/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-16/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-16</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">19</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+39.2%</span></td><td><a href="./2026-06-16/">选股</a> · <a href="./2026-06-16/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-15/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-15</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">13</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+29.8%</span></td><td><a href="./2026-06-15/">选股</a> · <a href="./2026-06-15/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-12/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-12</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">20</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+23.8%</span></td><td><a href="./2026-06-12/">选股</a> · <a href="./2026-06-12/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-11/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-11</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">14</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+20.3%</span></td><td><a href="./2026-06-11/">选股</a> · <a href="./2026-06-11/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-10/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-10</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">23</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+16.0%</span></td><td><a href="./2026-06-10/">选股</a> · <a href="./2026-06-10/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-09/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-09</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">31</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+25.1%</span></td><td><a href="./2026-06-09/">选股</a> · <a href="./2026-06-09/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-08/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-08</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">19</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+16.9%</span></td><td><a href="./2026-06-08/">选股</a> · <a href="./2026-06-08/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-05/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-05</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">33</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+24.0%</span></td><td><a href="./2026-06-05/">选股</a> · <a href="./2026-06-05/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-04/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-04</a></td><td style="color:var(--text-muted)">周四</td><td class="mono">38</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+30.7%</span></td><td><a href="./2026-06-04/">选股</a> · <a href="./2026-06-04/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-03/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-03</a></td><td style="color:var(--text-muted)">周三</td><td class="mono">38</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+30.5%</span></td><td><a href="./2026-06-03/">选股</a> · <a href="./2026-06-03/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-02/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-02</a></td><td style="color:var(--text-muted)">周二</td><td class="mono">42</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+33.8%</span></td><td><a href="./2026-06-02/">选股</a> · <a href="./2026-06-02/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-06-01/" class="mono" style="color:var(--text-primary);font-weight:600">2026-06-01</a></td><td style="color:var(--text-muted)">周一</td><td class="mono">58</td><td>元器件</td><td><span class="mono" style="color:var(--red)">+26.4%</span></td><td><a href="./2026-06-01/">选股</a> · <a href="./2026-06-01/sector.html">行业</a></td></tr></table></div></div><div class="month-label">2026-05</div><div class="card" style="padding:4px 8px"><div class="table-wrap"><table style="margin:0"><tr><th>日期</th><th>星期</th><th>信号数</th><th>领涨行业</th><th>20日涨幅</th><th>操作</th></tr><tr><td><a href="./2026-05-31/" class="mono" style="color:var(--text-primary);font-weight:600">2026-05-31</a></td><td style="color:var(--text-muted)">周日</td><td class="mono">52</td><td>玻璃玻纤</td><td><span class="mono" style="color:var(--red)">+36.5%</span></td><td><a href="./2026-05-31/">选股</a> · <a href="./2026-05-31/sector.html">行业</a></td></tr>
+<tr><td><a href="./2026-05-29/" class="mono" style="color:var(--text-primary);font-weight:600">2026-05-29</a></td><td style="color:var(--text-muted)">周五</td><td class="mono">0</td><td>—</td><td>—</td><td><a href="./2026-05-29/">选股</a> · <a href="./2026-05-29/sector.html">行业</a></td></tr></table></div></div>
+</main>
+<footer>CLAW Signals · 历史数据存档 · 2026</footer>
+</div>
+<script>
+function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
+function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
+</script>
 </body></html>

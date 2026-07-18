@@ -1,54 +1,111 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>H3 v4.2 模拟交易 | CLAW</title>
+<title>H3 v4.2 模拟交易报告 | CLAW</title>
+<link rel="stylesheet" href="../style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,sans-serif;padding:16px}
-.c{max-width:1100px;margin:0 auto}
-h1{text-align:center;font-size:20px;color:#17bf63;margin-bottom:2px}
-.sub{text-align:center;color:#556;font-size:12px;margin-bottom:14px}
-.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:14px}
-.mc{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:12px;text-align:center}
-.mc .l{font-size:10px;color:#556;margin-bottom:4px}
-.mc .v{font-size:18px;font-weight:700}
-.mc .s{font-size:9px;color:#556;margin-top:2px}
-.pos{color:#17bf63}.neg{color:#e0245e}.neu{color:#f5a623}
-.cb{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:12px;margin-bottom:14px}
-.cb h2{font-size:12px;color:#8b949e;margin-bottom:8px}
-.cb canvas{width:100%!important;height:300px!important}
-table{width:100%;border-collapse:collapse;font-size:11px}
-th{background:#21262d;padding:7px 5px;text-align:left;color:#8b949e;font-size:10px}
-td{padding:6px 5px;border-bottom:1px solid #21262d}
-.tw{max-height:400px;overflow-y:auto;border-radius:6px;border:1px solid #30363d}
-.sig{text-align:center;margin:8px 0}
-.info{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:12px;margin-bottom:14px;font-size:12px;color:#8b949e;line-height:1.6}
-.info b{color:#c9d1d9}
-</style></head><body><div class="c">
-<h1>H3 v4.2 模拟交易</h1>
-<div class="sub">初始¥500,000 | 起始2026-07-14 | 更新2026-07-17 | 5笔交易</div>
-<div class="sig"><span style="color:#556;font-size:12px">今日无新开仓</span></div>
-<div class="mg">
-<div class="mc"><div class="l">总资产</div><div class="v neg">¥470,711</div><div class="s">现金¥1,426 市值¥469,285</div></div>
-<div class="mc"><div class="l">总收益</div><div class="v neg">-5.9%</div></div>
-<div class="mc"><div class="l">胜率</div><div class="v neu">0.0%</div><div class="s">0/5</div></div>
-<div class="mc"><div class="l">盈亏比</div><div class="v">0.00</div><div class="s">赢¥0/亏¥0</div></div>
-<div class="mc"><div class="l">最大回撤</div><div class="v neg">-10.2%</div></div>
-<div class="mc"><div class="l">持仓数</div><div class="v">5/5</div></div>
+.sig-strip{text-align:center;margin-bottom:20px}
+.rep-table{width:100%;border-collapse:collapse;font-size:13px}
+.rep-table th{text-align:left;padding:9px 10px;color:var(--text-tertiary);font-weight:600;font-size:12px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
+.rep-table td{padding:9px 10px;border-bottom:1px solid rgba(56,61,77,0.12);vertical-align:middle}
+.rep-table tr:hover td{background:rgba(102,153,224,0.05)}
+.chart-card{padding:20px}
+.chart-card canvas{width:100%!important;height:320px!important}
+.tw{max-height:420px;overflow-y:auto}
+</style></head>
+<body class="entrance-ready">
+
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="window.location.href='../index.html'">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="window.location.href='../每日选股/index.html'">SWITCH_</span>
+</nav>
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
+  <a class="sub-menu-link" href="../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
+  <a class="sub-menu-link" href="../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
+  <a class="sub-menu-link" href="./"><span class="sub-menu-dot"></span>回测报告</a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../index.html"><span class="sub-menu-dot"></span>首页</a>
+  <a class="sub-menu-link" href="../历史数据/index.html"><span class="sub-menu-dot"></span>历史数据</a>
 </div>
-<div class="info"><b>策略:</b> H3 v4.2 橘黄→GAIN(2~20%)→HT上升[-π/2,0)→BQ≥0.6+EXH≤2 | <b>仓位:</b> 20%×5 | <b>止损:</b> -7%/7d | <b>止盈:</b> +10%卖50%→+20%卖30% | <b>清仓:</b> EMA44 | <b>超时:</b> 60d</div>
-<div class="cb"><h2>净值曲线</h2><canvas id="ec"></canvas></div>
-<div class="cb"><h2>当前持仓</h2><table><tr><th>代码</th><th>名称</th><th>板块三箭头</th><th>买入日</th><th>买价</th><th>现价</th><th>股数</th><th>成本</th><th>浮盈</th><th>持仓</th><th>止损</th></tr><tr><td>603538</td><td>美诺华</td><td style="color:#8b949e;font-weight:600">↑↓↓</td><td>2026-07-14</td><td>¥35.55</td><td>¥34.52</td><td>2800</td><td>¥99,540</td><td style="color:#e0245e">-2.9%</td><td>3d</td><td>¥33.06</td></tr><tr><td>688293</td><td>奥浦迈</td><td style="color:#8b949e;font-weight:600">↑↓↓</td><td>2026-07-14</td><td>¥50.93</td><td>¥51.81</td><td>1963</td><td>¥99,976</td><td style="color:#17bf63">+1.7%</td><td>3d</td><td>¥47.36</td></tr><tr><td>600488</td><td>XD津药药</td><td style="color:#8b949e;font-weight:600">↑↓↓</td><td>2026-07-14</td><td>¥6.48</td><td>¥5.81</td><td>15400</td><td>¥99,792</td><td style="color:#e0245e">-10.3%</td><td>3d</td><td>¥6.03</td></tr><tr><td>600713</td><td>南京医药</td><td style="color:#17bf63;font-weight:600">↑↑↑ ★</td><td>2026-07-14</td><td>¥5.38</td><td>¥5.15</td><td>18500</td><td>¥99,530</td><td style="color:#e0245e">-4.3%</td><td>3d</td><td>¥5.00</td></tr><tr><td>002693</td><td>双成药业</td><td style="color:#8b949e;font-weight:600">↑↓↓</td><td>2026-07-15</td><td>¥10.96</td><td>¥9.47</td><td>9100</td><td>¥99,736</td><td style="color:#e0245e">-13.6%</td><td>2d</td><td>¥10.19</td></tr></table></div>
-<div class="cb"><h2>交易流水 (近50笔, 含买入)</h2><div class="tw"><table><tr><th>代码</th><th>买入日</th><th>日期</th><th>买价</th><th>价格</th><th>股数</th><th>盈亏</th><th>收益</th><th>持仓</th><th>原因</th></tr><tr><td>002693</td><td>2026-07-15</td><td>2026-07-15</td><td>¥10.96</td><td>¥10.96</td><td>9100</td><td style="color:#58a6ff;font-weight:600">—</td><td>—</td><td>—</td><td style="color:#58a6ff">买入</td></tr><tr><td>603538</td><td>2026-07-14</td><td>2026-07-14</td><td>¥35.55</td><td>¥35.55</td><td>2800</td><td style="color:#58a6ff;font-weight:600">—</td><td>—</td><td>—</td><td style="color:#58a6ff">买入</td></tr><tr><td>688293</td><td>2026-07-14</td><td>2026-07-14</td><td>¥50.93</td><td>¥50.93</td><td>1963</td><td style="color:#58a6ff;font-weight:600">—</td><td>—</td><td>—</td><td style="color:#58a6ff">买入</td></tr><tr><td>600488</td><td>2026-07-14</td><td>2026-07-14</td><td>¥6.48</td><td>¥6.48</td><td>15400</td><td style="color:#58a6ff;font-weight:600">—</td><td>—</td><td>—</td><td style="color:#58a6ff">买入</td></tr><tr><td>600713</td><td>2026-07-14</td><td>2026-07-14</td><td>¥5.38</td><td>¥5.38</td><td>18500</td><td style="color:#58a6ff;font-weight:600">—</td><td>—</td><td>—</td><td style="color:#58a6ff">买入</td></tr></table></div></div>
-<div style="text-align:center;color:#556;font-size:10px;margin-top:12px">CLAW H3 v4.2 模拟交易 | 2026-07-17 | ⚠ 仅供参考</div>
+<main>
+  <div class="page-header page-head-row">
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:3px;margin-bottom:8px">BACKTEST REPORT</div>
+      <h1>H3 v4.2 模拟交易报告</h1>
+      <div class="subtitle">初始 ¥500,000 ｜ 起始 2026-07-14 ｜ 更新 2026-07-17 ｜ 5 笔交易</div>
+    </div>
+    <span class="date-chip">2026-07-17</span>
+  </div>
+
+  <div class="sig-strip"><span style="color:var(--text-muted);font-size:12px">今日无新开仓</span></div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">总资产</div><div class="kpi-value" style="color:var(--green)">¥470,711</div><div class="kpi-delta">现金 ¥1,426 ｜ 市值 ¥469,285</div></div>
+    <div class="kpi-card"><div class="kpi-label">总收益</div><div class="kpi-value" style="color:var(--green)">-5.9%</div><div class="kpi-delta">初始 ¥500,000</div></div>
+    <div class="kpi-card"><div class="kpi-label">胜率 WR</div><div class="kpi-value">0.0%</div><div class="kpi-delta">0/5 笔盈利</div></div>
+    <div class="kpi-card"><div class="kpi-label">盈亏比</div><div class="kpi-value">0.00</div><div class="kpi-delta">赢 ¥0 ｜ 亏 ¥0</div></div>
+    <div class="kpi-card"><div class="kpi-label">最大回撤</div><div class="kpi-value" style="color:var(--green)">-10.2%</div><div class="kpi-delta">按净值曲线峰值计算</div></div>
+    <div class="kpi-card"><div class="kpi-label">当前持仓</div><div class="kpi-value">5<span style="font-size:14px;color:var(--text-muted)">/5</span></div><div class="kpi-delta">单仓 20% 固定金额</div></div>
+  </div>
+
+  <div class="note-box"><b>策略:</b> H3 v4.2 橘黄→GAIN(2~20%)→HT上升[-π/2,0)→BQ≥0.6+EXH≤2 ｜ <b>仓位:</b> 20%×5 ｜ <b>止损:</b> -7%/7d ｜ <b>止盈:</b> +10%卖50%→+20%卖30% ｜ <b>清仓:</b> EMA44 ｜ <b>超时:</b> 60d</div>
+
+  <div class="card chart-card" style="margin-bottom:24px">
+    <div class="page-head-row" style="margin-bottom:12px">
+      <div class="mod-title" style="margin-bottom:0">净值曲线</div>
+      <div class="mono" style="font-size:11px;color:var(--text-muted)">基准: 初始资金 ¥500,000</div>
+    </div>
+    <canvas id="ec"></canvas>
+  </div>
+
+  <div class="card" style="padding:8px 12px;margin-bottom:24px">
+    <div class="mod-title" style="padding:8px 4px 12px">当前持仓</div>
+    <div class="table-wrap"><table class="rep-table" style="margin:0"><tr><th>代码</th><th>名称</th><th>板块阶段</th><th>买入日</th><th>买价</th><th>现价</th><th>股数</th><th>成本</th><th>浮盈</th><th>持仓</th><th>止损</th></tr><tr><td><span class="code-sh">603538</span></td><td>美诺华</td><td><span class="stage-pill st-weak">弱势</span></td><td class="mono">2026-07-14</td><td class="mono">¥35.55</td><td class="mono">¥34.52</td><td class="mono">2800</td><td class="mono">¥99,540</td><td class="mono" style="color:var(--green);font-weight:600">-2.9%</td><td class="mono">3d</td><td class="mono">¥33.06</td></tr><tr><td><span class="code-sh">688293</span></td><td>奥浦迈</td><td><span class="stage-pill st-weak">弱势</span></td><td class="mono">2026-07-14</td><td class="mono">¥50.93</td><td class="mono">¥51.81</td><td class="mono">1963</td><td class="mono">¥99,976</td><td class="mono" style="color:var(--red);font-weight:600">+1.7%</td><td class="mono">3d</td><td class="mono">¥47.36</td></tr><tr><td><span class="code-sh">600488</span></td><td>XD津药药</td><td><span class="stage-pill st-weak">弱势</span></td><td class="mono">2026-07-14</td><td class="mono">¥6.48</td><td class="mono">¥5.81</td><td class="mono">15400</td><td class="mono">¥99,792</td><td class="mono" style="color:var(--green);font-weight:600">-10.3%</td><td class="mono">3d</td><td class="mono">¥6.03</td></tr><tr><td><span class="code-sh">600713</span></td><td>南京医药</td><td><span class="stage-pill st-strong">强势 ★</span></td><td class="mono">2026-07-14</td><td class="mono">¥5.38</td><td class="mono">¥5.15</td><td class="mono">18500</td><td class="mono">¥99,530</td><td class="mono" style="color:var(--green);font-weight:600">-4.3%</td><td class="mono">3d</td><td class="mono">¥5.00</td></tr><tr><td><span class="code-sz">002693</span></td><td>双成药业</td><td><span class="stage-pill st-weak">弱势</span></td><td class="mono">2026-07-15</td><td class="mono">¥10.96</td><td class="mono">¥9.47</td><td class="mono">9100</td><td class="mono">¥99,736</td><td class="mono" style="color:var(--green);font-weight:600">-13.6%</td><td class="mono">2d</td><td class="mono">¥10.19</td></tr></table></div>
+  </div>
+
+  <div class="card" style="padding:8px 12px">
+    <div class="mod-title" style="padding:8px 4px 12px">交易流水 <span style="font-size:11px;color:var(--text-muted);font-weight:400">近 50 笔 · 含买入</span></div>
+    <div class="tw table-wrap"><table class="rep-table" style="margin:0"><tr><th>代码</th><th>买入日</th><th>日期</th><th>买价</th><th>价格</th><th>股数</th><th>盈亏</th><th>收益</th><th>持仓</th><th>原因</th></tr><tr><td><span class="code-sz">002693</span></td><td class="mono">2026-07-15</td><td class="mono">2026-07-15</td><td class="mono">¥10.96</td><td class="mono">¥10.96</td><td class="mono">9100</td><td class="mono" style="color:var(--text-muted);font-weight:600">—</td><td class="mono" style="color:var(--text-muted)">—</td><td class="mono">—</td><td style="color:var(--accent);font-weight:600">买入</td></tr><tr><td><span class="code-sh">603538</span></td><td class="mono">2026-07-14</td><td class="mono">2026-07-14</td><td class="mono">¥35.55</td><td class="mono">¥35.55</td><td class="mono">2800</td><td class="mono" style="color:var(--text-muted);font-weight:600">—</td><td class="mono" style="color:var(--text-muted)">—</td><td class="mono">—</td><td style="color:var(--accent);font-weight:600">买入</td></tr><tr><td><span class="code-sh">688293</span></td><td class="mono">2026-07-14</td><td class="mono">2026-07-14</td><td class="mono">¥50.93</td><td class="mono">¥50.93</td><td class="mono">1963</td><td class="mono" style="color:var(--text-muted);font-weight:600">—</td><td class="mono" style="color:var(--text-muted)">—</td><td class="mono">—</td><td style="color:var(--accent);font-weight:600">买入</td></tr><tr><td><span class="code-sh">600488</span></td><td class="mono">2026-07-14</td><td class="mono">2026-07-14</td><td class="mono">¥6.48</td><td class="mono">¥6.48</td><td class="mono">15400</td><td class="mono" style="color:var(--text-muted);font-weight:600">—</td><td class="mono" style="color:var(--text-muted)">—</td><td class="mono">—</td><td style="color:var(--accent);font-weight:600">买入</td></tr><tr><td><span class="code-sh">600713</span></td><td class="mono">2026-07-14</td><td class="mono">2026-07-14</td><td class="mono">¥5.38</td><td class="mono">¥5.38</td><td class="mono">18500</td><td class="mono" style="color:var(--text-muted);font-weight:600">—</td><td class="mono" style="color:var(--text-muted)">—</td><td class="mono">—</td><td style="color:var(--accent);font-weight:600">买入</td></tr></table></div>
+  </div>
+</main>
+<footer>CLAW H3 v4.2 模拟交易 ｜ 2026-07-17 ｜ ⚠ 仅供参考</footer>
 </div>
+
 <script>
-var l=["2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17"],v=[500000.0, 524193.56, 515696.46, 470711.44];
-new Chart(document.getElementById('ec').getContext('2d'),{
+function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
+function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
+
+var l=["2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17"],v=[500000.0, 524193.56, 515696.46, 470711.44],initV=500000;
+var ctx=document.getElementById('ec').getContext('2d');
+var grad=ctx.createLinearGradient(0,0,0,320);
+grad.addColorStop(0,'rgba(102,153,224,0.20)');grad.addColorStop(1,'rgba(102,153,224,0)');
+new Chart(ctx,{
 type:'line',
-data:{labels:l,datasets:[{data:v,borderColor:'#17bf63',borderWidth:1.5,pointRadius:0,fill:{target:'origin',above:'rgba(23,191,99,0.06)'}}]},
-options:{responsive:true,maintainAspectRatio:false,
-plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'¥'+c.parsed.y.toLocaleString()}}},
-scales:{x:{ticks:{color:'#556',maxTicksLimit:10}},y:{ticks:{color:'#556',callback:v=>'¥'+(v/10000).toFixed(0)+'万'}}}
+data:{labels:l,datasets:[
+  {label:'策略净值',data:v,borderColor:'#6699E0',borderWidth:2,pointRadius:0,tension:0.25,fill:{target:'origin',above:grad}},
+  {label:'初始资金',data:l.map(function(){return initV}),borderColor:'#F5A623',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false}
+]},
+options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+plugins:{
+  legend:{labels:{color:'#9BA3AF',boxWidth:12,font:{size:11}}},
+  tooltip:{backgroundColor:'#16181D',borderColor:'#2E323A',borderWidth:1,titleColor:'#E8EBF0',bodyColor:'#9BA3AF',padding:10,
+    callbacks:{label:function(c){return c.dataset.label+': ¥'+c.parsed.y.toLocaleString()}}}
+},
+scales:{
+  x:{ticks:{color:'#6B7280',maxTicksLimit:10,font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
+  y:{ticks:{color:'#6B7280',font:{size:10},callback:function(v){return '¥'+(v/10000).toFixed(0)+'万'}},grid:{color:'rgba(255,255,255,0.04)'}}
+}
+}
 });
 </script></body></html>
