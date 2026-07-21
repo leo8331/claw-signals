@@ -1,7 +1,7 @@
 {
   "start": "2026-07-14",
   "init": 500000,
-  "cash": 125005.40999999996,
+  "cash": 3277.40999999996,
   "holds": [
     {
       "code": "688293",
@@ -23,7 +23,9 @@
       "name": "奥浦迈",
       "can_split": true,
       "tp_idx": 0,
-      "init_sh": 1963
+      "init_sh": 1963,
+      "sector": "医疗服务",
+      "broad_sector": "医药"
     },
     {
       "code": "600713",
@@ -45,7 +47,9 @@
       "name": "南京医药",
       "can_split": true,
       "tp_idx": 0,
-      "init_sh": 18500
+      "init_sh": 18500,
+      "sector": "医药商业",
+      "broad_sector": "医药"
     },
     {
       "code": "600012",
@@ -66,6 +70,31 @@
       "phase": "↑↑↑",
       "triple_up": true,
       "name": "皖通高速",
+      "can_split": true,
+      "sector": "公路铁路",
+      "broad_sector": "交通运输"
+    },
+    {
+      "code": "300628",
+      "fc": "300628.SZ",
+      "ed": "2026-07-21",
+      "ei": 372,
+      "bp": 38.04,
+      "sh": 3200,
+      "init_sh": 3200,
+      "cost": 121728.0,
+      "sl": 35.38,
+      "lp": 38.04,
+      "hd": 0,
+      "tp_idx": 0,
+      "vr": 1.54,
+      "gain": 12.3,
+      "score": 92.11,
+      "phase": "↓↓↓",
+      "triple_up": false,
+      "sector": "通信设备",
+      "broad_sector": "通信",
+      "name": "亿联网络",
       "can_split": true
     }
   ],
@@ -186,6 +215,21 @@
       "hold": 0,
       "reason": "买入",
       "win": true
+    },
+    {
+      "code": "300628",
+      "entry": "2026-07-21",
+      "exit": "2026-07-21",
+      "buy": 38.04,
+      "sell": 38.04,
+      "sh": 3200,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true,
+      "sector": "通信设备",
+      "broad_sector": "通信"
     }
   ],
   "curve": [
@@ -218,6 +262,12 @@
       "value": 449683.74,
       "cash": 125005.41,
       "market": 324678.33
+    },
+    {
+      "date": "2026-07-21",
+      "value": 449683.74,
+      "cash": 3277.41,
+      "market": 446406.33
     }
   ]
 }
