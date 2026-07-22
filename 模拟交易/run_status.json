@@ -1,0 +1,14 @@
+{
+  "run_id": "20260722_044112",
+  "started_at": "2026-07-22T04:41:12",
+  "ended_at": "2026-07-22T04:41:12",
+  "elapsed_seconds": 0.023,
+  "status": "data_stale",
+  "data_date": "2026-07-21",
+  "expected_date": "2026-07-22",
+  "fresh": false,
+  "signal_count": 0,
+  "buy_count": 0,
+  "sell_count": 0,
+  "error": "TQ行情未更新，请先登录通达信/TQ（最后日线=2026-07-21，预期交易日=2026-07-22）"
+}
