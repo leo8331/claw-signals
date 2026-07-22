@@ -1,7 +1,7 @@
 {
   "start": "2026-07-14",
   "init": 500000,
-  "cash": 3277.40999999996,
+  "cash": 95777.40999999996,
   "holds": [
     {
       "code": "688293",
@@ -12,43 +12,19 @@
       "sh": 1963,
       "cost": 99975.59,
       "sl": 47.36,
-      "lp": 56.22,
-      "hd": 4,
+      "lp": 59.07,
+      "hd": 6,
       "tp": false,
       "vr": 2.11,
       "gain": 24.8,
       "score": 92.0,
-      "phase": "↑↑↑",
-      "triple_up": true,
+      "phase": "↑↑↓",
+      "triple_up": false,
       "name": "奥浦迈",
       "can_split": true,
       "tp_idx": 0,
       "init_sh": 1963,
       "sector": "医疗服务",
-      "broad_sector": "医药"
-    },
-    {
-      "code": "600713",
-      "fc": "600713.SH",
-      "ed": "2026-07-14",
-      "ei": 368,
-      "bp": 5.38,
-      "sh": 18500,
-      "cost": 99530.0,
-      "sl": 5.0,
-      "lp": 5.01,
-      "hd": 4,
-      "tp": false,
-      "vr": 2.78,
-      "gain": 6.5,
-      "score": 77.45,
-      "phase": "↑↑↑",
-      "triple_up": true,
-      "name": "南京医药",
-      "can_split": true,
-      "tp_idx": 0,
-      "init_sh": 18500,
-      "sector": "医药商业",
       "broad_sector": "医药"
     },
     {
@@ -61,8 +37,8 @@
       "init_sh": 6600,
       "cost": 123948.0,
       "sl": 17.47,
-      "lp": 18.06,
-      "hd": 0,
+      "lp": 18.1,
+      "hd": 2,
       "tp_idx": 0,
       "vr": 1.96,
       "gain": 11.8,
@@ -84,8 +60,8 @@
       "init_sh": 3200,
       "cost": 121728.0,
       "sl": 35.38,
-      "lp": 37.75,
-      "hd": 0,
+      "lp": 38.31,
+      "hd": 2,
       "tp_idx": 0,
       "vr": 1.54,
       "gain": 12.3,
@@ -230,6 +206,25 @@
       "win": true,
       "sector": "通信设备",
       "broad_sector": "通信"
+    },
+    {
+      "code": "600713",
+      "entry": "2026-07-14",
+      "exit": "2026-07-22",
+      "buy": 5.38,
+      "sell": 5.0,
+      "sh": 18500,
+      "profit": -7030.0,
+      "ret": -7.06,
+      "hold": 6,
+      "reason": "止损",
+      "win": false,
+      "theoretical_sl": 5.0,
+      "achievable_price": 5.0,
+      "gap_loss_pct": 0.0,
+      "unsellable": "",
+      "sector": "医药商业",
+      "broad_sector": "医药"
     }
   ],
   "curve": [
@@ -268,6 +263,14 @@
       "value": 446318.27,
       "cash": 3277.41,
       "market": 443040.86
+    },
+    {
+      "date": "2026-07-22",
+      "value": 453783.82,
+      "cash": 95777.41,
+      "market": 358006.41
     }
-  ]
+  ],
+  "last_processed_date": "2026-07-22",
+  "last_processed_run_id": "20260722_145902"
 }
