@@ -1,7 +1,7 @@
 {
   "start": "2026-07-14",
   "init": 500000,
-  "cash": 95777.40999999996,
+  "cash": 52042.76999999996,
   "holds": [
     {
       "code": "688293",
@@ -9,11 +9,11 @@
       "ed": "2026-07-14",
       "ei": 368,
       "bp": 50.93,
-      "sh": 1963,
-      "cost": 99975.59,
-      "sl": 47.36,
-      "lp": 59.07,
-      "hd": 6,
+      "sh": 982,
+      "cost": 50013.259999999995,
+      "sl": 52.6,
+      "lp": 56.56,
+      "hd": 7,
       "tp": false,
       "vr": 2.11,
       "gain": 24.8,
@@ -22,7 +22,7 @@
       "triple_up": false,
       "name": "奥浦迈",
       "can_split": true,
-      "tp_idx": 0,
+      "tp_idx": 1,
       "init_sh": 1963,
       "sector": "医疗服务",
       "broad_sector": "医药"
@@ -38,7 +38,7 @@
       "cost": 123948.0,
       "sl": 17.47,
       "lp": 18.1,
-      "hd": 2,
+      "hd": 3,
       "tp_idx": 0,
       "vr": 1.96,
       "gain": 11.8,
@@ -60,8 +60,8 @@
       "init_sh": 3200,
       "cost": 121728.0,
       "sl": 35.38,
-      "lp": 38.31,
-      "hd": 2,
+      "lp": 37.35,
+      "hd": 3,
       "tp_idx": 0,
       "vr": 1.54,
       "gain": 12.3,
@@ -71,6 +71,34 @@
       "sector": "通信设备",
       "broad_sector": "通信",
       "name": "亿联网络",
+      "can_split": true
+    },
+    {
+      "code": "000582",
+      "fc": "000582.SZ",
+      "ed": "2026-07-23",
+      "ei": 375,
+      "bp": 12.1,
+      "sh": 8200,
+      "init_sh": 8200,
+      "cost": 99220.0,
+      "sl": 11.25,
+      "lp": 12.1,
+      "hd": 0,
+      "tp_idx": 0,
+      "vr": 1.54,
+      "gain": 11.8,
+      "score": 87.81,
+      "phase": "↓↑↑",
+      "triple_up": false,
+      "decision_run_id": "20260723_145933",
+      "decision_at": "2026-07-23T14:59:33",
+      "decision_bar_date": "2026-07-23",
+      "market_state": "基准",
+      "position_ratio": 0.2,
+      "sector": "航运港口",
+      "broad_sector": "交通运输",
+      "name": "北部湾港",
       "can_split": true
     }
   ],
@@ -225,6 +253,45 @@
       "unsellable": "",
       "sector": "医药商业",
       "broad_sector": "医药"
+    },
+    {
+      "code": "688293",
+      "entry": "2026-07-14",
+      "exit": "2026-07-23",
+      "buy": 50.93,
+      "sell": 56.56,
+      "sh": 981,
+      "profit": 5523.03,
+      "ret": 11.05,
+      "hold": 7,
+      "reason": "止盈L1(10%)",
+      "win": true,
+      "theoretical_sl": null,
+      "achievable_price": 56.56,
+      "gap_loss_pct": 0.0,
+      "unsellable": "",
+      "sector": "医疗服务",
+      "broad_sector": "医药"
+    },
+    {
+      "code": "000582",
+      "entry": "2026-07-23",
+      "exit": "2026-07-23",
+      "buy": 12.1,
+      "sell": 12.1,
+      "sh": 8200,
+      "profit": 0,
+      "ret": 0,
+      "hold": 0,
+      "reason": "买入",
+      "win": true,
+      "decision_run_id": "20260723_145933",
+      "decision_at": "2026-07-23T14:59:33",
+      "decision_bar_date": "2026-07-23",
+      "market_state": "基准",
+      "position_ratio": 0.2,
+      "sector": "航运港口",
+      "broad_sector": "交通运输"
     }
   ],
   "curve": [
@@ -269,8 +336,14 @@
       "value": 453783.82,
       "cash": 95777.41,
       "market": 358006.41
+    },
+    {
+      "date": "2026-07-23",
+      "value": 445784.69,
+      "cash": 52042.77,
+      "market": 393741.92
     }
   ],
-  "last_processed_date": "2026-07-22",
-  "last_processed_run_id": "20260722_145902"
+  "last_processed_date": "2026-07-23",
+  "last_processed_run_id": "20260723_145933"
 }
