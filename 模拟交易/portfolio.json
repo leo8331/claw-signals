@@ -1,32 +1,8 @@
 {
   "start": "2026-07-14",
   "init": 500000,
-  "cash": 52042.76999999996,
+  "cash": 103126.40999999997,
   "holds": [
-    {
-      "code": "688293",
-      "fc": "688293.SH",
-      "ed": "2026-07-14",
-      "ei": 368,
-      "bp": 50.93,
-      "sh": 982,
-      "cost": 50013.259999999995,
-      "sl": 52.6,
-      "lp": 53.03,
-      "hd": 11,
-      "tp": false,
-      "vr": 2.11,
-      "gain": 24.8,
-      "score": 92.0,
-      "phase": "↑↓↓",
-      "triple_up": false,
-      "name": "奥浦迈",
-      "can_split": true,
-      "tp_idx": 1,
-      "init_sh": 1963,
-      "sector": "医疗服务",
-      "broad_sector": "医药"
-    },
     {
       "code": "600012",
       "fc": "600012.SH",
@@ -37,8 +13,8 @@
       "init_sh": 6600,
       "cost": 123948.0,
       "sl": 17.47,
-      "lp": 18.32,
-      "hd": 7,
+      "lp": 18.14,
+      "hd": 8,
       "tp_idx": 0,
       "vr": 1.96,
       "gain": 11.8,
@@ -60,8 +36,8 @@
       "init_sh": 3200,
       "cost": 121728.0,
       "sl": 35.38,
-      "lp": 38.25,
-      "hd": 7,
+      "lp": 39.08,
+      "hd": 8,
       "tp_idx": 0,
       "vr": 1.54,
       "gain": 12.3,
@@ -83,8 +59,8 @@
       "init_sh": 8200,
       "cost": 99220.0,
       "sl": 11.25,
-      "lp": 12.31,
-      "hd": 4,
+      "lp": 12.47,
+      "hd": 5,
       "tp_idx": 0,
       "vr": 1.54,
       "gain": 11.8,
@@ -292,6 +268,25 @@
       "position_ratio": 0.2,
       "sector": "航运港口",
       "broad_sector": "交通运输"
+    },
+    {
+      "code": "688293",
+      "entry": "2026-07-14",
+      "exit": "2026-07-30",
+      "buy": 50.93,
+      "sell": 52.02,
+      "sh": 982,
+      "profit": 1070.38,
+      "ret": 2.14,
+      "hold": 12,
+      "reason": "止损(跳空1.1%)",
+      "win": true,
+      "theoretical_sl": 52.6,
+      "achievable_price": 52.02,
+      "gap_loss_pct": 1.1,
+      "unsellable": "",
+      "sector": "医疗服务",
+      "broad_sector": "医药"
     }
   ],
   "curve": [
@@ -366,8 +361,14 @@
       "value": 448372.23,
       "cash": 52042.77,
       "market": 396329.46
+    },
+    {
+      "date": "2026-07-30",
+      "value": 450160.41,
+      "cash": 103126.41,
+      "market": 347034.0
     }
   ],
-  "last_processed_date": "2026-07-29",
-  "last_processed_run_id": "20260729_150001"
+  "last_processed_date": "2026-07-30",
+  "last_processed_run_id": "20260730_150002"
 }
