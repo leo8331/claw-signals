@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杰克科技 603337 · 基本面调查报告</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+</style>
+</head>
+<body>
+
+<h1>杰克科技 603337 · 基本面调查报告</h1>
+<p class="subtitle">调查日期：2026年7月30日 · 收盘价 39.45元（7/30） · 市值 ~188亿 · 全球缝制设备龙头</p>
+
+<h2>一、核心估值数据</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 估值指标</div>
+    <div class="metric"><span class="metric-label">收盘价</span><span class="metric-val">39.45元</span></div>
+    <div class="metric"><span class="metric-label">PE (TTM)</span><span class="metric-val" style="color:var(--green)">21.83x</span></div>
+    <div class="metric"><span class="metric-label">PE (Forward 2026E ~9.6亿)</span><span class="metric-val" style="color:var(--green)">~19.6x</span></div>
+    <div class="metric"><span class="metric-label">PB</span><span class="metric-val" style="color:var(--yellow)">3.63x</span></div>
+    <div class="metric"><span class="metric-label">PS</span><span class="metric-val">2.69x</span></div>
+    <div class="metric"><span class="metric-label">PE历史分位(5Y)</span><span class="metric-val" style="color:var(--yellow)">62.78% 中位偏高</span></div>
+    <div class="metric"><span class="metric-label">PB历史分位(5Y)</span><span class="metric-val" style="color:var(--yellow)">74.44% 偏高</span></div>
+    <div class="metric"><span class="metric-label">ROE (TTM)</span><span class="metric-val" style="color:var(--green)">16.13%</span></div>
+    <div class="metric"><span class="metric-label">股息率</span><span class="metric-val">~1.09%</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💰 财务概况</div>
+    <div class="metric"><span class="metric-label">总市值</span><span class="metric-val">~188亿</span></div>
+    <div class="metric"><span class="metric-label">总股本</span><span class="metric-val">4.76亿股</span></div>
+    <div class="metric"><span class="metric-label">资产负债率</span><span class="metric-val" style="color:var(--green)">37.20% 健康</span></div>
+    <div class="metric"><span class="metric-label">流动比率</span><span class="metric-val">1.48</span></div>
+    <div class="metric"><span class="metric-label">经营现金流(2025)</span><span class="metric-val" style="color:var(--green)">12.85亿</span></div>
+    <div class="metric"><span class="metric-label">自由现金流(2025)</span><span class="metric-val">2.37亿</span></div>
+    <div class="metric"><span class="metric-label">Q1经营现金流</span><span class="metric-val">3.22亿</span></div>
+    <div class="metric"><span class="metric-label">净利润现金含量</span><span class="metric-val" style="color:var(--green)">148.26%</span></div>
+    <div class="metric"><span class="metric-label">52周高/低</span><span class="metric-val">~43 / ~26</span></div>
+    <div class="metric"><span class="metric-label">年内涨幅</span><span class="metric-val" style="color:var(--green)">~+15%</span></div>
+  </div>
+</div>
+
+<div class="ok">
+<strong>估值亮点：</strong>PE 21.8x是本次调查所有标的中最低的（低于中免29x、腾讯16x因为利润更扎实但增速更慢）。ROE 16.13%优秀，净利润现金含量148%（利润真实），经营现金流12.85亿远超净利润。但PB 3.63x处于5年74%分位偏高。
+</div>
+
+<h2>二、历史估值分位</h2>
+
+<table>
+<tr><th>指标</th><th>当前值</th><th>5年分位</th><th>5年中位数</th><th>判断</th></tr>
+<tr><td>PE (TTM)</td><td>21.83x</td><td>62.78%</td><td>~20x</td><td><span class="tag t-yellow">中位偏高</span></td></tr>
+<tr><td>PB</td><td>3.63x</td><td>74.44%</td><td>~3.0x</td><td><span class="tag t-yellow">偏高</span></td></tr>
+<tr><td>PS</td><td>2.69x</td><td>~50%</td><td>~2.5x</td><td><span class="tag t-yellow">中位</span></td></tr>
+<tr><td>Forward PE (2026E)</td><td>~19.6x</td><td>—</td><td>—</td><td><span class="tag t-green">合理</span></td></tr>
+</table>
+
+<div class="highlight">
+<strong>分位解读：</strong>PE 62.78%分位说明当前估值在过去5年中处于中等偏上水平——不算贵但也不便宜。PB 74.44%偏高，主要因为ROE持续提升（16.13%），市场给了溢价。对比2022年低点PE<15x，当前有一定溢价。
+</div>
+
+<h2>三、财报分析</h2>
+
+<h3>FY2025全年（截至2025年12月）</h3>
+
+<table>
+<tr><th>指标</th><th>FY2025</th><th>FY2024</th><th>同比</th><th>说明</th></tr>
+<tr><td>营业收入</td><td>65.87亿</td><td>60.94亿</td><td style="color:var(--green)">+8.10%</td><td>稳健增长</td></tr>
+<tr><td>归母净利润</td><td>8.56亿</td><td>8.12亿</td><td style="color:var(--green)">+5.38%</td><td>—</td></tr>
+<tr><td>扣非净利</td><td>7.77亿</td><td>7.58亿</td><td style="color:var(--green)">+2.54%</td><td>扣非与归母接近，利润质量好</td></tr>
+<tr><td>毛利率</td><td>34.24%</td><td>32.8%</td><td style="color:var(--green)">+1.5pp</td><td>✅ 持续提升</td></tr>
+<tr><td>净利率</td><td>13.16%</td><td>—</td><td>—</td><td>健康</td></tr>
+<tr><td>经营现金流</td><td>12.85亿</td><td>11.29亿</td><td style="color:var(--green)">+13.82%</td><td>✅ 远超净利润</td></div>
+<tr><td>自由现金流</td><td>2.37亿</td><td>—</td><td>—</td><td>正向</td></tr>
+<tr><td>研发费用</td><td>5.53亿</td><td>—</td><td>—</td><td>研发占比8.4%（五年累计22亿）</td></tr>
+<tr><td>ROE</td><td>17.86%</td><td>—</td><td>—</td><td>✅ 优秀</td></tr>
+</table>
+
+<h3>Q1 2026（截至2026年3月）</h3>
+
+<table>
+<tr><th>指标</th><th>Q1 2026</th><th>Q1 2025</th><th>同比</th></tr>
+<tr><td>营业收入</td><td>20.23亿</td><td>17.92亿</td><td style="color:var(--green)">+12.86%</td></tr>
+<tr><td>归母净利润</td><td>2.57亿</td><td>2.46亿</td><td style="color:var(--green)">+4.47%</td></tr>
+<tr><td>扣非净利</td><td>2.31亿</td><td>2.25亿</td><td style="color:var(--green)">+2.59%</td></tr>
+<tr><td>毛利率</td><td>32.41%</td><td>32.8%</td><td style="color:var(--red)">-0.4pp</td></tr>
+<tr><td>经营现金流</td><td>3.22亿</td><td>—</td><td>—</td></tr>
+<tr><td>ROE</td><td>4.78%</td><td>4.90%</td><td>—</td></tr>
+</table>
+
+<div class="ok">
+<strong>✅ 利润质量验证：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>扣非≈归母</strong> — 2025年扣非7.77亿 vs 归母8.56亿，差额仅0.79亿（9%），利润真实无水分</li>
+<li><strong>净利润现金含量148%</strong> — 经营现金流12.85亿 > 归母净利8.56亿，赚的钱是真金白银</li>
+<li><strong>毛利率持续提升</strong> — 2023年32.1%→2024年32.8%→2025年34.2%，议价能力增强</li>
+<li><strong>ROE 17.86%</strong> — 优秀，3年复合增长20.14%</li>
+</ul>
+</div>
+
+<h3>季度趋势</h3>
+<table>
+<tr><th>季度</th><th>营收(亿)</th><th>归母(亿)</th><th>扣非(亿)</th><th>毛利率</th><th>归母同比</th></tr>
+<tr><td>Q1 2025</td><td>17.92</td><td>2.46</td><td>2.25</td><td>32.8%</td><td>—</td></tr>
+<tr><td>Q2 2025</td><td>15.80</td><td>2.32</td><td>2.14</td><td>35.52%</td><td>+1.28%</td></tr>
+<tr><td>Q3 2025</td><td>15.94</td><td>2.04</td><td>1.86</td><td>35.02%</td><td>+0.79%</td></tr>
+<tr><td>Q4 2025</td><td>16.20</td><td>1.74</td><td>1.51</td><td>33.83%</td><td style="color:var(--red)">-9.66%</td></tr>
+<tr><td><strong>Q1 2026</strong></td><td><strong>20.23</strong></td><td><strong>2.57</strong></td><td><strong>2.31</strong></td><td><strong>32.41%</strong></td><td style="color:var(--green)"><strong>+4.47%</strong></td></tr>
+</table>
+
+<div class="warn">
+<strong>⚠️ 注意Q4 2025归母同比-9.66%</strong> — Q4利润下滑明显，但Q1 2026反弹（营收+12.86%，归母+4.47%）。Q4毛利率33.83%环比下降可能受年末费用结算影响。Q1 2026毛利率32.41%同比-0.4pp，公司3月已对海外产品提价10%，后续毛利率有望改善。
+</div>
+
+<h2>四、业务分析</h2>
+
+<h3>收入结构</h3>
+<table>
+<tr><th>产品</th><th>FY2025收入</th><th>占比</th><th>增速</th><th>毛利率</th></tr>
+<tr><td>智能工业缝纫机</td><td>56.35亿</td><td>85.55%</td><td style="color:var(--green)">+7.1%</td><td>32.5%(+1.2pp)</td></tr>
+<tr><td>智能裁床及铺布机</td><td>7.06亿</td><td>10.72%</td><td style="color:var(--green)">+12.9%</td><td>43.2%(+0.8pp)</td></tr>
+<tr><td>衬衫及牛仔自动缝制设备</td><td>2.19亿</td><td>3.32%</td><td style="color:var(--green)">+19.9%</td><td>43.5%(+7.3pp)</td></tr>
+</table>
+
+<h3>地区分布</h3>
+<table>
+<tr><th>地区</th><th>FY2025收入</th><th>占比</th><th>增速</th><th>毛利率</th></tr>
+<tr><td><strong>海外</strong></td><td>36.63亿</td><td>55.60%</td><td style="color:var(--green)"><strong>+24.40%</strong></td><td>37.22%</td></tr>
+<tr><td>国内</td><td>28.98亿</td><td>43.99%</td><td style="color:var(--red)">-7.36%</td><td>29.93%(+1.8pp)</td></tr>
+</table>
+
+<div class="ok">
+<strong>✅ 核心亮点：海外收入占比55.6%，增速+24.4%。</strong>国内需求承压（行业销量-29.7%），但公司海外高速增长对冲。海外毛利率37.2% vs 国内29.9%，海外占比提升拉动整体毛利率。客户包括Nike/Adidas/迪卡侬/李宁等。
+</div>
+
+<h3>行业地位</h3>
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>全球缝制设备行业地位</td><td><strong>全球第一</strong>（按营收）</td></tr>
+<tr><td>经销商网络</td><td>8,200+家，覆盖170+国家</td></tr>
+<tr><td>服务客户</td><td>200万+家服装/鞋帽/箱包企业</td></tr>
+<tr><td>研发中心</td><td>14个（三国十四地）</td></tr>
+<tr><td>研发团队</td><td>近1,500人（AI/软件/机器人近300人）</td></tr>
+<tr><td>有效专利</td><td>3,668项（发明1,200+/软著600+）</td></tr>
+<tr><td>五年研发投入</td><td>22.11亿（占营收8.4%）</td></tr>
+</table>
+
+<h3>催化剂</h3>
+<table>
+<tr><th>催化剂</th><th>说明</th></tr>
+<tr><td><strong>收购Comelz</strong></td><td>1.16亿欧元收购意大利奢侈品鞋服裁剪设备龙头，拓展高端市场</td></tr>
+<tr><td><strong>海外提价10%</strong></td><td>3月15日起海外产品整体提价10%，后续毛利率有望改善</td></tr>
+<tr><td><strong>股权激励</strong></td><td>332名激励对象，授予价格19.53元，2026-28营收增长目标12%/24%/40%</td></tr>
+<tr><td><strong>AI+机器人</strong></td><td>布局服装人形机器人+AI排产吊挂+智能缝纫全链条</td></tr>
+<tr><td><strong>行业复苏</strong></td><td>2025年行业产量-8.76%（625万台），处于底部区域，复苏在即</td></tr>
+</table>
+
+<h2>五、PE+PB+利润/市值比 三维分析</h2>
+
+<table class="summary-table">
+<tr><th>维度</th><th>数据</th><th>判断</th></tr>
+<tr><td>PE (TTM)</td><td>21.83x</td><td><span class="tag t-green">合理（制造业龙头20-25x合理）</span></td></tr>
+<tr><td>PE (Forward 2026E ~9.6亿)</td><td>~19.6x</td><td><span class="tag t-green">合理偏低</span></td></tr>
+<tr><td>PB</td><td>3.63x</td><td><span class="tag t-yellow">偏高（重资产制造阈值<3x，略超）</span></td></tr>
+<tr><td>利润/市值比</td><td>~4.55%</td><td><span class="tag t-green">✅ >3%达标</span></td></tr>
+<tr><td>经营现金流/市值</td><td>~6.8%</td><td><span class="tag t-green">✅ 极佳</span></td></tr>
+<tr><td>毛利率</td><td>34.08%</td><td><span class="tag t-green">✅ 健康</span></td></tr>
+<tr><td>净利率</td><td>12.87%</td><td><span class="tag t-green">✅ 良好</span></td></tr>
+<tr><td>ROE</td><td>16.13%</td><td><span class="tag t-green">✅ 优秀</span></td></tr>
+</table>
+
+<div class="ok">
+<strong>PE+PB联合判断：场景A/B之间（接近双安全）</strong><br>
+PE 21.8x（合理）+ PB 3.63x（略高于重资产制造安全区3x）。但利润/市值比4.55%达标，经营现金流/市值6.8%极佳，ROE 16.13%优秀——PB偏高有ROE支撑。<br><br>
+<strong>PB 3.63x偏高的合理性：</strong>杰克ROE 16.13%远高于一般制造业（8-10%），且3年净利润复合增速20.14%。高ROE+高增速理应享受高于3x的PB。按ROE 16%×合理PB=3.2-4.0x推算，当前PB 3.63x在合理区间上沿。
+</div>
+
+<h2>六、历史业绩趋势</h2>
+
+<table>
+<tr><th>年份</th><th>营收(亿)</th><th>归母净利(亿)</th><th>EPS</th><th>毛利率</th><th>ROE</th><th>趋势</th></tr>
+<tr><td>2022</td><td>55.02</td><td>4.94</td><td>1.08</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>2023</td><td>52.94</td><td>5.38</td><td>1.13</td><td>32.1%</td><td>—</td><td style="color:var(--green)">+9%</td></tr>
+<tr><td>2024</td><td>60.94</td><td>8.12</td><td>1.76</td><td>32.8%</td><td>—</td><td style="color:var(--green)">+51%</td></tr>
+<tr><td>2025</td><td>65.87</td><td>8.56</td><td>1.79</td><td>34.2%</td><td>17.86%</td><td style="color:var(--green)">+5%</td></tr>
+<tr><td><strong>2026E</strong></td><td><strong>~74</strong></td><td><strong>~9.6</strong></td><td><strong>~2.01</strong></td><td>—</td><td>—</td><td style="color:var(--green)"><strong>+12%</strong></td></tr>
+</table>
+
+<div class="highlight">
+3年净利润复合增速20.14%。2024年是利润跃升年（+51%），2025年增速放缓至+5%（Q4拖累），但Q1 2026营收+12.86%显示复苏。股权激励目标2026年营收增长12.34%→对应~74亿。
+</div>
+
+<h2>七、机构观点</h2>
+
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>机构一致预期2026E EPS</td><td>~2.01元</td></tr>
+<tr><td>机构一致预期2026E净利</td><td>~9.6亿</td></tr>
+<tr><td>对应Forward PE</td><td>~19.6x</td></tr>
+<tr><td>股权激励营收目标</td><td>2026 +12.34% / 2027 +24.49% / 2028 +39.67%</td></tr>
+<tr><td>行业地位</td><td>全球缝制设备第一</td></tr>
+</table>
+
+<h2>八、39元贵不贵？——价格区间判断</h2>
+
+<div class="price-zone">
+  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 底部区</div>
+    <div class="zone-price" style="color:var(--green)">26-30元</div>
+    <div class="zone-pe">PE ~14-16x | PB ~2.5x</div>
+  </div>
+  <div class="zone" style="background:rgba(63,185,80,0.08);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 可建仓</div>
+    <div class="zone-price" style="color:var(--green)">30-36元</div>
+    <div class="zone-pe">PE ~16-19x | PB ~3.0x</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.08);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 合理</div>
+    <div class="zone-price" style="color:var(--yellow)">36-42元 ← 现价39.45</div>
+    <div class="zone-pe">PE ~19-22x | PB ~3.5x</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.1);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🟠 偏贵</div>
+    <div class="zone-price" style="color:var(--red)">42-50元</div>
+    <div class="zone-pe">PE >22x | PB >4x</div>
+  </div>
+</div>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--yellow);">🟡</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：39元合理，不贵也不便宜</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">PE 21.8x合理 + 利润真实(现金含量148%) + ROE 16%优秀，但PB 3.63x偏高+增速放缓至5%+PE分位62%</div>
+    </div>
+  </div>
+</div>
+
+<h2>九、多空分析</h2>
+
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>PE 21.8x = 所有调查标中最低</li>
+      <li>利润/市值比4.55%（>3%达标）</li>
+      <li>经营现金流12.85亿（现金含量148%）</li>
+      <li>ROE 16.13%（优秀）</li>
+      <li>毛利率持续提升（32%→34.2%）</li>
+      <li>3年净利复合增速20.14%</li>
+      <li>全球缝制设备第一（170国8200经销商）</li>
+      <li>海外收入+24.4%（占比55.6%）</li>
+      <li>收购Comelz拓展高端市场</li>
+      <li>海外提价10%→毛利率有望改善</li>
+      <li>股权激励目标3年营收+40%</li>
+      <li>研发投入8.4%（五年22亿）</li>
+      <li>AI+机器人布局（300人团队）</li>
+      <li>客户含Nike/Adidas/迪卡侬/李宁</li>
+      <li>Q1 2026营收+12.86%复苏信号</li>
+      <li>资产负债率37.2%（健康）</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>PB 3.63x偏高（5年74%分位）</li>
+      <li>PE分位62.78%（中位偏高）</li>
+      <li>2025归母增速仅+5.38%（放缓）</li>
+      <li>Q4 2025归母同比-9.66%（下滑）</li>
+      <li>扣非增速仅+2.54%（更低）</li>
+      <li>国内收入-7.36%（内需承压）</li>
+      <li>行业产量-8.76%（周期底部）</li>
+      <li>Q1毛利率-0.4pp（原材料/汇率）</li>
+      <li>Forward PE ~19.6x不算极便宜</li>
+      <li>股息率1.09%（偏低）</li>
+      <li>市值仅188亿（中小盘，流动性一般）</li>
+      <li>自由现金流仅2.37亿（FCF偏弱）</li>
+      <li>缝纫机是传统行业，想象空间有限</li>
+    </ul>
+  </div>
+</div>
+
+<h2>十、综合判断</h2>
+
+<table class="summary-table">
+<tr><td>估值（PE+PB）</td><td>🟡 PE 21.8x合理 + PB 3.63x偏高 → 场景A/B之间（PE可/PB略高）</td></tr>
+<tr><td>利润质量</td><td>✅ 优秀 — 扣非≈归母，净利润现金含量148%，无水分</td></tr>
+<tr><td>现金流</td><td>✅ 经营现金流12.85亿远超净利，但FCF仅2.37亿（资本开支偏大）</td></tr>
+<tr><td>增长</td><td>⚠️ 3年复合20%优秀，但2025放缓至5%，Q4负增长-9.66%</td></tr>
+<tr><td>ROE</td><td>✅ 16.13%优秀，支撑PB略高于3x</td></tr>
+<tr><td>行业地位</td><td>✅ 全球第一，护城河深（8200经销商+170国+3668专利）</td></tr>
+<tr><td>催化剂</td><td>✅ Comelz收购+海外提价10%+股权激励+AI机器人</td></tr>
+<tr><td>风险</td><td>⚠️ 国内需求承压+行业周期底部+增速放缓</td></tr>
+</table>
+
+<div class="highlight">
+<strong>最终结论：</strong><br><br>
+<strong>39元合理，不贵也不便宜。</strong>杰克科技是所有调查标的中<strong>利润质量最好的</strong>——扣非≈归母（无水分），净利润现金含量148%，ROE 16.13%，毛利率持续提升。PE 21.8x也是最低的。<br><br>
+但与中免（PB 3.64%分位接近底部）和腾讯（PE 38%分位偏低）不同，杰克的PE分位62.78%和PB分位74.44%处于中位偏高——<strong>不是因为现在贵，而是因为过去5年大部分时间比现在更便宜</strong>。2022年低点PE<15x，当前21.8x有一定溢价。<br><br>
+<strong>适合什么样的投资者：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li>✅ 适合<strong>稳健型</strong>：全球龙头+利润真实+ROE 16%+现金流充沛+股息1.09%</li>
+<li>⚠️ 不适合<strong>追求高弹性</strong>：传统行业+增速放缓至5%+市值188亿（中小盘）</li>
+<li>🔵 适合<strong>长期持有</strong>：3年净利复合20%+海外扩张+AI转型+Comelz协同</li>
+</ul>
+
+<strong>买入策略：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>36-40元</strong>：合理区间，可小仓位建仓（当前39.45在此区间）</li>
+<li><strong>30-36元</strong>：可加仓（PE<19x，估值更有吸引力）</li>
+<li><strong>26-30元</strong>：重仓机会（PE<16x，接近2022年低点）</li>
+<li><strong>止损线</strong>：35元以下（跌破前低需重新评估行业逻辑）</li>
+</ul>
+</div>
+
+<h2>十一、与其他调查标的对比</h2>
+
+<table>
+<tr><th>标的</th><th>PE</th><th>PB</th><th>PB分位</th><th>ROE</th><th>利润/市值</th><th>FCF</th><th>结论</th></tr>
+<tr><td>阿里 117港元</td><td>18.7x</td><td>1.87x</td><td>~45%</td><td>9.2%</td><td>~4.7%</td><td style="color:var(--red)">-466亿</td><td>🔴 偏贵</td></tr>
+<tr><td>腾讯 477港元</td><td>16.3x</td><td>3.44x</td><td>~12%</td><td>~15%</td><td>~6.2%</td><td style="color:var(--green)">+567亿</td><td>🟢 可建仓</td></tr>
+<tr><td>小米 27.5港元</td><td>~13x</td><td>2.41x</td><td>~9%</td><td>~15%</td><td>~7.7%</td><td style="color:var(--yellow)">~78亿</td><td>🟢 合理偏低</td></tr>
+<tr><td>华工 100元</td><td>59.3x</td><td>8.81x</td><td>91%</td><td>14.5%</td><td>1.46%</td><td style="color:var(--red)">-11.27亿</td><td>🔴 仍贵</td></tr>
+<tr><td>中免 57元</td><td>29.1x</td><td>2.08x</td><td>3.64%</td><td>6.9%</td><td>~3.0%</td><td style="color:var(--green)">+60.59亿</td><td>🟢 可建仓</td></tr>
+<tr><td><strong>杰克 39元</strong></td><td><strong>21.8x</strong></td><td><strong>3.63x</strong></td><td><strong>74%</strong></td><td><strong>16.1%</strong></td><td><strong>4.55%</strong></td><td style="color:var(--green)"><strong>+12.85亿</strong></td><td><strong>🟡 合理</strong></td></tr>
+</table>
+
+<div class="highlight">
+杰克科技的独特定位：<strong>利润质量最高+ROE最高+PE最低</strong>，但PB分位偏高+增速放缓+传统行业。是"稳健但不性感"的标的——不会让你暴富，但也不会让你踩雷。
+</div>
+
+</body>
+</html>

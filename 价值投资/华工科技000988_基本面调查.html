@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华工科技 000988 · 基本面调查报告</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+</style>
+</head>
+<body>
+
+<h1>华工科技 000988 · 基本面调查报告</h1>
+<p class="subtitle">调查日期：2026年7月30日 · 收盘价 100.26元（7/29） · 市值 1,008亿 · 7月暴跌-45.7%</p>
+
+<h2>一、7月暴跌事件回顾</h2>
+
+<div class="warn">
+<strong>7月发生了什么：</strong>从6/30的187.66元 → 7/29的100.26元，<strong>15个交易日暴跌-45.7%</strong>，市值蒸发超700亿。其中出现<strong>4次跌停</strong>（7/2、7/16、7/17、7/20、7/28）。盘中最低93.90元（7/29），最大回撤近50%。
+</div>
+
+<h3>暴跌五大原因</h3>
+
+<table>
+<tr><th>元凶</th><th>说明</th><th>严重度</th></tr>
+<tr><td><strong>1. 半年报预告缺席</strong></td><td>7/15是预告截止日，公司未发预告→按规则意味着H1归母净利同比增幅<50%→Q2增速大幅放缓（Q1已6.38亿，Q2需<7.29亿才能不触发预告）</td><td><span class="tag t-red">🔴 核心导火索</span></td></tr>
+<tr><td><strong>2. Q1利润"注水"</strong></td><td>归母净利6.38亿中，2.85亿来自云岭光电股权公允价值变动（非经营性），扣非净利仅3.73亿（+20.5%），"55%增速"掺了近4成水分</td><td><span class="tag t-red">🔴 信任危机</span></td></tr>
+<tr><td><strong>3. 估值泡沫破裂</strong></td><td>6/30高位时静态PE 126倍，股价从2022年低点涨了10倍但利润只增62%。70倍PE对应20%增速=严重透支</td><td><span class="tag t-red">🔴 估值杀</span></td></tr>
+<tr><td><strong>4. 融资盘踩踏</strong></td><td>融资余额从105亿降至91亿，24亿杠杆资金被迫砍仓。主力7/17单日净流出12.7亿</td><td><span class="tag t-yellow">🟡 流动性杀</span></td></tr>
+<tr><td><strong>5. 板块系统性杀估值</strong></td><td>CPO/光模块板块7月集体回调：天孚-13%、中际旭创-12%、新易盛-11%。华工比板块多跌10pp</td><td><span class="tag t-yellow">🟡 板块拖累</span></td></tr>
+</table>
+
+<h2>二、核心估值数据</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 估值指标（7/29收盘）</div>
+    <div class="metric"><span class="metric-label">收盘价</span><span class="metric-val">100.26元</span></div>
+    <div class="metric"><span class="metric-label">PE (TTM)</span><span class="metric-val" style="color:var(--red)">59.32x</span></div>
+    <div class="metric"><span class="metric-label">PE (Forward 2026E)</span><span class="metric-val" style="color:var(--red)">~40-45x</span></div>
+    <div class="metric"><span class="metric-label">PB</span><span class="metric-val" style="color:var(--red)">8.81x</span></div>
+    <div class="metric"><span class="metric-label">PS</span><span class="metric-val">6.60x</span></div>
+    <div class="metric"><span class="metric-label">PE历史分位(5Y)</span><span class="metric-val" style="color:var(--red)">91% 极高</span></div>
+    <div class="metric"><span class="metric-label">PB历史分位(5Y)</span><span class="metric-val" style="color:var(--red)">91% 极高</span></div>
+    <div class="metric"><span class="metric-label">ROE (TTM)</span><span class="metric-val">14.54%</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💰 财务概况</div>
+    <div class="metric"><span class="metric-label">总市值</span><span class="metric-val">1,008亿</span></div>
+    <div class="metric"><span class="metric-label">总股本</span><span class="metric-val">10.06亿股</span></div>
+    <div class="metric"><span class="metric-label">资产负债率</span><span class="metric-val">48.75%</span></div>
+    <div class="metric"><span class="metric-label">货币资金</span><span class="metric-val">~29亿</span></div>
+    <div class="metric"><span class="metric-label">有息负债</span><span class="metric-val">~32亿</span></div>
+    <div class="metric"><span class="metric-label">经营现金流(Q1)</span><span class="metric-val" style="color:var(--red)">-11.27亿</span></div>
+    <div class="metric"><span class="metric-label">融资余额(7/21)</span><span class="metric-val">~91亿</span></div>
+    <div class="metric"><span class="metric-label">52周高/低</span><span class="metric-val">187.66 / 93.90</span></div>
+  </div>
+</div>
+
+<div class="warn">
+<strong>🔴 即使暴跌46%后，PE仍59x（历史91%分位），PB仍8.81x（历史91%分位）——跌了很多但仍然很贵。</strong>
+</div>
+
+<h2>三、财报深度分析</h2>
+
+<h3>FY2025全年（截至2025年12月）</h3>
+
+<table>
+<tr><th>指标</th><th>FY2025</th><th>FY2024</th><th>同比</th><th>说明</th></tr>
+<tr><td>营业收入</td><td>143.55亿</td><td>117.09亿</td><td style="color:var(--green)">+22.59%</td><td>稳健增长</td></tr>
+<tr><td>归母净利润</td><td>14.71亿</td><td>12.21亿</td><td style="color:var(--green)">+20.48%</td><td>—</td></tr>
+<tr><td>扣非净利</td><td>11.87亿</td><td>8.97亿</td><td style="color:var(--green)">+32.32%</td><td>扣非增速高于归母=利润质量尚可</td></tr>
+<tr><td>毛利率</td><td>21.2%</td><td>—</td><td style="color:var(--red)">↓（2023:22.5%）</td><td>持续下滑</td></tr>
+<tr><td>净利率</td><td>11.08%</td><td>—</td><td>—</td><td>远低于同行30%+</td></tr>
+<tr><td>经营现金流</td><td>12.21亿</td><td>—</td><td style="color:var(--green)">+66.83%</td><td>全年转正</td></tr>
+<tr><td>研发费用</td><td>8.85亿</td><td>—</td><td>—</td><td>研发占比6.2%</td></tr>
+</table>
+
+<h3>Q1 2026（截至2026年3月）——问题开始暴露</h3>
+
+<table>
+<tr><th>指标</th><th>Q1 2026</th><th>Q1 2025</th><th>同比</th><th>说明</th></tr>
+<tr><td>营业收入</td><td>42.66亿</td><td>33.55亿</td><td style="color:var(--green)">+27.13%</td><td>稳健</td></tr>
+<tr><td>归母净利润</td><td>6.38亿</td><td>4.10亿</td><td style="color:var(--green)">+55.76%</td><td>看似炸裂</td></tr>
+<tr><td><strong>扣非净利</strong></td><td><strong>3.73亿</strong></td><td>3.09亿</td><td style="color:var(--yellow)">+20.51%</td><td><strong>🔴 真实增速仅20%！</strong></td></tr>
+<tr><td>非经常性损益</td><td>2.66亿</td><td>—</td><td>—</td><td>🔴 其中2.85亿来自云岭光电公允价值变动</td></tr>
+<tr><td>毛利率</td><td>19.81%</td><td>—</td><td style="color:var(--red)">↓</td><td>进一步下滑</td></tr>
+<tr><td>经营现金流</td><td style="color:var(--red)"><strong>-11.27亿</strong></td><td>-3.42亿</td><td style="color:var(--red)">-229%</td><td><strong>🔴 现金失血加剧</strong></td></tr>
+</table>
+
+<div class="warn">
+<strong>🔴 Q1利润的"水分"拆解：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>归母净利6.38亿</strong> — 表面+55.76%</li>
+<li><strong>减：云岭光电公允价值变动(税后) ~2.13亿</strong> — 非经营性，且会计处理存合规瑕疵（应按权益法但改用公允价值计量）</li>
+<li><strong>真实经营性归母净利 ~4.25亿</strong> — 同比仅+3.7%</li>
+<li><strong>扣非净利3.73亿</strong> — 同比+20.51%，这才是真实增速</li>
+<li><strong>结论：Q1"55%增速"中近4成是投资浮盈撑的</strong></li>
+</ul>
+</div>
+
+<h3>半年报预告缺席的信号</h3>
+
+<div class="warn">
+深交所规则：半年度净利同比变动超±50%须在7/15前发预告。华工科技2025H1归母9.11亿。<br><br>
+<strong>如果H1 2026归母>13.67亿（9.11×1.5），必须预告。公司没预告→说明H1归母<13.67亿。</strong><br><br>
+Q1已6.38亿→<strong>Q2归母<7.29亿</strong>，同比增速<46%（2025Q2约5.01亿）。<br>
+考虑到Q1含2.66亿非经常性损益，如果半年报审计冲回云岭光电浮盈→H1归母可能更低。<br><br>
+市场此前散户预期H1净利18亿（翻倍），券商一致预期10.5-11.5亿。预告缺席直接击碎了"翻倍梦"。
+</div>
+
+<h2>四、业务分部分析</h2>
+
+<table>
+<tr><th>分部</th><th>FY2025收入</th><th>占比</th><th>增速</th><th>毛利率</th><th>状态</th></tr>
+<tr><td><strong>光联接（光模块）</strong></td><td>60.97亿</td><td>42.47%</td><td style="color:var(--green)">+53.39%</td><td style="color:var(--red)"><strong>13.26%</strong></td><td><span class="tag t-red">增速高但毛利率极低</span></td></tr>
+<tr><td>敏感元器件（传感器）</td><td>40.27亿</td><td>28.05%</td><td style="color:var(--green)">+9.78%</td><td>24.46%</td><td><span class="tag t-yellow">稳定贡献</span></td></tr>
+<tr><td>激光装备</td><td>36.36亿</td><td>25.33%</td><td style="color:var(--green)">+4.13%</td><td>29.40%</td><td><span class="tag t-yellow">船舶驱动温和增长</span></td></tr>
+<tr><td>其他</td><td>5.95亿</td><td>4.14%</td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+
+<h3>光模块业务——增长引擎但利润短板</h3>
+
+<table>
+<tr><th>指标</th><th>华工科技</th><th>中际旭创</th><th>新易盛</th><th>差距</th></tr>
+<tr><td>2025光模块收入</td><td>60.97亿</td><td>374.57亿</td><td>247.71亿</td><td style="color:var(--red)">6x / 4x 差距</td></tr>
+<tr><td>光模块毛利率</td><td style="color:var(--red)"><strong>13.26%</strong></td><td style="color:var(--green)">42.61%</td><td style="color:var(--green)">47.81%</td><td style="color:var(--red)"><strong>3-4倍差距</strong></td></tr>
+<tr><td>全球市占率</td><td>3.8%</td><td>21.2%</td><td>~15-18%</td><td>5-6x 差距</td></tr>
+<tr><td>2025归母净利</td><td>14.71亿</td><td>107.97亿</td><td>95.32亿</td><td style="color:var(--red)">7-7.5x 差距</td></tr>
+<tr><td>净利率</td><td>11.08%</td><td>31.74%</td><td>36.92%</td><td style="color:var(--red)">3x 差距</td></tr>
+<tr><td>Q1经营现金流</td><td style="color:var(--red)">-11.27亿</td><td style="color:var(--green)">+33.68亿</td><td style="color:var(--green)">+6.84亿</td><td style="color:var(--red)">严重落后</td></tr>
+</table>
+
+<div class="warn">
+<strong>🔴 核心问题：光模块毛利率13.26% vs 同行42-49%。</strong>这不是一两个季度能修复的：<br>
+<ul style="margin:8px 0 0 20px;">
+<li>IDM全自研模式前期折旧高（年折旧超2.6亿）</li>
+<li>低端电信模块仍占约55%出货量，拉低整体毛利</li>
+<li>海外建厂（泰国/欧洲）成本摊销大</li>
+<li>与中际旭创10余年积累的差距，需2-3年缩小</li>
+</ul>
+<strong>收入排名第6，但利润排名远低于收入排名——增收不增利的典型。</strong>
+</div>
+
+<h2>五、PE+PB+利润/市值比 三维分析</h2>
+
+<table class="summary-table">
+<tr><th>维度</th><th>数据</th><th>判断</th></tr>
+<tr><td>PE (TTM)</td><td>59.32x</td><td style="color:var(--red)">🔴 极高（历史91%分位）</td></tr>
+<tr><td>PE (Forward 2026E ~22-25亿)</td><td>~40-45x</td><td style="color:var(--red)">🔴 偏高</td></tr>
+<tr><td>PB</td><td>8.81x</td><td style="color:var(--red)">🔴 极高（历史91%分位）</td></tr>
+<tr><td>利润/市值比</td><td>~1.46%</td><td style="color:var(--red)">🔴 <1.5%，需暴增7倍才到3%</td></tr>
+<tr><td>经营利润/市值</td><td>~1.6%</td><td style="color:var(--red)">🔴 极低</td></tr>
+<tr><td>经营现金流/市值</td><td>负数（Q1 -11.27亿）</td><td style="color:var(--red)">🔴 现金失血</td></tr>
+<tr><td>毛利率</td><td>20.99%</td><td style="color:var(--red)">🔴 远低于同行44-49%</td></tr>
+<tr><td>ROE</td><td>14.54%</td><td>⚠️ 尚可但被高PB抵消</td></tr>
+</table>
+
+<div class="warn">
+<strong>PE+PB联合判断：场景D（双荒谬）</strong><br>
+PE 59x（历史91%分位）+ PB 8.81x（历史91%分位）= 双高。利润/市值比仅1.46%——即使利润暴增7倍到100亿，利润/市值比才到~10%，但暴增7倍需要营收从143亿增长到~1000亿（中际旭创水平），这在2-3年内不可能实现。<br><br>
+<strong>按PB阈值标准（重资产制造<3x）：PB 8.81x严重超标，是安全阈值3x的近3倍。</strong>
+</div>
+
+<h2>六、同业对比</h2>
+
+<table>
+<tr><th>指标</th><th>华工科技</th><th>中际旭创</th><th>新易盛</th><th>亨通光电</th></tr>
+<tr><td>PE (TTM)</td><td>59.32x</td><td>70.95x</td><td>54.68x</td><td>~42x</td></tr>
+<tr><td>Forward PE (2026E)</td><td>~40-45x</td><td>~37x</td><td>~17-25x(除权后)</td><td>~20-25x</td></tr>
+<tr><td>PB</td><td>8.81x</td><td>30.61x</td><td>30.25x</td><td>~4x</td></tr>
+<tr><td>毛利率</td><td style="color:var(--red)">20.99%</td><td style="color:var(--green)">44.27%</td><td style="color:var(--green)">48.07%</td><td>15.98%</td></tr>
+<tr><td>净利率</td><td style="color:var(--red)">11.08%</td><td style="color:var(--green)">31.74%</td><td style="color:var(--green)">36.92%</td><td>6.64%</td></tr>
+<tr><td>2025营收</td><td>143.55亿</td><td>382.40亿</td><td>248.42亿</td><td>~600亿</td></tr>
+<tr><td>2025归母净利</td><td>14.71亿</td><td>107.97亿</td><td>95.32亿</td><td>26.80亿</td></tr>
+<tr><td>Q1经营现金流</td><td style="color:var(--red)">-11.27亿</td><td style="color:var(--green)">+33.68亿</td><td style="color:var(--green)">+6.84亿</td><td>-1.94亿</td></tr>
+<tr><td>全球光模块市占</td><td>3.8%</td><td>21.2%</td><td>~15-18%</td><td>—</td></tr>
+</table>
+
+<div class="highlight">
+<strong>同业对比结论：</strong>华工科技PE不是光模块板块最高的（中际旭创71x更高），但它的<strong>盈利质量最差</strong>——毛利率21% vs 同行44-49%，净利率11% vs 同行32-37%，经营现金流为负 vs 同行为正。<br><br>
+简单说：<strong>华工科技是光模块板块的"增收不增利"代表</strong>。收入排第6，利润排第6，但估值却排在中上。市场之前给高估值是因为"AI光模块+国产替代+硅光自研"故事，但暴跌后在重新定价。
+</div>
+
+<h2>七、正面因素（不要只看坏的）</h2>
+
+<div class="ok">
+<strong>✅ 产业逻辑未破：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>订单饱满</strong> — 1.6T光模块海内外在手订单40万只，排至2027年，部分预约至2028年</li>
+<li><strong>800G爆发</strong> — Q1 800G以上销售额同比+13974%，环比+229%</li>
+<li><strong>产能爬坡</strong> — 高速光模块产能同比+400%，800G月产能60万只→Q4目标120万只</li>
+<li><strong>客户优质</strong> — Meta第一大海外客户(25-30%)，英伟达1.6T认证通过，微软800G批量，阿里国内35-40%</li>
+<li><strong>技术卡位</strong> — 行业首发3.2T NPO/CPO方案，6.4T NPO及12.8T XPO在研</li>
+<li><strong>三业务协同</strong> — 激光+传感器+光模块，不依赖单一赛道</li>
+<li><strong>全球PTC加热器第一</strong> — 新能源车PTC国内市占67.2%</li>
+<li><strong>H股IPO推进</strong> — 4月已递表港交所，引入全球资本</li>
+<li><strong>高管增持</strong> — 7/21董事长等5人在跌停价95.27元增持14万股</li>
+<li><strong>全年经营现金流转正</strong> — 2025全年12.21亿（+66.83%），Q1为负是季节性</li>
+</ul>
+</div>
+
+<h2>八、8月27日半年报——决定性时刻</h2>
+
+<table>
+<tr><th>情景</th><th>H1归母净利</th><th>同比</th><th>概率</th><th>走势判断</th></tr>
+<tr><td><strong>中性偏乐观</strong></td><td>12-13亿</td><td>+30%~45%</td><td>~50%</td><td>95-135区间震荡磨底</td></tr>
+<tr><td><strong>悲观</strong></td><td><12亿</td><td><30%</td><td>~30%</td><td>二次探底80-95元</td></tr>
+<tr><td><strong>乐观</strong></td><td>>13.5亿</td><td>>48%</td><td>~20%</td><td>反弹至130-140元</td></tr>
+</table>
+
+<div class="highlight">
+<strong>关键验证指标（8/27半年报）：</strong>
+<ol style="margin:8px 0 0 20px;">
+<li><strong>扣非净利增速</strong> — 是否维持20%+，还是进一步放缓</li>
+<li><strong>光联接业务毛利率</strong> — 是否从13.26%向同行40%+靠拢</li>
+<li><strong>经营现金流</strong> — 是否H1转正（全年12亿+）</li>
+<li><strong>云岭光电会计处理</strong> — 半年报审计是否冲回2.85亿公允价值浮盈</li>
+<li><strong>Q2单季归母</strong> — 是否>7.29亿（预告缺席暗示可能<7.29亿）</li>
+</ol>
+</div>
+
+<h2>九、100元贵不贵？——价格区间判断</h2>
+
+<div class="price-zone">
+  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 底部区</div>
+    <div class="zone-price" style="color:var(--green)">70-85元</div>
+    <div class="zone-pe">PE ~40x | PB ~6x</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.08);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 观察区</div>
+    <div class="zone-price" style="color:var(--yellow)">85-100元</div>
+    <div class="zone-pe">PE ~50x | PB ~7.5x</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.1);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 仍贵</div>
+    <div class="zone-price" style="color:var(--red)">100-120元 ← 现价100.26</div>
+    <div class="zone-pe">PE ~59x | PB ~8.8x</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.15);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 高估</div>
+    <div class="zone-price" style="color:var(--red)">120+元</div>
+    <div class="zone-pe">PE >70x | PB >10x</div>
+  </div>
+</div>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--red);">🔴</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：100元仍然偏贵，不建议抄底</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">PE 59x（历史91%分位）+ PB 8.81x（历史91%分位）+ 毛利率仅13% + Q2减速 + 现金流为负</div>
+    </div>
+  </div>
+</div>
+
+<h2>十、多空分析</h2>
+
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>1.6T订单排至2027年，部分至2028年</li>
+      <li>800G销售额同比+13974%</li>
+      <li>Meta/英伟达/微软/阿里四大客户</li>
+      <li>3.2T NPO/CPO技术卡位</li>
+      <li>PTC加热器全球第一(67%市占)</li>
+      <li>H股IPO引入全球资本</li>
+      <li>高管跌停价增持(信心信号)</li>
+      <li>全年经营现金流转正(12.21亿)</li>
+      <li>2025营收+22.59%净利+20.48%</li>
+      <li>2026E净利22-25亿(机构预测)</li>
+      <li>三业务协同抗周期</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>🔴 PE 59x + PB 8.81x = 历史91%分位（双高）</li>
+      <li>🔴 光模块毛利率13.26%（同行42-49%）</li>
+      <li>🔴 Q1利润40%来自投资浮盈（非经营性）</li>
+      <li>🔴 Q1经营现金流-11.27亿（现金失血）</li>
+      <li>🔴 半年报预告缺席=Q2增速大幅放缓</li>
+      <li>🔴 全球市占率3.8%（中际旭创21.2%）</li>
+      <li>🔴 融资余额91亿，随时可能踩踏</li>
+      <li>🔴 7月已4次跌停，上方187有巨量套牢盘</li>
+      <li>毛利率持续下滑（22.5%→21.2%→19.81%）</li>
+      <li>云岭光电会计处理存合规瑕疵</li>
+      <li>机构持仓从43.68%降至27.16%</li>
+      <li>利润/市值比仅1.46%（需暴增7倍）</li>
+    </ul>
+  </div>
+</div>
+
+<h2>十一、综合判断</h2>
+
+<table class="summary-table">
+<tr><td>估值（PE+PB）</td><td>🔴 PE 59x(历史91%分位) + PB 8.81x(历史91%分位) = 场景D（双荒谬）。跌46%后仍贵</td></tr>
+<tr><td>利润质量</td><td>🔴 Q1归母6.38亿中2.66亿是非经常性损益，扣非仅3.73亿(+20.5%)</td></tr>
+<tr><td>现金流</td><td>🔴 Q1经营现金流-11.27亿，全年转正但质量偏弱</td></tr>
+<tr><td>毛利率</td><td>🔴 光模块13.26% vs 同行42-49%，差距3-4倍</td></tr>
+<tr><td>增长</td><td>⚠️ 营收+27%尚可，但Q2减速（预告缺席已暗示）</td></tr>
+<tr><td>同业对比</td><td>❌ 盈利质量在光模块板块垫底，但估值不在底部</td></tr>
+<tr><td>安全边际</td><td>⚠️ 货币资金29亿+全年现金流12亿，但融资盘91亿是定时炸弹</td></tr>
+<tr><td>催化剂</td><td>8/27半年报（决定性）/ H股IPO / 1.6T放量 / 毛利率改善</td></tr>
+<tr><td>风险</td><td>Q2不及预期 / 云岭光电审计冲回 / 融资盘踩踏 / 光模块价格战</td></tr>
+</table>
+
+<div class="warn">
+<strong>最终结论：</strong><br><br>
+<strong>100元仍然偏贵，不建议抄底。</strong>虽然7月暴跌46%，但PE仍59x（历史91%分位）、PB仍8.81x（历史91%分位）——跌了很多但远没跌到位。<br><br>
+核心问题是<strong>盈利质量差</strong>：光模块毛利率13.26%（同行42-49%），Q1利润40%是投资浮盈撑的，经营现金流-11.27亿。市场之前按"AI光模块龙头"给估值，但华工的收入规模（61亿）只有中际旭创（375亿）的1/6，毛利率是同行的1/3，市占率3.8% vs 21.2%——<strong>它不是龙头，是追赶者</strong>。<br><br>
+<strong>合理价格区间：70-85元</strong>（PE ~40x / PB ~6x），对应2026E净利22-25亿的前瞻PE 28-32x。如果半年报验证Q2减速+毛利率未改善，可能跌至此区间。<br><br>
+<strong>操作建议：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>8月27日半年报前不要重仓</strong> — 信息不对称太严重</li>
+<li>如果半年报超预期（H1>13.5亿+毛利率改善），可在95-100元建仓</li>
+<li>如果半年报低于预期（H1<12亿），等70-85元再考虑</li>
+<li><strong>止损线：93.90元（本轮最低）以下有效跌破则离场</strong></li>
+</ul>
+</div>
+
+</body>
+</html>
