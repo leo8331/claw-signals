@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>东山精密 002384 · 基本面调查报告</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+.gate-table th, .gate-table td { text-align:center; font-size:0.85em; }
+.gate-table td:nth-child(1) { text-align:left; font-weight:600; color:var(--text-bright); }
+.gate-pass { color:var(--green); font-weight:700; }
+.gate-warn { color:var(--yellow); font-weight:700; }
+.gate-fail { color:var(--red); font-weight:700; }
+.gate-score { font-size:1.5em; font-weight:800; }
+</style>
+</head>
+<body>
+
+<h1>东山精密 002384 · 基本面调查报告</h1>
+<p class="subtitle">调查日期：2026年7月31日 · 收盘价 161.80元（7/30跌停） · 市值 2,964亿 · 全球第二大FPC+前三大PCB+光模块新贵</p>
+
+<!-- ========== 五维质量门控 ========== -->
+<h2>一、五维质量门控</h2>
+<table class="gate-table">
+<tr><th>维度</th><th>数据</th><th>门槛</th><th>结果</th><th>说明</th></tr>
+<tr><td>① 有业绩</td><td>扣非9.66亿 / 归母13.86亿 = 70%</td><td>扣非/归母≥70%</td><td class="gate-warn">⚠️ 勉强达标</td><td>30%利润来自非经常性损益。Q4扣非-1.05亿（亏损！）</td></tr>
+<tr><td>② 有成长性</td><td>营收+9.12% / 净利+27.67%</td><td>营收≥5%或净利≥10%</td><td class="gate-pass">✅ 通过</td><td>H1 2026预增+282%~296%，光模块驱动爆发</td></tr>
+<tr><td>③ 有销售收入</td><td>年营收401.25亿</td><td>≥100亿</td><td class="gate-pass">✅ 优秀</td><td>全球第二大FPC供应商，前三大PCB</td></tr>
+<tr><td>④ 有现金流</td><td>经营现金流53.07亿 / 现金含量381%</td><td>现金含量≥100%</td><td class="gate-pass">✅ 优秀</td><td>现金流远超净利润，但FCF为负-2.44亿</td></tr>
+<tr><td>⑤ ROE≥15%</td><td>ROE 6.89%（2025）/ Q1年化~20%</td><td>ROE≥10%</td><td class="gate-warn">⚠️ TTM不达标</td><td>2025 ROE仅6.89%，但Q1利润翻倍后年化ROE~20%，拐点期</td></tr>
+</table>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="gate-score" style="color:var(--yellow);">3.5/5</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.1em;font-weight:700;">门控结果：⚠️ 需谨慎</div>
+      <div style="color:var(--text);font-size:0.85em;margin-top:4px;">业绩勉强达标（Q4扣非亏损）+ROE TTM不达标。但H1预增282%+现金流优秀，拐点期用前瞻数据可改善</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 核心估值数据 ========== -->
+<h2>二、核心估值数据</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 估值指标</div>
+    <div class="metric"><span class="metric-label">收盘价</span><span class="metric-val">161.80元（跌停）</span></div>
+    <div class="metric"><span class="metric-label">PE (TTM)</span><span class="metric-val" style="color:var(--red)">~145x</span></div>
+    <div class="metric"><span class="metric-label">PE (Forward 2026E ~80亿)</span><span class="metric-val" style="color:var(--yellow)">~37x</span></div>
+    <div class="metric"><span class="metric-label">PB</span><span class="metric-val" style="color:var(--red)">~13.09x</span></div>
+    <div class="metric"><span class="metric-label">PS</span><span class="metric-val">~7.39x</span></div>
+    <div class="metric"><span class="metric-label">ROE (2025)</span><span class="metric-val">6.89%</span></div>
+    <div class="metric"><span class="metric-label">ROE (Q1年化)</span><span class="metric-val" style="color:var(--green)">~20%</span></div>
+    <div class="metric"><span class="metric-label">股息率</span><span class="metric-val">0%</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💰 财务概况</div>
+    <div class="metric"><span class="metric-label">总市值</span><span class="metric-val">2,964亿</span></div>
+    <div class="metric"><span class="metric-label">总股本</span><span class="metric-val">18.32亿股</span></div>
+    <div class="metric"><span class="metric-label">资产负债率</span><span class="metric-val" style="color:var(--red)">63.98%</span></div>
+    <div class="metric"><span class="metric-label">流动比率</span><span class="metric-val" style="color:var(--red)">1.01</span></div>
+    <div class="metric"><span class="metric-label">经营现金流(2025)</span><span class="metric-val" style="color:var(--green)">53.07亿</span></div>
+    <div class="metric"><span class="metric-label">自由现金流(2025)</span><span class="metric-val" style="color:var(--red)">-2.44亿</span></div>
+    <div class="metric"><span class="metric-label">Q1经营现金流</span><span class="metric-val">11.27亿</span></div>
+    <div class="metric"><span class="metric-label">52周高/低</span><span class="metric-val">280.08 / 161.80</span></div>
+    <div class="metric"><span class="metric-label">年内涨幅</span><span class="metric-val" style="color:var(--green)">~+85%（高点+1000%+）</span></div>
+  </div>
+</div>
+
+<div class="warn">
+<strong>🔴 核心矛盾：</strong>TTM PE ~145x极高，但H1利润预增282%-296%至29-30亿（是去年全年2倍+）。Forward PE ~37x（2026E ~80亿）看似合理，但PB 13x严重超标（轻资产制造阈值<4x的3倍+）。
+</div>
+
+<!-- ========== 历史估值分位 ========== -->
+<h2>三、历史估值分位</h2>
+<table>
+<tr><th>指标</th><th>当前值</th><th>7月高点</th><th>说明</th></tr>
+<tr><td>PE (TTM)</td><td>~145x</td><td>~235x</td><td>从高点大幅回调，但TTM分母严重滞后</td></tr>
+<tr><td>PE (Forward 2026E)</td><td>~37x</td><td>—</td><td><span class="tag t-yellow">中等偏高</span></td></tr>
+<tr><td>PB</td><td>~13x</td><td>~21x</td><td>从高点回调38%，但仍远超安全区</td></tr>
+<tr><td>PS</td><td>~7.4x</td><td>~11x</td><td>偏高</td></tr>
+</table>
+
+<!-- ========== 财报分析 ========== -->
+<h2>四、财报分析</h2>
+
+<h3>FY2025全年</h3>
+<table>
+<tr><th>指标</th><th>FY2025</th><th>FY2024</th><th>同比</th><th>说明</th></tr>
+<tr><td>营业收入</td><td>401.25亿</td><td>367.68亿</td><td style="color:var(--green)">+9.12%</td><td>首破400亿</td></tr>
+<tr><td>归母净利润</td><td>13.86亿</td><td>10.86亿</td><td style="color:var(--green)">+27.67%</td><td>—</td></tr>
+<tr><td><strong>扣非净利</strong></td><td><strong>9.66亿</strong></td><td>8.99亿</td><td style="color:var(--green)">+7.50%</td><td><strong>⚠️ 扣非/归母仅70%</strong></td></tr>
+<tr><td>毛利率</td><td>14.09%</td><td>—</td><td>—</td><td>⚠️ 偏低</td></tr>
+<tr><td>净利率</td><td>3.47%</td><td>—</td><td>—</td><td>🔴 极低</td></tr>
+<tr><td>经营现金流</td><td>53.07亿</td><td>49.86亿</td><td style="color:var(--green)">+6.44%</td><td>✅ 远超净利润</td></tr>
+<tr><td>自由现金流</td><td style="color:var(--red)">-2.44亿</td><td>—</td><td>—</td><td>⚠️ 为负</td></tr>
+<tr><td>ROE</td><td>6.89%</td><td>—</td><td>—</td><td>⚠️ 偏低</td></tr>
+</table>
+
+<div class="warn">
+<strong>⚠️ 利润质量问题：</strong>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>扣非/归母仅70%</strong> — 30%利润来自非经常性损益（4.2亿差额）</li>
+<li><strong>Q4扣非亏损-1.05亿</strong> — 第四季度主业亏损！归母1.63亿全靠非经常性损益撑</li>
+<li><strong>净利率仅3.47%</strong> — 401亿营收只赚13.86亿，薄如纸</li>
+<li><strong>FCF为负-2.44亿</strong> — 资本开支吞噬全部经营现金流</li>
+</ul>
+</div>
+
+<h3>Q1 2026 — 利润爆发</h3>
+<table>
+<tr><th>指标</th><th>Q1 2026</th><th>Q1 2025</th><th>同比</th></tr>
+<tr><td>营业收入</td><td>131.38亿</td><td>—</td><td>—</td></tr>
+<tr><td>归母净利润</td><td>11.10亿</td><td>5.05亿</td><td style="color:var(--green)">+119.8%</td></tr>
+<tr><td>扣非净利</td><td>10.59亿</td><td>—</td><td>—</td></tr>
+<tr><td>毛利率</td><td>19.33%</td><td>—</td><td style="color:var(--green)">+5.2pp</td></tr>
+<tr><td>经营现金流</td><td>11.27亿</td><td>—</td><td>—</td></tr>
+</table>
+
+<h3>H1 2026业绩预增</h3>
+<table>
+<tr><th>指标</th><th>H1 2026预告</th><th>H1 2025</th><th>同比</th></tr>
+<tr><td>归母净利润</td><td><strong>29-30亿</strong></td><td>7.61亿</td><td style="color:var(--green)"><strong>+282%~296%</strong></td></tr>
+<tr><td>扣非净利</td><td><strong>24-25亿</strong></td><td>6.57亿</td><td style="color:var(--green)"><strong>+265%~281%</strong></td></tr>
+</table>
+
+<div class="ok">
+<strong>✅ H1爆发核心驱动：</strong>光模块业务（索尔思光电）——2025年营收仅14.36亿（占比3.58%）但毛利率36.74%（远超PCB的17.59%）。Q1光模块贡献超50%净利润，H1预增282%-296%。<br>
+<strong>⚠️ 但扣非/归母=83%</strong>（24-25亿 vs 29-30亿），仍有17%非经常性损益。
+</div>
+
+<!-- ========== 业务分析 ========== -->
+<h2>五、业务分析</h2>
+
+<h3>收入结构</h3>
+<table>
+<tr><th>产品</th><th>FY2025收入</th><th>占比</th><th>毛利率</th><th>说明</th></tr>
+<tr><td>电子电路产品（PCB/FPC）</td><td>256.20亿</td><td>63.85%</td><td>17.59%</td><td>基本盘，全球第二大FPC</td></tr>
+<tr><td>光电显示模组</td><td>59.86亿</td><td>14.92%</td><td>—</td><td>—</td></tr>
+<tr><td>精密组件产品</td><td>59.30亿</td><td>14.78%</td><td>—</td><td>+30.61%，新能源车驱动</td></tr>
+<tr><td><strong>光模块（含光芯片）</strong></td><td><strong>14.36亿</strong></td><td><strong>3.58%</strong></td><td><strong>36.74%</strong></td><td><strong>高毛利增长引擎（索尔思并表Q4）</strong></td></tr>
+<tr><td>其他</td><td>11.53亿</td><td>2.87%</td><td>—</td><td>—</td></tr>
+</table>
+
+<h3>催化剂</h3>
+<table>
+<tr><th>催化剂</th><th>说明</th></tr>
+<tr><td><strong>光模块业务爆发</strong></td><td>索尔思光电并表，800G批量交付，1.6T加速商用</td></tr>
+<tr><td><strong>H1预增282%-296%</strong></td><td>上半年赚29-30亿（去年全年2倍+）</td></tr>
+<tr><td><strong>光芯片自研</strong></td><td>100G/200G EML芯片批量出货，MOCVD设备Q2装机</td></tr>
+<tr><td><strong>泰国工厂</strong></td><td>光模块组装产能落地</td></tr>
+<tr><td><strong>H股IPO</strong></td><td>已向港交所递表（瑞银/国泰海通/广发/中信保荐）</td></tr>
+<tr><td><strong>AI PCB</strong></td><td>HDI和高多层PCB产能扩张，适配AI数据中心</td></tr>
+<tr><td><strong>特斯拉供应商</strong></td><td>散热件/结构件/外观件，新能源车业务+30.61%</td></tr>
+</table>
+
+<h3>风险事件</h3>
+<table>
+<tr><th>事件</th><th>说明</th></tr>
+<tr><td><strong>7月暴跌-38%</strong></td><td>从246跌至162，两次跌停（7/28、7/30）</td></tr>
+<tr><td><strong>光模块被盗传闻</strong></td><td>索尔思海外运输损失，公司称已投保+影响极低</td></tr>
+<tr><td><strong>融资盘150亿</strong></td><td>融资余额从150亿降至135亿，踩踏风险</td></tr>
+</table>
+
+<!-- ========== PE+PB三维分析 ========== -->
+<h2>六、PE+PB+利润/市值比 三维分析</h2>
+<table class="summary-table">
+<tr><th>维度</th><th>数据</th><th>判断</th></tr>
+<tr><td>PE (TTM)</td><td>~145x</td><td><span class="tag t-red">🔴 极高（分母滞后）</span></td></tr>
+<tr><td>PE (Forward 2026E ~80亿)</td><td>~37x</td><td><span class="tag t-yellow">中等偏高</span></td></tr>
+<tr><td>PB</td><td>~13x</td><td><span class="tag t-red">🔴 严重超标（轻资产制造<4x的3倍+）</span></td></tr>
+<tr><td>利润/市值比 (2025)</td><td>~0.47%</td><td><span class="tag t-red">🔴 <1%排除</span></td></tr>
+<tr><td>利润/市值比 (2026E)</td><td>~2.70%</td><td><span class="tag t-yellow">⚠️ 仍偏低</span></td></tr>
+<tr><td>经营现金流/市值</td><td>~1.79%</td><td>⚠️ 偏低</td></tr>
+<tr><td>毛利率</td><td>14.09%</td><td><span class="tag t-red">🔴 偏低</span></td></tr>
+<tr><td>净利率</td><td>3.47%</td><td><span class="tag t-red">🔴 极低</span></td></tr>
+<tr><td>ROE (2025)</td><td>6.89%</td><td><span class="tag t-red">🔴 不达标</span></td></tr>
+<tr><td>ROE (Q1年化)</td><td>~20%</td><td><span class="tag t-green">✅ 拐点改善</span></td></tr>
+</table>
+
+<div class="warn">
+<strong>PE+PB联合判断：场景D（双荒谬）→ 场景B过渡中</strong><br>
+TTM PE 145x + PB 13x = 场景D。即使按Forward PE 37x，PB仍13x严重超标。利润/市值比0.47%（2025）→2.7%（2026E），即使利润翻3倍仍不到3%。<br><br>
+<strong>本质问题：市值2,964亿对应80亿利润=37x PE，而PB 13x意味着以13倍净资产买入——这在任何制造业都是极端高估。</strong>
+</div>
+
+<!-- ========== 历史业绩趋势 ========== -->
+<h2>七、历史业绩趋势</h2>
+<table>
+<tr><th>年份</th><th>营收(亿)</th><th>归母净利(亿)</th><th>扣非(亿)</th><th>毛利率</th><th>ROE</th></tr>
+<tr><td>2022</td><td>315.27</td><td>21.10</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>2023</td><td>336.83</td><td>10.47</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>2024</td><td>367.68</td><td>10.86</td><td>8.99</td><td>—</td><td>—</td></tr>
+<tr><td>2025</td><td>401.25</td><td>13.86</td><td>9.66</td><td>14.09%</td><td>6.89%</td></tr>
+<tr><td><strong>2026E</strong></td><td><strong>~659</strong></td><td><strong>~80.68</strong></td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+
+<!-- ========== 同业对比 ========== -->
+<h2>八、同业对比</h2>
+<table>
+<tr><th>指标</th><th>东山精密</th><th>中际旭创</th><th>香农芯创</th><th>亨通光电</th></tr>
+<tr><td>PE (TTM)</td><td style="color:var(--red)">~145x</td><td>~71x</td><td>~36x</td><td>~42x</td></tr>
+<tr><td>Forward PE (2026E)</td><td>~37x</td><td>~37x</td><td style="color:var(--green)"><strong>~11x</strong></td><td>~26x</td></tr>
+<tr><td>PB</td><td style="color:var(--red)">~13x</td><td>~30x</td><td>~13.5x</td><td>~3.8x</td></tr>
+<tr><td>毛利率</td><td>14.09%</td><td style="color:var(--green)">44.27%</td><td>3.97%</td><td>12.46%</td></tr>
+<tr><td>净利率</td><td style="color:var(--red)">3.47%</td><td style="color:var(--green)">31.74%</td><td>1.97%</td><td>4.26%</td></tr>
+<tr><td>2025营收</td><td>401.25亿</td><td>382.40亿</td><td>352.51亿</td><td>668.55亿</td></tr>
+<tr><td>2025归母</td><td>13.86亿</td><td style="color:var(--green)">107.97亿</td><td>5.45亿</td><td>26.80亿</td></tr>
+<tr><td>H1 2026预增</td><td>+282%~296%</td><td>+199%</td><td style="color:var(--green)"><strong>+2118%~2434%</strong></td><td>+87%~121%</td></tr>
+<tr><td>ROE</td><td>6.89%</td><td style="color:var(--green)">42.01%</td><td style="color:var(--green)"><strong>16.92%</strong></td><td>8.96%</td></tr>
+<tr><td>五维门控</td><td>3.5/5 ⚠️</td><td>—</td><td style="color:var(--green)"><strong>5/5 ✅</strong></td><td>3.5/5 ⚠️</td></tr>
+</table>
+
+<div class="highlight">
+<strong>同业对比结论：</strong>东山Forward PE 37x与中际旭创持平，但ROE仅6.89% vs 旭创42%——同样37x PE，旭创的利润质量远优。香农芯创Forward PE仅11x+五维5/5全通过，全面碾压东山。
+</div>
+
+<!-- ========== 机构观点 ========== -->
+<h2>九、机构观点</h2>
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>机构一致目标价</td><td><strong>200元</strong>（较现价161.80元+24%）</td></tr>
+<tr><td>2026E EPS</td><td>4.41元</td></tr>
+<tr><td>2026E归母净利</td><td>80.68亿（+482%）</td></tr>
+<tr><td>2027E归母净利</td><td>188.73亿（+134%）</td></tr>
+<tr><td>公募基金持仓</td><td>689只基金，持股18.62%</td></tr>
+<tr><td>评级</td><td>100%买入/增持</td></tr>
+</table>
+
+<!-- ========== 价格区间判断 ========== -->
+<h2>十、161.80元贵不贵？——价格区间判断</h2>
+<div class="price-zone">
+  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 黄金坑</div>
+    <div class="zone-price" style="color:var(--green)">80-110元</div>
+    <div class="zone-pe">Forward PE ~18-25x</div>
+  </div>
+  <div class="zone" style="background:rgba(63,185,80,0.08);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 可建仓</div>
+    <div class="zone-price" style="color:var(--green)">110-140元</div>
+    <div class="zone-pe">Forward PE ~25-32x</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.08);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 合理</div>
+    <div class="zone-price" style="color:var(--yellow)">140-180元 ← 现价162</div>
+    <div class="zone-pe">Forward PE ~32-42x</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.1);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🟠 偏贵</div>
+    <div class="zone-price" style="color:var(--red)">180-280元</div>
+    <div class="zone-pe">Forward PE >42x</div>
+  </div>
+</div>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--yellow);">🟡</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：162元合理偏高，不建议买入</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">Forward PE 37x看似合理，但PB 13x+ROE 6.89%+净利率3.47%三重不达标。等回调至110-130元（Forward PE ~25-30x）再考虑</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 多空分析 ========== -->
+<h2>十一、多空分析</h2>
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>H1预增282%-296%（29-30亿=去年全年2倍+）</li>
+      <li>光模块毛利率36.74%（远超PCB的17.59%）</li>
+      <li>索尔思光芯片自研（100G/200G EML批量出货）</li>
+      <li>全球第二大FPC+前三大PCB</li>
+      <li>特斯拉供应商（精密组件+30.61%）</li>
+      <li>经营现金流53亿（含量381%远超净利）</li>
+      <li>H股IPO引入全球资本</li>
+      <li>泰国光模块工厂落地</li>
+      <li>机构目标价200元（+24%）</li>
+      <li>公募689只基金持仓18.62%</li>
+      <li>Q1毛利率提升至19.33%</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>🔴 PB 13x严重超标（轻资产制造<4x的3倍+）</li>
+      <li>🔴 ROE仅6.89%（远低于15%门槛）</li>
+      <li>🔴 净利率3.47%（401亿营收只赚13.86亿）</li>
+      <li>🔴 Q4扣非亏损-1.05亿（主业亏损）</li>
+      <li>🔴 扣非/归母仅70%（30%利润注水）</li>
+      <li>🔴 FCF为负-2.44亿</li>
+      <li>🔴 资产负债率64%（偏高）</li>
+      <li>🔴 利润/市值比0.47%（2025）→2.7%（2026E）</li>
+      <li>TTM PE 145x极高</li>
+      <li>7月已跌-38%（融资盘135亿踩踏风险）</li>
+      <li>不派息（股息率0%）</li>
+      <li>光模块占比仅3.58%（收入小利润大=弹性大但脆弱）</li>
+      <li>光模块被盗传闻（虽已澄清但影响情绪）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 综合判断 ========== -->
+<h2>十二、综合判断</h2>
+<table class="summary-table">
+<tr><td>五维门控</td><td>⚠️ 3.5/5 — 业绩勉强达标+ROE不达标</td></tr>
+<tr><td>估值（PE+PB）</td><td>🔴 Forward PE 37x中等+PB 13x严重超标 → 场景B/D</td></tr>
+<tr><td>利润质量</td><td>⚠️ 扣非/归母70%，Q4扣非亏损</td></tr>
+<tr><td>现金流</td><td>✅ 经营现金流53亿（含量381%）/ ⚠️ FCF为负</td></tr>
+<tr><td>增长</td><td>✅ H1+282%~296%爆发，光模块驱动</td></tr>
+<tr><td>同业对比</td><td>❌ ROE远低于旭创42%，Forward PE持平但质量差</td></tr>
+<tr><td>安全边际</td><td>❌ PB 13x+利润/市值比0.47%+不派息</td></tr>
+<tr><td>催化剂</td><td>✅ 光模块爆发+H股IPO+光芯片自研</td></tr>
+<tr><td>风险</td><td>⚠️ 融资盘135亿+7月已跌38%+光模块占比仅3.58%</td></tr>
+</table>
+
+<div class="warn">
+<strong>最终结论：</strong><br><br>
+<strong>162元合理偏高，不建议买入。</strong>虽然H1预增282%-296%非常亮眼，但三个核心维度不达标：<br><br>
+<ul style="margin:8px 0 0 20px;">
+<li><strong>PB 13x</strong> — 轻资产制造安全区<4x的3倍以上。即使利润翻3倍，PB仍远超标</li>
+<li><strong>ROE 6.89%</strong> — 远低于15%门槛。虽然Q1年化~20%有改善，但TTM数据不达标</li>
+<li><strong>净利率3.47%</strong> — 401亿营收只赚13.86亿，利润薄如纸</li>
+</ul>
+
+<strong>核心问题：光模块业务太小米占比太大。</strong>光模块营收14.36亿仅占3.58%，虽然毛利率36.74%高，但放在401亿大盘子里对整体ROE和净利率的提升有限。市场给的光模块溢价（PB 13x）远超光模块业务的实际贡献。<br><br>
+
+<strong>合理买入区间：110-130元</strong>（Forward PE ~25-30x，PB降至~9-10x仍偏高但可接受）。如果H1实际利润达30亿上沿+光模块毛利率维持36%+占比提升至10%+，可在130-150元区间重新评估。<br><br>
+
+<strong>与香农芯创对比：</strong>同为光通信赛道，香农Forward PE仅11x+五维5/5全通过+ROE 31.5%+利润/市值比9.1%，全面碾压东山精密。
+</div>
+
+<!-- ========== 标的对比 ========== -->
+<h2>十三、与其他调查标的对比</h2>
+<table>
+<tr><th>标的</th><th>五维</th><th>PE(TTM)</th><th>Forward PE</th><th>PB</th><th>ROE</th><th>利润/市值</th><th>结论</th></tr>
+<tr><td>腾讯 440港元</td><td>5/5</td><td>15x</td><td>~14x</td><td>3.1x</td><td>15%</td><td>~6.2%</td><td>🟢可加仓</td></tr>
+<tr><td>香农芯创 141元</td><td>5/5</td><td>~36x</td><td>~11x</td><td>13.5x</td><td>31.5%</td><td>~9.1%</td><td>✅值得关注</td></tr>
+<tr><td>杰克 39元</td><td>4.5/5</td><td>21.8x</td><td>~20x</td><td>3.63x</td><td>16.1%</td><td>~4.55%</td><td>🟡合理</td></tr>
+<tr><td>小米 27.5港元</td><td>4/5</td><td>~13x</td><td>~15x</td><td>2.41x</td><td>~15%</td><td>~7.7%</td><td>🟡合理偏低</td></tr>
+<tr><td>亨通 ~52元</td><td>3.5/5</td><td>~42x</td><td>~26x</td><td>3.84x</td><td>9%</td><td>~2.07%</td><td>🟡合理</td></tr>
+<tr><td><strong>东山 162元</strong></td><td><strong>3.5/5</strong></td><td><strong>~145x</strong></td><td><strong>~37x</strong></td><td><strong>13x</strong></td><td><strong>6.89%</strong></td><td><strong>~0.47%</strong></td><td><strong>🟡合理偏高</strong></td></tr>
+<tr><td>中免 57元</td><td>3/5</td><td>29.1x</td><td>~24x</td><td>2.08x</td><td>6.9%</td><td>~3.0%</td><td>🟢可建仓</td></tr>
+<tr><td>华工 100元</td><td>2.5/5</td><td>59.3x</td><td>~40x</td><td>8.81x</td><td>14.5%</td><td>1.46%</td><td>🔴仍贵</td></tr>
+<tr><td>阿里 117港元</td><td>1.5/5</td><td>18.7x</td><td>~17x</td><td>1.87x</td><td>9.2%</td><td>~4.7%</td><td>🔴偏贵</td></tr>
+</table>
+
+</body>
+</html>
