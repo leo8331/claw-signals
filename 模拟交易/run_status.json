@@ -1,14 +1,14 @@
 {
-  "run_id": "20260805_150738",
-  "started_at": "2026-08-05T15:07:38",
-  "ended_at": "2026-08-05T15:08:16",
-  "elapsed_seconds": 37.653,
-  "status": "success",
+  "run_id": "20260805_155747",
+  "started_at": "2026-08-05T15:57:47",
+  "ended_at": "2026-08-05T15:57:47",
+  "elapsed_seconds": 0.03,
+  "status": "already_processed",
   "data_date": "2026-08-05",
   "expected_date": "2026-08-05",
   "fresh": true,
-  "signal_count": 1,
-  "buy_count": 1,
+  "signal_count": 0,
+  "buy_count": 0,
   "sell_count": 0,
   "error": ""
 }
