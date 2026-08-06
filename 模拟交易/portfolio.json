@@ -13,14 +13,14 @@
       "init_sh": 19600,
       "cost": 124852.0,
       "sl": 5.92,
-      "lp": 6.37,
-      "hd": 0,
+      "lp": 6.41,
+      "hd": 4,
       "vr": 0.82,
       "gain": 2.8,
       "score": 40.74,
       "phase": "↑↑↑",
       "triple_up": true,
-      "peak_close": 6.37,
+      "peak_close": 6.41,
       "trailing_active": false,
       "upgraded": false,
       "decision_run_id": "20260805_150738",
@@ -31,7 +31,8 @@
       "sector": "多元金融",
       "broad_sector": "金融",
       "name": "江苏金租",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0
     }
   ],
   "trades": [
@@ -420,9 +421,15 @@
       "value": 441440.41,
       "cash": 316588.41,
       "market": 124852.0
+    },
+    {
+      "date": "2026-08-06",
+      "value": 442224.41,
+      "cash": 316588.41,
+      "market": 125636.0
     }
   ],
-  "last_processed_run_id": "20260805_150738",
+  "last_processed_run_id": "20260806_145710",
   "v5_cleared": true,
-  "last_processed_date": "2026-08-05"
+  "last_processed_date": "2026-08-06"
 }
