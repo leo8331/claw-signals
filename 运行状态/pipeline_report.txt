@@ -1,20 +1,20 @@
-run_id: 20260807_201557
-预期交易日: 2026-08-07
-数据日期: 2026-08-07
+run_id: 20260810_145540
+预期交易日: 2026-08-10
+数据日期: 2026-08-10
 状态: success
 各步耗时:
-  p0_gate: 1.3s OK
-  score_position: 1.4s OK
-  score_sector: 10.9s OK
+  p0_gate: 9.0s OK
+  score_position: 2.4s OK
+  score_sector: 13.4s OK
   build_sector: 0.2s OK
-  build_home: 0.3s OK
-  score_h3: 12.7s OK
-  score_g: 8.8s OK
-  score_m5: 6.3s OK
-  score_industry_tag: 5.6s OK
-  build_site: 7.5s OK
-  sim_trade: 2.3s OK
-信号数: 0  买入: 0  卖出: 0
+  build_home: 1.7s OK
+  score_h3: 25.6s OK
+  score_g: 8.9s OK
+  score_m5: 19.2s OK
+  score_industry_tag: 4.2s OK
+  build_site: 7.9s OK
+  sim_trade: 2.9s OK
+信号数: 7  买入: 3  卖出: 0
 失败步骤: 无
 Git: OK
 错误: 无
