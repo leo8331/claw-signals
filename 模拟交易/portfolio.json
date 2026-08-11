@@ -13,8 +13,8 @@
       "init_sh": 19600,
       "cost": 124852.0,
       "sl": 5.92,
-      "lp": 6.51,
-      "hd": 6,
+      "lp": 6.44,
+      "hd": 7,
       "vr": 0.82,
       "gain": 2.8,
       "score": 40.74,
@@ -44,8 +44,8 @@
       "init_sh": 2200,
       "cost": 95656.0,
       "sl": 40.44,
-      "lp": 43.48,
-      "hd": 0,
+      "lp": 43.37,
+      "hd": 1,
       "vr": 1.24,
       "gain": 5.9,
       "score": 67.83,
@@ -62,7 +62,8 @@
       "sector": "调味品",
       "broad_sector": "食品饮料",
       "name": "安琪酵母",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0
     },
     {
       "code": "002568",
@@ -74,13 +75,13 @@
       "init_sh": 5000,
       "cost": 99900.0,
       "sl": 18.58,
-      "lp": 19.98,
-      "hd": 0,
+      "lp": 19.56,
+      "hd": 1,
       "vr": 1.01,
       "gain": 3.8,
       "score": 50.6,
-      "phase": "↑↑↓",
-      "triple_up": false,
+      "phase": "↑↑↑",
+      "triple_up": true,
       "peak_close": 19.98,
       "trailing_active": false,
       "upgraded": false,
@@ -92,7 +93,8 @@
       "sector": "酿酒",
       "broad_sector": "食品饮料",
       "name": "百润股份",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0
     },
     {
       "code": "002292",
@@ -104,8 +106,8 @@
       "init_sh": 11800,
       "cost": 99710.0,
       "sl": 7.86,
-      "lp": 8.45,
-      "hd": 0,
+      "lp": 8.34,
+      "hd": 1,
       "vr": 0.77,
       "gain": 3.7,
       "score": 49.06,
@@ -122,7 +124,8 @@
       "sector": "影视院线",
       "broad_sector": "计算机传媒",
       "name": "奥飞娱乐",
-      "can_split": true
+      "can_split": true,
+      "tp_idx": 0
     }
   ],
   "trades": [
@@ -589,9 +592,15 @@
       "value": 444184.41,
       "cash": 21322.41,
       "market": 422862.0
+    },
+    {
+      "date": "2026-08-11",
+      "value": 439172.41,
+      "cash": 21322.41,
+      "market": 417850.0
     }
   ],
-  "last_processed_run_id": "20260810_145713",
+  "last_processed_run_id": "20260811_145711",
   "v5_cleared": true,
-  "last_processed_date": "2026-08-10"
+  "last_processed_date": "2026-08-11"
 }
