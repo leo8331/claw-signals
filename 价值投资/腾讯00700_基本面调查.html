@@ -3,301 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>腾讯控股 00700.HK · 基本面调查报告</title>
+<title>腾讯控股 00700 基本面调查 · 461港元值不值</title>
 <style>
-:root {
-  --bg: #0d1117; --card: #161b22; --border: #30363d;
-  --text: #c9d1d9; --text-bright: #f0f6fc;
-  --green: #3fb950; --red: #f85149; --yellow: #d29922;
-  --blue: #58a6ff; --orange: #db6d28;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
-h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
-h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
-h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
-.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
-th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
-td { padding:7px 10px; border:1px solid var(--border); }
-tr:nth-child(even) { background:#161b22; }
-.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
-.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
-.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
-.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
-.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
-.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
-.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
-.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
-.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
-.verdict-score { font-size:2.5em; font-weight:800; }
-.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
-.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
-.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
-.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
-.metric-label { color:var(--text); }
-.metric-val { color:var(--text-bright); font-weight:600; }
-.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
-.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
-.zone { flex:1; min-width:140px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
-.zone-label { font-weight:700; font-size:0.9em; }
-.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
-.zone-pe { font-size:0.78em; opacity:0.8; }
+  :root{--bg:#0d1117;--card:#161b22;--line:#30363d;--txt:#e6edf3;--mut:#8b949e;--grn:#3fb950;--ylw:#d29922;--red:#f85149;--blu:#58a6ff;--pur:#bc8cff;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;line-height:1.6;padding:28px;max-width:1080px;margin:0 auto}
+  h1{font-size:26px;margin-bottom:6px}
+  h2{font-size:19px;margin:30px 0 12px;padding-left:10px;border-left:4px solid var(--blu)}
+  h3{font-size:15px;margin:16px 0 8px;color:var(--mut)}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin:14px 0}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  th{background:#1c2230;color:var(--mut);font-weight:600}
+  .grn{color:var(--grn);font-weight:700}
+  .ylw{color:var(--ylw);font-weight:700}
+  .red{color:var(--red);font-weight:700}
+  .blu{color:var(--blu);font-weight:700}
+  .big{font-size:30px;font-weight:800}
+  .verdict{background:linear-gradient(135deg,#10331a,#0d1117);border:1px solid var(--grn);border-radius:12px;padding:22px;margin:18px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .metric{background:#1c2230;border:1px solid var(--line);border-radius:8px;padding:12px}
+  .metric .v{font-size:22px;font-weight:700}
+  .metric .l{font-size:12px;color:var(--mut)}
+  code{background:#1c2230;padding:2px 6px;border-radius:4px;font-size:12.5px;color:var(--pur)}
+  .note{font-size:12.5px;color:var(--mut);margin-top:6px}
+  .src{font-size:11.5px;color:#6e7681;margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+  ul{margin:6px 0 6px 20px}
 </style>
 </head>
 <body>
+<h1>腾讯控股（00700.HK）基本面调查</h1>
+<div class="sub">临时判读 · 用户参考价 <b>461 港元</b>（当前盘口≈459，2026-08-12）｜ 数据：2026中期业绩公告（截至2026-06-30）+ 行情快照 + 同业/机构检索</div>
 
-<h1>腾讯控股 00700.HK · 基本面调查报告</h1>
-<p class="subtitle">调查日期：2026年7月20日 · 收盘价 476.60 港元 · 市值 ~4.34万亿港元</p>
-
-<h2>一、核心估值数据（截至2026.7.20）</h2>
-
-<div class="grid-2">
-  <div class="card">
-    <div class="card-title">📊 估值指标</div>
-    <div class="metric"><span class="metric-label">收盘价</span><span class="metric-val">476.60 港元</span></div>
-    <div class="metric"><span class="metric-label">PE (TTM, Non-IFRS)</span><span class="metric-val">16.27x</span></div>
-    <div class="metric"><span class="metric-label">PE (Forward)</span><span class="metric-val">~15.5x</span></div>
-    <div class="metric"><span class="metric-label">PB</span><span class="metric-val">3.44x</span></div>
-    <div class="metric"><span class="metric-label">PS</span><span class="metric-val">~5.8x</span></div>
-    <div class="metric"><span class="metric-label">ROE</span><span class="metric-val">~15%</span></div>
-    <div class="metric"><span class="metric-label">股息率</span><span class="metric-val">~1.5%</span></div>
-    <div class="metric"><span class="metric-label">Beta (5Y)</span><span class="metric-val">0.50</span></div>
-  </div>
-  <div class="card">
-    <div class="card-title">💰 资产负债</div>
-    <div class="metric"><span class="metric-label">总市值</span><span class="metric-val">~4.34万亿港元</span></div>
-    <div class="metric"><span class="metric-label">净现金</span><span class="metric-val">1,469亿人民币</span></div>
-    <div class="metric"><span class="metric-label">自由现金流(2025全年)</span><span class="metric-val">1,826亿人民币</span></div>
-    <div class="metric"><span class="metric-label">自由现金流(2026Q1)</span><span class="metric-val">567亿人民币</span></div>
-    <div class="metric"><span class="metric-label">2025回购</span><span class="metric-val">800亿港元(1.53亿股)</span></div>
-    <div class="metric"><span class="metric-label">52周高</span><span class="metric-val">677.70 港元</span></div>
-    <div class="metric"><span class="metric-label">52周低</span><span class="metric-val">411.00 港元</span></div>
-    <div class="metric"><span class="metric-label">年内跌幅</span><span class="metric-val">~-21%</span></div>
-  </div>
+<div class="verdict">
+  <div class="big grn">🟢 值，461 不贵，甚至偏便宜</div>
+  <p style="margin-top:10px">五维门控 <b class="grn">5/5 全通过</b> ＋ 三维分析 <b class="grn">A 双安全</b> ＋ 宏观 <b class="grn">🟢全绿灯</b> ＋ 股价处 52 周<b class="grn">低位区（距高点 -33%，距低点仅 +12%）</b>。20.5% ROE + ~10% 增长 + 5–6% 利润/市值比，对应 PE(TTM)≈16x / 前瞻 PE≈14x(2026E)、扣除现金后≈12x。结论：<b>461 港元具备安全边际，回调至 420（52周低点附近）更具吸引力</b>。属优质复利型平台，非"瓶颈"标的，点状检查已足够；若纳入六步瓶颈候选还需收入拐点法前瞻估值。</p>
 </div>
 
-<h2>二、历史估值分位</h2>
-
+<h2>① 五维质量门控</h2>
+<div class="card">
 <table>
-<tr><th>指标</th><th>当前值</th><th>5年分位</th><th>10年分位</th><th>5年中位数</th><th>判断</th></tr>
-<tr><td>PE (TTM)</td><td>16.27x</td><td>~38%</td><td>~17%</td><td>~20x</td><td><span class="tag t-green">偏低</span></td></tr>
-<tr><td>PB</td><td>3.44x</td><td>~12%</td><td>~12%</td><td>3.80x</td><td><span class="tag t-green">偏低</span></td></tr>
-<tr><td>Forward PE</td><td>~15.5x</td><td>—</td><td>—</td><td>—</td><td><span class="tag t-green">偏低</span></td></tr>
+<tr><th>维度</th><th>门槛/良好/优秀</th><th>腾讯实测（H1 2026 / TTM）</th><th>判定</th></tr>
+<tr><td>① 有业绩</td><td>扣非>0 / ≥70% / ≥90%</td><td>权益持有人应占盈利 114,115( statutory +10%)；Non-IFRS 136,320(+10%)；Non-IFRS/statutory=1.19（账面净利因投资公允价值亏损 -781亿 OCI 被压低，经营盈利更实）</td><td class="grn">PASS</td></tr>
+<tr><td>② 有成长性</td><td>营收≥5%或净利≥10% / ≥10%&≥15% / ≥20%&≥20%</td><td>收入 +10% YoY；Non-IFRS 净利 +10%；Q2 收入 +11%、Non-IFRS +8.5%（statutory Q2 +0.7% 受投资亏损拖累）</td><td class="grn">PASS（良好）</td></tr>
+<tr><td>③ 有销售收入</td><td>年营收≥20亿 / ≥100亿 / ≥500亿</td><td>H1 收入 401,243 百万元 RMB（≈年 8,000亿），远超</td><td class="grn">PASS（优秀）</td></tr>
+<tr><td>④ 有现金流</td><td>经营CF>0 / 含量≥100% / ≥150%&FCF>0</td><td>经营现金流 154,061(+1.8%)；现金含量 135%；H1 自由现金流 +69,341（为正）。Q2 负 FCF -138亿 系 AI 算力预付款时序性，剔除后为正</td><td class="grn">PASS</td></tr>
+<tr><td>⑤ ROE</td><td>≥15% / ≥10% / ≥20%</td><td>ROE(TTM) 20.51%（stockanalysis）</td><td class="grn">PASS（优秀）</td></tr>
 </table>
-
-<div class="ok">
-<strong>结论：</strong>PE 16.27x处于5年38%分位、10年17%分位——历史偏低区间。PB 3.44x处于5年12%分位——接近历史底部。与阿里不同，腾讯的估值便宜是<strong>真实的</strong>，因为利润质量高、现金流充沛。
+<div class="note">张瑜信号：个股 OCF 同比 +1.8% &gt;0，未连续2季转负 → 无早期预警。⚠️ OCF 增速(+1.8%) 落后于净利(+10%)，源于 AI capex 前置，需持续跟踪。</div>
 </div>
 
-<h2>三、FY2025全年财报（截至2025年12月）</h2>
+<h2>② 核心估值数据（2026-08-12 快照，参考价 461）</h2>
+<div class="grid">
+  <div class="metric"><div class="v">≈461</div><div class="l">参考股价(HKD)</div></div>
+  <div class="metric"><div class="v">4.19万亿</div><div class="l">总市值(HKD)</div></div>
+  <div class="metric"><div class="v grn">≈16x</div><div class="l">PE(TTM)</div></div>
+  <div class="metric"><div class="v grn">≈14x</div><div class="l">前瞻PE(2026E)</div></div>
+  <div class="metric"><div class="v grn">3.3x</div><div class="l">PB(LF)</div></div>
+  <div class="metric"><div class="v">5.0x</div><div class="l">PS(TTM)</div></div>
+  <div class="metric"><div class="v grn">20.5%</div><div class="l">ROE(TTM)</div></div>
+  <div class="metric"><div class="v">1.1%</div><div class="l">股息率(TTM)</div></div>
+  <div class="metric"><div class="v ylw">411 / 683</div><div class="l">52周低 / 高</div></div>
+  <div class="metric"><div class="v ylw">-10.5%</div><div class="l">52周涨跌幅</div></div>
+</div>
+<div class="note">市值=461×90.83亿股。PE/PB 取自行情快照（hk00700 08-12：PE 15.74 / PB 3.33；stockanalysis：Fwd PE 14.14 / PB 3.18 / ROE 20.51%）。前瞻 PE 2026E 14.2x、2027E 12.7x（浦银）；花旗 1年远期 12.3x（扣现金 11.8x）。</div>
 
+<h2>③ 历史分位与价格四色分区</h2>
+<div class="card">
 <table>
-<tr><th>指标</th><th>FY2025</th><th>FY2024</th><th>同比</th><th>说明</th></tr>
-<tr><td>营业收入</td><td>7,518亿</td><td>6,602亿</td><td style="color:var(--green)">+14%</td><td>稳健双位数增长</td></tr>
-<tr><td>毛利</td><td>4,226亿</td><td>3,496亿</td><td style="color:var(--green)">+21%</td><td>毛利率56%→57%提升</td></tr>
-<tr><td>Non-IFRS经营利润</td><td>2,807亿</td><td>2,378亿</td><td style="color:var(--green)">+18%</td><td>经营利润率37%(+1pp)</td></tr>
-<tr><td>Non-IFRS净利</td><td>2,670亿</td><td>2,261亿</td><td style="color:var(--green)">+18%</td><td>核心利润真实增长</td></tr>
-<tr><td>IFRS归母净利</td><td>2,248亿</td><td>1,941亿</td><td style="color:var(--green)">+16%</td><td>—</td></tr>
-<tr><td>自由现金流</td><td>1,826亿</td><td>1,548亿</td><td style="color:var(--green)">+18%</td><td>✅ 正向且增长</td></tr>
-<tr><td>资本开支</td><td>792亿</td><td>769亿</td><td style="color:var(--green)">+3%</td><td>AI投入但可控</td></tr>
-<tr><td>净现金</td><td>1,071亿</td><td>—</td><td>—</td><td>无大额刚性债务</td></tr>
+<tr><th>区间</th><th>价格(HKD)</th><th>含义</th></tr>
+<tr><td>52周高点</td><td>683</td><td>当前 -33%，显著回落</td></tr>
+<tr><td>30日均线</td><td>452</td><td>当前略上方</td></tr>
+<tr><td><b>当前 461</b></td><td><b>461</b></td><td>处于 52周区间<b class="grn">下 18%</b>（低位区）</td></tr>
+<tr><td>52周低点</td><td>411</td><td>距当前仅 +12%，强支撑参考</td></tr>
 </table>
+<div class="note">PE 5年区间约 10x–50x、中位数≈20x；当前 16x <中位数 → 合理偏低。PB 3.3x 处历史中低位。结论：估值未泡沫，处周期低位。</div>
+</div>
 
-<h3>2026Q1（截至2026年3月）</h3>
-
+<h2>④ 关键财报（H1 2026 vs H1 2025，RMB 百万元）</h2>
+<div class="card">
 <table>
-<tr><th>指标</th><th>Q1 2026</th><th>Q1 2025</th><th>同比</th><th>说明</th></tr>
-<tr><td>营业收入</td><td>1,965亿</td><td>1,802亿</td><td style="color:var(--green)">+9%</td><td>稳健</td></tr>
-<tr><td>毛利</td><td>1,113亿</td><td>1,002亿</td><td style="color:var(--green)">+11%</td><td>毛利率57%</td></tr>
-<tr><td>Non-IFRS经营利润</td><td>756亿</td><td>694亿</td><td style="color:var(--green)">+9%</td><td>经营利润率38.5%</td></tr>
-<tr><td>Non-IFRS净利</td><td>698亿</td><td>629亿</td><td style="color:var(--green)">+11%</td><td>✅ 真实增长</td></tr>
-<tr><td>IFRS归母净利</td><td>679亿</td><td>613亿</td><td style="color:var(--green)">+11%</td><td>—</td></tr>
-<tr><td>自由现金流</td><td>567亿</td><td>—</td><td>—</td><td>✅ 正向</td></tr>
-<tr><td>经营现金流</td><td>1,014亿</td><td>—</td><td>—</td><td>✅ 强劲</td></tr>
-<tr><td>资本开支</td><td>319亿</td><td>—</td><td>—</td><td>其中AI相关370亿付款</td></tr>
-<tr><td>净现金</td><td>1,469亿</td><td>1,071亿</td><td style="color:var(--green)">+37%</td><td>净现金大幅增长</td></tr>
+<tr><th>科目</th><th>2026 H1</th><th>2025 H1</th><th>YoY</th></tr>
+<tr><td>收入</td><td>401,243</td><td>364,526</td><td class="grn">+10%</td></tr>
+<tr><td>毛利</td><td>229,698</td><td>205,506</td><td class="grn">+12%</td></tr>
+<tr><td>经营盈利</td><td>134,651</td><td>117,670</td><td class="grn">+14%</td></tr>
+<tr><td>本公司权益持有人应占盈利</td><td>114,115</td><td>103,449</td><td class="grn">+10%</td></tr>
+<tr><td>Non-IFRS 应占盈利</td><td>136,320</td><td>124,381</td><td class="grn">+10%</td></tr>
+<tr><td>经营现金流</td><td>154,061</td><td>151,265</td><td class="grn">+1.8%</td></tr>
+<tr><td>资本开支</td><td>84,720</td><td>46,583</td><td class="red">+82%</td></tr>
+<tr><td>毛利率</td><td>57.2%</td><td>56.4%</td><td class="grn">+0.8pct</td></tr>
 </table>
+<div class="note">分部 Q2：增值服务 +8%（本土游戏 +17%）、营销服务 +22%（AI 驱动）、金融科技及企业服务 +9%（云受 AI 拉动）。⚠️ 投资公允价值变动亏损（OCI）-781亿（其中金融资产 Fair Value -489亿 + 汇兑 -291亿）为非现金项，压低账面净利与净资产，不影响经营。</div>
+</div>
 
-<div class="ok">
-<strong>✅ 与阿里的核心差异：</strong>
-<ul style="margin:8px 0 0 20px;">
-<li><strong>利润真实增长</strong> — Non-IFRS净利+11%(阿里-62%)，经营利润+9%(阿里-84%)</li>
-<li><strong>自由现金流为正</strong> — Q1 FCF 567亿(阿里-466亿)，全年FCF 1,826亿</li>
-<li><strong>净现金大幅增长</strong> — 从1,071亿增至1,469亿(+37%)，阿里净现金仅399亿</li>
-<li><strong>AI投入不吞噬利润</strong> — 剔除AI产品后经营利润+17%，AI投入可控；阿里AI投入导致经营亏损</li>
-<li><strong>毛利率提升</strong> — 从56%提升至57%，阿里毛利率受AI投入拖累</li>
+<h2>⑤ 三维分析（PE + PB + 利润/市值比）</h2>
+<div class="card">
+<table>
+<tr><th>指标</th><th>值</th><th>阈值/对比</th><th>结论</th></tr>
+<tr><td>PE(TTM)</td><td>≈16x</td><td>&lt;40x 安全区</td><td class="grn">✅ 安全（低于5年中位数）</td></tr>
+<tr><td>PB(LF)</td><td>3.3x</td><td>互联网平台 &lt;4x 安全区</td><td class="grn">✅ 安全</td></tr>
+<tr><td>利润/市值比</td><td>5–6%</td><td>≥5% 丰厚 / 3-5% 需增20-30% / 1-3% 需暴增</td><td class="grn">✅ 丰厚（TTM净利/市值≥5%）</td></tr>
+</table>
+<div class="note">联合矩阵 = <b class="grn">A 双安全</b>（PE 安全 + PB 安全）→ 🟢 优先。同赛道 PB 无极端溢价（Meta PB 5.84x，腾讯 3.3x，无 3x 以上异常）。利润/市值比 ≥5% 意味着即使不增长也值。</div>
+</div>
+
+<h2>⑥ 业绩趋势</h2>
+<div class="card">
+<ul>
+<li><b>收入</b>：连续稳健 +10~11%，游戏（本土+17%、国际固定汇率+4%）、广告（+22%）、金融科技/云（+9%）三线齐进。</li>
+<li><b>毛利</b>：+12% 快于收入，毛利率 57%→58%（高毛利自研游戏+广告占比提升），但 AI 折旧/运营成本抬升部分抵消。</li>
+<li><b>盈利</b>：Non-IFRS 净利 +10%；statutory 受投资亏损扰动（Q2 +0.7%），看 Non-IFRS 更准。</li>
+<li><b>现金流</b>：经营 CF 稳健；capex 因 AI 算力 +82%，短期压制 FCF，属战略前置而非恶化。</li>
 </ul>
 </div>
 
-<h2>四、业务分部分析</h2>
-
+<h2>⑦ 同业对比（2026-08-12）</h2>
+<div class="card">
 <table>
-<tr><th>分部</th><th>FY2025收入</th><th>占比</th><th>增速</th><th>状态</th></tr>
-<tr><td>增值服务（游戏+社交）</td><td>3,693亿</td><td>49%</td><td style="color:var(--green)">+16%</td><td><span class="tag t-green">✅ 核心利润引擎</span></td></tr>
-<tr><td>— 本土游戏</td><td>1,642亿</td><td>22%</td><td style="color:var(--green)">+18%</td><td>王者荣耀/和平精英/三角洲行动</td></tr>
-<tr><td>— 国际游戏</td><td>774亿</td><td>10%</td><td style="color:var(--green)">+33%</td><td><span class="tag t-green">出海高增长</span></td></tr>
-<tr><td>— 社交网络</td><td>1,277亿</td><td>17%</td><td style="color:var(--green)">+5%</td><td>视频号/音乐付费</td></tr>
-<tr><td>营销服务（广告）</td><td>1,450亿</td><td>19%</td><td style="color:var(--green)">+19%</td><td><span class="tag t-green">AI驱动精准定向</span></td></tr>
-<tr><td>金融科技及企业服务</td><td>2,294亿</td><td>31%</td><td style="color:var(--green)">+8%</td><td>企业服务+20%(云)</td></tr>
+<tr><th>公司</th><th>PE(TTM)</th><th>PB</th><th>备注</th></tr>
+<tr><td><b>腾讯 00700</b></td><td><b>15.7x</b></td><td><b>3.3x</b></td><td>ROE 20.5%，质量溢价合理</td></tr>
+<tr><td>阿里 9988</td><td>19.6x</td><td>1.96x</td><td>PE 高于腾讯，PB 显著低（ROE 较低）</td></tr>
+<tr><td>网易 9999</td><td>15.9x</td><td>3.29x</td><td>与腾讯估值接近</td></tr>
+<tr><td>Meta</td><td>22.6x</td><td>5.84x</td><td>全球对标，腾讯明显折价</td></tr>
 </table>
+<div class="note">腾讯 PE 低于阿里与 Meta、与网易相当；PB 高于阿里（反映更高 ROE/质量），低于 Meta。横向看估值不贵，且低于全球对标。</div>
+</div>
 
-<h3>2026Q1各分部增速</h3>
+<h2>⑧ 机构观点与催化剂</h2>
+<div class="card">
+<ul>
+<li><b>🟢 催化剂</b>：① 8/12 发半年报，回购静默期(7.13–8.11)结束，重启常态化回购（授权额度大）→ 托底；② AI/云收入加速（企业服务受 AI 拉动）、视频号广告 +22%；③ 估值处 52周低位，花旗/浦银等称中概互联网估值逼近底部、ex-cash 极具吸引力。</li>
+<li><b>🔴 风险</b>：① AI 算力 capex 大增（+82%）短期压制 FCF 与利润增速；② 投资组合公允价值亏损（OCI -781亿，非现金）拖累账面；③ 中国消费/游戏版号/监管宏观风险；④ 毛利率受 AI 折旧成本侵蚀。</li>
+</ul>
+</div>
+
+<h2>⑨ 过热扫描（防"便宜但泡沫"）</h2>
+<div class="card">
 <table>
-<tr><th>分部</th><th>Q1收入</th><th>同比</th><th>亮点</th></tr>
-<tr><td>增值服务</td><td>961亿</td><td style="color:var(--green)">+4%</td><td>本土游戏+6%，国际游戏+13%</td></tr>
-<tr><td>营销服务</td><td>382亿</td><td style="color:var(--green)">+20%</td><td>AI广告精准定向，视频号闭环</td></tr>
-<tr><td>金融科技及企业服务</td><td>599亿</td><td style="color:var(--green)">+9%</td><td>企业服务+20%(云+AI需求)</td></tr>
+<tr><th>信号</th><th>实测</th><th>判定</th></tr>
+<tr><td>估值偏离（价值锚定）</td><td>PE 16x&lt;5年中位数；PB 3.3x 处中低位</td><td class="grn">无偏离</td></tr>
+<tr><td>价格动量 / 板块偏离（软提醒）</td><td>52周 -10.5%、距高点 -33%，无风口拥挤</td><td class="grn">非过热（不否决价值结论）</td></tr>
 </table>
-
-<h2>五、PE+PB+利润/市值比 三维分析</h2>
-
-<table class="summary-table">
-<tr><th>维度</th><th>腾讯</th><th>阿里(对比)</th><th>判断</th></tr>
-<tr><td>PE (TTM)</td><td>16.27x</td><td>18.69x</td><td>✅ 腾讯更便宜且利润真实</td></tr>
-<tr><td>PB</td><td>3.44x</td><td>1.87x</td><td>⚠️ 腾讯PB更高，但ROE也更高(15% vs 9%)</td></tr>
-<tr><td>利润/市值比</td><td>~6.2%</td><td>~4.7%</td><td>✅ 腾讯利润更丰厚</td></tr>
-<tr><td>经营利润/市值</td><td>~6.5%</td><td>~0.3%</td><td>🔴 阿里经营利润几乎归零</td></tr>
-<tr><td>自由现金流/市值</td><td>~4.2%</td><td>-2.2%</td><td>✅ 腾讯FCF强劲，阿里为负</td></tr>
-<tr><td>净利润质量</td><td>✅ 真实经营利润</td><td>❌ 投资收益撑利润</td><td>腾讯远优于阿里</td></tr>
-</table>
-
-<div class="ok">
-<strong>PE+PB联合判断：场景A（双安全）</strong><br>
-腾讯PE 16.27x（历史38%分位偏低）+ PB 3.44x（历史12%分位接近底部），同时利润真实增长+FCF充沛，属于PE+PB双安全标的。相比之下阿里是"场景B"（PE表面可/PB安全但利润质量存疑）。
+<div class="note">原则：从不因涨得好而买；仅在估值偏离🔴（真贵）时谨慎。腾讯当前无过热信号。</div>
 </div>
 
-<h2>六、腾讯 vs 阿里 · 核心对比</h2>
-
+<h2>⑩ 多空对照</h2>
+<div class="card">
 <table>
-<tr><th>指标</th><th>腾讯</th><th>阿里</th><th>胜者</th></tr>
-<tr><td>PE (TTM)</td><td>16.27x</td><td>18.69x</td><td style="color:var(--green)">腾讯 ✅</td></tr>
-<tr><td>PE历史分位</td><td>38%(5Y) / 17%(10Y)</td><td>50%(5Y)</td><td style="color:var(--green)">腾讯 ✅ 更便宜</td></tr>
-<tr><td>PB历史分位</td><td>12%(5Y) 接近底部</td><td>~45%</td><td style="color:var(--green)">腾讯 ✅</td></tr>
-<tr><td>Non-IFRS净利增速</td><td>+11%</td><td>-62%</td><td style="color:var(--green)">腾讯 ✅ 暴赢</td></tr>
-<tr><td>经营利润</td><td>756亿(+9%)</td><td>-8.48亿(转亏)</td><td style="color:var(--green)">腾讯 ✅ 暴赢</td></tr>
-<tr><td>自由现金流</td><td>+567亿</td><td>-466亿</td><td style="color:var(--green)">腾讯 ✅ 暴赢</td></tr>
-<tr><td>净现金</td><td>1,469亿</td><td>399亿</td><td style="color:var(--green)">腾讯 ✅</td></tr>
-<tr><td>毛利率</td><td>57%</td><td>~40%</td><td style="color:var(--green)">腾讯 ✅</td></tr>
-<tr><td>ROE</td><td>~15%</td><td>9.22%</td><td style="color:var(--green)">腾讯 ✅</td></tr>
-<tr><td>AI商业化</td><td>Hy3+WorkBuddy+元宝</td><td>云AI ARR 358亿</td><td>各有千秋</td></tr>
-<tr><td>回购</td><td>800亿港元/年</td><td>191亿美元授权</td><td>阿里规模更大</td></tr>
+<tr><th>多头</th><th>空头</th></tr>
+<tr><td>20.5% ROE 复利机器 + 10% 增长</td><td>AI capex 压制短期 FCF/利润增速</td></tr>
+<tr><td>PE 16x / 扣现金前瞻 12x，处历史低位</td><td>投资组合公允价值亏损（账面扰动）</td></tr>
+<tr><td>回购重启 + 净现金雄厚 + 分红</td><td>中国宏观/消费/监管不确定性</td></tr>
+<tr><td>游戏/广告/云三线稳健，AI 期权</td><td>毛利率受 AI 折旧侵蚀</td></tr>
 </table>
-
-<div class="highlight">
-<strong>核心结论：</strong>腾讯在几乎所有财务维度上碾压阿里——利润真实增长(+11% vs -62%)、经营利润正(756亿 vs -8.5亿)、FCF为正(567亿 vs -466亿)、净现金更多(1,469亿 vs 399亿)、毛利率更高(57% vs 40%)、ROE更高(15% vs 9%)。腾讯PE更低(16.3x vs 18.7x)且历史分位更低(38% vs 50%)，估值更便宜。
 </div>
 
-<h2>七、AI进展对比</h2>
+<h2>⑪ 综合判断</h2>
+<div class="card">
+<p><b class="grn">🟢 结论：461 港元值得，且偏便宜。</b></p>
+<ul>
+<li>五维 5/5 全通过，三维 A 双安全，宏观 🟢 全绿灯 → 可正常建仓（非"仅观察"）。</li>
+<li>估值：PE 16x &lt;5年中位数、PB 3.3x 中低位、利润/市值比 5–6%（丰厚）、前瞻扣现金 PE≈12x。</li>
+<li>位置：52周区间下 18%，距低点仅 +12%，安全边际充足；若回调至 420（52周低点附近）更具吸引力。</li>
+<li>瑕疵：AI capex 前置致 Q2 FCF 转负、OCF 增速落后于净利——需季度跟踪，但非逻辑破坏。</li>
+</ul>
+</div>
 
+<h2>⑫ 标的对比（与已跟踪池参照）</h2>
+<div class="card">
 <table>
-<tr><th>维度</th><th>腾讯</th><th>阿里</th></tr>
-<tr><td>大模型</td><td>Hy3 (295B参数/21B激活)，OpenRouter登顶</td><td>千问Qwen系列</td></tr>
-<tr><td>AI产品</td><td>WorkBuddy(中国最广使用)、元宝、CodeBuddy、QClaw</td><td>千问App、通义</td></tr>
-<tr><td>云AI收入</td><td>企业服务+20%(未单独披露AI ARR)</td><td>AI ARR 358亿(首次披露)</td></tr>
-<tr><td>AI对利润影响</td><td>可控——剔除AI后经营利润+17%</td><td>致命——经营利润转亏</td></tr>
-<tr><td>AI团队稳定性</td><td>稳定</td><td>千问负责人林俊旸离职</td></tr>
-<tr><td>资本开支</td><td>Q1 319亿(可控)</td><td>未来"远超3800亿"(吞噬FCF)</td></tr>
+<tr><th>标的</th><th>价格</th><th>PE</th><th>PB</th><th>五维</th><th>结论</th></tr>
+<tr><td><b>腾讯 00700</b></td><td>461</td><td>~16x</td><td>3.3x</td><td>5/5</td><td class="grn">🟢 可建仓</td></tr>
+<tr><td>阿里 9988</td><td>117</td><td>18.7x</td><td>1.87x</td><td>1.5/5</td><td class="red">🔴 偏贵(经营亏损)</td></tr>
+<tr><td>小米 01810</td><td>27.5</td><td>~13x</td><td>2.41x</td><td>4/5</td><td class="ylw">🟡 合理偏低</td></tr>
 </table>
-
-<h2>八、机构观点</h2>
-
-<table>
-<tr><th>机构</th><th>目标价(港元)</th><th>上行空间</th><th>核心逻辑</th></tr>
-<tr><td>高盛</td><td>700</td><td>+47%</td><td>核心业务稳健+AI潜力</td></tr>
-<tr><td>中金</td><td>666</td><td>+40%</td><td>20x PE估值修复</td></tr>
-<tr><td>大摩</td><td>650</td><td>+36%</td><td>偏好腾讯>阿里</td></tr>
-<tr><td>共识(29家)</td><td>~670</td><td>+40%</td><td>强烈买入</td></tr>
-</table>
-
-<h2>九、476港元贵不贵？——价格区间判断</h2>
-
-<div class="price-zone">
-  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
-    <div class="zone-label" style="color:var(--green)">🟢 极度低估</div>
-    <div class="zone-price" style="color:var(--green)">411-430港元</div>
-    <div class="zone-pe">PE ~14x | 历史5%分位</div>
-  </div>
-  <div class="zone" style="background:rgba(63,185,80,0.08);border:1px solid var(--green);">
-    <div class="zone-label" style="color:var(--green)">🟢 可建仓</div>
-    <div class="zone-price" style="color:var(--green)">430-460港元</div>
-    <div class="zone-pe">PE ~15x | 历史15%分位</div>
-  </div>
-  <div class="zone" style="background:rgba(210,153,34,0.08);border:1px solid var(--yellow);">
-    <div class="zone-label" style="color:var(--yellow)">🟡 合理偏低</div>
-    <div class="zone-price" style="color:var(--yellow)">460-500港元 ← <strong>现价477在此</strong></div>
-    <div class="zone-pe">PE ~16x | 历史38%分位</div>
-  </div>
-  <div class="zone" style="background:rgba(248,81,73,0.1);border:1px solid var(--red);">
-    <div class="zone-label" style="color:var(--red)">🟠 偏贵</div>
-    <div class="zone-price" style="color:var(--red)">500-550港元</div>
-    <div class="zone-pe">PE ~18x | 历史50%+分位</div>
-  </div>
+<div class="note">腾讯与阿里形成鲜明对比：阿里 PE 18.7x 但经营亏损+ FCF-466亿（五维仅1.5/5），腾讯盈利质量与现金流远优，估值却更低 → 腾讯性价比更突出。</div>
 </div>
 
-<div class="verdict-box">
-  <div style="display:flex;align-items:center;gap:20px;">
-    <div class="verdict-score" style="color:var(--green);">🟢</div>
-    <div>
-      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：476港元合理偏低，可分批建仓</div>
-      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">PE 16.3x处于历史38%分位(偏低)，PB 3.44x处于12%分位(接近底部)，利润真实增长+11%+FCF 567亿</div>
-    </div>
-  </div>
+<div class="src">
+数据来源：① 腾讯《截至二零二六年六月三十日止三個月及六個月業績公佈》PDF（财报/公告，最高证据级）；② 行情快照 hk00700 2026-08-12（雪球/东方财富/stockanalysis）；③ 同业与机构：浦银国际可比公司表、花旗中概互联网研报、etnet。交叉验证：PE/PB/市值多源一致；财报数字取自公告原文。⚠️ 投资公允价值亏损 -781亿 为 OCI 非现金项，已单独标注。本判读为"当前价格贵不贵"点状检查，非六步工作流前瞻估值；若作为瓶颈候选需补收入拐点法。
 </div>
-
-<h2>十、多空分析</h2>
-
-<div class="grid-2">
-  <div class="card" style="border-color:var(--green);">
-    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
-    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
-      <li>PE 16.3x = 历史38%分位，PB 3.44x = 历史12%分位(接近底)</li>
-      <li>Non-IFRS净利+11%，经营利润+9%（真实增长）</li>
-      <li>FCF 567亿/季(年化~2,000亿+)，远超阿里(-466亿)</li>
-      <li>净现金1,469亿(环比+37%)</li>
-      <li>游戏：本土+18%，国际+33%（三角洲行动爆款）</li>
-      <li>广告+20%（AI驱动精准定向AIM+）</li>
-      <li>Hy3模型OpenRouter登顶，WorkBuddy中国最广AI智能体</li>
-      <li>每年800亿港元回购+股息5.30港元/股</li>
-      <li>微信月活14.32亿(护城河极深)</li>
-      <li>机构目标价均值~670港元(+40%)</li>
-    </ul>
-  </div>
-  <div class="card" style="border-color:var(--red);">
-    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
-    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
-      <li>从52周高677跌至477，已反弹14%(底部411反弹16%)</li>
-      <li>AI布局被认为"慢了"——元宝月活5735万vs豆包3.45亿</li>
-      <li>微信用户接近天花板(14.32亿)，增量空间有限</li>
-      <li>游戏增速Q1放缓至+4%(本土+6%)，流水递延影响</li>
-      <li>AI资本开支Q1已370亿付款，后续可能加码</li>
-      <li>港股流动性折价持续(外资流出)</li>
-      <li>监管风险：AI Agent功能被要求移除</li>
-      <li>社交网络增速仅+5%，视频号变现节奏待验证</li>
-    </ul>
-  </div>
-</div>
-
-<h2>十一、综合判断</h2>
-
-<table class="summary-table">
-<tr><td>估值（PE+PB）</td><td>✅ PE 16.3x历史38%分位偏低 + PB 3.44x历史12%分位接近底部 → 场景A（双安全）</td></tr>
-<tr><td>利润质量</td><td>✅ 优秀。Non-IFRS净利+11%，经营利润+9%，利润真实可验证</td></tr>
-<tr><td>现金流</td><td>✅ Q1 FCF 567亿，全年~2,000亿+。FCF/市值~4.2%</td></tr>
-<tr><td>增长</td><td>✅ 营收+9%，广告+20%，国际游戏+33%。AI赋能主业清晰</td></tr>
-<tr><td>同业对比</td><td>✅ 全面碾压阿里。PE更低+利润正增长+FCF为正+净现金更多</td></tr>
-<tr><td>安全边际</td><td>✅ 净现金1,469亿+年回购800亿+股息5.30港元</td></tr>
-<tr><td>催化剂</td><td>Hy3正式版落地微信生态 / 8月Q2财报 / AI Agent商业化 / 游戏新管线</td></tr>
-<tr><td>风险</td><td>AI被认为"慢了" / 微信天花板 / 港股流动性 / 监管</td></tr>
-</table>
-
-<div class="ok">
-<strong>最终结论：</strong><br><br>
-<strong>476港元合理偏低，可分批建仓。</strong>腾讯与阿里截然不同——PE 16.3x不仅比阿里(18.7x)便宜，而且利润质量远优于阿里(经营利润+9% vs -84%，FCF +567亿 vs -466亿)。PB处于5年12%分位接近底部，PE处于38%分位偏低。<br><br>
-腾讯的核心优势是"<strong>AI投入不吞噬利润</strong>"——剔除AI产品后经营利润+17%，说明主业现金流完全覆盖AI资本开支。阿里则是"烧光一切换AI增长"，FCF从+739亿变成-466亿。<br><br>
-<strong>买入策略：</strong>460-480港元可分批建仓（当前区间）；如果跌至430-450港元加仓；极端情况411港元(52周低)满仓。<br>
-<strong>目标价：</strong>机构共识~670港元，上行空间~40%。
-</div>
-
 </body>
 </html>
