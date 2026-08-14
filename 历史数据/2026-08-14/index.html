@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CLAW 2026-08-14</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+.page-header h1{font-size:24px;margin-bottom:4px}
+.page-header h1 .accent{color:var(--accent)}
+.page-header .subtitle{font-size:13px;color:var(--text-tertiary);margin-bottom:20px}
+.strat-card{background:linear-gradient(135deg,rgba(20,26,46,0.95) 0%,rgba(28,38,60,0.95) 100%);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+.strat-card h2{font-size:15px;margin-bottom:4px}
+.strat-card .desc{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;line-height:1.6}
+.stock-table{width:100%;border-collapse:collapse;font-size:13px}
+.stock-table th{text-align:left;padding:8px 10px;color:var(--text-tertiary);font-weight:600;font-size:12px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
+.stock-table td{padding:9px 10px;border-bottom:1px solid rgba(56,61,77,0.12);font-size:13px;vertical-align:middle}
+.stock-table tr:hover td{background:rgba(102,153,224,0.05)}
+.tag-sm{font-size:10px;padding:1px 6px;border-radius:3px;color:#fff;display:inline-block}
+.tag-h3{background:#17bf63}.tag-g{background:#6699E0}.tag-v5{background:#e0245e}
+@media(max-width:768px){.stock-table{font-size:11px}.stock-table th,.stock-table td{padding:6px 4px}}
+</style>
+</head>
+<body class="entrance-ready">
+
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="window.location.href='../../index.html'">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="window.location.href='../行业排行/index.html'">SWITCH_</span>
+</nav>
+
+<!-- MODULES Overlay -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
+  <a class="sub-menu-link" href="../../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
+  <a class="sub-menu-link" href="../../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
+  <a class="sub-menu-link" href="../../回测报告/index.html"><span class="sub-menu-dot"></span>回测报告</a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../../index.html"><span class="sub-menu-dot"></span>首页</a>
+  <a class="sub-menu-link" href="../../历史数据/index.html"><span class="sub-menu-dot"></span>历史数据</a>
+</div>
+
+<main>
+  <div class="page-header" style="text-align:center">
+    <a href="../../index.html" class="back-home" style="margin-bottom:8px;display:inline-flex;">← 返回首页</a>
+    <h1>每日选股信号 <span class="accent">2026-08-14</span></h1>
+    <div class="subtitle">全市场自动扫描 · H3 / G变体 / V5-ML 三策略信号</div>
+  </div>
+
+  
+  <div class="ops-row">
+  <div class="ops-card"><span class="dot" style="background:var(--green)"></span><div><div class="l">H3 信号</div><div class="n" style="color:var(--green)">4</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--accent)"></span><div><div class="l">G 信号</div><div class="n" style="color:var(--accent)">21</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--red)"></span><div><div class="l">V5 信号</div><div class="n" style="color:var(--red)">9</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--orange)"></span><div><div class="l">数据日期</div><div class="n" style="color:var(--orange);font-size:16px;padding-top:4px">08-14</div></div></div>
+</div>
+
+  <div class="strat-card strat-h3">
+    <h2><span class="tag-sm tag-h3">H3</span> 振幅加速</h2>
+    <div class="desc">ideal_amp>1.5 | L1板块 | MC>80亿 | ★★★牛市优先 ⚡过热谨慎</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>量能比</th><th>MA60%</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sz">000960</span></td><td>锡业股份</td><td style="color:var(--text-tertiary)">稀有金属</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥38.68</td><td class="mono">0.62</td><td class="mono"><span style="color:var(--red)">+2.1%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sz">300454</span></td><td>深信服</td><td style="color:var(--text-tertiary)">软件服务</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥124.06</td><td class="mono">0.88</td><td class="mono"><span style="color:var(--red)">+15.1%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sh">603979</span></td><td>金诚信</td><td style="color:var(--text-tertiary)">工业金属</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥76.81</td><td class="mono">1.24</td><td class="mono"><span style="color:var(--red)">+10.2%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sh">601899</span></td><td>紫金矿业</td><td style="color:var(--text-tertiary)">工业金属</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥32.53</td><td class="mono">0.62</td><td class="mono"><span style="color:var(--red)">+8.7%</span></td></tr></table></div>
+  </div>
+
+  <div class="strat-card strat-g">
+    <h2><span class="tag-sm tag-g">G变体</span> 趋势质量</h2>
+    <div class="desc">VG+11因子 | 5天冷却 | L1板块 | MC&gt;80亿</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ADX</th><th>模块</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">600582</span></td><td>天地科技</td><td style="color:var(--text-tertiary)">专用设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥4.87</td><td class="mono">12.9</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sz">000612</span></td><td>焦作万方</td><td style="color:var(--text-tertiary)">工业金属</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥11.15</td><td class="mono">14.6</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sh">601068</span></td><td>中铝国际</td><td style="color:var(--text-tertiary)">专业工程</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥4.35</td><td class="mono">14.6</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sz">300627</span></td><td>华测导航</td><td style="color:var(--text-tertiary)">通信设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-strong">⚡过热</span></td><td class="mono">¥28.74</td><td class="mono">18.8</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">5</td><td><span class="code-sh">600063</span></td><td>皖维高新</td><td style="color:var(--text-tertiary)">化学原料</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥5.98</td><td class="mono">20.9</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">6</td><td><span class="code-sh">600633</span></td><td>浙数文化</td><td style="color:var(--text-tertiary)">游戏</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥11.00</td><td class="mono">24.7</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">7</td><td><span class="code-sz">000682</span></td><td>东方电子</td><td style="color:var(--text-tertiary)">电网设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥11.88</td><td class="mono">28.1</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">8</td><td><span class="code-sz">002237</span></td><td>恒邦股份</td><td style="color:var(--text-tertiary)">贵金属</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥13.75</td><td class="mono">28.4</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">9</td><td><span class="code-sh">688076</span></td><td>ST诺泰</td><td style="color:var(--text-tertiary)">医疗服务</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-strong">⚡过热</span></td><td class="mono">¥28.19</td><td class="mono">29.4</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">10</td><td><span class="code-sz">000519</span></td><td>中兵红箭</td><td style="color:var(--text-tertiary)">地面兵装</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥14.69</td><td class="mono">33.9</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">11</td><td><span class="code-sz">002249</span></td><td>大洋电机</td><td style="color:var(--text-tertiary)">电机制造</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥7.31</td><td class="mono">34.8</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">12</td><td><span class="code-sz">000050</span></td><td>深天马Ａ</td><td style="color:var(--text-tertiary)">光学光电</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥6.64</td><td class="mono">36.7</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">13</td><td><span class="code-sh">600835</span></td><td>上海机电</td><td style="color:var(--text-tertiary)">专用设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥19.03</td><td class="mono">36.7</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">14</td><td><span class="code-sh">600478</span></td><td>科力远</td><td style="color:var(--text-tertiary)">电池</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 7%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥4.92</td><td class="mono">39.0</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">15</td><td><span class="code-sz">300101</span></td><td>振芯科技</td><td style="color:var(--text-tertiary)">军工电子</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥14.90</td><td class="mono">46.1</td><td class="mono"></td></tr></table></div>
+  </div>
+
+  <div class="strat-card strat-v5">
+    <h2><span class="tag-sm tag-v5">V5-ML</span> 量价突破</h2>
+    <div class="desc">ML proba排名 | ★★★优先 ✘回避 | ML>0.60加成</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ML</th><th>日收益</th><th>评级</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">603757</span></td><td>大元泵业</td><td style="color:var(--text-tertiary)">通用设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥61.20</td><td class="mono">0.547</td><td class="mono"><span style="color:var(--red)">+4.9%</span></td><td class="mono">★</td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sz">002929</span></td><td>润建股份</td><td style="color:var(--text-tertiary)">通信工程</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥57.00</td><td class="mono">0.522</td><td class="mono"><span style="color:var(--red)">+3.1%</span></td><td class="mono">★</td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sh">600475</span></td><td>华光环能</td><td style="color:var(--text-tertiary)">电力</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥14.98</td><td class="mono">0.498</td><td class="mono"><span style="color:var(--red)">+4.5%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sz">300571</span></td><td>平治信息</td><td style="color:var(--text-tertiary)">数字媒体</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥34.53</td><td class="mono">0.484</td><td class="mono"><span style="color:var(--red)">+1.9%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">5</td><td><span class="code-sh">603530</span></td><td>神马电力</td><td style="color:var(--text-tertiary)">电网设备</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 8%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥47.23</td><td class="mono">0.473</td><td class="mono"><span style="color:var(--red)">+3.2%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">6</td><td><span class="code-sh">600589</span></td><td>大位科技</td><td style="color:var(--text-tertiary)">云服务</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥8.37</td><td class="mono">0.460</td><td class="mono"><span style="color:var(--red)">+2.2%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">7</td><td><span class="code-sz">301003</span></td><td>江苏博云</td><td style="color:var(--text-tertiary)">塑料</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥53.48</td><td class="mono">0.438</td><td class="mono"><span style="color:var(--red)">+3.2%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">8</td><td><span class="code-sz">300846</span></td><td>首都在线</td><td style="color:var(--text-tertiary)">云服务</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥21.61</td><td class="mono">0.437</td><td class="mono"><span style="color:var(--red)">+4.8%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">9</td><td><span class="code-sz">000620</span></td><td>盈新发展</td><td style="color:var(--text-tertiary)">房地产开发</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥3.03</td><td class="mono">0.414</td><td class="mono"><span style="color:var(--red)">+10.2%</span></td><td class="mono"></td></tr></table></div>
+  </div>
+</main>
+</div>
+
+<div class="footer-bar">CLAW v2.0 | 2026-08-14 | ⚠ 信号仅供参考</div>
+
+<script>
+function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
+function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
+var moduleUrls=['../../每日选股/index.html','../../行业排行/index.html','../../价值投资/index.html','../../回测报告/index.html','../../历史数据/index.html'];
+var currentModIdx=0;
+function cycleModule(){currentModIdx=(currentModIdx+1)%moduleUrls.length;window.location.href=moduleUrls[currentModIdx]}
+</script>
+</body></html>
