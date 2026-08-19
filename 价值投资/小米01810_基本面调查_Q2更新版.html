@@ -1,0 +1,270 @@
+<!--
+  stock-fundamental-check · HTML报告样式模板
+  生成报告时复制此模板，填入对应内容。
+  文件命名：{公司名}{代码}_基本面调查.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小米集团-W 01810.HK · Q2财报验证更新（基本面调查 v2）</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+
+/* 标签 */
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+
+/* 提示框 */
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+
+/* 结论框 */
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+
+/* 双列卡片 */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+
+/* 汇总表 */
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+
+/* 价格四色分区 */
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+
+/* 五维门控 */
+.gate-table th, .gate-table td { text-align:center; font-size:0.85em; }
+.gate-table td:nth-child(1) { text-align:left; font-weight:600; color:var(--text-bright); }
+.gate-pass { color:var(--green); font-weight:700; }
+.gate-warn { color:var(--yellow); font-weight:700; }
+.gate-fail { color:var(--red); font-weight:700; }
+.gate-score { font-size:1.5em; font-weight:800; }
+</style>
+</head>
+<body>
+
+<h1>小米集团-W 01810.HK · Q2财报验证更新（基本面调查 v2）</h1>
+<p class="subtitle">调查日期：2026年8月18日（Q2财报发布日） · 现价 26.18港元 · 市值 6,744亿港元 · 人车家全生态 + MiMo AI + 澎程增程SUV（9月上市）</p>
+
+<div class="highlight">
+<b>本版性质</b>：财报验证更新版。前版（2026.7.20，27.5港元）基于财报前信息；本版以 <b>2026Q2 官方业绩公告 + 投资者电话会议纪要（官方SRT字幕，含Non-IFRS补充指标）</b>为准，东财新闻双源交叉，关键数字全部一致（1089亿/62亿/8.5%/19.2%/26亿/104,199辆）。<b>证据等级：财报/公告级（最高）</b>。
+</div>
+
+<!-- ========== 1. 五维质量门控 ========== -->
+<h2>一、五维质量门控（Q2数据）</h2>
+<table class="gate-table">
+<tr><th>维度</th><th>数据</th><th>门槛</th><th>结果</th><th>说明</th></tr>
+<tr><td>① 有业绩</td><td>经调整净利62.19亿（Non-IFRS，环比+2.4%）</td><td>净利&gt;0</td><td class="gate-pass">✅ 通过</td><td>环比企稳=坑底拐点信号</td></tr>
+<tr><td>② 有成长性</td><td>营收-6.1% / 净利-42.6%（YoY）</td><td>营收≥5%或净利≥10%</td><td class="gate-warn">⚠️ fail</td><td>存储成本史高+SU7 Ultra错位双砸坑；管理层指引Q3放缓Q4缓涨，属周期坑底非结构恶化</td></tr>
+<tr><td>③ 有销售收入</td><td>单季1,089亿（年化~4,300亿）</td><td>≥20亿</td><td class="gate-pass">✅ 优秀</td><td>连续多季单季千亿级</td></tr>
+<tr><td>④ 有现金流</td><td>回购117亿港币超去年全年；经营现金流为正</td><td>经营现金流&gt;0</td><td class="gate-pass">✅ 通过</td><td>OCF同比方向需查中报现金流量表（张瑜信号）</td></tr>
+<tr><td>⑤ ROE</td><td>年化约11%（Q2净利年化248亿/净资产~2,300亿）</td><td>ROE≥10%</td><td class="gate-pass">✅ 压线通过</td><td>坑底年ROE被压低</td></tr>
+</table>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="gate-score" style="color:var(--yellow);">4/5</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.1em;font-weight:700;">门控结果：通过（1项fail为周期性、指引明确见拐点）</div>
+      <div style="color:var(--text);font-size:0.85em;margin-top:4px;">成长性维度失分源于存储成本冲击，卢伟冰电话会明示"Q3增幅放缓、Q4缓涨"，8.5%手机毛利率"超预期守住"=大概率本轮低点</div>
+    </div>
+  </div>
+</div>
+
+<div class="highlight" style="border-left-color:var(--yellow);">
+  <b>🌐 宏观环境（第0层信号）：</b>
+  <span class="tag t-yellow">🟠 第0层④已触发（云厂商FCF转负+capex前置，2026-08-13实锤）</span>
+  -> 对本次建仓的影响：<b>仅观察/持有不加仓纪律</b>（科技组合级预警生效中；小米本身非典型AI capex标的，受影响程度低于算力链）
+</div>
+
+<!-- ========== 2. 核心估值数据 ========== -->
+<h2>二、核心估值数据</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 估值指标</div>
+    <div class="metric"><span class="metric-label">现价（8.18盘后）</span><span class="metric-val">26.18港元（+1.2%）</span></div>
+    <div class="metric"><span class="metric-label">PE-TTM（Q2年化248亿Non-IFRS）</span><span class="metric-val">~27x（坑底失真）</span></div>
+    <div class="metric"><span class="metric-label">PE-Forward（2027E净利350-400亿）</span><span class="metric-val" style="color:var(--green);">17-19x</span></div>
+    <div class="metric"><span class="metric-label">PB</span><span class="metric-val" style="color:var(--green);">~2.4x（互联网平台阈值&lt;4x）</span></div>
+    <div class="metric"><span class="metric-label">250日区间</span><span class="metric-val">21.42 - 59.45</span></div>
+    <div class="metric"><span class="metric-label">12个月涨跌幅</span><span class="metric-val" style="color:var(--red);">-51.3%</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💰 Q2财务概况</div>
+    <div class="metric"><span class="metric-label">总收入</span><span class="metric-val">1,089亿（-6.1% YoY / +9.9% QoQ）</span></div>
+    <div class="metric"><span class="metric-label">经调整净利</span><span class="metric-val">62.19亿（-42.6% YoY / +2.4% QoQ）</span></div>
+    <div class="metric"><span class="metric-label">综合毛利率</span><span class="metric-val">19.8%（同期22.5%）</span></div>
+    <div class="metric"><span class="metric-label">研发开支</span><span class="metric-val">92亿（+18.9%，AI占近30%）</span></div>
+    <div class="metric"><span class="metric-label">资本开支</span><span class="metric-val">36亿（65.8%投汽车+AI）</span></div>
+    <div class="metric"><span class="metric-label">2026年回购</span><span class="metric-val" style="color:var(--green);">117亿港币（超去年全年）</span></div>
+  </div>
+</div>
+
+<!-- ========== 3. Q2分部拆解 ========== -->
+<h2>三、Q2分部拆解（公告+电话会）</h2>
+<table>
+<tr><th>分部</th><th>收入</th><th>同比</th><th>毛利率</th><th>关键点</th></tr>
+<tr><td>智能手机</td><td>421亿（占38.7%）</td><td style="color:var(--red);">出货3,120万台（约-24%）</td><td>8.5%（H1 9.3%）</td><td>ASP创历史新高；连续24季全球前三；高端占比32.1%新高</td></tr>
+<tr><td>IoT</td><td>313亿</td><td style="color:var(--red);">下滑（国补高基数）</td><td>-</td><td>海外收入大增；境外新零售门店640+；平板全球第四/TWS第二</td></tr>
+<tr><td>互联网</td><td>91亿</td><td style="color:var(--green);">稳健增长</td><td>76.8%（+1.4pct）</td><td>全球MAU 7.7亿(+4.8%)、大陆1.98亿(+7%)创新高</td></tr>
+<tr><td>汽车及AI创新</td><td>249亿（占23%）</td><td style="color:var(--green);">+17.1%（环比+25%）</td><td>19.2%（-7.2pct）</td><td>交付104,199辆(+28.2%)；经营亏损26亿收窄；SU7累计破50万台</td></tr>
+</table>
+
+<div class="warn">
+<b>汽车毛利率警示</b>：19.2%同比大降7.2pct，主因①去年SU7 Ultra高毛利交付基数 ②单车均价下滑。澎程（N90 Max预售29.99万/N70 Max 25.99万）9月上市，管理层明示"毛利率要看最终定价"-> Q3/Q4汽车毛利率仍是最大变量。
+</div>
+
+<!-- ========== 4. 电话会关键指引 ========== -->
+<h2>四、电话会前瞻指引（市场未完全定价的信息）</h2>
+<div class="ok">
+<b>① 存储成本拐点</b>：Q3增幅放缓、Q4缓涨；"去年Q4-今年Q2猛涨超我们预料，但已可视可控" -> 手机毛利率8.5%大概率本轮低点<br>
+<b>② 澎程9月上市即交付</b>：预订"超出预期"；增程架构昆仑平台首发车型<br>
+<b>③ MiMo爆发</b>：Token调用量2个月1.5万亿->10.5万亿（+6x），登顶OpenRouter周榜；Token Plan已开始贡献收入；桌面端应用在路上<br>
+<b>④ 汽车出海2027H2 on track</b>：海外经销商热情高<br>
+<b>⑤ 催化日历</b>：K100已提前至8月发布（均价5,000+、16+512占60%+）；机器人首秀定档；新一代玄戒芯片即将发布；9月柏林IFA展
+</div>
+
+<!-- ========== 5. 三维分析 ========== -->
+<h2>五、PE+PB+利润/市值比 三维分析</h2>
+<table class="summary-table">
+<tr><th>维度</th><th>数据</th><th>判断</th></tr>
+<tr><td>PE(TTM)</td><td>~27x（Q2年化，坑底失真）</td><td>⚠️ 失真偏高——Q2是利润坑，不具代表性</td></tr>
+<tr><td>PE(Forward)</td><td><b>17-19x</b>（2027E净利350-400亿恢复年）</td><td>✅ 合理偏低</td></tr>
+<tr><td>PB</td><td>~2.4x</td><td>✅ 互联网平台阈值(&lt;4x)安全区</td></tr>
+<tr><td>利润/市值比（年化）</td><td>248/6,744 ≈ 3.7%</td><td>⚠️ 3-5%区间=需中等增长合理化（恢复年可达）</td></tr>
+<tr><td>同业参照</td><td>腾讯15x ｜ 比亚迪~18x ｜ 特斯拉60x+</td><td>17-19x前瞻对"全生态+MiMo"不贵</td></tr>
+</table>
+<div class="highlight">
+<b>PE+PB联合矩阵</b>：TTM口径=C区（🔵PE失真偏高+PB扎实，等利润跟上）；前瞻口径=A区（🟢双安全）。综合：<b>合理偏低（recovering earnings year）</b>。
+</div>
+
+<!-- ========== 6. 价格四色分区（财报后修正） ========== -->
+<h2>六、26.18港元贵不贵？——价格区间判断（v2修正）</h2>
+<div class="price-zone">
+  <div class="zone" style="background:rgba(248,81,73,0.12);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 逻辑破坏离场</div>
+    <div class="zone-price" style="color:var(--red)">&lt;21.4</div>
+    <div class="zone-pe">破250日最低=前低失守</div>
+  </div>
+  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 黄金坑/可加仓</div>
+    <div class="zone-price" style="color:var(--green)">22-25</div>
+    <div class="zone-pe">前瞻PE ~15x | PB ~2.2x</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.1);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 合理持有 ← 现价</div>
+    <div class="zone-price" style="color:var(--yellow)">25-30</div>
+    <div class="zone-pe">前瞻PE 17-20x | PB ~2.4x</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.15);border:1px solid var(--orange);">
+    <div class="zone-label" style="color:var(--orange)">🟠 分批卖出区</div>
+    <div class="zone-price" style="color:var(--orange)">30-38</div>
+    <div class="zone-pe">需澎程兑现+净利恢复</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.18);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 泡沫区清仓</div>
+    <div class="zone-price" style="color:var(--red)">45+</div>
+    <div class="zone-pe">~30x PE（对标2025泡沫期）</div>
+  </div>
+</div>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--green);">🟡→🟢</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：26.18港元 合理偏低，不是卖点（较前版中性偏多修正）</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">Q2证实"利润坑底年"而非"逻辑破坏年"——前版悲观情景（20-22）作废；持有，30起分批、34-38乐观兑现、破21.4认错</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 7. 多空分析 ========== -->
+<h2>七、多空分析</h2>
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>净利环比+2.4%企稳+存储指引拐点=坑底确认</li>
+      <li>汽车收入+17.1%、交付+28.2%、亏损收窄；澎程9月上市即交付、预订超预期</li>
+      <li>MiMo调用量+6x登顶OpenRouter，Token Plan开始变现</li>
+      <li>回购117亿港币超去年全年（管理层用真金白银投票）</li>
+      <li>前瞻17-19x+PB 2.4x双安全；手机ASP/高端占比/MAU三创新高</li>
+      <li>12个月-51%深度回调，悲观定价充分</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>汽车毛利率19.2%（-7.2pct），澎程最终定价未定</li>
+      <li>全年50万辆目标H1完成率&lt;50%，Q3/Q4交付压力大</li>
+      <li>存储Q4只是"缓涨"非回落，手机毛利率修复斜率存疑</li>
+      <li>营收同比仍-6.1%，IoT国补基数拖累至Q4</li>
+      <li>手机出货-24%（3,120万台）规模效应受损</li>
+      <li>宏观第0层🟠预警生效中，科技板块整体风控收紧</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 8. 综合判断 ========== -->
+<h2>八、综合判断</h2>
+<table class="summary-table">
+<tr><td>宏观环境（第0层）</td><td>🟠 第0层④触发 -> 持有不加仓</td></tr>
+<tr><td>五维门控</td><td>4/5（成长性fail为周期性，指引见拐点）</td></tr>
+<tr><td>估值（三维）</td><td>前瞻17-19x+PB 2.4x = 合理偏低</td></tr>
+<tr><td>利润质量</td><td>Non-IFRS口径清晰；回购佐证现金真实</td></tr>
+<tr><td>增长</td><td>坑底年，H2看澎程+存储缓解双驱动</td></tr>
+<tr><td>过热扫描</td><td>🟢 正常（12个月-51%，无过热）</td></tr>
+<tr><td>数据可信度</td><td>✅ 官方公告+电话会字幕+新闻三源一致（最高级）</td></tr>
+<tr><td>安全边际</td><td>22-25为黄金坑区；21.4=逻辑破坏线</td></tr>
+<tr><td>催化剂</td><td>澎程9月上市 / 玄戒芯片 / 机器人首秀 / Q3财报存储验证</td></tr>
+<tr><td>风险</td><td>澎程定价毛利率 / 交付目标 / 存储Q4反复</td></tr>
+</table>
+
+<div class="ok">
+<b>操作策略</b>：①持有不动（现价26.18）②回调22-25黄金坑区可加仓（若宏观第0层转🟢）③30起分批卖出、34-38乐观区兑现④跌破21.4前低无条件离场（逻辑破坏级）。下一验证点：<b>Q3财报（11月）验证存储成本拐点+澎程毛利率</b>。
+</div>
+
+<!-- ========== 9. 与其他调查标的对比 ========== -->
+<h2>九、与其他调查标的对比</h2>
+<table>
+<tr><th>标的</th><th>五维</th><th>PE(TTM)</th><th>Forward PE</th><th>PB</th><th>利润/市值</th><th>结论</th></tr>
+<tr><td><b>小米 01810</b>（v2）</td><td>4/5</td><td>~27x(失真)</td><td>17-19x</td><td>2.4x</td><td>3.7%</td><td><b>🟡合理偏低·持有</b>（前版🟡合理）</td></tr>
+<tr><td>腾讯 00700</td><td>5/5</td><td>15x</td><td>~14x</td><td>3.1x</td><td>~6%</td><td>🟢可加仓</td></tr>
+<tr><td>小米 01810（v1 · 7.20）</td><td>4/5</td><td>~13x</td><td>~15x</td><td>2.41x</td><td>-</td><td>🟡合理偏低（Q1 -43%时点）</td></tr>
+<tr><td>阿里 9988</td><td>1.5/5</td><td>18.7x</td><td>~17x</td><td>1.87x</td><td>-</td><td>🔴偏贵（经营亏损）</td></tr>
+</table>
+
+<p class="subtitle" style="margin-top:25px;">生成：stock-fundamental-check 技能 · 证据源：2026Q2官方业绩公告(8.18) + 投资者电话会议官方字幕（用户提供SRT） + 东财新闻交叉 · 本报告为研究记录，非投资建议</p>
+
+</body>
+</html>
