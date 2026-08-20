@@ -1,0 +1,248 @@
+<!--
+  stock-fundamental-check · HTML报告样式模板
+  生成报告时复制此模板，填入对应内容。
+  文件命名：{公司名}{代码}_基本面调查.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宇树科技 688836.SH · 上市首日估值评估</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+
+/* 标签 */
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+
+/* 提示框 */
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+
+/* 结论框 */
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+
+/* 双列卡片 */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+
+/* 汇总表 */
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+
+/* 价格四色分区 */
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+
+/* 五维门控 */
+.gate-table th, .gate-table td { text-align:center; font-size:0.85em; }
+.gate-table td:nth-child(1) { text-align:left; font-weight:600; color:var(--text-bright); }
+.gate-pass { color:var(--green); font-weight:700; }
+.gate-warn { color:var(--yellow); font-weight:700; }
+.gate-fail { color:var(--red); font-weight:700; }
+.gate-score { font-size:1.5em; font-weight:800; }
+</style>
+</head>
+<body>
+
+<h1>宇树科技 688836.SH · 上市首日估值评估</h1>
+<p class="subtitle">评估日期：2026年8月19日（上市首日） · 收盘价 845.00元（+460.34%） · 总市值 3,418亿元 · A股"人形机器人第一股"</p>
+
+<div class="warn">
+<b>报告性质</b>：上市首日估值评估（非完整六步流程）。数据源：宇树IPO发行公告 + 招股书财务数据 + 上市首日行情 + 建银国际/国新证券/东吴证券等机构观点，经东财新闻多源交叉。证据等级：公告+官方数据级。
+</div>
+
+<!-- ========== 1. 五维质量门控 ========== -->
+<h2>一、五维质量门控</h2>
+<table class="gate-table">
+<tr><th>维度</th><th>数据</th><th>门槛</th><th>结果</th><th>说明</th></tr>
+<tr><td>① 有业绩</td><td>2025归母净利2.78亿（2024扭亏0.95亿）</td><td>净利&gt;0</td><td class="gate-pass">✅ 通过</td><td>连续两年盈利，且为四足/人形机器人行业罕见盈利体</td></tr>
+<tr><td>② 有成长性</td><td>2026Q1营收+68% / 扣非净利<b>-52.6%</b></td><td>营收≥5%或净利≥10%</td><td class="gate-warn">⚠️ 半fail</td><td>营收高增但<b>增收不增利</b>：H1预告扣非-22%~-6%，研发+销售费用大增（拿利润换卡位）</td></tr>
+<tr><td>③ 有销售收入</td><td>2025年营收17亿（年化~25-30亿）</td><td>≥20亿</td><td class="gate-warn">⚠️ 压线</td><td>2022-2025营收1.23→1.59→3.92→17亿（+334%爆发）</td></tr>
+<tr><td>④ 有现金流</td><td>招股书未详细披露（IPO募资61亿在账）</td><td>经营现金流&gt;0</td><td class="gate-warn">⚠️ 待核</td><td>上市后首份年报验证</td></tr>
+<tr><td>⑤ ROE</td><td>净利2.78亿/发行后净资产~90亿 -> ~3%</td><td>ROE≥10%</td><td class="gate-fail">❌ fail</td><td>募资摊薄后ROE极低，需利润数倍增长才能修复</td></tr>
+</table>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="gate-score" style="color:var(--yellow);">3/5</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.1em;font-weight:700;">门控结果：通过但需谨慎（成长质量与ROE失分）</div>
+      <div style="color:var(--text);font-size:0.85em;margin-top:4px;">公司质地是行业最好一档（唯一规模化盈利的人形机器人公司），但2026年利润下滑+募资摊薄，基本面撑不起当前估值</div>
+    </div>
+  </div>
+</div>
+
+<div class="highlight" style="border-left-color:var(--yellow);">
+  <b>🌐 宏观环境（第0层信号）：</b>
+  <span class="tag t-yellow">🟠 第0层④已触发（云厂商FCF转负+capex前置）</span>
+  -> 科技板块组合级预警生效中，新标的仅观察不建仓
+</div>
+
+<!-- ========== 2. 上市首日数据 ========== -->
+<h2>二、IPO与首日行情</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">🎫 IPO发行</div>
+    <div class="metric"><span class="metric-label">发行价</span><span class="metric-val">150.80元/股</span></div>
+    <div class="metric"><span class="metric-label">发行PE</span><span class="metric-val">219x</span></div>
+    <div class="metric"><span class="metric-label">发行市值</span><span class="metric-val">609.93亿元</span></div>
+    <div class="metric"><span class="metric-label">募资总额</span><span class="metric-val">60.99亿元</span></div>
+    <div class="metric"><span class="metric-label">中签率</span><span class="metric-val" style="color:var(--red);">0.018%（史上最低）</span></div>
+    <div class="metric"><span class="metric-label">申购倍数</span><span class="metric-val" style="color:var(--red);">8,288倍</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">📈 首日表现（8.19）</div>
+    <div class="metric"><span class="metric-label">开盘价</span><span class="metric-val">1,100元（+629.44%，年内最高）</span></div>
+    <div class="metric"><span class="metric-label">收盘价</span><span class="metric-val">845元（+460.34%）</span></div>
+    <div class="metric"><span class="metric-label">盘中市值峰值</span><span class="metric-val">4,449亿元</span></div>
+    <div class="metric"><span class="metric-label">收盘市值</span><span class="metric-val" style="color:var(--red);">3,418亿元</span></div>
+    <div class="metric"><span class="metric-label">单签收益</span><span class="metric-val">47.46万元</span></div>
+    <div class="metric"><span class="metric-label">弃购</span><span class="metric-val">仅8,734股（零网下弃购）</span></div>
+  </div>
+</div>
+
+<!-- ========== 3. 财务轨迹 ========== -->
+<h2>三、财务轨迹（招股书）</h2>
+<table>
+<tr><th>年份</th><th>营收(亿)</th><th>营收增速</th><th>归母净利(亿)</th><th>关键事件</th></tr>
+<tr><td>2022</td><td>1.23</td><td>-</td><td>亏损</td><td>四足机器人起家</td></tr>
+<tr><td>2023</td><td>1.59</td><td>+29%</td><td>亏损</td><td>-</td></tr>
+<tr><td>2024</td><td>3.92</td><td>+147%</td><td style="color:var(--green);">0.95（扭亏）</td><td>春晚机器人表演出圈</td></tr>
+<tr><td>2025</td><td style="color:var(--green);">17.00</td><td style="color:var(--green);">+334%</td><td style="color:var(--green);">2.78</td><td>人形机器人G1量产放量、累计下线~1.8万台</td></tr>
+<tr><td>2026Q1</td><td>4.23</td><td>+68%</td><td style="color:var(--red);">扣非0.40（-52.6%）</td><td>研发+销售费用大增，增收不增利</td></tr>
+<tr><td>2026H1预告</td><td>-</td><td>+35~45%</td><td style="color:var(--red);">扣非-22%~-6%</td><td>利润换规模与卡位</td></tr>
+</table>
+
+<!-- ========== 4. 估值测算 ========== -->
+<h2>四、值多少钱？--估值测算</h2>
+<table class="summary-table">
+<tr><th>估值口径</th><th>测算</th><th>隐含市值</th><th>vs 收盘3,418亿</th></tr>
+<tr><td>2025实绩PE</td><td>2.78亿净利</td><td style="color:var(--red);">PE = 1,230x</td><td>❌ 天文数字</td></tr>
+<tr><td>2025实绩PS</td><td>17亿营收</td><td style="color:var(--red);">PS = 201x</td><td>❌ 天文数字</td></tr>
+<tr><td>2026E PE（净利3-4亿）</td><td>假设恢复增长</td><td style="color:var(--red);">PE ≈ 850-1,100x</td><td>❌ 仍荒谬</td></tr>
+<tr><td>可比公司PE法（东吴口径）</td><td>可比2026平均PE 64x × 2026E净利4亿</td><td><b>≈256亿</b></td><td>❌ 仅7.5%</td></tr>
+<tr><td>龙头溢价法</td><td>可比64x × 2-3x龙头溢价</td><td><b>500-800亿</b></td><td>⚠️ 15-23%</td></tr>
+<tr><td>建银国际最乐观（卖方上限）</td><td>32x PS × 2026E营收~34亿</td><td><b>≈1,090亿</b></td><td>⚠️ 32%</td></tr>
+<tr><td>国新证券合理中枢</td><td>-</td><td><b>300-450亿</b></td><td>⚠️ 9-13%</td></tr>
+</table>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--red);">🔴</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：合理价值区间约 300-1,100亿元（对应股价 60-270元）</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">收盘3,418亿 = 超过最乐观机构上限的<b>3倍</b>；连IPO发行市值610亿本身已处乐观区间上沿。当前是"0.018%中签率 + 第一股稀缺性"的情绪定价，非价值定价</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 5. 价格四色分区 ========== -->
+<h2>五、价格区间判断</h2>
+<div class="price-zone">
+  <div class="zone" style="background:rgba(63,185,80,0.12);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 价值区</div>
+    <div class="zone-price" style="color:var(--green)">60-150元</div>
+    <div class="zone-pe">可比PE/国新中枢 | 250-600亿</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.1);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 乐观区</div>
+    <div class="zone-price" style="color:var(--yellow)">150-270元</div>
+    <div class="zone-pe">龙头溢价/建银上限 | 600-1100亿</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.12);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🟠 泡沫区 ← 现价</div>
+    <div class="zone-price" style="color:var(--red)">845元</div>
+    <div class="zone-pe">PE&gt;850x | 3,418亿</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.18);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 极端泡沫</div>
+    <div class="zone-price" style="color:var(--red)">1,100元（开盘价）</div>
+    <div class="zone-pe">4,449亿盘中峰值</div>
+  </div>
+</div>
+
+<!-- ========== 6. 多空分析 ========== -->
+<h2>六、多空分析</h2>
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>人形机器人真趋势：世界机器人大会8.19开幕、国网68亿具身智能订单、量产元年</li>
+      <li>行业质地最好：唯一规模化盈利（2024-2025连续盈利）的人形机器人公司</li>
+      <li>营收爆发轨迹：2022-2025营收+13倍，G1累计下线~1.8万台全球第一</li>
+      <li>稀缺筹码：流通盘极小（发行4,045万股/总股本4.04亿），筹码结构易炒</li>
+      <li>美团/红杉/深创投等顶级股东背书</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li><b>增收不增利</b>：2026Q1扣非-52.6%、H1预告续降--L4价值捕获未证实</li>
+      <li>估值极端透支：超最乐观卖方3倍，PE按任何口径均无意义</li>
+      <li>ROE仅~3%（募资摊薄），基本面需数年追赶估值</li>
+      <li>机器人行业整体处演示期-商业化早期（灵御智能CEO：期待与真实能力差3年+）</li>
+      <li>参考先例：可比公司2026平均PE仅64x；基金公司提示上市后估值消化压力</li>
+      <li>科创板新股首日情绪普遍高开（年内14只全部+64%+），情绪回落风险大</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 7. 综合判断 ========== -->
+<h2>七、综合判断</h2>
+<table class="summary-table">
+<tr><td>宏观环境（第0层）</td><td>🟠 预警生效 -> 仅观察不建仓</td></tr>
+<tr><td>五维门控</td><td>3/5（成长质量+ROE失分）</td></tr>
+<tr><td>估值</td><td>🔴 收盘3,418亿超乐观上限3倍，PE 1,230x/PS 201x</td></tr>
+<tr><td>合理价值区间</td><td>300-1,100亿（股价60-270元）</td></tr>
+<tr><td>六步工作流判定</td><td>真L1趋势 / L4弱（增收不增利）/ 情绪极端溢价 -> <b>不入池</b></td></tr>
+<tr><td>数据可信度</td><td>✅ IPO公告+招股书+首日行情，多源交叉</td></tr>
+<tr><td>催化剂</td><td>世界机器人大会(8.19-23) / 世界人形机器人运动会(8.22-26) / 订单公告</td></tr>
+<tr><td>风险</td><td>情绪退潮估值消化 / 解禁 / 行业商业化不及预期</td></tr>
+</table>
+
+<div class="warn">
+<b>操作建议</b>：①打新中签者=运气兑现，情绪高点分批落袋合理 ②二级市场845元追高=为0.018%稀缺性付3倍溢价，违背"好赛道≠好公司≠好价格"铁律 ③若回落至150元下方（发行价附近）且基本面保持营收高增，才有讨论建仓的资格 ④持续跟踪：G1/R1订单放量节奏、扣非净利率何时转正回升、2027年解禁。
+</div>
+
+<h2>八、与近期评估标的对比</h2>
+<table>
+<tr><th>标的</th><th>价格</th><th>PE(TTM)</th><th>合理判定</th><th>情绪状态</th></tr>
+<tr><td><b>宇树 688836</b></td><td>845元</td><td style="color:var(--red);">~1,230x</td><td>🔴 超乐观上限3倍</td><td>上市首日狂热（+460%）</td></tr>
+<tr><td>培育钻石（四方达等）</td><td>-</td><td>96-190x</td><td>🔴 全板块D区不入池</td><td>涨停潮过热</td></tr>
+<tr><td>小米 01810</td><td>26.18港元</td><td>~27x(失真)/前瞻17-19x</td><td>🟡合理偏低·持有</td><td>12个月-51%出清充分</td></tr>
+<tr><td>腾讯 00700</td><td>~440港元</td><td>15x</td><td>🟢可加仓</td><td>正常</td></tr>
+</table>
+
+<p class="subtitle" style="margin-top:25px;">生成：stock-fundamental-check 技能模板 · 数据源：宇树IPO发行公告/招股书/8.19首日行情 + 建银国际/国新证券/东吴证券观点 · 本报告为研究记录，非投资建议</p>
+
+</body>
+</html>

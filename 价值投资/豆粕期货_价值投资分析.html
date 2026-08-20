@@ -1,0 +1,273 @@
+<!--
+  stock-fundamental-check · HTML报告样式模板
+  生成报告时复制此模板，填入对应内容。
+  文件命名：{公司名}{代码}_基本面调查.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豆粕期货 · 价值投资分析（框架迁移版）</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-bright: #f0f6fc;
+  --green: #3fb950; --red: #f85149; --yellow: #d29922;
+  --blue: #58a6ff; --orange: #db6d28;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; padding:20px; max-width:1100px; margin:0 auto; }
+h1 { color:var(--text-bright); font-size:1.6em; margin-bottom:5px; }
+h2 { color:var(--blue); font-size:1.25em; margin:25px 0 12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3 { color:var(--text-bright); font-size:1.05em; margin:18px 0 8px; }
+.subtitle { color:var(--text); font-size:0.85em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.88em; }
+th { background:#21262d; color:var(--text-bright); padding:8px 10px; text-align:left; font-weight:600; border:1px solid var(--border); }
+td { padding:7px 10px; border:1px solid var(--border); }
+tr:nth-child(even) { background:#161b22; }
+
+/* 标签 */
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78em; font-weight:600; }
+.t-green { background:rgba(63,185,80,0.15); color:var(--green); }
+.t-red { background:rgba(248,81,73,0.15); color:var(--red); }
+.t-yellow { background:rgba(210,153,34,0.15); color:var(--yellow); }
+.t-blue { background:rgba(88,166,255,0.15); color:var(--blue); }
+
+/* 提示框 */
+.highlight { background:rgba(88,166,255,0.08); border-left:3px solid var(--blue); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.warn { background:rgba(248,81,73,0.08); border-left:3px solid var(--red); padding:12px 15px; margin:12px 0; border-radius:4px; }
+.ok { background:rgba(63,185,80,0.08); border-left:3px solid var(--green); padding:12px 15px; margin:12px 0; border-radius:4px; }
+
+/* 结论框 */
+.verdict-box { background:linear-gradient(135deg,#161b22,#1c2330); border:2px solid var(--border); border-radius:8px; padding:20px; margin:20px 0; }
+.verdict-score { font-size:2.5em; font-weight:800; }
+
+/* 双列卡片 */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin:12px 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:15px; }
+.card-title { color:var(--text-bright); font-size:0.95em; font-weight:600; margin-bottom:8px; }
+.metric { display:flex; justify-content:space-between; padding:4px 0; font-size:0.85em; }
+.metric-label { color:var(--text); }
+.metric-val { color:var(--text-bright); font-weight:600; }
+
+/* 汇总表 */
+.summary-table td:first-child { font-weight:600; color:var(--text-bright); }
+
+/* 价格四色分区 */
+.price-zone { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.zone { flex:1; min-width:130px; text-align:center; padding:10px 8px; border-radius:6px; font-size:0.82em; }
+.zone-label { font-weight:700; font-size:0.9em; }
+.zone-price { font-size:1.1em; font-weight:700; margin:4px 0; }
+.zone-pe { font-size:0.78em; opacity:0.8; }
+
+/* 五维门控 */
+.gate-table th, .gate-table td { text-align:center; font-size:0.85em; }
+.gate-table td:nth-child(1) { text-align:left; font-weight:600; color:var(--text-bright); }
+.gate-pass { color:var(--green); font-weight:700; }
+.gate-warn { color:var(--yellow); font-weight:700; }
+.gate-fail { color:var(--red); font-weight:700; }
+.gate-score { font-size:1.5em; font-weight:800; }
+</style>
+</head>
+<body>
+
+<h1>豆粕（DCE · M主力合约）· 价值投资分析</h1>
+<p class="subtitle">评估日期：2026年8月19日 · 主力M2701收盘 3,241元/吨（8.18，+2.05%） · 大商所豆粕 · "价值投资框架迁移到期货：估值锚=成本线+供需周期+价格分位+二阶拐点"</p>
+
+<div class="highlight">
+<b>方法论说明</b>：期货没有PE/PB，但价值投资的内核--<b>价格围绕价值锚波动、极端偏离必回归</b>--完全适用。本报告把六步工作流的估值工具箱做映射：<br>
+① PE/PB估值 → <b>完全成本线 + 历史价格分位</b>（产业链成本是豆粕的"净资产"）<br>
+② 收入拐点法 → <b>供需拐点</b>（库存周期顶/底 = 利润表的拐点）<br>
+③ 张瑜二阶拐点法 → <b>环比二阶差分判价格拐点</b>（不变，直接复用）<br>
+④ 爆炒三维判断 → <b>价格动量 + 仓单/持仓拥挤度 + 基差偏离</b><br>
+⑤ 退出机制 → <b>分位止盈 + 逻辑破坏止损</b>（逻辑破坏=供需叙事被证伪）
+</div>
+
+<!-- ========== 1. 五维门控（期货版） ========== -->
+<h2>一、五维质量门控（期货迁移版）</h2>
+<table class="gate-table">
+<tr><th>维度</th><th>数据</th><th>门槛</th><th>结果</th><th>说明</th></tr>
+<tr><td>① 有价值锚</td><td>进口大豆完全成本折算豆粕成本约3,100-3,300元/吨</td><td>成本线清晰可算</td><td class="gate-pass">✅ 通过</td><td>CBOT大豆+海运费+压榨利润，锚清晰</td></tr>
+<tr><td>② 有周期性</td><td>豆粕4-5年一个牛熊周期（美豆种植周期+猪周期叠加）</td><td>周期规律明确</td><td class="gate-pass">✅ 通过</td><td>2024-2025处熊市尾部，当前处周期修复初段</td></tr>
+<tr><td>③ 有流动性</td><td>主力持仓242.6万手、日成交额数百亿</td><td>流动性充足</td><td class="gate-pass">✅ 优秀</td><td>国内最大的农产品期货品种之一</td></tr>
+<tr><td>④ 有安全边际</td><td>现价3,241 vs 成本线~3,200：略高于成本</td><td>价格≤成本线附近</td><td class="gate-warn">⚠️ 压线</td><td>处于"成本支撑区上沿"，非深度低估</td></tr>
+<tr><td>⑤ 有均值回归驱动</td><td>320日分位75%（ETF代理）；驱动=美豆减产预期</td><td>分位<20%或>80%</td><td class="gate-warn">⚠️ 中性偏高</td><td>既非低估也非极端高估，回归驱动力中等</td></tr>
+</table>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="gate-score" style="color:var(--yellow);">3/5</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.1em;font-weight:700;">门控结果：中性（价值锚清晰，但当前价格不在黄金坑）</div>
+      <div style="color:var(--text);font-size:0.85em;margin-top:4px;">豆粕是期货里最适合"价值投资"的品种之一（成本可算+周期规律+不可替代的饲料蛋白源），但当前3,241元处于成本线上方3-5%的中性区，安全边际不足</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2. 价格与估值锚 ========== -->
+<h2>二、当前价格与三重估值锚</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 价格状态</div>
+    <div class="metric"><span class="metric-label">主力M2701（8.18收）</span><span class="metric-val">3,241元/吨（周+3.22%）</span></div>
+    <div class="metric"><span class="metric-label">320日价格分位（ETF代理）</span><span class="metric-val" style="color:var(--yellow);">75%</span></div>
+    <div class="metric"><span class="metric-label">年内走势（ETF代理）</span><span class="metric-val">YTD +13.6%</span></div>
+    <div class="metric"><span class="metric-label">现货基差</span><span class="metric-val" style="color:var(--red);">承压下行（期强现弱）</span></div>
+    <div class="metric"><span class="metric-label">资金状态</span><span class="metric-val">增仓上行+6.14亿流入，多头意愿强</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">⚖️ 三重估值锚</div>
+    <div class="metric"><span class="metric-label">成本锚：进口大豆折粕成本</span><span class="metric-val">~3,100-3,300元/吨</span></div>
+    <div class="metric"><span class="metric-label">周期锚：熊市历史低点区</span><span class="metric-val">2,400-2,600元/吨</span></div>
+    <div class="metric"><span class="metric-label">周期锚：牛市高点区</span><span class="metric-val">4,200-4,500元/吨</span></div>
+    <div class="metric"><span class="metric-label">当前位置</span><span class="metric-val" style="color:var(--yellow);">成本线上方3-5%（3,241）</span></div>
+    <div class="metric"><span class="metric-label">估值判定</span><span class="metric-val" style="color:var(--yellow);">🟡 中性：成本支撑有效，但非低估</span></div>
+  </div>
+</div>
+
+<!-- ========== 3. 供需基本面 ========== -->
+<h2>三、供需基本面（2026年8月）</h2>
+<h3>供给端（偏多）</h3>
+<table>
+<tr><th>因素</th><th>状态</th><th>方向</th></tr>
+<tr><td>美豆优良率</td><td>61%（环比-1pct、同比-7pct），持续下滑</td><td style="color:var(--green);">利多</td></tr>
+<tr><td>Pro Farmer田间巡查</td><td>南达科他/俄亥俄结荚数低于去年+三年均值，单产担忧</td><td style="color:var(--green);">利多</td></tr>
+<tr><td>USDA 8月报告</td><td>单产52.7蒲（下调0.3）/收割面积上调，中性偏空落地</td><td style="color:var(--yellow);">中性</td></tr>
+<tr><td>美豆对华出口</td><td>7.8以来累计对华销售349.7万吨，需求节奏改善</td><td style="color:var(--green);">利多</td></tr>
+<tr><td>巴西大豆到港</td><td>8月到港量大，国内供应宽松</td><td style="color:var(--red);">利空</td></tr>
+<tr><td>油厂开机</td><td>8月压榨量~1,000万吨高开机，豆粕供给充裕</td><td style="color:var(--red);">利空</td></tr>
+</table>
+
+<h3>需求与库存（偏空）</h3>
+<table>
+<tr><th>因素</th><th>状态</th><th>方向</th></tr>
+<tr><td>豆粕库存</td><td>111万吨（周+7万吨），8月底或升至120万吨，部分油厂胀库停机</td><td style="color:var(--red);">利空</td></tr>
+<tr><td>大豆库存</td><td>793万吨，较三年均值高106万吨（近年同期高位）</td><td style="color:var(--red);">利空</td></tr>
+<tr><td>生猪存栏</td><td>猪价11.16元/kg回升+产能去化加速--远期饲料需求有变量</td><td style="color:var(--yellow);">近空远多</td></tr>
+<tr><td>下游补库</td><td>饲料企业刚需采购、补库偏缓，成交清淡</td><td style="color:var(--red);">利空</td></tr>
+<tr><td>厄尔尼诺</td><td>或成历史最强事件，天气溢价+看涨情绪升温</td><td style="color:var(--green);">利多（预期）</td></tr>
+</table>
+
+<div class="warn">
+<b>供需判定：成本驱动的预期牛市 vs 现实高库存的拉锯</b>。当前上涨的驱动全部来自<b>预期端</b>（美豆天气+巡查+出口），而<b>现实端</b>（111万吨豆粕库存+793万吨大豆+1,000万吨月压榨）仍是近年最宽松组合。<b>期强现弱、基差走弱</b>--典型的预期先行、现货不跟。
+</div>
+
+<!-- ========== 4. 二阶拐点检验 ========== -->
+<h2>四、二阶拐点检验（张瑜法迁移）</h2>
+<table class="summary-table">
+<tr><td>价格环比动量</td><td>周+3.22%（加速上行），豆粕ETF 5连涨</td></tr>
+<tr><td>持仓动量</td><td>增仓上行（+8.8万手），多头进场意愿强于空头--趋势健康</td></tr>
+<tr><td>基差二阶信号</td><td>⚠️ 基差承压下行 = 期价上涨未获现货确认--<b>一阶拐点未到，警惕预期透支</b></td></tr>
+<tr><td>库存二阶信号</td><td>⚠️ 库存仍在累积（周+7万吨、月底预测+25万吨）--<b>去库拐点未现</b></td></tr>
+<tr><td>结论</td><td>价格动量✅但基本面二阶信号（基差+库存）均未确认 -> 处于"预期牛"早期，单边追多有透支风险</td></tr>
+</table>
+
+<!-- ========== 5. 爆炒三维扫描 ========== -->
+<h2>五、爆炒三维扫描（期货版）</h2>
+<table>
+<tr><th>维度</th><th>状态</th><th>判定</th></tr>
+<tr><td>价格动量</td><td>周+3.2%、月+4.3%、YTD+13.6%</td><td>🟢 正常（远未过热）</td></tr>
+<tr><td>估值偏离</td><td>现价超成本线3-5%；320日分位75%</td><td>🟡 中性偏高（分位>70%需警惕，尚不极端）</td></tr>
+<tr><td>资金/持仓拥挤</td><td>前20席多头占72%、单日流入6.14亿、增仓上行</td><td>🟡 偏热（多头集中度较高，但非极端）</td></tr>
+</table>
+<div class="highlight">综合爆炒评级：<b>🟡 疑似偏热</b>（1个🟠无，2个🟡）--不是反转信号，但单边追多性价比下降。</div>
+
+<!-- ========== 6. 价格四色分区 ========== -->
+<h2>六、3,241元贵不贵？--价格区间判断</h2>
+<div class="price-zone">
+  <div class="zone" style="background:rgba(63,185,80,0.15);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 黄金坑（重仓区）</div>
+    <div class="zone-price" style="color:var(--green)">2,400-2,600</div>
+    <div class="zone-pe">历史熊市底+深贴成本线15-25%</div>
+  </div>
+  <div class="zone" style="background:rgba(63,185,80,0.08);border:1px solid var(--green);">
+    <div class="zone-label" style="color:var(--green)">🟢 价值区（逢低买）</div>
+    <div class="zone-price" style="color:var(--green)">2,600-3,100</div>
+    <div class="zone-pe">成本线下方-贴水区</div>
+  </div>
+  <div class="zone" style="background:rgba(210,153,34,0.1);border:1px solid var(--yellow);">
+    <div class="zone-label" style="color:var(--yellow)">🟡 合理区 ← 现价</div>
+    <div class="zone-price" style="color:var(--yellow)">3,100-3,400</div>
+    <div class="zone-pe">成本线±5%（当前3,241）</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.12);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🟠 泡沫区（逢高卖）</div>
+    <div class="zone-price" style="color:var(--red)">3,800-4,200</div>
+    <div class="zone-pe">超成本线20%+，需减产兑现</div>
+  </div>
+  <div class="zone" style="background:rgba(248,81,73,0.18);border:1px solid var(--red);">
+    <div class="zone-label" style="color:var(--red)">🔴 极端泡沫</div>
+    <div class="zone-price" style="color:var(--red)">4,200+</div>
+    <div class="zone-pe">历史牛市顶，清仓区</div>
+  </div>
+</div>
+
+<div class="verdict-box">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="verdict-score" style="color:var(--yellow);">🟡</div>
+    <div>
+      <div style="color:var(--text-bright);font-size:1.2em;font-weight:700;">结论：3,241元 = 合理区中段，价值投资视角"不贵不便宜"</div>
+      <div style="color:var(--text);font-size:0.9em;margin-top:4px;">成本线支撑有效+天气升水合理，但库存压制+基差走弱 -> 追多无安全边际、做空无逻辑基础。<b>价值投资者的动作是"等"</b>：等回落至2,900下方（成本线下方）做多安全边际；或等减产兑现库存拐点确认后右侧跟进</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 7. 多空与策略 ========== -->
+<h2>七、多空分析与策略矩阵</h2>
+<div class="grid-2">
+  <div class="card" style="border-color:var(--green);">
+    <div class="card-title" style="color:var(--green);">✅ 看多理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>美豆优良率61%连续下滑+巡查单产担忧，减产叙事发酵</li>
+      <li>对华出口349.7万吨持续改善，CBOT重返1200美分</li>
+      <li>厄尔尼诺或历史最强，天气溢价未充分定价</li>
+      <li>成本线3,100-3,300构成硬支撑（油厂亏损即减产再平衡）</li>
+      <li>猪价回升+产能去化=远期饲料需求预期改善</li>
+      <li>增仓上行+多头进场，趋势资金结构健康</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--red);">
+    <div class="card-title" style="color:var(--red);">❌ 看空理由</div>
+    <ul style="margin:8px 0 0 20px;font-size:0.85em;">
+      <li>豆粕库存111万吨仍累积、月底或达120万吨（胀库停机）</li>
+      <li>大豆库存793万吨超三年均值106万吨，供应最宽松组合</li>
+      <li>8月压榨~1,000万吨高开机，供给持续释放</li>
+      <li>基差走弱：期价上涨现货不跟=预期先行透支</li>
+      <li>USDA报告中性偏空落地、美豆反弹空间有限</li>
+      <li>320日分位75%+多头集中72%，追多性价比差</li>
+    </ul>
+  </div>
+</div>
+
+<h3>策略矩阵（按价格分区）</h3>
+<table>
+<tr><th>情景</th><th>触发条件</th><th>动作</th></tr>
+<tr><td>🟢 黄金坑</td><td>回落至2,400-2,600（熊市尾部恐慌杀跌）</td><td>分批建多（安全边际15-25%），历史级机会</td></tr>
+<tr><td>🟢 价值区</td><td>2,600-3,100（成本线下方）</td><td>逢低做多为主节奏</td></tr>
+<tr><td>🟡 合理区（当前）</td><td>3,100-3,400</td><td><b>观望/持有不加仓</b>；期权卖出现金担保看跌（2,900行权价）替代裸多</td></tr>
+<tr><td>🟠 泡沫区</td><td>3,800-4,200（减产兑现+天气极端）</td><td>多头分批止盈；激进者可布局空单</td></tr>
+<tr><td>🔴 极端泡沫</td><td>4,200+（情绪顶）</td><td>清仓多单，反向做空均值回归</td></tr>
+</table>
+
+<!-- ========== 8. 综合判断 ========== -->
+<h2>八、综合判断</h2>
+<table class="summary-table">
+<tr><td>价值锚清晰度</td><td>✅ 成本线可算（3,100-3,300），期货中少有的强锚品种</td></tr>
+<tr><td>当前估值</td><td>🟡 合理区中段（成本线+3~5%，320日分位75%）</td></tr>
+<tr><td>供需状态</td><td>预期牛（美豆天气）vs 现实熊（高库存高开机）拉锯</td></tr>
+<tr><td>二阶拐点</td><td>⚠️ 基差走弱+库存仍累积，基本面拐点未确认</td></tr>
+<tr><td>过热扫描</td><td>🟡 偏热（多头集中+分位75%），非反转级</td></tr>
+<tr><td>价值投资结论</td><td><b>当前3,241元无安全边际，不追多不做空；等两种机会</b>：①2,900下方做多（成本线下安全边际）②库存拐点+基差转强确认后右侧跟进</td></tr>
+<tr><td>风险提示</td><td>美豆天气市波动剧烈；国内抛储/政策进口的不确定性；杠杆使用必须匹配止损纪律（期货价值投资≠不止损）</td></tr>
+</table>
+
+<div class="ok">
+<b>方法论沉淀（期货价值投资五原则）</b>：①成本线是豆粕的"PB"——跌破成本=行业亏损=供给收缩=均值回归动力 ②库存周期是豆粕的"利润表"——去库拐点=收入拐点 ③基差是"市场先生情绪"——期现背离=预期透支预警 ④二阶拐点法直接复用（环比二阶差分判方向变化）⑤价格分区=买卖纪律（2,400-2,600重仓/3,800+止盈）--这套框架同样适用于玉米、棉花、铜等有清晰成本结构的品种。
+</div>
+
+<p class="subtitle" style="margin-top:25px;">数据源：大商所M2701行情(8.18收)、国家粮油信息中心/粮储局库存监测(8.14)、USDA 8月供需报告、Pro Farmer巡查(8.18)、机构日报（中泰/国泰君安/弘业等）· 320日分位用豆粕ETF(159985)代理 · 本报告为研究记录，期货杠杆交易风险极高，非投资建议</p>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="U+0022UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工业富联估值同业对比</title>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1a2330; --muted:#5b6b7d;
+    --line:#e3e8ef; --accent:#2563eb; --red:#d92020; --green:#10803d;
+    --amber:#b8860b; --teal:#0e7c86;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+    line-height:1.6;padding:28px;}
+  h1{font-size:24px;margin:0 0 4px;}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:20px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px;}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;}
+  th:first-child,td:first-child{text-align:left;}
+  thead th{background:#eef2f8;color:var(--muted);font-weight:600;}
+  tbody tr:hover{background:#f3f7ff;}
+  .hi{color:var(--red);font-weight:600;}
+  .lo{color:var(--green);font-weight:600;}
+  .mid{color:var(--amber);font-weight:600;}
+  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:6px;background:#eef2f8;color:var(--muted);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+  .kpi{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 4px;}
+  .kpi div{background:#eef2f8;border-radius:10px;padding:10px 16px;min-width:120px;}
+  .kpi b{display:block;font-size:22px;color:var(--accent);}
+  .kpi span{font-size:12px;color:var(--muted);}
+  .note{font-size:12.5px;color:var(--muted);margin-top:8px;}
+  .verdict{border-left:4px solid var(--accent);background:#f0f6ff;padding:12px 16px;border-radius:8px;margin:14px 0;}
+  .seg{font-size:13px;margin:6px 0 2px;color:var(--muted);}
+</style>
+</head>
+<body>
+<h1>工业富联（601138）同业估值对比</h1>
+<div class="sub">数据基准：2026-08-19 收盘（国内/港股/美股/中国台湾）· 腾讯行情 + 公开财报/行情源交叉验证 · 币种见各表标注</div>
+
+<div class="card">
+  <div class="kpi">
+    <div><b>26.2x</b><span>工业富联 PE(TTM)</span></div>
+    <div><b>6.98x</b><span>工业富联 PB</span></div>
+    <div><b>¥1.23万亿</b><span>总市值（A股）</span></div>
+    <div><b>3.82%</b><span>利润/市值比（A股同业最优）</span></div>
+  </div>
+  <div class="note">工业富联是 AI 服务器代工（EMS/ODM）龙头，最可比样本＝国内服务器品牌厂 + 国内电子制造 + 中国台湾 ODM 三群 + 国际品牌服务器厂。</div>
+</div>
+
+<div class="card">
+  <h3>① 国内 A 股同业（币种：¥ / 人民币亿元）</h3>
+  <table>
+    <thead><tr><th>公司</th><th>角色</th><th>PE(TTM)</th><th>PB</th><th>总市值</th><th>定位</th></tr></thead>
+    <tbody>
+      <tr><td><b>工业富联 601138</b></td><td>AI服务器代工</td><td class="mid">26.15</td><td class="hi">6.98</td><td>12270</td><td>样本基准</td></tr>
+      <tr><td>立讯精密 002475</td><td>电子制造</td><td class="lo">24.05</td><td>4.74</td><td>3919</td><td>PE相近</td></tr>
+      <tr><td>海康威视 002415</td><td>安防/视觉</td><td class="lo">18.90</td><td>3.92</td><td>3066</td><td>PE更低</td></tr>
+      <tr><td>歌尔股份 002241</td><td>声学/电子</td><td class="lo">19.65</td><td class="lo">2.13</td><td>691</td><td>估值更低</td></tr>
+      <tr><td>浪潮信息 000977</td><td>服务器品牌</td><td class="hi">41.88</td><td>4.81</td><td>1069</td><td>PE明显高</td></tr>
+      <tr><td>紫光股份 000938</td><td>服务器/网络</td><td class="hi">47.55</td><td>6.59</td><td>1010</td><td>PE明显高</td></tr>
+      <tr><td>中科曙光 603019</td><td>算力/服务器</td><td class="hi">51.28</td><td>5.39</td><td>1244</td><td>PE明显高</td></tr>
+    </tbody>
+  </table>
+  <div class="seg">结论：工业富联 PE 显著低于国内「服务器品牌厂」（折价 40–50%），与「电子制造」组接近；但 PB 远高于纯制造（歌尔2.13 / 立讯4.74），定位介于「制造」与「成长」之间。</div>
+</div>
+
+<div class="card">
+  <h3>② 中国台湾 ODM 直接竞争对手（币种：NT$ / 台币亿元或兆，市值约 0.22 折人民币）</h3>
+  <table>
+    <thead><tr><th>公司</th><th>角色</th><th>PE(TTM)</th><th>PB</th><th>市值</th><th>定位</th></tr></thead>
+    <tbody>
+      <tr><td>鸿海 2317.TW</td><td>代工龙头（母公司）</td><td class="lo">17.5–19.7</td><td>~1.5–2.0*</td><td>未在本次抓取</td><td>PB未直接获取</td></tr>
+      <tr><td>广达 2382.TW</td><td>AI服务器ODM</td><td class="lo">14.3</td><td class="mid">5.18</td><td>1.27–1.35兆</td><td>与富联PB接近</td></tr>
+      <tr><td>纬创 3231.TW</td><td>AI服务器ODM</td><td class="lo">14.4</td><td>2.97</td><td>5756亿</td><td>PE低、PB中</td></tr>
+      <tr><td>仁宝 2324.TW</td><td>PC/服务器ODM</td><td>20.4</td><td class="lo">1.25</td><td>1789亿</td><td>PB最低</td></tr>
+    </tbody>
+  </table>
+  <div class="note">* 鸿海2317 本次未直接抓到 PB，按 EMS 纯代工属性参考同业约 1.5–2.0x（毛利率仅 6.18%，重资产低溢价）。</div>
+  <div class="seg">结论：工业富联 PE 26x 明显高于中国台湾纯 ODM（广达14 / 纬创14 / 鸿海18 / 仁宝20），溢价约 30–80%；但 PB 6.98 与广达5.18最接近——因两者 AI 服务器占比均高，市场按「成长」而非「纯组装」定价。</div>
+</div>
+
+<div class="card">
+  <h3>③ 国际品牌 / 服务器厂（币种：US$ / 美元，市值约 7.2 折人民币）</h3>
+  <table>
+    <thead><tr><th>公司</th><th>角色</th><th>PE(TTM)</th><th>PB</th><th>市值</th><th>定位</th></tr></thead>
+    <tbody>
+      <tr><td>戴尔 DELL</td><td>品牌服务器</td><td class="mid">34.8–39.5</td><td>N/A(负)</td><td>~$300B</td><td>PB因回购为负</td></tr>
+      <tr><td>HPE</td><td>品牌服务器</td><td class="hi">49.5</td><td>2.77</td><td>~$72B</td><td>PE偏高</td></tr>
+      <tr><td>超微 SMCI</td><td>AI服务器</td><td class="lo">11.3</td><td>2.33</td><td>~$24–25B</td><td>PE低但波动</td></tr>
+    </tbody>
+  </table>
+  <div class="seg">结论：工业富联 PE 介于戴尔(~37)与 SMCI(11) 之间，低于 HPE(49)；戴尔 PB 因巨额回购净资产为负不可比，其余国际厂 PB 2–3x，低于富联 6.98。</div>
+</div>
+
+<div class="card">
+  <h3>④ 综合定位与判断</h3>
+  <div class="verdict">
+    工业富联的估值是「<b>PE 不贵、PB 偏贵</b>」的中间态：
+    <ul style="margin:8px 0 0;">
+      <li><b>PE 维度</b>：26x 远低于国内服务器品牌厂（42–51x），与电子制造龙头（20–24x）接近，明显高于中国台湾纯代工（14–20x）。在「AI 服务器」叙事下，比品牌厂便宜、比代工贵——合理。</li>
+      <li><b>PB 维度</b>：6.98x 远高于纯代工（仁宝1.25 / 纬创2.97 / 鸿海~1.5–2 / 歌尔2.13），接近广达(5.18)与联想(6.6)。代工低毛利（5–6%）本应压制 PB，但 AI 服务器占比提升使市场给予「成长溢价」。这是唯一需要警惕的偏高项。</li>
+      <li><b>利润/市值比 3.82%</b>：A 股同业最优，说明规模效应扎实、不是「空壳高估值」。</li>
+    </ul>
+  </div>
+  <div class="seg">关键矛盾：工业富联的 PB 溢价取决于「AI 服务器能否持续放量且毛利率不塌」。一旦 AI 资本开支周期放缓（第0层 FCF 转负已进入可观测区间），PB 高基数会成为回撤放大器——这正是此前回购池评估中把它列为「⚠️ PB偏高」而非「优先」的核心原因。</div>
+</div>
+
+<div class="card">
+  <h3>⑤ 风险提示</h3>
+  <ul style="margin:0;font-size:13.5px;">
+    <li><b>代工属性天花板</b>：组装环节毛利率 5–6%，PB 难达品牌厂水平，PB 6.98 已隐含较高成长预期。</li>
+    <li><b>宏观前置</b>：第0层信号显示云厂商 FCF 转负广谱确认，AI Capex 前置——若 OCF 同比连续 2 季转负，组合级需降杠杆。</li>
+    <li><b>汇率/口径</b>：港股、台股、美股市值按各自币种列示，跨币种比较以「定性」为主，未做汇率归一。</li>
+    <li><b>数据时效</b>：PE/PB 为 2026-08-19 静态值，PE(TTM) 受单季利润波动影响（如联想 8/13 异常）。</li>
+  </ul>
+</div>
+
+<div class="note">本报告基于公开行情与财报交叉验证，仅供研究参考，不构成投资建议。估值结论需结合六步工作流（PE+PB+利润市值比联判）与宏观层信号综合决策。</div>
+</body>
+</html>

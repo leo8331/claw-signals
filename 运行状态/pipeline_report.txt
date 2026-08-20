@@ -1,10 +1,10 @@
-run_id: 20260819_145546
+run_id: 20260819_150036
 预期交易日: 2026-08-19
 数据日期: None
 状态: blocked_published
 各步耗时:
-  p0_gate: 3.8s FAIL
-  publish_stale_status: 7.5s OK
+  p0_gate: 1.8s FAIL
+  publish_stale_status: 5.2s OK
 信号数: None  买入: None  卖出: None
 失败步骤: 无
 Git: OK
