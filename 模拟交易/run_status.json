@@ -1,14 +1,14 @@
 {
-  "run_id": "20260818_145700",
-  "started_at": "2026-08-18T14:57:00",
-  "ended_at": "2026-08-18T14:57:00",
-  "elapsed_seconds": 0.517,
+  "run_id": "20260821_150254",
+  "started_at": "2026-08-21T15:02:54",
+  "ended_at": "2026-08-21T15:02:54",
+  "elapsed_seconds": 0.63,
   "status": "success",
-  "data_date": "2026-08-18",
-  "expected_date": "2026-08-18",
+  "data_date": "2026-08-21",
+  "expected_date": "2026-08-21",
   "fresh": true,
-  "signal_count": 5,
-  "buy_count": 0,
-  "sell_count": 0,
+  "signal_count": 7,
+  "buy_count": 1,
+  "sell_count": 1,
   "error": ""
 }
