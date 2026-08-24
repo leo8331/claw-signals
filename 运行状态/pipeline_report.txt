@@ -1,11 +1,20 @@
-run_id: 20260820_174641
-预期交易日: 2026-08-20
-数据日期: None
-状态: blocked_published
+run_id: 20260821_150029
+预期交易日: 2026-08-21
+数据日期: 2026-08-21
+状态: success
 各步耗时:
-  p0_gate: 3.2s FAIL
-  publish_stale_status: 6.9s OK
-信号数: None  买入: None  卖出: None
+  p0_gate: 8.4s OK
+  score_position: 2.7s OK
+  score_sector: 16.2s OK
+  build_sector: 0.2s OK
+  build_home: 1.5s OK
+  score_h3: 71.3s OK
+  score_g: 6.7s OK
+  score_m5: 20.5s OK
+  score_industry_tag: 5.4s OK
+  build_site: 10.7s OK
+  sim_trade: 2.1s OK
+信号数: 7  买入: 1  卖出: 1
 失败步骤: 无
 Git: OK
 错误: 无

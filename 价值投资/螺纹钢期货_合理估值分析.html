@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>螺纹钢期货合理估值分析 · 2026-08</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#f6f8fb;color:#1f2a37;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;line-height:1.75;padding:28px;max-width:1080px;margin:0 auto;}
+  h1{font-size:1.7em;color:#111827;margin-bottom:4px;}
+  .sub{color:#6b7280;font-size:0.85em;margin-bottom:18px;}
+  h2{color:#1d4ed8;font-size:1.22em;margin:28px 0 10px;border-bottom:2px solid #e5e7eb;padding-bottom:6px;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.88em;}
+  th{background:#eef2f7;color:#374151;padding:8px 10px;text-align:left;font-weight:600;border:1px solid #e5e7eb;}
+  td{padding:7px 10px;border:1px solid #e5e7eb;}
+  tr:nth-child(even){background:#fafbfc;}
+  .tl{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+  .tl>div{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 18px;min-width:150px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .tl b{display:block;font-size:1.5em;color:#1d4ed8;}
+  .tl span{font-size:0.8em;color:#6b7280;}
+  .verdict{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #bfdbfe;border-radius:12px;padding:20px 22px;margin:18px 0;}
+  .verdict h3{color:#1e40af;margin-bottom:6px;}
+  .ok{background:#f0fdf4;border-left:4px solid #16a34a;padding:12px 16px;margin:12px 0;border-radius:6px;}
+  .warn{background:#fef2f2;border-left:4px solid #dc2626;padding:12px 16px;margin:12px 0;border-radius:6px;}
+  .hl{background:#eff6ff;border-left:4px solid #2563eb;padding:12px 16px;margin:12px 0;border-radius:6px;}
+  .note{color:#6b7280;font-size:0.78em;margin-top:6px;}
+  .src{color:#6b7280;font-size:0.75em;margin-top:4px;}
+  .zone{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+  .z{flex:1;min-width:140px;text-align:center;padding:12px 10px;border-radius:8px;font-size:0.85em;}
+  .zl{font-weight:700;font-size:0.95em;}
+  .zp{font-size:1.25em;font-weight:800;margin:4px 0;}
+  .chart{width:100%;height:340px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;margin:12px 0;padding:6px;}
+  ul{margin:6px 0 6px 22px;font-size:0.9em;}
+</style>
+</head>
+<body>
+
+<h1>螺纹钢期货（RB2610 主力）合理估值分析</h1>
+<div class="sub">分析日期：2026-08-21（最近交易日收盘）· 数据来源：上期所行情（NEODATA）+ 南华/瑞达/光大/东亚/信达期货周报 + Mysteel · 方法：成本锚估值（成本线=锚、库存=利润表、基差=市场先生）</div>
+
+<!-- TL;DR -->
+<div class="verdict">
+  <h3>📌 结论先行（TL;DR）</h3>
+  <p style="font-size:0.95em;">
+    螺纹钢主力 <b>3039 元/吨（2026-08-21 收盘）</b>，处于 <b>成本线下方 + 全行业亏损</b> 的低估区：
+    <b>长流程现金成本约 3142–3156 元/吨、电炉谷电成本约 3094–3104 元/吨</b>，现价已低于多数产线现金成本；
+    247 家钢厂盈利率仅 <b>33.8%</b>（超六成亏损），减产驱动供给收缩、库存转为去化。
+    <b>判断：绝对估值处于低位、向下有成本支撑，但需求（地产 -19.2%）拖累上方空间，3100/3200 为压力带。</b>
+    价值视角：现价属「成本线下方的左侧低估区」，宜分批布局、等需求确认；弹性有限，非趋势性机会。
+  </p>
+</div>
+
+<!-- 价格 -->
+<h2>一、当前价格与期现结构</h2>
+<div class="tl">
+  <div><b>3039</b><span>主力收盘价 元/吨（+0.46%）</span></div>
+  <div><b>2990–3070</b><span>上海现货 HRB400 元/吨</span></div>
+  <div><b>-26~-27</b><span>期货贴水（基差 元/吨）</span></div>
+  <div><b>174.9万手</b><span>主力持仓（-12.8万）</span></div>
+</div>
+<div id="chart1" class="chart"></div>
+<div class="src">图1 螺纹钢主力连续（RB0I00）近10个交易日收盘价 · 来源：上期所行情（NEODATA，2026-08-21 数据）</div>
+
+<table>
+<tr><th>指标</th><th>数值</th><th>说明</th></tr>
+<tr><td>主力合约（RB2610）</td><td>收盘 3039 / 结算 3038 元/吨</td><td>2026-08-21，+14 元（+0.46%）</td></tr>
+<tr><td>8 月以来低点</td><td>2988 元/吨（08-03）</td><td>近 9 个月新低，3000 整数关口心理支撑强</td></tr>
+<tr><td>上海现货（HRB400 20mm）</td><td>2990–3070 元/吨</td><td>中天 3040–3050（08-21）；期现贴合度高</td></tr>
+<tr><td>基差</td><td>-26 ~ -27 元/吨（期货贴水）</td><td>南华口径；不同现货口径差异大（全国均价口径 +220）</td></tr>
+<tr><td>卷螺差（10月）</td><td>~245 元/吨</td><td>偏高，板材强于建材</td></tr>
+</table>
+<div class="src">来源：NEODATA 期货历史行情（一手）；南华期货 2026-08-18、东亚期货 2026-08-14、光大期货 2026-08-21 日报（需核实原文）</div>
+
+<!-- 成本锚 -->
+<h2>二、估值锚：成本线分析（核心）</h2>
+<div id="chart2" class="chart"></div>
+<div class="src">图2 现价 vs 各工艺成本带 · 来源：南华期货/信达期货 2026-08 周报、Mysteel 高炉成本监测（需核实原文）</div>
+<table>
+<tr><th>成本/价格锚</th><th>数值（元/吨）</th><th>现价 3039 相对位置</th></tr>
+<tr><td>螺纹钢期货主力（现价）</td><td><b>3039</b></td><td>—</td></tr>
+<tr><td>上海现货 HRB400</td><td>2990–3070</td><td>期货贴水约 27</td></tr>
+<tr><td>高炉生产成本（Mysteel 91家）</td><td>~3089</td><td>低于成本约 50</td></tr>
+<tr><td>华东长流程现金含税成本</td><td>3142–3156</td><td class="warn">低于成本 100–120</td></tr>
+<tr><td>电炉谷电成本（华东）</td><td>3094–3104</td><td class="warn">低于谷电成本</td></tr>
+<tr><td>电炉平电成本（华东）</td><td>3209–3219</td><td class="warn">大幅低于平电成本</td></tr>
+</table>
+
+<div class="hl">
+  <b>估值核心信号：现价已跌破主流工艺现金成本。</b>
+  <ul>
+    <li><b>钢厂大面积亏损</b>：长流程螺纹利润 -129.5 ~ -150.5 元/吨（南华测算）；247 家钢厂盈利率仅 <b>33.77%</b>，超六成亏损，处于近年低位。</li>
+    <li><b>电炉被迫停产</b>：49 家独立电炉产能利用率仅 25.7%，仅谷电时段接近盈亏平衡。</li>
+    <li><b>成本支撑逻辑</b>：焦煤供给刚性（山西安监趋严、复产缓慢，8/21 焦煤单日 +5.85%）、焦炭三轮提降后存提涨预期；铁矿港口库存虽高但发运/到港下滑。</li>
+  </ul>
+</div>
+<div class="note">注：成本线随焦煤/铁矿动态变动，此处为 2026-08 中下旬机构测算口径；不同机构差异 ±50 元以内。</div>
+
+<!-- 供需 -->
+<h2>三、供需与库存（基本面）</h2>
+<table>
+<tr><th>指标</th><th>最新周度</th><th>环比</th><th>解读</th></tr>
+<tr><td>螺纹周产量</td><td>180–183 万吨</td><td>-7 万吨（近六周新低）</td><td>利润驱动减产，同比 -34 万吨</td></tr>
+<tr><td>表观需求</td><td>194–196 万吨</td><td>+15~16 万吨</td><td>淡季边际回升，仍偏弱</td></tr>
+<tr><td>总库存</td><td>698.6 万吨</td><td>-11.8 万吨（去库）</td><td>社库/厂库同步去化，供需缺口由过剩转短缺</td></tr>
+<tr><td>日均铁水</td><td>238.2 万吨</td><td>-0.17 万吨</td><td>高炉产能利用率 89.44%</td></tr>
+<tr><td>建材成交日均</td><td>8–9 万吨</td><td>—</td><td>终端淡季，需求弹性弱</td></tr>
+</table>
+<div class="ok"><b>边际积极信号：</b>7 月中旬以来供需缺口由过剩转短缺（减产至极致 + 表需回升 + 去库启动），为 8 月基本面最积极变化；但「需求回暖尚未真正兑现」，回升主要靠供给收缩，非需求拉动。</div>
+
+<!-- 宏观 -->
+<h2>四、宏观与需求端</h2>
+<table>
+<tr><th>指标</th><th>数据（2026 年 1-7 月）</th><th>解读</th></tr>
+<tr><td>粗钢产量</td><td>57704 万吨，同比 -3.1%</td><td>供给侧持续收缩</td></tr>
+<tr><td>固定资产投资</td><td>同比 -6.7%</td><td>偏弱</td></tr>
+<tr><td>房地产开发投资</td><td>同比 -19.2%</td><td class="warn">核心拖累，降幅扩大</td></tr>
+<tr><td>政策</td><td>政治局会议「稳定房地产市场」、京沪地产宽松、3000 亿保障房专项再贷款</td><td>政策托底，「金九银十」有旺季预期</td></tr>
+</table>
+<div class="warn"><b>最大风险：需求端地产 -19.2% 持续拖累。</b> 现价反弹主要靠「成本支撑 + 减产 + 政策预期」，一旦金九银十需求不及预期，成本支撑逻辑可能松动（尤其焦煤供给端限产放松时）。</div>
+
+<!-- 价格分区 -->
+<h2>五、合理估值区间判断（价格四色分区）</h2>
+<div class="zone">
+  <div class="z" style="background:#dcfce7;border:1px solid #16a34a;">
+    <div class="zl" style="color:#166534;">🟢 黄金坑</div>
+    <div class="zp" style="color:#166534;">&lt; 2950</div>
+    <div>深破现金成本，加速减产，极端悲观区</div>
+  </div>
+  <div class="z" style="background:#f0fdf4;border:1px solid #86efac;">
+    <div class="zl" style="color:#15803d;">🟢 低估区（现价）</div>
+    <div class="zp" style="color:#15803d;">2950–3100</div>
+    <div>低于长流程成本，价值左侧布局区</div>
+  </div>
+  <div class="z" style="background:#fefce8;border:1px solid #eab308;">
+    <div class="zl" style="color:#a16207;">🟡 合理-压力</div>
+    <div class="zp" style="color:#a16207;">3100–3200</div>
+    <div>长流程成本线 & 电炉平电成本区，供需再平衡</div>
+  </div>
+  <div class="z" style="background:#fee2e2;border:1px solid #dc2626;">
+    <div class="zl" style="color:#b91c1c;">🟠 偏贵</div>
+    <div class="zp" style="color:#b91c1c;">&gt; 3200</div>
+    <div>电炉平电成本上方，需需求实质回暖支撑</div>
+  </div>
+</div>
+<div class="hl">
+  <b>合理估值中枢判断：</b>以「长流程现金成本 3142–3156」与「电炉谷电成本 3094–3104」为锚，
+  螺纹钢中长期合理估值中枢约 <b>3100–3150 元/吨</b>；当前 3039 元处于中枢下方约 3%，属低估区，
+  向上修复目标位 3100（成本线）→ 3200（电炉平电成本），向下成本支撑 2950–3000 一线。
+</div>
+
+<!-- 多空 -->
+<h2>六、多空分析</h2>
+<table>
+<tr><th style="width:50%;background:#dcfce7;">✅ 看多（低估修复）</th><th style="background:#fee2e2;">❌ 看空（反弹夭折）</th></tr>
+<tr>
+<td>
+<ul>
+  <li>现价低于主流工艺现金成本，估值处于低位</li>
+  <li>钢厂盈利率 33.8% 历史低位，减产到极致、供给收缩</li>
+  <li>库存转去化、表需回升，供需缺口转短缺</li>
+  <li>焦煤供给刚性+焦炭提涨预期，成本支撑强</li>
+  <li>政策托底（稳地产、保障房再贷款），金九银十预期</li>
+  <li>基差贴水，期货定价已偏悲观</li>
+</ul>
+</td>
+<td>
+<ul>
+  <li>地产开发投资 -19.2%，需求端实质未见底</li>
+  <li>淡季建材成交仅 8-9 万吨/日，需求弹性弱</li>
+  <li>铁水回升+复产预期压制反弹高度</li>
+  <li>铁矿港口库存 1.74 亿吨高位，原料端拖累</li>
+  <li>焦煤强势靠供给限产而非真实需求，逻辑可逆</li>
+  <li>卷螺差 245 偏高，建材结构性最弱</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<!-- 综合 -->
+<h2>七、综合判断</h2>
+<div class="verdict">
+  <h3>结论</h3>
+  <p style="font-size:0.95em;">
+    <b>现价 3039 元/吨处于「成本线下方低估区」，具备价值型左侧布局条件，但属「震荡筑底」而非「趋势反转」。</b><br><br>
+    <b>操作框架（价值纪律）：</b>
+    ① <b>低估区（2950–3100）分批布局</b>，现价可小仓位试仓，2900–2950 黄金坑区加仓；
+    ② <b>目标位 3100 → 3200</b>（成本线修复 + 电炉成本带），到达后兑现部分；
+    ③ <b>风控线</b>：若跌破 2900（成本支撑失效信号）或需求数据（地产投资/表需）进一步恶化，止损离场；
+    ④ 右侧确认信号：表需连续 2 周回升 + 库存加速去化 + 盈利率回升至 50% 上方，再加仓至标准仓位。<br>
+    <b>定性：低估值 + 弱需求 = 左侧价值机会（赚成本修复的钱），不是趋势机会（需求未起）——仓位与预期收益都要相应打折。</b>
+  </p>
+</div>
+
+<div class="src" style="margin-top:14px;">
+  数据来源：<br>
+  ① 上期所螺纹钢主力连续行情（NEODATA 期货历史行情，2026-08-10~08-21，一手数据）<br>
+  ② 南华期货《黑色系日报》2026-08-18（期货盘面/基差/利润口径）<br>
+  ③ 瑞达期货《螺纹钢市场周报》2026-08-14（产量/表需/库存/盈利率）<br>
+  ④ 光大期货《8月21日矿钢煤焦日报》2026-08-21（螺纹/铁水/焦煤焦炭，新浪转载）<br>
+  ⑤ 东亚期货《钢材产业周报》2026-08-14、信达期货《钢材周报》2026-08-17（估值/成本分位）<br>
+  ⑥ 我的钢铁 Mysteel（高炉成本/盈利率/焦煤库存）<br>
+  ②-⑥ 为期货机构研报/媒体二次引用，需核实原文；口径差异（现货均价 vs 区域价）已在文中标注。
+</div>
+
+<p class="note" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:10px;">
+  <b>免责声明</b>：以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
+</p>
+
+<script>
+var dates = ['08-10','08-11','08-12','08-13','08-14','08-17','08-18','08-19','08-20','08-21'];
+var closes = [2997, 3016, 3010, 3002, 3015, 3016, 3023, 3017, 3032, 3039];
+echarts.init(document.getElementById('chart1')).setOption({
+  tooltip: { trigger: 'axis' },
+  grid: { left: 50, right: 20, top: 30, bottom: 30 },
+  xAxis: { type: 'category', data: dates, name: '日期' },
+  yAxis: { type: 'value', name: '元/吨', min: 2950, max: 3080, scale: true },
+  series: [{
+    name: '收盘价', type: 'line', data: closes, smooth: true,
+    lineStyle: { width: 3, color: '#1d4ed8' },
+    itemStyle: { color: '#1d4ed8' },
+    markLine: { data: [
+      { yAxis: 3000, name: '3000关口', lineStyle: { type: 'dashed', color: '#f59e0b' } },
+      { yAxis: 3100, name: '3100压力', lineStyle: { type: 'dashed', color: '#ef4444' } }
+    ] }
+  }]
+});
+echarts.init(document.getElementById('chart2')).setOption({
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['期货主力', '上海现货', '高炉成本', '电炉谷电', '长流程现金成本', '电炉平电'] },
+  grid: { left: 60, right: 20, top: 40, bottom: 30 },
+  xAxis: { type: 'category', data: ['期货主力', '上海现货', '高炉成本', '电炉谷电', '长流程现金成本', '电炉平电'], axisLabel: { interval: 0 } },
+  yAxis: { type: 'value', name: '元/吨', min: 2900, max: 3300 },
+  series: [{
+    name: '价格/成本', type: 'bar', barWidth: 46,
+    data: [
+      { value: 3039, itemStyle: { color: '#1d4ed8' } },
+      { value: 3030, itemStyle: { color: '#2563eb' } },
+      { value: 3089, itemStyle: { color: '#16a34a' } },
+      { value: 3099, itemStyle: { color: '#16a34a' } },
+      { value: 3149, itemStyle: { color: '#f59e0b' } },
+      { value: 3214, itemStyle: { color: '#ef4444' } }
+    ],
+    markLine: { data: [{ yAxis: 3039, name: '现价', lineStyle: { type: 'dashed', color: '#0f172a' } }] }
+  }]
+});
+</script>
+</body>
+</html>
