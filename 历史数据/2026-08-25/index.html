@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CLAW 2026-08-25</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+.page-header h1{font-size:24px;margin-bottom:4px}
+.page-header h1 .accent{color:var(--accent)}
+.page-header .subtitle{font-size:13px;color:var(--text-tertiary);margin-bottom:20px}
+.strat-card{background:linear-gradient(135deg,rgba(20,26,46,0.95) 0%,rgba(28,38,60,0.95) 100%);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+.strat-card h2{font-size:15px;margin-bottom:4px}
+.strat-card .desc{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;line-height:1.6}
+.stock-table{width:100%;border-collapse:collapse;font-size:13px}
+.stock-table th{text-align:left;padding:8px 10px;color:var(--text-tertiary);font-weight:600;font-size:12px;border-bottom:2px solid rgba(56,61,77,0.3);white-space:nowrap}
+.stock-table td{padding:9px 10px;border-bottom:1px solid rgba(56,61,77,0.12);font-size:13px;vertical-align:middle}
+.stock-table tr:hover td{background:rgba(102,153,224,0.05)}
+.tag-sm{font-size:10px;padding:1px 6px;border-radius:3px;color:#fff;display:inline-block}
+.tag-h3{background:#17bf63}.tag-g{background:#6699E0}.tag-v5{background:#e0245e}
+@media(max-width:768px){.stock-table{font-size:11px}.stock-table th,.stock-table td{padding:6px 4px}}
+</style>
+</head>
+<body class="entrance-ready">
+
+<div class="top-accent-strip"></div>
+<div class="deco-streak deco-streak-h"></div>
+<div class="deco-orb deco-orb-subtle"></div>
+
+<div class="content-panel">
+
+<nav class="sub-nav">
+  <span class="sub-nav-home" onclick="window.location.href='../../index.html'">HOME_</span>
+  <span class="sub-nav-modules" onclick="openModuleMenu()">MODULES ▾</span>
+  <span class="sub-nav-switch" onclick="window.location.href='../行业排行/index.html'">SWITCH_</span>
+</nav>
+
+<!-- MODULES Overlay -->
+<div class="sub-overlay-bg" id="overlayBg" onclick="closeModuleMenu()"></div>
+<div class="sub-overlay-menu" id="overlayMenu">
+  <div class="sub-menu-close" onclick="closeModuleMenu()"></div>
+  <div class="sub-menu-section">策略模块</div>
+  <a class="sub-menu-link" href="../../每日选股/index.html"><span class="sub-menu-dot" style="background:#6699E0"></span>每日选股策略</a>
+  <a class="sub-menu-link" href="../../行业排行/index.html"><span class="sub-menu-dot"></span>行业排行</a>
+  <a class="sub-menu-link" href="../../价值投资/index.html"><span class="sub-menu-dot"></span>价值投资</a>
+  <a class="sub-menu-link" href="../../回测报告/index.html"><span class="sub-menu-dot"></span>回测报告</a>
+  <div class="sub-menu-section">系统</div>
+  <a class="sub-menu-link" href="../../index.html"><span class="sub-menu-dot"></span>首页</a>
+  <a class="sub-menu-link" href="../../历史数据/index.html"><span class="sub-menu-dot"></span>历史数据</a>
+</div>
+
+<main>
+  <div class="page-header" style="text-align:center">
+    <a href="../../index.html" class="back-home" style="margin-bottom:8px;display:inline-flex;">← 返回首页</a>
+    <h1>每日选股信号 <span class="accent">2026-08-25</span></h1>
+    <div class="subtitle">全市场自动扫描 · H3 / G变体 / V5-ML 三策略信号</div>
+  </div>
+
+  
+  <div class="ops-row">
+  <div class="ops-card"><span class="dot" style="background:var(--green)"></span><div><div class="l">H3 信号</div><div class="n" style="color:var(--green)">40</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--accent)"></span><div><div class="l">G 信号</div><div class="n" style="color:var(--accent)">2</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--red)"></span><div><div class="l">V5 信号</div><div class="n" style="color:var(--red)">12</div></div></div>
+  <div class="ops-card"><span class="dot" style="background:var(--orange)"></span><div><div class="l">数据日期</div><div class="n" style="color:var(--orange);font-size:16px;padding-top:4px">08-25</div></div></div>
+</div>
+
+  <div class="strat-card strat-h3">
+    <h2><span class="tag-sm tag-h3">H3</span> 振幅加速</h2>
+    <div class="desc">ideal_amp>1.5 | L1板块 | MC>80亿 | ★★★牛市优先 ⚡过热谨慎</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>量能比</th><th>MA60%</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">603186</span></td><td>华正新材</td><td style="color:var(--text-tertiary)">元器件</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥174.65</td><td class="mono">1.27</td><td class="mono"><span style="color:var(--red)">+4.1%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sh">603391</span></td><td>力聚热能</td><td style="color:var(--text-tertiary)">专用设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥69.19</td><td class="mono">1.09</td><td class="mono"><span style="color:var(--red)">+21.1%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sh">603725</span></td><td>天安新材</td><td style="color:var(--text-tertiary)">塑料</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥12.54</td><td class="mono">0.99</td><td class="mono"><span style="color:var(--red)">+6.5%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sz">001378</span></td><td>德冠新材</td><td style="color:var(--text-tertiary)">塑料</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥20.92</td><td class="mono">0.83</td><td class="mono"><span style="color:var(--red)">+8.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">5</td><td><span class="code-sz">300909</span></td><td>汇创达</td><td style="color:var(--text-tertiary)">光学光电</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥54.90</td><td class="mono">1.31</td><td class="mono"><span style="color:var(--red)">+10.0%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">6</td><td><span class="code-sz">002329</span></td><td>皇氏集团</td><td style="color:var(--text-tertiary)">饮料乳品</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥3.91</td><td class="mono">0.93</td><td class="mono"><span style="color:var(--red)">+16.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">7</td><td><span class="code-sh">688238</span></td><td>和元生物</td><td style="color:var(--text-tertiary)">医疗服务</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥7.30</td><td class="mono">1.34</td><td class="mono"><span style="color:var(--red)">+20.5%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">8</td><td><span class="code-sz">000153</span></td><td>丰原药业</td><td style="color:var(--text-tertiary)">化学制药</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 7%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥6.19</td><td class="mono">1.42</td><td class="mono"><span style="color:var(--red)">+11.8%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">9</td><td><span class="code-sh">600359</span></td><td>新农开发</td><td style="color:var(--text-tertiary)">种植业</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥6.81</td><td class="mono">1.89</td><td class="mono"><span style="color:var(--red)">+13.2%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">10</td><td><span class="code-sh">600222</span></td><td>太龙药业</td><td style="color:var(--text-tertiary)">中药</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥7.98</td><td class="mono">1.21</td><td class="mono"><span style="color:var(--red)">+4.6%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">11</td><td><span class="code-sh">688026</span></td><td>洁特生物</td><td style="color:var(--text-tertiary)">医疗器械</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥16.02</td><td class="mono">0.81</td><td class="mono"><span style="color:var(--red)">+10.2%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">12</td><td><span class="code-sz">300787</span></td><td>海能实业</td><td style="color:var(--text-tertiary)">消费电子</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥10.42</td><td class="mono">1.10</td><td class="mono"><span style="color:var(--red)">+15.0%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">13</td><td><span class="code-sh">600833</span></td><td>第一医药</td><td style="color:var(--text-tertiary)">医药商业</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥10.90</td><td class="mono">0.69</td><td class="mono"><span style="color:var(--red)">+8.5%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">14</td><td><span class="code-sz">000790</span></td><td>华神科技</td><td style="color:var(--text-tertiary)">中药</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥4.18</td><td class="mono">1.04</td><td class="mono"><span style="color:var(--red)">+10.2%</span></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">15</td><td><span class="code-sz">001218</span></td><td>丽臣实业</td><td style="color:var(--text-tertiary)">化学制品</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥24.08</td><td class="mono">1.01</td><td class="mono"><span style="color:var(--red)">+2.2%</span></td></tr></table></div>
+  </div>
+
+  <div class="strat-card strat-g">
+    <h2><span class="tag-sm tag-g">G变体</span> 趋势质量</h2>
+    <div class="desc">VG+11因子 | 5天冷却 | L1板块 | MC&gt;80亿</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ADX</th><th>模块</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">601128</span></td><td>常熟银行</td><td style="color:var(--text-tertiary)">地方性银行</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥6.33</td><td class="mono">46.5</td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sz">000683</span></td><td>博源化工</td><td style="color:var(--text-tertiary)">化学原料</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥6.17</td><td class="mono">51.9</td><td class="mono"></td></tr></table></div>
+  </div>
+
+  <div class="strat-card strat-v5">
+    <h2><span class="tag-sm tag-v5">V5-ML</span> 量价突破</h2>
+    <div class="desc">ML proba排名 | ★★★优先 ✘回避 | ML>0.60加成</div>
+    <div class="table-wrap"><table class="stock-table"><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>行业·阶段</th><th>仓位·止损</th><th>幅度风险</th><th>收盘</th><th>ML</th><th>日收益</th><th>评级</th></tr><tr><td class="mono" style="color:var(--text-muted)">1</td><td><span class="code-sh">603380</span></td><td>易德龙</td><td style="color:var(--text-tertiary)">消费电子</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥33.93</td><td class="mono">0.526</td><td class="mono"><span style="color:var(--green)">-0.2%</span></td><td class="mono">★</td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">2</td><td><span class="code-sh">688329</span></td><td>艾隆科技</td><td style="color:var(--text-tertiary)">自动化设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥21.81</td><td class="mono">0.505</td><td class="mono"><span style="color:var(--red)">+7.9%</span></td><td class="mono">★</td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">3</td><td><span class="code-sz">002591</span></td><td>恒大高新</td><td style="color:var(--text-tertiary)">环保设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 7%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥6.39</td><td class="mono">0.486</td><td class="mono"><span style="color:var(--red)">+2.7%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">4</td><td><span class="code-sh">688021</span></td><td>奥福科技</td><td style="color:var(--text-tertiary)">汽车零部件</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥21.18</td><td class="mono">0.476</td><td class="mono"><span style="color:var(--red)">+3.8%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">5</td><td><span class="code-sz">300097</span></td><td>智云股份</td><td style="color:var(--text-tertiary)">专用设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥10.54</td><td class="mono">0.471</td><td class="mono"><span style="color:var(--red)">+20.0%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">6</td><td><span class="code-sh">688310</span></td><td>迈得医疗</td><td style="color:var(--text-tertiary)">医疗器械</td><td><span class="stage-pill st-strong">强势</span><span class="prio">P3</span></td><td class="mono"><span style="color:var(--green);font-weight:600">20%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥15.81</td><td class="mono">0.467</td><td class="mono"><span style="color:var(--red)">+5.0%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">7</td><td><span class="code-sz">300919</span></td><td>中伟新材</td><td style="color:var(--text-tertiary)">电池</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥40.13</td><td class="mono">0.465</td><td class="mono"><span style="color:var(--red)">+0.3%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">8</td><td><span class="code-sz">300006</span></td><td>莱美药业</td><td style="color:var(--text-tertiary)">化学制药</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 7%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥5.60</td><td class="mono">0.462</td><td class="mono"><span style="color:var(--red)">+10.0%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">9</td><td><span class="code-sh">688686</span></td><td>奥普特</td><td style="color:var(--text-tertiary)">自动化设备</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 9%</span></td><td><span class="stage-pill st-weak">⚠冰点</span></td><td class="mono">¥127.35</td><td class="mono">0.452</td><td class="mono"><span style="color:var(--red)">+6.8%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">10</td><td><span class="code-sh">603889</span></td><td>新澳股份</td><td style="color:var(--text-tertiary)">纺织制造</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥5.72</td><td class="mono">0.438</td><td class="mono"><span style="color:var(--red)">+2.0%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">11</td><td><span class="code-sh">603365</span></td><td>水星家纺</td><td style="color:var(--text-tertiary)">服装家纺</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P1</span></td><td class="mono"><span style="color:var(--text-tertiary);font-weight:600">10%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥18.00</td><td class="mono">0.416</td><td class="mono"><span style="color:var(--red)">+3.7%</span></td><td class="mono"></td></tr>
+<tr><td class="mono" style="color:var(--text-muted)">12</td><td><span class="code-sh">603967</span></td><td>中创物流</td><td style="color:var(--text-tertiary)">物流</td><td><span class="stage-pill st-weak">弱势</span><span class="prio">P0</span></td><td class="mono"><span style="color:var(--red);font-weight:600">0%</span> <span style="color:var(--text-muted)">· SL 6%</span></td><td><span style="color:var(--text-muted);font-size:10px">-</span></td><td class="mono">¥11.84</td><td class="mono">0.337</td><td class="mono"><span style="color:var(--red)">+4.9%</span></td><td class="mono"></td></tr></table></div>
+  </div>
+</main>
+</div>
+
+<div class="footer-bar">CLAW v2.0 | 2026-08-25 | ⚠ 信号仅供参考</div>
+
+<script>
+function openModuleMenu(){document.getElementById('overlayBg').classList.add('open');document.getElementById('overlayMenu').classList.add('open')}
+function closeModuleMenu(){document.getElementById('overlayBg').classList.remove('open');document.getElementById('overlayMenu').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModuleMenu()});
+var moduleUrls=['../../每日选股/index.html','../../行业排行/index.html','../../价值投资/index.html','../../回测报告/index.html','../../历史数据/index.html'];
+var currentModIdx=0;
+function cycleModule(){currentModIdx=(currentModIdx+1)%moduleUrls.length;window.location.href=moduleUrls[currentModIdx]}
+</script>
+</body></html>
