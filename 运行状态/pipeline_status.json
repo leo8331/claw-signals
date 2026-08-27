@@ -9,12 +9,13 @@
   "data_date": "2026-08-27",
   "fresh": true,
   "freshness_attempts": 1,
-  "h3_count": null,
-  "g_count": null,
-  "m5_count": null,
+  "h3_count": 13,
+  "g_count": 7,
+  "m5_count": 17,
   "buy_count": null,
   "sell_count": null,
-  "website_status": "pending",
-  "git_push_status": "pending",
-  "error": ""
+  "website_status": "success",
+  "git_push_status": "success",
+  "error": "",
+  "site_generated_at": "2026-08-27T15:01:36"
 }
