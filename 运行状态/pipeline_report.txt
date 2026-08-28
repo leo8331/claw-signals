@@ -1,20 +1,31 @@
-run_id: 20260826_150030
-预期交易日: 2026-08-26
-数据日期: 2026-08-26
-状态: success
+run_id: 20260827_150018
+预期交易日: 2026-08-27
+数据日期: 2026-08-27
+状态: partial
 各步耗时:
-  p0_gate: 11.0s OK
-  score_position: 1.4s OK
-  score_sector: 11.0s OK
+  p0_gate: 9.4s OK
+  score_position: 2.5s OK
+  score_sector: 9.5s OK
   build_sector: 0.2s OK
-  build_home: 1.3s OK
-  score_h3: 18.2s OK
-  score_g: 7.3s OK
-  score_m5: 12.9s OK
-  score_industry_tag: 4.6s OK
-  build_site: 8.9s OK
-  sim_trade: 1.9s OK
-信号数: 4  买入: 0  卖出: 0
-失败步骤: 无
+  build_home: 1.5s OK
+  score_h3: 19.1s OK
+  score_g: 7.5s OK
+  score_m5: 13.9s OK
+  score_industry_tag: 5.8s OK
+  build_site: 9.0s OK
+  sim_trade: 2.3s FAIL
+信号数: 0  买入: 0  卖出: 0
+失败步骤: ['sim_trade']
 Git: OK
-错误: 无
+错误: sim_trade:TQ数据接口初始化成功，使用路径: E:\new_tdx_mock\PYPlugins\user\sim_trade.py
+[2026-08-27] 现金¥13,587 持仓4笔 市场=基准 仓位=20%
+[2026-08-27] 现金¥13,587 持仓4笔
+① 卖出检查(移动止盈)...
+   从results_h3.json载入信号: 13只(排除持仓后13只)
+TQ数据连接已关闭
+
+Traceback (most recent call last):
+  File "E:\new_tdx_mock\PYPlugins\user\sim_trade.py", line 645, in <module>
+    score=round(s1+s2+s3+s4+s5,2)
+                ~~~~~~~~^~~
+TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'
