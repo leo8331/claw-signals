@@ -1,14 +1,14 @@
 {
-  "run_id": "20260827_150137",
-  "started_at": "2026-08-27T15:01:37",
-  "ended_at": "2026-08-27T15:01:38",
-  "elapsed_seconds": 0.921,
-  "status": "failed",
-  "data_date": "2026-08-27",
-  "expected_date": "2026-08-27",
+  "run_id": "20260828_150215",
+  "started_at": "2026-08-28T15:02:15",
+  "ended_at": "2026-08-28T15:02:16",
+  "elapsed_seconds": 0.367,
+  "status": "success",
+  "data_date": "2026-08-28",
+  "expected_date": "2026-08-28",
   "fresh": true,
-  "signal_count": 0,
+  "signal_count": 1,
   "buy_count": 0,
   "sell_count": 0,
-  "error": "TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'"
+  "error": ""
 }
